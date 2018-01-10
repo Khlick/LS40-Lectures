@@ -32,10 +32,10 @@
     <div style="height: 25px;"></div>
     <!-- these will be made useful in the script below -->
     <button class="data">Simulate 1</button>
-    <button class="data10">Simulate 10</button>
+    <button class="domore">Simulate 10</button>
     <button class="reset">Reset</button>
-    <p class="strong">Proportions of Heads: <span class="propH"></span></p>
-    <p class="strong">Proportions of Tails: <span class="propT"></span></p>
+    <p class="strong">Proportions of Heads: <span class="propH">None</span></p>
+    <p class="strong">Proportions of Tails: <span class="propT">None</span></p>
 
     <script>
         function coinFlip(nFlips) {
@@ -100,9 +100,7 @@
             val: []
         });
         
-        console.log(data.getAll())
-
-        //send to plotting function.
+        // construct plot
         var dot_plots = new Dot_Plots({
             data: data.getAll(),
             element: document.querySelector('.chart-container'),
@@ -113,16 +111,16 @@
         // change data on click to something randomly-generated
         d3.selectAll('button.data').on('click', function(){
             console.log(updateIndex)
-            data.generateData(1);
+            data.generateData(1)
             dot_plots.setData(data.getAll());
             d3.selectAll(".propH").text(data.getProportion('Heads').toFixed(3).toString())
             d3.selectAll(".propT").text(data.getProportion('Tails').toFixed(3).toString())
             updateIndex++
         });
         
-        d3.selectAll('button.data10').on('click', function(){
+        d3.selectAll('button.domore').on('click', function(){
             console.log(updateIndex)
-            data.generateData(10);
+            data.generateData(10)
             dot_plots.setData(data.getAll());
             d3.selectAll(".propH").text(data.getProportion('Heads').toFixed(3).toString())
             d3.selectAll(".propT").text(data.getProportion('Tails').toFixed(3).toString())
@@ -132,9 +130,9 @@
         d3.select('.reset').on('click', function(){
             updateIndex = 1;
             data.reset();
+            d3.selectAll(".propH").text('None')
+            d3.selectAll(".propT").text('None')
             d3.select(".chart-container").select("svg").remove();
-            d3.selectAll("propH").text("")
-            d3.selectAll("propT").text("")
             dot_plots.setData(data.getAll());
         });
 
