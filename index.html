@@ -30,31 +30,52 @@
 
 	<style type="text/css">
 		@import url("https://fonts.googleapis.com/css?family=Open+Sans:300|Oswald");
-		body {
-		  font-family: "Oswald", sans-serif;
-		  font-size: 1em;
-		  margin: 1em;
-		  text-align: center;
-		  background: #001523;
-		  color: white;
+		
+		.container {
+			display: flex;
+			flex-flow: row wrap;
+			text-align: center;
+			font-family: "Oswald", sans-serif;
+		  font-size: 24px;
 		}
 
-		h1 {
+		.container > * {
+			padding: 10px;
+			flex: 1 100%;
+		}
+
+		.header {
 			font-family: "Open Sans", sans-serif;
-			font-size: 3.2em;
+			font-size: 2.7em;
 			font-weight: 300;
 			color: #88C9C1; // blue
 		}
+		
 
-		h4 {
-			font-family: "Open Sans", sans-serif;
-			font-size: 0.9em;
-			font-weight: 300;
-			color: #FFF8D0; // offwhite
-			text-align: left;
+		.header h1 {
+			font-size: 1.01em;
 		}
 
-		a {
+		.header h4 {
+			font-size: 0.25em;
+			color: #FFF8D0; // offwhite
+		}
+
+		.footer {
+			font-family: "Open Sans", sans-serif;
+			font-size: 0.7em;
+			font-weight: 300;
+			color: #88C9C1; // blue
+			margin: 0 0 0 10px;
+			display: flex;
+			flex-flow: row;
+		}
+
+		.main {
+			text-align: center;
+		}
+
+		.main a {
 		  position: relative;
 		  display: inline-block;
 		  padding: .25em;
@@ -63,15 +84,34 @@
 		  mix-blend-mode: multiply;
 		}
 
-		a:hover {
+		.main a:hover {
 			color: white;
 		}
 
-		.half-center {
-			margin: 0 auto;
-			width: 50%;
+		.aside {
+			font-size: 20px;
 		}
 
+		.aside-Left {
+			
+		}
+
+		.aside-Right {
+			
+		}
+
+		@media all and (min-width: 600px) {
+			.aside {flex: 1 auto;}
+		}
+
+		@media all and (min-width: 800px) {
+			.main { flex: 3 0px; }
+			.aside-Left { order: 1; }
+			.main { order: 2; }
+			.aside-Right { order: 3; }
+			.footer { order: 4; }
+		}
+		/* Highlighting box */
 		.underline {
 		  position: absolute;
 		  top: 0;
@@ -81,20 +121,77 @@
 		  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.33, 1.61, 0, 0.83);
 		  transition: -webkit-transform 0.5s cubic-bezier(0.33, 1.61, 0, 0.83);
 		  transition: transform 0.5s cubic-bezier(0.33, 1.61, 0, 0.83);
-		  transition: transform 0.5s cubic-bezier(0.33, 1.61, 0, 0.83), -webkit-transform 0.5s cubic-bezier(0.33, 1.61, 0, 0.83);
+		  transition: transform 0.5s cubic-bezier(0.33, 1.61, 0, 0.83), -webkit-transform 0.5s cubic-bezier(0.33, 1.61, 0, 0.63);
 		}
 		.underline.background {
 		  background: #F79A5253; //orange
+		}
+
+		kbd {
+	    display: inline-block;
+	    padding: 3px 5px;
+	    line-height: 12px;
+	    color: #444d56;
+	    vertical-align: middle;
+	    background-color: #fafbfc;
+	    border: solid 1px #c6cbd1;
+	    border-bottom-color: #959da5;
+	    border-radius: 3px;
+	    box-shadow: inset 0 -1px 0 #959da5;
+	    font: 12px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+		}
+
+		body {
+		  background: #001523;
+		  color: #fff;
 		}
 	</style>
 </head>
 <body>
 	<div class="underline outline" style="transform: translate(-354.93px, -59.5px) scale(490.766, 55);"></div>
 	<div class="underline background" style="transform: translate(-354.93px, -59.5px) scale(490.766, 55);"></div>
-	<h1>Introductory Statistics for Life Sciences</h1>
-	<h4>Click below for lectures and check back weekly for updates.</h4>
-	<div class='half-center'><hr></div>
-	<p>Lecture 1: <a href="#" onclick='window.open("Lecture1.html");return false;'>An Introduction To Life Sciences 40</a></p>
+	<div class="container">
+		
+		<header class="header">
+			<h1>Introductory Statistics for Life Sciences</h1>
+			<h4>Click below for lectures and check back weekly for updates.</h4>
+		</header>
+		
+		<article class="main">
+			<hr>
+			
+			<p>Lecture 1: <a href="#" onclick='window.open("Lecture1.html");return false;'>An Introduction To Life Sciences 40</a></p>
+
+		</article>
+
+		<aside class="aside aside-Left">
+			<p>
+				During the presentation, <br>you can some keyboard shortcuts <br>to help navigate or control the slideshow.<br><br>
+				The basic controls are <Br>to use the <kbd>SPACE</kbd> to advance <br>each slide or animation and the <kbd>←</kbd> <br>key to go back a slide or animation.<br><br>
+				A full list of keyboard shortcuts in available on the right.
+			</p>
+		</aside>
+
+		<aside class="aside aside-Right">
+			<p>The default keyboard shortcuts are:</p>
+			<p><kbd>N</kbd>, <kbd>SPACE</kbd>:	Next slide</p>
+			<p><kbd>P</kbd>: Previous slide</p>
+			<p><kbd>←</kbd>, <kbd>H</kbd>: Navigate left</p>
+			<p><kbd>→</kbd>, <kbd>L</kbd>: Navigate right</p>
+			<p><kbd>↑</kbd>, <kbd>K</kbd>: Navigate up</p>
+			<p><kbd>↓</kbd>, <kbd>J</kbd>: Navigate down</p>
+			<p><kbd>Home</kbd>: First slide</p>
+			<p><kbd>End</kbd>: Last slide</p>
+			<p><kbd>F</kbd>: Fullscreen</p>
+			<p><kbd>ESC</kbd>, <kbd>O</kbd>: Slide overview / Escape from full-screen</p>
+		</aside>
+
+		<footer class="footer" style="text-align: right;">
+			<div class="footer-L" style="width: 25%;"></div>
+			<div class="footer-C" style="width: 50%;">Created by: Khris Griffis</div>
+			<div class="footer-R" style="width: 25%;"></div>
+		</footer>
+	</div>
 	<!-- End Content -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>	
 	<script>
