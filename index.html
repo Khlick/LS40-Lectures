@@ -1,0 +1,118 @@
+<html>
+<head>
+	<meta charset="utf-8">
+
+  <title>Lectures for LS40: UCLA</title>
+  <meta name="author" content="Khris Griffis" />
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, minimal-ui">
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="lib/img/fic/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="lib/img/fic/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="lib/img/fic/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="lib/img/fic/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="lib/img/fic/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="lib/img/fic/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="lib/img/fic/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="lib/img/fic/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="lib/img/fic/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="lib/img/fic/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="lib/img/fic/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="lib/img/fic/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="lib/img/fic/favicon-16x16.png">
+  <link rel="manifest" href="lib/img/fic/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="lib/img/fic/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+	<style type="text/css">
+		@import url("https://fonts.googleapis.com/css?family=Open+Sans:300|Oswald");
+		body {
+		  font-family: "Oswald", sans-serif;
+		  font-size: 1em;
+		  margin: 1em;
+		  text-align: center;
+		  background: #001523;
+		  color: white;
+		}
+
+		h1 {
+			font-family: "Open Sans", sans-serif;
+			font-size: 3.2em;
+			font-weight: 300;
+			color: #88C9C1; // blue
+		}
+
+		h4 {
+			font-family: "Open Sans", sans-serif;
+			font-size: 0.9em;
+			font-weight: 300;
+			color: #FFF8D0; // offwhite
+			text-align: left;
+		}
+
+		a {
+		  position: relative;
+		  display: inline-block;
+		  padding: .25em;
+		  text-decoration: none;
+		  color: #FFF8D0;
+		  mix-blend-mode: multiply;
+		}
+
+		a:hover {
+			color: white;
+		}
+
+		.half-center {
+			margin: 0 auto;
+			width: 50%;
+		}
+
+		.underline {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 1px;
+		  height: 1px;
+		  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.33, 1.61, 0, 0.83);
+		  transition: -webkit-transform 0.5s cubic-bezier(0.33, 1.61, 0, 0.83);
+		  transition: transform 0.5s cubic-bezier(0.33, 1.61, 0, 0.83);
+		  transition: transform 0.5s cubic-bezier(0.33, 1.61, 0, 0.83), -webkit-transform 0.5s cubic-bezier(0.33, 1.61, 0, 0.83);
+		}
+		.underline.background {
+		  background: #F79A5277; //orange
+		}
+	</style>
+</head>
+<body>
+	<div class="underline outline" style="transform: translate(-354.93px, -59.5px) scale(490.766, 55);"></div>
+	<div class="underline background" style="transform: translate(-354.93px, -59.5px) scale(490.766, 55);"></div>
+	<h1>Introductory Statistics for Life Sciences</h1>
+	<h4>Click below for lectures and check back weekly for updates.</h4>
+	<div class='half-center'><hr></div>
+	<p>Lecture 1: <a href="Lecture1.html">An Introduction To Life Sciences 40</a></p>
+	<!-- End Content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>	
+	<script>
+		$('a').hover(function(){
+			var link = $(this)[0].getBoundingClientRect();
+
+			var x_pos = link.width/2 + link.left;
+			var y_pos = link.top + link.height/2;
+			
+			var translate = 'translate(' + x_pos + 'px,' + y_pos + 'px)';
+			var scale = 'scale(' + link.width + ', ' + link.height + ')';
+			
+			//console.log(translate + ' ' + scale);
+
+			$('.underline').css({
+				'transform' : translate + ' ' + scale
+			});	
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Introduction To Statistics</title>
+  <meta name="author" content="Khris Griffis" />
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, minimal-ui">
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="lib/img/fic/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="lib/img/fic/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="lib/img/fic/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="lib/img/fic/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="lib/img/fic/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="lib/img/fic/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="lib/img/fic/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="lib/img/fic/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="lib/img/fic/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="lib/img/fic/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="lib/img/fic/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="lib/img/fic/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="lib/img/fic/favicon-16x16.png">
+  <link rel="manifest" href="lib/img/fic/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="lib/img/fic/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="lib/js/reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="lib/css/flatlandDk.css" id="theme">
+  <link rel="stylesheet" type="text/css" href="lib/css/jsStyle.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/js/reveal.js/lib/css/zenburn.css">
+  
+
+  <!-- Color Overrides -->
+  <style type="text/css">
+    .reveal section img {
+      background: rgba(255, 255, 255, 0.85);
+    }
+  </style>
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'lib/js/reveal.js/css/print/pdf.css' : 'lib/js/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!-- END PRINT EXPORT -->
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+  <link href="https://use.fontawesome.com/releases/v5.0.3/css/all.css" rel="stylesheet">
+</head>
+<body>
+  
+  <div class="reveal">
+
+    <div class="slides">
+      <!-- #########################    CONTENT START    #########################-->
+      <!-- 1 -->
+      <section data-background=url("lib/img/persi_conference.jpg") data-state="alpha-04" data-background-color="#FFF">
+    			<div class="row">
+    				<div class="col-60"></div>
+    				<div class="col-40">
+    					<h1>Life Sciences 40</h1>
+		        	<h2 class="push-75 lift-15">Introduction to Statistics</h2>
+		          <h5 class="push-75 lift-15">for the life sciences</h5>
+		          <h3 class="fragment">Khris Griffis</h3>
+    				</div>
+    			</div>
+          <aside class="notes">
+            This week will be all about introducing all the basic notions and terminology we will use during the full quarter.<br>
+            (unfortunately we have to do this so everyone is on the same page and you'll be able to talk with statisticians)<br>
+            Don't worry if you find the first 2 lectures boring
+          </aside>
+      </section>
+
+      <!-- 2 -->
+      <section>
+      	<div class="row">
+      			<h2 class='u'>Schedule</h2>
+      	</div>
+      	<div class="row">
+      			<div class="col-30">
+      					<p class="l-sided border-info calm">
+      						<span class="u info">Lectures:</span><br>
+      						Tue & Thurs: 12:30p - 1:45p
+      					</p>
+      					<p class="r-sided border-warning center"><span class="calm-underline">KNOW YOUR LAB SECTION</span><br>
+      						<span class="calm right smaller">It's on the syllabus, too.</span>
+      					</p>
+      					<p style="height:20px;"></p>
+      					<p> <span class="u calm">Grading:</span><br>
+					        Homeworks (20%)<br>
+					        Midterm (30%)<br>
+					        Final (40%)<br>
+					        Participation (10%)
+				        </p>
+      			</div>
+      			<div class="col-20"></div>
+      			<div class="col-50">
+				      <p class="big info center">No official textbook</p>
+				      <p style="height:10px;"></p>
+				      <p class="framed">
+				        <span class="u calm">Homeworks:</span><br> Assigned on Friday (4:00p)<br>
+				        due before the next Friday (2:00p)<br>
+				        <span class="smaller">*Though this is subject to change.</span></p>
+				      <p style="height:20px;"></p>
+				      <p>
+				      	<span class="u">Office hours:</span><br>
+				        F: 9:30-11:30a (TBD)<br>
+				        email: <span class="info">khrisgriffis@ucla.edu</span>
+				      </p>
+				    </div>
+      	</div>
+      	
+      	<aside class="notes">Welcome!</aside>
+      
+      </section>
+      
+      <!-- 3 -->
+      <section>
+        
+        <h4>Understanding $\neq$ Knowing</h4>
+        <div class="row" style="height: 20px">
+        
+        </div>
+        <div class="row">
+          <div class="col-50">
+            <div class="row" style="height: 20%">
+            Getting an answer is very different from knowing <span class="warning">WHY</span> we get this answer.
+            </div>
+            <div class="row" style="height: 20%">
+            Understanding statistics implies understanding the <span class="warning">underlying process</span> leading to the answer we get.
+            </div>
+            <div class="row drop-10">
+              <img src="lib/img/push-button.svg" class= "plain fragment" width= "65%" style= "margin-top:0;" />
+            </div>
+          </div>
+          <div class="col-50">
+          <img src="lib/img/answer.png" width= "70%" class= "plain" />
+          </div>
+        </div>
+        <aside class="notes">
+        <p>This lecture is a bit different =&gt; RESAMPLING &amp; SIMULATIONS.</p>
+        <p>We believe understanding how things work is far more interesting and useful, because it can be applied and tweaked to very specific situations.</p>
+        <p>Douglas Adams, the answer is 42.. how did you get there? addition? subtraction? multiplication? a mixture of the lot?</p>
+        <p>You might ask, “Formulas have been developed for that”, and youre right, some dead white guys needed to “prove” their equations did something if you have a very specific type of data.</p>
+        <p>The problem is that we are living in a rapidly evolving world, with new kind of data being generated every day. We need to be able to analyze this new kind of data. Formula applies to a very narrow range of data. We are not living in a fantasy world.</p>
+        <p>I am not here to train you to be a bunch of robots who know how to apply some recipe by heart and just press a button and just read the results.</p>
+        I am here is to train the next generation of scientists, the next generation of entrepreneurs, the next generation of leader, who will be able to understand to analyze any kind of new data they encounter.
+        </aside>
+        
+        
+      
+      </section>
+      
+
+      <!-- 4 -->
+      <section>
+        
+        <div class="row">
+          <h1>Statistics Is <i class="fas fa-question-circle fa-spin info"></i></h1>
+        </div>
+        <div class="row">
+          <div class="col-50">
+            <span class="left fragment">The science of (the methods of)</span><br>
+            <span class="bigger fragment info">Collecting</span><br>
+            <span class="bigger fragment info">Organizing</span><br>
+            <span class="bigger fragment info">Summarizing</span><br>
+            <span class="bigger fragment info">Communicating</span><br>
+            <span class="bigger fragment info">Dealing with Uncertainty</span><br>
+          </div>      
+          <div class="col-50">
+            <div class="row", style="height:20px;">
+                
+            </div>
+            <h2 class="fragment">OF DATA</h2>
+            <p class="fragment warning bigger r-sided border-info">So that we can make better, more informed and critical decisions about the world around us.<br>
+            <span class="fragment halt">Probably.</span></p>
+          </div>
+        </div>
+        
+        <aside class="notes">
+          <p>Pause to ask the group, let a few answers.</p>
+          <p>Stats are: Hard, about knowing all the formulas… Boring, has too many sqaures, somebody elses problem.</p>
+          <p>ADVANCE. science of data. But its more than that. ADVANCE. All of these things lead us to make more informed, more effective decisions.</p>
+          <p>Really though, It is the dealing with uncertainty that we will focus on. </p>
+        </aside>
+      
+      </section>
+      
+      <!-- 5 -->
+      <section>
+        
+        <div class="row">
+          <h1>Uncertainty</h1>
+        </div>
+        <div class="row">
+          <div class="col-30">
+            <h3>What the heck is uncertainty?</h3>
+            <ul class="icon">
+              <li class="question-circle fragment halt">Fear and trepidation</li>
+              <li class="question-circle fragment halt">Confusion</li>
+              <li class="question-circle fragment halt">Error</li>
+              <li class="question-circle fragment warning">A single value</li>
+              <li class="question-circle fragment warning">A measurable value</li>
+              <li class="question-circle fragment warning">A range of values</li>
+              <li class="question-circle fragment success">A range of <span class="info bigger">Possible</span> outcomes.</li>
+            </ul>
+          </div>      
+          <div class="col-70">
+            <img src="lib/img/uncertainty.jpg" width= "70%" class= "plain" />
+          </div>
+        </div>
+        
+        <aside class="notes">
+          What is Uncertainty?<br>
+          LET CLASS GUESS.<br>
+          To illustrate uncertainty we have to talk about PROBABILITY.<br>
+          LETS DEMONSTRATE WITH A COIN FLIP need 2 volunteers. <br>
+          after demonstration, simulate a coin flip with the next slide.
+        </aside>
+      
+      </section>
+      
+
+      <!-- 6 -->
+      <section data-background-color="#FFF">
+        
+        <div class="row">
+          <h1>Simulating Coin Flips</h1>
+        </div>
+        <div class="row">
+          <div class="col-30">
+            <h3>Is my coin fair?</h3>
+            <ul class="icon">
+              <li class="gear fragment">Flip the coin</li>
+              <li class="gear fragment">Count if we see Heads</li>
+              <li class="gear fragment">Repeat<span class="fragment warning"> and repeat..</span></li>
+            </ul>
+          </div>      
+          <div class="col-70">
+            <div class="fig-container" data-file="lib/interactive/dots/dots.html"></div>
+            
+          </div>
+        </div>
+        
+        <aside class="notes">
+          Simulate uncertainty and explain proportion.<br>
+          Uncertainty after 1 experiment. Uncertainty after 2.
+
+        </aside>
+      
+      </section>
+      
+      <!-- 7 -->
+      <section>
+        
+        <h2>Statistical Hypothesis</h2>
+        <div class="row narrower">
+        <div class="row bigger">
+        <p class="quoted fragment">
+        Generally, a <span class="info">scientific hypothesis</span> is a specific statement proposed as an <span class="warning">explanation</span> for a phenomenon, regardless of <span class="halt">truth</span>.</p>
+        <p class="quoted fragment">
+        A <span class="info">statistical hypothesis</span> is a specific statement about a <span class="warning">characteristic or parameter</span> of the data.
+        </p>
+        </div>
+        <div class="row">
+        <div class="col-60 push-5">
+        <ul>
+        <li class="fragment">Does the association exist?<br />
+        </li>
+        <li class="fragment">Could it be by chance?<br />
+        </li>
+        <li class="fragment">Is there bias?</li>
+        </ul>
+        </div>
+        </div>
+        </div>
+        
+        <aside class="notes">
+          To illustrate this, I'm going to tell you a quick story.
+        </aside>
+      
+      </section>
+      
+      <!-- 8 -->
+      <section>
+        <h2>Solving World Health Problems</h2>
+        <h3>Cholera in the early 19th century:</h3>
+        <img src="lib/img/cholera-disposal-bodies.jpg" width= "60%" class= "plain" />
+        <aside class="notes">
+        <p>Cholera has been one of most virulent killers in history.</p>
+        <p>Millions succumbed to the 7 cholera pandemics since the first in 1817.</p>
+        <p>It became the first truly global disease and also the most feared.</p>
+        Symptoms of this disease include nausea, vomiting, abdominal pain and a horribly violent case of diarrhea that can cause one to lose as much as 20 liters of fluid and electrolytes per day, leading to extremely severe dehydration.
+        <p>The first outbreak began in India early in the 19th century and spread to England in 1831 in the first of four 19th century epidemics occurring in 18311833, 18481850, 18531854, and 1866.</p>
+        <br>In part as a result of choleras mortality rate of between 20 and 25 percent, the nature of cholerawas it air or waterborneand the means of its diffusion were subjects of intense professional debate.
+        </aside>
+      </section>
+
+
+      <!-- 9 -->
+      <section>
+        <h2>Cholera Pandemic: It’s In The Air?</h2>
+        <div class="row">
+        <img src="lib/img/cholera-miasma.png" height= "411px" />
+        </div>
+        <div class="row">
+        <h3>Miasma</h3>
+        <ul>
+        <li>The prevailing dogma of the 19<sup>th</sup> century was that all disease and epidemics stemmed from “Bad Air”.</li>
+        <li>“Bad Air”, called miasmata, is a poisonous vapor with suspended particles of decaying matter and a foul smell.</li>
+        <li>Likely the cause of Cholera as poor, filthy and foul-smelling areas had miasmata AND they had Cholera.
+        <p class="fragment">
+        It’s as simple as that…
+        </p></li>
+        </ul>
+        </div>
+        <aside class="notes">
+        <p>Miasma theory</p>
+        <p>The theory of indirect and <em>airborne</em> transmission, which stated, cholera was caused by the smell of the bad air (miasmata), a poisonous vapor with suspended particles of decaying matter and a foul smell… i.e. caused by pollution!</p>
+        This was the prevailing dogma of the 19th century and was reasoned as most disease and epidemics centered on poor, filthy and foul-smelling city neighborhoods.
+        </aside>
+      </section>
+        
+      <!-- 10 -->
+      <section>
+        <h2>John Snow</h2>
+        <div class="row narrow">
+        <span class='col-60 bigger'>
+        <p>
+        A British physician, considered one of the fathers of modern epidemiology.
+        </p>
+        <p>
+        He was <span class="warning">skeptical</span> of the Miasma theory and proposed a different hypothesis: <span class="info fragment">that cholera was attributable to a self-replicating agent, probably ingested through contaminated <span class="warning">water</span>.</span>
+        </p>
+        </span> <span class='col-5'>
+        <p>
+        </p>
+        </span><span class="col-30"><img src="lib/img/john-snow.jpg" style= "margin-bottom: 0;" /><br><span style="font-size: 0.4em;">(15 March 1813 - 16 June 1858)</span></span>
+        </div>
+        <aside class="notes">
+        <p>Being skeptic, curious, not taking anything for granted is a good quality to have.</p>
+        <p>The first cases of cholera in England were reported in 1831, about the time Dr. Snow as finishing up his medical studies at the age of eighteen. Between 1831 and 1854, tens of thousands of people in England died of cholera. Although Dr. Snow was deeply involved in experiments using a new technique, known as anesthesia, to deliver babies, he was also fascinated with researching his theory on how cholera spread.</p>
+        <p>In the middle 1800s, people didnt have running water or modern toilets in their homes. They used town wells and communal pumps to get the water they used for drinking, cooking and washing. Septic systems were primitive and most homes and businesses dumped untreated sewage and animal waste directly into the Thames River or into open pits called “cesspools”. Water companies often bottled water from the Thames and delivered it to pubs, breweries and other businesses.</p>
+        <p>Dr. Snow believed sewage dumped into the river or into cesspools near town wells could contaminate the water supply, leading to a rapid spread of disease.</p>
+        In August of 1854 Soho, a suburb of London, was hit hard by a terrible outbreak of cholera. Dr. Snows himself lived near Soho, and immediately went to work to prove his theory that contaminated water was the cause of the outbreak.
+        </aside>
+      </section>
+          
+
+      <!-- 11 -->
+      <section>
+        <h2>The River Thames</h2>
+        <div class="row drop-10" style="display: block !important; position: relative !important;  margin: 5% auto !important;">
+        <span class="col-100"><img src="lib/img/london.jpg" class= "unbordered" /></span>
+        </div>
+        <div class="row narrower" style="margin: 2% auto !important;">
+        <p>
+        A source of <span class="strike halt" data-fragment-index="1">fresh</span> water, a means of free enterprise and a severely lacking government overreach.
+        </p>
+        </div>
+        <aside class="notes">
+        <p>Thames was very polluted</p>
+        <p>By the arrival of the 19th century, the River Thames had become the most contaminated river in the world.</p>
+        <p>Toilets were widely introduced in London between 1830 and 1850: main sewers were introduced in the 1840s.</p>
+        <p>The sewers, elongated cesspools with overflows at the end emptied into the River Thames, which was also a dumping ground for animal and industrial wastes.</p>
+        When ships were coming to harbor, crew started to develop cholera symptom only when they were going in contact with people of the city.
+        </aside>
+      </section>
+        
+
+      <!-- 12 -->
+      <section>
+        <h2>Soho and Snows’s Statistics</h2>
+        <p>Snow tracked the numbers of cholera fatalities in his neighborhood of Soho.</p>
+        <div class = 'row'>
+        <!-- main -->
+        <div class="col-35">
+        <!-- left -->
+        <div class="row">
+        <img src="lib/img/Court_for_king_Cholera.jpg" class= "unbordered" />
+        </div>
+        <br /> <span class='big' style="margin: 0.75% auto !important;">
+        <p class="quoted">
+        The most terrible outbreak of cholera which ever occurred in this kingdom.
+        </p>
+        <p class="small push-right">
+        -John Snow
+        </p>
+        </span>
+        </div>
+        <div class="col-60 push-5">
+        <!-- table main -->
+        <div class="col-30">
+        <p>
+        </p>
+        </div>
+        <!-- spacer -->
+        <div class="col-65">
+        <!-- data column -->
+        <div class="em warning fragment" style="padding-bottom: 0px !important;" data-fragment-index="1">
+        Variables
+        </div>
+        <hr align="left" width=97% color="#f0ad4e" size=3px class="fragment" data-fragment-index=1>
+        </div>
+        <div class="row">
+        <div class="col-10">
+        
+        </div>
+        <div class="col-10" style="position: relative; margin-top: 20% !important;">
+        <div class="em warning fragment rotation-270" data-fragment-index="1">
+        Observations
+        </div>
+        </div>
+        <div class="col-80">
+        <table class="small">
+        <thead>
+        <tr style="background: #636c72;">
+        <th>
+        House
+        </th>
+        <th>
+        Address
+        </th>
+        <th>
+        Population
+        </th>
+        <th>
+        Fatalities
+        </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>
+        House #1
+        </td>
+        <td>
+        45 Lexington St
+        </td>
+        <td>
+        8
+        </td>
+        <td>
+        5
+        </td>
+        </tr>
+        <tr>
+        <td>
+        House #2
+        </td>
+        <td>
+        15 Broadwick St
+        </td>
+        <td>
+        21
+        </td>
+        <td>
+        7
+        </td>
+        </tr>
+        <tr>
+        <td>
+        House #3
+        </td>
+        <td>
+        61 Poland St
+        </td>
+        <td>
+        4
+        </td>
+        <td>
+        1
+        </td>
+        </tr>
+        <tr>
+        <td>
+        House #4
+        </td>
+        <td>
+        37 Broad St
+        </td>
+        <td>
+        27
+        </td>
+        <td>
+        16
+        </td>
+        </tr>
+        <tr>
+        <td>
+        House #5
+        </td>
+        <td>
+        48 Carnaby St
+        </td>
+        <td>
+        11
+        </td>
+        <td>
+        3
+        </td>
+        </tr>
+        <tr>
+        <td>
+        House #6
+        </td>
+        <td>
+        46 Beak St
+        </td>
+        <td>
+        8
+        </td>
+        <td>
+        0
+        </td>
+        </tr>
+        <tr>
+        <td>
+        House #7
+        </td>
+        <td>
+        43 Broad St
+        </td>
+        <td>
+        44
+        </td>
+        <td>
+        9
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        </div>
+        </div>
+        </div>
+        </div>
+        <aside class="notes">
+        <p>By the middle of the 19th century, Soho had become an insanitary place of cow-sheds, animal droppings, slaughterhouses, grease-boiling dens and primitive, decaying sewers. And underneath the floorboards of the overcrowded cellars lurked something even worse – a fetid sea of cesspits as old as the houses, and many of which had never been drained. It was only a matter of time before this hidden festering time-bomb exploded.</p>
+        <p>Soho was the neighborhood of John Snow.</p>
+        <p>First hand case study for him.</p>
+        <p>In Snows days, the science of public health and statistics, epidemiology, was not established.</p>
+        <p>He collected epidemiological evidence in a bid to convince other practitioners of his theory of cholera.</p>
+        <p>When you want to study something, you need data.</p>
+        <p>Kind of data Snow was collecting going door to door.</p>
+        <p>Usually data is stored and presented in a dataset, comprised of variables measured on observational units (or cases).</p>
+        <p>In any dataset, it is important to understand exactly what each variable is measuring and how the values are coded. First column is usually used to provide an identier for each of the individuals in the study (House number).</p>
+        We see that there are different types of variables. Categories and numbers.
+        </aside>
+      </section>
+      
+
+      <!-- 13 -->
+      <section>
+        <h2>Outliers in Soho</h2>
+        The information given by the outliers was important: it helped Snow rule out other possible sources of the epidemic besides pump water.
+        <div class="row narrower">
+        <p class="fragment sided border-warning">
+        A workhouse had 535 inmates but almost no cases of cholera.<br> <span class="math inline">→</span> Snow discovered the workhouse had its own well
+        </p>
+        <p class="fragment sided border-warning">
+        The 70 workers of the brewery on Broad Street also escaped cholera.<br> <span class="math inline">→</span> Mr. Huggins (owner) told Snow that the men drank the liquor they made or water from the brewery’s own well.
+        </p>
+        <p class="fragment sided border-info">
+        An elderly widow in West Hampstead (an area some distance away, which was free of cholera) and her niece died from cholera. <br> <span class="math inline">→</span> She liked the taste of Broad Street water, and she had a bottle brought to them every day from the pump
+        </p>
+        </div>
+      </section>
+        
+      <!-- 14 -->
+      <section>
+        <h2>The Broad Street pump area</h2>
+        <div class="row narrow">
+        <div class="col-20">
+        <p class="fragment success" data-fragment-index="1" style="font-size: 0.6em;">
+        Area for which the Broad Street pump is the fastest trip to water <br>(on foot).
+        </p>
+        </div>
+        <div class="col-10">
+        
+        </div>
+        <div class="col-70">
+        <svg width=100% viewbox="550 300 1500 1100" style="background:none !important;"> <use xlink:href="lib/img/london_soho-slide.svg#Layer1"></use> <use class="fragment plain" style="background: none !important;" data-fragment-index=1 xlink:href="lib/img/london_soho-slide.svg#nearest"></use> </svg>f
+        </div>
+        </div>
+        <aside class="notes">
+        <p>Snow employed network analysis to calculate which water pump was closest to each house.</p>
+        <p>The stroke of genius: he based it on walking distance, not as-the-crow-flies distance.</p>
+        <p>He then used polygons to demarcate areas based on those findings. Because he added foot traffic to the equation, the output yielded a shape that clearly illustrated the relationship between human movement and disease.</p>
+        It was impossible to deny the high concentration of fatalities in the population that was drinking Broad Street water. This map helped convince the local authorities that cholera was waterborne.
+        </aside>
+      </section>
+
+
+      <!-- 14 -->
+      <section>
+        <h2>From Data to Administratice Action</h2>
+        <p class="l-sided border-warning" style="margin-bottom: 0.8em !important;">
+        On Sep 7, 1854, Snow took his research to the town officials and convinced them to take the handle off the pump.
+        </p>
+        <div class="row narrow">
+        <div class="col-70">
+        <p><img class="plain" width=100% src="lib/img/cholera-deathdays.svg"></p>
+        </div>
+        <div class="col-20 bigger" style="position: relative; margin-top: 3% !important;">
+        <p class="framed border-halt fragment" data-fragment-index="1">
+        Still, the scientific community was reluctant to believe his theory
+        </p>
+        <p class="fragment info" data-fragment-index="1" style="font-size: 0.6em;">
+        What would be alternative explanations for the decrease in cholera fatal attacks?
+        </p>
+        </div>
+        </div>
+        <aside class="notes">
+        <p>Despite the success of Snows theory in stemming the cholera epidemic in Soho, public officials still thought his hypothesis was nonsense.</p>
+        <p>They refused todo anything to clean up the cesspools and sewers.</p>
+        The Board of Health issued a report that said, “we see no reason to adopt this belief” and shrugged off Snows evidence as mere “suggestions.”
+        </aside>
+      </section>
+        
+      <!-- 15 -->
+      <section>
+        <h2>Snow’s “Grand Experiment”</h2>
+        <div class='row narrow'>
+        <div class="left muted" style="font-size: 0.65em;">
+        Despite the success of Snow’s theory in stemming the cholera epidemic in Soho, public officials still thought his hypothesis was nonsense. <br> <span style="margin-left: 2em;"><span class="math inline">→</span> He needed <span class="warning">stronger</span> evidence.</span>
+        </div>
+        <p class="l-sided border-info">
+        <span class="u">Research question:</span><br> Is there a causal relationship between water supply and cholera?
+        </p>
+        <div>
+        <hr>
+        <p>
+        What should Snow do to get “stronger” evidence?
+        </p>
+        <ul>
+        <li class="fragment">Bigger scale study? (generalization)</li>
+        <li class="fragment">More systematic comparison? (“Control” population)</li>
+        </ul>
+        </div>
+        </div>
+        <aside class="notes">
+        <p>Snow was still eager to prove his theory. What would the study need to be more convincing?</p>
+        <p>Real “control” population. (even if this is shortest path on foot, we cannot be 100% certain that people actually went to Broad Street pump.)</p>
+        Sample size is important because a larger sample of the true population the better representative of the population your sample is.
+        </aside>
+      </section>
+        
+      <!-- 16 -->
+      <section>
+        <h3>Collecting a dataset</h3>
+        <p class="quoted" style="font-size: 0.7em; margin-top: 0;">
+          The <span class="info">population</span> is the <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">entire collection</span> of observational units we are interested in.
+          A <span class="warning">sample</span> is a <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">subset of the population</span> on which we record data.</p>
+        <p class="quoted" style="font-size: 0.7em; margin-top: 0; margin-bottom: 0;">Numerical summaries about a population are called <span class="info">parameters</span>, and numerical summaries calculated from a sample are called <span class="warning">statistics</span>.</p>
+        <img class="plain" width="73%" src="lib/img/distribution-sample.svg">
+        <aside class="notes">
+          The size of the sample is important. <br>
+          The bigger the sample size, the more likely the data we collect can be generalized to
+          the full population.
+        </aside>
+      </section>
+        
+      <!-- 17 -->
+      <section>
+        <h3>Experiment & Observational study</h3>
+        <p class="quoted">
+          An
+          <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;"> experiment</span> is a study in which the researcher <span class="warning">actively controls one or more of the explanatory variables</span>. <br><br>
+          An <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">observational study</span> is a study in which the researcher does not actively control the value of any variable but simply <span class="info">observes and record the values as they naturally exist</span>.
+        </p>
+
+        <p class="fragment">
+          <span class="em">Snow compared different exposure groups, but did not assign the exposure (contaminated water or not).</span>
+          <br>
+          <span class="u">What kind of study is it?</span>
+        </p>
+
+        <aside class="notes">
+          <p>
+            This was not a true experiment since Snow did not randomly allocated people into two groups, one exposed to contaminated water and the other not.
+            <br>
+            Clearly, this would have been unethical and certainly illegal. He did, however, recognize that allocation and near-randomization had taken place in a natural setting, and had taken advantage of this historical occurrence to test his hypothesis.
+          </p>
+        </aside>
+      </section>
+
+      <section>
+        <h3>Snow's "Grand Experiment"</h3>
+        <div class="left muted" style="font-size: 0.65em;">Despite the success of Snow’s theory in stemming the cholera epidemic in Soho, public officials still thought his hypothesis was nonsense. <br>
+        <span style="margin-left: 2em;">=> He needed stronger evidence.</span></div>
+        <p class="l-sided"><span class="u">Research question:</span><br>
+         Is there a causal relationship between water supply and cholera?</p>
+        <p class="l-sided border-warning fragment"><span class="u">Observational units:</span><br>
+        "Groups" of people</p>
+
+        <p class="l-sided border-info fragment"><span class="u">Variables:</span><br>
+        - Occurence of cholera fatal attacks <span class="fragment highlight-current-bckg-red">(outcome)</span><br>
+        - Type of water supply <span class="fragment highlight-bckg-red">(explains difference in outcome)</span></p>
+      <aside class="notes">
+        Snow was still eager to prove his theory.
+        <br>
+        Went back to work at a bigger scale.
+      </aside>
+      </section>
+
+      <section>
+        <h3>Explanatory & Response variables</h3>
+        <p class="quoted">
+          A
+          <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;"> response variable</span> is the variable <span class="warning">about which questions are asked</span>, it measures the outcome of the study.</p>
+        <p class="quoted">
+          An <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">explanatory variable</span> is any factor that can <span class="info">influence, explain or predict</span> the response variable.</p>
+        <p class="quoted">
+          The response variable is usually called <span class="warning">dependent</span>, while the explanatory variable is sometimes called <span class="info">independent</span>.
+        </p>
+        <hr class="fragment" data-fragment-index=1>
+        <p class="fragment" data-fragment-index=1>Does <span class="fragment highlight-bg-info" data-fragment-index=2>meditation</span> help reduce <span class="fragment highlight-bckg-yellow" data-fragment-index=2>stress</span>?</p>
+        <p class="fragment" data-fragment-index=3>Does <span class="fragment highlight-bg-info" data-fragment-index=4>sugar consumption</span> increase <span class="fragment highlight-bckg-yellow" data-fragment-index=4>hyperactivity</span>?</p>
+        <aside class="notes">
+          <p>
+            If we are using one variable to help us understand or predict values
+            of another variable, we call the former the explanatory variable and the latter the response variable.
+            <br>
+            Examples.
+          </p>
+        </aside>
+      </section>
+
+      <section>
+        <h3>Snow's analysis of deaths data</h3>
+        <div class="row" style="margin-top: 0;">
+          <div class="col-8" style="z-index: 99;">
+            <div class="warning u rotation-315" style="margin-left: 50%; margin-top: 50%; text-align: center; font-size: 0.6em;">Data</div>
+          </div>
+          <div class="col-40">
+            <img class="unbordered" src="lib/img/cholera-deaths-newspaper.jpg" height="590" width=auto>
+          </div>
+          <div class="col-10" style="z-index: 100;">
+            <div class="info u rotation-315" style="margin-left: 25%; margin-top: 50%; text-align: center; font-size: 0.6em;">Analysis</div>
+          </div>
+          <div class="col-40">
+            <img class="unbordered" src="lib/img/cholera-deaths-analysis-snow.jpg" height="590" width=auto  >
+          </div>
+        </div>
+        <aside class="notes">
+          Data from London Registrar office.
+          <br>
+          Gathered all the weekly deaths data by district.
+        </aside>
+      </section>
+
+
+      <!-- 21 -->
+      <section>
+        <h2>New Prevention Measures Enforced</h2>
+        <div class="row narrower">
+        <div class="col-60">
+        <p class="l-sided">
+        Less people started to question the relevance of the germ theory to cholera.
+        </p>
+        <p class="l-sided">
+        New prevention and control measures developed to prevent cholera outbreaks (boiling water)
+        </p>
+        </div>
+        <div class="col-40">
+        <img src="lib/img/cholera-public-notice.jpg" class= "unbordered" />
+        </div>
+        </div>
+      </section>
+        
+      <!-- 22 -->
+      <section>
+        <h2>6 Steps Of A Statistical Investigation</h2>
+        <div class="row narrower">
+        <div class="col-25" style="padding: 0;">
+        <svg viewbox="7 0 66 150">
+        <use class="fragment" data-fragment-index="5" xlink:href="lib/img/stats-investigations.svg#Layer_6"></use> <use class="fragment" data-fragment-index="4" xlink:href="lib/img/stats-investigations.svg#Layer_5"></use> <use class="fragment" data-fragment-index="3" xlink:href="lib/img/stats-investigations.svg#Layer_4"></use> <use class="fragment" data-fragment-index="2" xlink:href="lib/img/stats-investigations.svg#Layer_3"></use> <use class="fragment" data-fragment-index="1" xlink:href="lib/img/stats-investigations.svg#Layer_2"></use> <use xlink:href="lib/img/stats-investigations.svg#Layer_1"></use>
+        </svg>
+        </div>
+        <div class="col-75 left">
+        <div class="row framed border-warning" style="font-size: 0.9em; margin-top: 0em;">
+        <p>Could water supplied to South London residents by private companies be a principal vector for the transmission of cholera?</p>
+        </div>
+        <div class="row fragment" data-fragment-index="1" style="font-size: 0.9em; margin-top: 0.15em;">
+        <p>Large scale study of cholera fatal attacks in South London (water supply randomly “assigned”)</p>
+        </div>
+        <div class="row fragment" data-fragment-index="2" style="font-size: 0.9em; margin-top: 0.05em;">
+        <p>Looking for patterns by comparing the occurrence of cholera fatal attacks in the different population groups</p>
+        </div>
+        <div class="row fragment" data-fragment-index="3" style="font-size: 0.9em; margin-top: 0.05em;">
+        <p>People served by sewage-contaminated water seem more affected by fatal cholera attacks <!-- cholera was far more intense in one company's service area than the others --></p>
+        </div>
+        <div class="row fragment" data-fragment-index="4" style="font-size: 0.9em; margin-top: 0.1em;">
+        <p>Contaminated water is most likely a source of cholera infection. <span class="warning">Cholera is a waterborne disease</span>.</p>
+        </div>
+        <div class="row fragment framed border-halt" data-fragment-index="5" style="font-size: 0.9em; margin-top: 0.05em;">
+        <p>Need for analyzing water samples (identify “germ”). <br> Boiling water mandatory during cholera epidemics.</p>
+        </div>
+        </div>
+        </div>
+      </section>
+          
+
+      <!-- 23 -->
+      <section>
+        <h2>6 Steps Of A Statistical Investigation</h2>
+        <div class="row narrower">
+        <svg width="80%" viewBox="0 0 381.6 244.75" style="margin-top: 0; margin-bottom: 0;">
+        <use xlink:href="lib/img/summary-lec1.svg#investigation"></use> <use class="fragment" xlink:href="lib/img/summary-lec1.svg#population"></use> <use class="fragment" xlink:href="lib/img/summary-lec1.svg#datasample"></use> <use class="fragment" xlink:href="lib/img/summary-lec1.svg#variables"></use> <use class="fragment" xlink:href="lib/img/summary-lec1.svg#type1"></use> <use class="fragment" xlink:href="lib/img/summary-lec1.svg#type2"></use>
+        </svg>
+        <p class="l-sided fragment border-warning" style="font-size: 0.6em; margin-top: 0;">
+        Importance of visualization to better understand data<br> <span style="margin-left: 1em"><span class="math inline">→</span> e.g. Soho epidemics map</span>
+        </p>
+        </p>
+        </div>
+        <aside class="notes">
+        <p>If we summaraize this in another way we can pull elements from the story as lessons in basic usage of statistics. We really see that looking, “seeing” your data is crucial to understanding what is really going on, i.e. the mechanism.</p>
+        Snow essentially took his data and plotted it on a raster, that is his plot became a map (despite the fact that it was indeed an actual map) and the data were marking all the X’s for him.
+        </aside>
+      </section>
+        
+
+      <!-- FINAL -->
+      <section data-background-color="#FFF">
+      	<div class="row no-margin-top">
+      		<h3>A fun visualization</h3>
+      		<p class="smallest success">By the end of the course, you'll be able to interpret and criticize this <a class="success" href="http://rpsychologist.com/" target="_blank">graphic</a>!</p>
+      	</div>
+				<div class="row">
+					<div class="fig-container no-margin-top" data-file="lib/interactive/equiv/equivalence.html"></div>
+				</div>
+      </section>
+      
+      <!-- #########################     CONTENT END     #########################-->
+    </div>
+    
+  </div>
+  
+  <!-- REVEAL JS -->
+  <script src="lib/js/reveal.js/lib/js/head.min.js"></script>
+  <script src="lib/js/reveal.js/js/reveal.js"></script>
+  <script src="lib/js/initReveal.js"></script>
+</body>
+</html>

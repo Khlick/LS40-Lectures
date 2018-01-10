@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+  <link type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.1/css/bootstrap-slider.min.css" />
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="fonts/MyFontsWebfontsKit.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+</head>
+<body>
+  <script src="js/d3.min.js"></script>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        
+        <div class="row slider_d">
+          <div class="col-lg-3"><span class="pull-left">Observed effect (d = <span id="span_d">1</span>)</span> </div>
+          <div class="col-lg-9"><input id="slider-m" type="text"/></div>
+        </div>
+        <div class="row slider_n">
+          <div class="col-lg-3"><span class="pull-left">Sample size (n = <span id="span_n">10</span>)</span></div>
+          <div class="col-lg-9"><input id="slider-n"/></div>
+        </div>
+        <div class="row slider_margin">
+          <div class="col-lg-3"><span class="pull-left">Margin (Δ = <span id="span_margin">0.3</span>)</span></div>
+          <div class="col-lg-9"><input id="slider-margin"/></div>
+        </div>
+        <div class="row">
+          <h3 class="text-center" id ="vis_verdict">Effect of new treatment is <span id="span_verdict">superior</span></h3>
+          <div class="col-md-12">
+            <div id="viz"></div>
+            <h6 id ="vis-caption" class="text-right"><img src="img/ci.svg">95 % CI </h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 row-no-padding">
+            <h4 class="power-heading text-center">Power</h4>
+            <div class="col-xs-4">
+              <h4 class = "power-subheadings text-center">Superiority</h4>
+            </div>
+            <div class="col-xs-4">
+              <h4 class = "power-subheadings text-center">Non-inferiority</h4>
+            </div>
+            <div class="col-xs-4">
+              <h4 class = "power-subheadings text-center">Equivalence</h4>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 row-no-padding lineplots">
+            <div class="col-xs-4" id ="linePlot_su"></div>
+            <div class="col-xs-4" id ="linePlot_ni"></div>
+            <div class="col-xs-4" id ="linePlot_eq"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 row-no-padding">
+            <div class="col-xs-4">
+              <h6 class = "text-center">H<sub>0</sub>: d = 0</h6>
+              <h6 class = "text-center">H<sub>a</sub>: d > 0</h6>
+            </div>
+            
+            <div class="col-xs-4">
+              <h6 class = "text-center">H<sub>0</sub>: d ≤ -Δ</h6>
+              <h6 class = "text-center">H<sub>a</sub>: d > -Δ</h6>
+            </div>
+            <div class="col-xs-4">
+              <h6 class = "text-center">H<sub>0</sub>: d ≤ -Δ or d ≥ Δ</h6>
+              <h6 class = "text-center">H<sub>a</sub>: -Δ < d < Δ</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  <!-- js -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.1/bootstrap-slider.min.js"></script>
+  <!--     <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+  <script src="js/jquery.ui.touch-punch.min.js"></script> -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script src="js/jstat.js"></script>
+  <script src="js/script.js"></script>
+  <!-- <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      CommonHTML: { linebreaks: { automatic: true },scale: 80 },
+      "HTML-CSS": { linebreaks: { automatic: true },scale: 80 },
+             SVG: { linebreaks: { automatic: true },scale: 80 }
+    });
+  </script> -->

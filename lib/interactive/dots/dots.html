@@ -1,0 +1,148 @@
+<html>
+<head ></head>
+<body>
+    <!-- load in D3 and Chart constructor scripts -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script src="lib/colorbrewer.min.js"></script>
+    <script src="lib/dotplots.js"></script>
+
+    <style>
+        .axis path, .tick line {
+            display: none;
+        }
+        .y.axis text {
+            display: none;
+        }
+
+        .propH {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .propT {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .strong {
+            font-weight: bold;
+        }
+    </style>
+
+    <!-- here's the div our chart will be injected into -->
+    <div class="chart-container" style="max-width: 1000px; width: 100%;"></div>
+    <div style="height: 25px;"></div>
+    <!-- these will be made useful in the script below -->
+    <button class="data">Simulate 1</button>
+    <button class="data10">Simulate 10</button>
+    <button class="reset">Reset</button>
+    <p class="strong">Proportions of Heads: <span class="propH"></span></p>
+    <p class="strong">Proportions of Tails: <span class="propT"></span></p>
+
+    <script>
+        function coinFlip(nFlips) {
+            var flips = d3.range(nFlips);
+            var r=[], i;
+            for (i=0; i < nFlips; i++){
+                r.push((Math.floor(Math.random() * 2) == 0) ? 'Heads' : 'Tails');
+            }
+            return r
+        }
+        var Data = function(opts){
+            this.group = opts.group;
+            this.val = opts.val;
+        }
+        Data.prototype.update = function(dat){
+            this.group.push(dat.group);
+            this.val.push(dat.val);
+        }
+        Data.prototype.reset = function(){
+            this.group.length = 0;
+            this.val.length = 0;
+        }
+        Data.prototype.getAll = function(){
+            if (!this.group.length){ return [{group:[],val:[]}] }
+            var r = [], i;
+            for (i=0; i< this.group.length; i++){
+                r.push( {group: this.group[i], val: this.val[i]} )
+            }
+            return r
+        }
+        Data.prototype.getProportion = function(group){
+            var output = {};
+            if (!this.group.length){ 
+                output[group] = 0;
+                return output;
+            }
+
+            var counts = {}, i;
+
+            for (var i = 0; i < this.group.length; i++) {
+              var num = this.group[i];
+              counts[num] = counts[num] ? counts[num] + 1 : 1;
+            }
+            
+            totalCount = this.group.length;
+            return counts[group] / totalCount;
+        }
+
+        Data.prototype.generateData = function(numberOfFlips){
+            var randomNumbers = d3.range(numberOfFlips).map(d3.random.normal());
+            var flipResults = coinFlip(numberOfFlips);
+            var num;
+            for (num=0; num < flipResults.length; num++){
+                this.update( {"group": flipResults[num], "val": randomNumbers[num]} )
+            }
+            return this.getAll();
+        }
+
+        // var data_for_plotting = generateData(["a", "b", "c"])
+        var data = new Data({
+            group: [],
+            val: []
+        });
+        
+        console.log(data.getAll())
+
+        //send to plotting function.
+        var dot_plots = new Dot_Plots({
+            data: data.getAll(),
+            element: document.querySelector('.chart-container'),
+            bins: 35,
+        })
+
+        var updateIndex = 1
+        // change data on click to something randomly-generated
+        d3.selectAll('button.data').on('click', function(){
+            console.log(updateIndex)
+            data.generateData(1);
+            dot_plots.setData(data.getAll());
+            d3.selectAll(".propH").text(data.getProportion('Heads').toFixed(3).toString())
+            d3.selectAll(".propT").text(data.getProportion('Tails').toFixed(3).toString())
+            updateIndex++
+        });
+        
+        d3.selectAll('button.data10').on('click', function(){
+            console.log(updateIndex)
+            data.generateData(10);
+            dot_plots.setData(data.getAll());
+            d3.selectAll(".propH").text(data.getProportion('Heads').toFixed(3).toString())
+            d3.selectAll(".propT").text(data.getProportion('Tails').toFixed(3).toString())
+            updateIndex++
+        });
+
+        d3.select('.reset').on('click', function(){
+            updateIndex = 1;
+            data.reset();
+            d3.select(".chart-container").select("svg").remove();
+            d3.selectAll("propH").text("")
+            d3.selectAll("propT").text("")
+            dot_plots.setData(data.getAll());
+        });
+
+        // redraw chart on each resize
+        d3.select(window).on('resize', function(){
+            dot_plots.resize();
+        });
+
+    </script>
+</body>
+</html>

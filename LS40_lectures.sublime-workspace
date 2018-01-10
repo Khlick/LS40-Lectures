@@ -1,0 +1,1023 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "lib/css/jsStyle.css",
+			"settings":
+			{
+				"buffer_size": 74,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/css/flatlandDk.css",
+			"settings":
+			{
+				"buffer_size": 22680,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/css/gc.css",
+			"settings":
+			{
+				"buffer_size": 36557,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lecture1.html",
+			"settings":
+			{
+				"buffer_size": 40907,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/interactive/dots/dots.html",
+			"settings":
+			{
+				"buffer_size": 4888,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/interactive/dots/lib/dotplots.js",
+			"settings":
+			{
+				"buffer_size": 12442,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveald3-section-with-placeholder.sublime-snippet",
+			"settings":
+			{
+				"buffer_size": 260,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-section-note.sublime-snippet",
+			"settings":
+			{
+				"buffer_size": 242,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-2cols.sublime-snippet",
+			"settings":
+			{
+				"buffer_size": 387,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "<div class=\"row\">\n\t<h1></h1>\n</div>\n<div class=\"row\">\n\t<div class=\"col-50\">\n\t\t\t\t\t\n\t</div>\t\t\t\n\t<div class=\"col-50\">\n\t\t\t\n\t</div>\n</div>",
+			"settings":
+			{
+				"buffer_size": 133,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/khris/OneDrive/UCLA/_Lectures/Neuro210C/STATS_lecture_2017_-_Griffis.html",
+			"settings":
+			{
+				"buffer_size": 136067,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/khris/OneDrive/UCLA/_Lectures/Neuro210C/lib/custom_js/d3-in-reveal-config.js",
+			"settings":
+			{
+				"buffer_size": 5816,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/interactive/soho/js/soho.js",
+			"settings":
+			{
+				"buffer_size": 1672,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/interactive/collision-detection.html",
+			"settings":
+			{
+				"buffer_size": 2835,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/interactive/soho/soho.html",
+			"settings":
+			{
+				"buffer_size": 29,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Traditional"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Script Builder"
+				]
+			],
+			[
+				"Packages/LaTeXTools/LaTeX.sublime-build",
+				"PdfLaTeX"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 239.0,
+		"last_filter": "packacger",
+		"selected_items":
+		[
+			[
+				"packacger",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"Snippet: ",
+				"Snippet: Inserts a complete template."
+			],
+			[
+				"Package Control: isnt",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"packa\t",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: en",
+				"Package Control: Enable Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 410.0
+	},
+	"console":
+	{
+		"height": 130.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib/css",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dots",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dots/lib",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib/js"
+	],
+	"file_history":
+	[
+		"/G/My Drive/_StatsDev/LS40_Development/_doc/Syllabus_LS40_18W.tex",
+		"/C/Users/khris/OneDrive/UCLA/_Lectures/Neuro210C/lib/custom_js/helperScripts.js",
+		"/C/Users/khris/OneDrive/UCLA/_Lectures/Neuro210C/lib/custom_js/js-graphs/stats-is.js",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dots/dots.html",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib/css/customStyle.css",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/LectureTemplate.html",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dots/lib/dotplots.js",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/demo.html",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/index.html",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib/css/gc.css",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/css/jsUi.css",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/css/custom-gc.css",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/desktop.ini",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/collision-detection.html",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/STATS_lecture_2017_-_Griffis.html",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/css/revealRestyle.css",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-complete-template.sublime-snippet",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/img/fic/manifest.json",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveald3-section-with-placeholder.sublime-snippet",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-title-section-note.sublime-snippet",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-section-empty.sulime-snippet",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/custom_js/js-graphs/histogram.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/css/reveal.css",
+		"/F/googleDrive/_StatsDev/LS40_Development/_doc/Syllabus_LS40_18W.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/LS40_lectures.sublime-project",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/index.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/Gruntfile.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/package.json",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/package-lock.json",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/README.md",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/.gitignore",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/bower.json",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/CONTRIBUTING.md",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/Lecture04.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/Lecture03.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/Lecture02.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/Lecture01.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABSLecture04.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABSLecture03.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABSLecture02.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABSLecture01.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/lib/Asset 1.svg",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/theTemplate.html",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/custom_js/js-graphs/bootstrap.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/customVis/diceRoller.js",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/_output.yaml",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/custom_js/helperScripts.js",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/custom_js/js-graphs/bar-deaths.js",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/rear_includes.html",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/head_includes.html",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/custom_js/js-graphs/sampling-distribution.js",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/front_includes.html",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/package-lock.json",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/index.html",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/_notes.yaml",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/tufte-common.def",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/handoutTemplate.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/_doc/lectureOutlines.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/LectureHandouts.sublime-project",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/text.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABShandoutTemplate.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/_handoutTemplate.log",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABS_handoutTemplate.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/_doc/academicIntegrity.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/_doc/_lectureOutlines.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/_doc/_lectureTopics.tex",
+		"/C/Users/khris/Desktop/tuft/tufte_test.tex",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/LaTeXTools/LaTeXTools (Advanced).sublime-settings",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Handouts/LectureHandouts.sublime-project",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture_Overviews/Lectures/Lecture2.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture_Overviews/Overview_rev1.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture_Overviews/LectureOverviews.sublime-project",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture_Overviews/Overview_rev2.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture_Overviews/Overview_rev2.aux",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture_Overviews/Lectures/Lecture11.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture_Overviews/Lectures/Lecture10.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture_Overviews/Lectures/Lecture3.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture_Overviews/Lectures/Lecture1.tex",
+		"/F/OneDrive/UCLA/STATS13/jup/Lab 3 Solutions.ipynb",
+		"/F/googleDrive/Garfinkel/Circadian/khlickTools.py",
+		"/F/googleDrive/Garfinkel/Circadian/forPublication/_Output/Figure_1.svg",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/SublimeREPL/SublimeREPL.sublime-settings",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/SublimeREPL.sublime-settings",
+		"/F/googleDrive/Garfinkel/Circadian/forPublication/figCreate.py",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/E/20170721/b0020400.smi",
+		"/E/20170720/08470400.smi",
+		"/F/googleDrive/JonesGroup/Khris/jonesBib-R.bib",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/LaTeXTools.sublime-settings",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/LaTeXTools/LaTeXTools.sublime-settings",
+		"/F/OneDrive/UCLA/Experimental Statistics/Experimental-Statistics/master.tex",
+		"/F/googleDrive/Garfinkel/Circadian/Circadian 20170615_smoothing.ipynb",
+		"/F/OneDrive/UCLA/LS30X_development/Syllabus/Syllabus_Winter2017.knit - Copy.md",
+		"/F/OneDrive/UCLA/LS30X_development/Syllabus/Syllabus_Winter2017.utf8 - Copy.md",
+		"/F/OneDrive/Documents/Phelps Lab/_Matlab/hosa/hosa/info.xml"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"\"sided",
+			"sided",
+			"Observational units",
+			"Observational groups",
+			"framed",
+			"occurence of cholor",
+			"bckg-blue",
+			"assets/img/lec/",
+			"collecting a dataset",
+			"collecting data",
+			"img",
+			"gc.",
+			"soho",
+			"obser",
+			"highlight",
+			"top",
+			"35px",
+			"this.he",
+			"Length",
+			"data",
+			"clip-text",
+			"no-margin",
+			"error",
+			"\\uncert",
+			"\\emph{uncertainty}",
+			"loadnatbib",
+			"To",
+			"Center",
+			"Blue!10",
+			"''",
+			"\"",
+			"\\par",
+			"!20",
+			"CAM 04 ",
+			"08:",
+			"09:",
+			"08:",
+			"\"outputs\""
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\"l-sided",
+			"bg-info",
+			"lib/img/",
+			"base.",
+			"41px",
+			"length",
+			"Data",
+			"uncertainty",
+			"\\uncert ",
+			"\\uncert",
+			"center",
+			"Blue!5",
+			"!10",
+			"",
+			"01:",
+			"02:",
+			"01:"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "lib/css/jsStyle.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 74,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								74,
+								74
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1515476150.84,
+							"open_with_edit": true,
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "lib/css/flatlandDk.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 22680,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4877,
+								4877
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1515517609.59,
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 14775.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "lib/css/gc.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 36557,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								21373,
+								23730
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1515523891.53,
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 13551.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "Lecture1.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 40907,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								28035,
+								28035
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1515476150.84,
+							"open_with_edit": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 9515.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "lib/interactive/dots/dots.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4888,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4653,
+								4653
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1515522244.84,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 585.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "lib/interactive/dots/lib/dotplots.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 12442,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								768,
+								768
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1515525015.08,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveald3-section-with-placeholder.sublime-snippet",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 260,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1515517302.96,
+							"syntax": "Packages/XML/XML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-section-note.sublime-snippet",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 242,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								242
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1515516480.98,
+							"syntax": "Packages/XML/XML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-2cols.sublime-snippet",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 387,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								71,
+								71
+							]
+						],
+						"settings":
+						{
+							"default_extension": "sublime-snippet",
+							"syntax": "Packages/XML/XML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 9,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 133,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								133,
+								133
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/C/Users/khris/OneDrive/UCLA/_Lectures/Neuro210C/STATS_lecture_2017_-_Griffis.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 136067,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								54470,
+								54470
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1515518276.33,
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 24240.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "/C/Users/khris/OneDrive/UCLA/_Lectures/Neuro210C/lib/custom_js/d3-in-reveal-config.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5816,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5364,
+								5364
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1515524201.37,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3080.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "lib/interactive/soho/js/soho.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1672,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1045,
+								1045
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1515524235.29,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "lib/interactive/collision-detection.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 2835,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2835,
+								2835
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1515525593.72,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "lib/interactive/soho/soho.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 29,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13,
+								13
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				2,
+				0,
+				3,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.269734833266,
+			0.636295701085,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.latextools":
+	{
+		"height": 100.0
+	},
+	"pinned_build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
+	"project": "LS40_lectures.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 247.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
