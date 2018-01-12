@@ -25,6 +25,9 @@
         .strong {
             font-weight: bold;
         }
+        svg .dot_plot#group_Tails {
+            color: #f99;
+        }
     </style>
 
     <!-- here's the div our chart will be injected into -->
@@ -39,7 +42,7 @@
 
     <script>
         function coinFlip(nFlips) {
-            var flips = d3.range(nFlips);
+            
             var r=[], i;
             for (i=0; i < nFlips; i++){
                 r.push((Math.floor(Math.random() * 2) == 0) ? 'Heads' : 'Tails');

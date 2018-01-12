@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>LECTURETEMPLATE</title>
+  <title>Lecture 2</title>
   <meta name="author" content="Khris Griffis" />
   
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -82,7 +82,924 @@
           </aside>
       </section>
 
+
+      <!-- 2 -->
+      <section>
       
+      	<!-- heading -->
+      	<div class="row">
+      		<h1>Yesterday...</h1>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-30 no-top-margin l-sided border-info">
+      			<ul class="icon">
+              <li class="check-circle fragment success" data-fragment-index="0">Uncertainty</li>
+              <li class="check-circle fragment success" data-fragment-index="2">Hypothesis</li>
+              <li class="check-circle fragment success" data-fragment-index="4">Data</li>
+              <li class="check-circle fragment success" data-fragment-index="6">Observational Unit</li>
+              <li class="check-circle fragment success" data-fragment-index="8">Variable</li>
+              <li class="check-circle fragment success" data-fragment-index="10">Outlier</li>
+              <li class="check-circle fragment success" data-fragment-index="12">Population</li>
+              <li class="check-circle fragment success" data-fragment-index="14">Sample</li>
+              <li class="check-circle fragment success" data-fragment-index="16">Variable <span class="info">Relationship</span></li>
+            </ul>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-70 no-top-margin">
+      			<ul class="icon">
+              <li class="caret-right fragment success" data-fragment-index="1">A range of <span class="warning">possible</span> outcomes... but we don't know exactly.</li>
+              <li class="caret-right fragment success" data-fragment-index="3">Statement about a <span class="warning">parameter</span> of data.</li>
+              <li class="caret-right fragment success" data-fragment-index="5">Collection of measurements.</li>
+              <li class="caret-right fragment success" data-fragment-index="7">Subject from which data was collected.</li>
+              <li class="caret-right fragment success" data-fragment-index="9">Come in types <span class="info">Categorical</span> & <span class="info">Quantitative</span>.</li>
+              <li class="caret-right fragment success" data-fragment-index="11"><span class="halt">Markedly</span> different from the rest.</li>
+              <li class="caret-right fragment success" data-fragment-index="13"><span class="calm">EVERYBODY!</span></li>
+              <li class="caret-right fragment success" data-fragment-index="15">A <span class="calm">subset</span> of a population.</li>
+              <li class="caret-right fragment success" data-fragment-index="17"><span class="warning">Response</span> variables depend on <span class="info">Explanatory variables.</span></li>
+            </ul>
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes">
+      			Yesterday I covered a few things and sort of masked them into a story. so let's go back over some of the definitions in case we missed them.
+      		</aside>
+      		
+      </section>
+      
+      <!-- 3 -->
+      <section>
+        <h2>6 Steps Of A Statistical Investigation</h2>
+        <div class="row narrower">
+        <svg width="80%" viewBox="0 0 381.6 244.75" style="margin-top: 0; margin-bottom: 0;">
+        <use xlink:href="lib/img/summary-lec1.svg#investigation"></use> <use class="fragment" xlink:href="lib/img/summary-lec1.svg#population"></use> <use class="fragment" xlink:href="lib/img/summary-lec1.svg#datasample"></use> <use class="fragment" xlink:href="lib/img/summary-lec1.svg#variables"></use> <use class="fragment" xlink:href="lib/img/summary-lec1.svg#type1"></use> <use class="fragment" xlink:href="lib/img/summary-lec1.svg#type2"></use>
+        </svg>
+        </div>
+        <aside class="notes">
+        <p>If we summaraize this in another way we can pull elements from the story as lessons in basic usage of statistics. We really see that looking, “seeing” your data is crucial to understanding what is really going on, i.e. the mechanism.</p>
+        Snow essentially took his data and plotted it on a raster, that is his plot became a map (despite the fact that it was indeed an actual map) and the data were marking all the X’s for him.
+        </aside>
+      </section>
+
+      <section class="title-slide fullwidth">
+			  <h1 class="center"><br>Central tendency</h1>
+			  <div>
+			    <svg width="70%" viewBox="0 42 576 216" style="margin-top: 5%;">
+			      <use xlink:href="lib/img/dotplot-distribution.svg#axes_1"></use>
+			      <use xlink:href="lib/img/dotplot-distribution.svg#axes_2"></use>
+			      <use class="fragment" xlink:href="lib/img/dotplot-distribution.svg#axes_3"></use>
+			    </svg>
+			  </div>
+			</section>
+
+			<section>
+			  <h3>The mean</h3>
+			  <p class="quoted">A common measure of central location is the (arithmetic) <span class="warning">mean</span>.
+			  It is sometimes called the <span class="u">average</span>.</p>
+			  <div class="row">
+			    <p class="warning col-50" style="font-size: 1.5em; text-align: center; margin-bottom: 0.5em; margin-top: 0.5em;">$\bar{x}=\sum x_{i}$</p>
+			    <p class="col-50" style="font-size: 0.8em; text-align: left; margin-bottom: 0.5em; margin-top: 0.5em;">
+			      <span class="info">$\bar{x}$</span> for a sample (read "x-bar")<br>
+			      <span class="info">$\mu$</span> for a population</p>
+			  </div>
+			  <p>Which corresponds to:</p>
+			  <p style="margin-left: 0.8em; font-size: 1em;">$\bar{x}=(x_{1}+x_{2}+...+x_{n})/n$</p>
+			  <p style="margin-left: 0.8em; font-size: 1em;">$\bar{x}=(\textrm{sum of all the observations})/(\textrm{number of observations})$</p>
+			</section>
+
+			<section>
+			  <h3>The trimmed mean</h3>
+			  <p class="quoted">A <span class="warning">trimmed mean</span> refers to the calculation of the mean after discarding given parts of a sample (or distribution) at the high and low end (typically discarding an equal amount of both).
+			  </p>
+			  <p>Some people consider that the use of a trimmed mean "helps" eliminate the influence of data points on the tails that may affect the traditional mean.</p>
+
+			  <table style="font-size: 1.5em;">
+			    <tr>
+			      <td class="fragment highlight-bckg-yellow" data-fragment-index=2>1</td>
+			      <td>23</td>
+			      <td>19</td>
+			      <td>24</td>
+			      <td>17</td>
+			      <td>26</td>
+			      <td>20</td>
+			      <td>23</td>
+			      <td class="fragment highlight-bckg-yellow" data-fragment-index=2>89</td>
+			      <td class="fragment highlight-bckg-yellow" data-fragment-index=2>82</td>
+			    </tr>
+			  </table>
+			  <div class="row">
+			    <div class="col-66">
+			      <p class="fragment" data-fragment-index=1>
+			        $\bar{x}=(1+23+19+24+17+26+20+23+89+82)/10=32.4$
+			      </p>
+			       <p class="fragment" data-fragment-index=3>
+			        $\bar{x}_{trimmed}=(23+19+24+17+26+20+23)/7=21.7$
+			      </p>
+			    </div>
+			    <div class="col-33">
+			      <p class="fragment halt" data-fragment-index=4 style="font-size: 1.2em">Be Careful!</p>
+			    </div>
+			  </div>
+
+			  <aside class="notes">
+			    We'll talk about that later.
+			    <br>
+			    The median can be regarded as a fully truncated mean and is most robust. As with other trimmed estimators, the main advantage of the trimmed mean is robustness and higher efficiency for mixed distributions and heavy-tailed distribution (like the Cauchy distribution), at the cost of lower efficiency for some other less heavily-tailed distributions (such as the normal distribution). For intermediate distributions the differences between the efficiency of the mean and the median are not very big, e.g. for the student-t distribution with 2 degrees of freedom the variances for mean and median are nearly equal.
+			  </aside>
+			</section>
+
+			<section>
+			  <h3>The median</h3>
+			  <p class="quoted">
+			    The <span class="warning">median</span> of a set of <span class="warning">ordered data values</span> is: <br>
+			    <span style="margin-left: 1.5em;">- the middle entry (for an odd number of entries)</span><br>
+			    <span style="margin-left: 1.5em;">- the average of the middle 2 values (for an even number</span> <br>
+			      <span style="margin-left: 1.5em;">of entries)</span>
+			  </p>
+			  <div class="row">
+			    <div class="col-60">
+			      <svg width="100%" viewBox="0 0 239.5 109.5" style="margin-top: 1%;">
+			        <use class="fragment" data-fragment-index=2 xlink:href="lib/img/median.svg#median1"></use>
+			        <use class="fragment" data-fragment-index=1 xlink:href="lib/img/median.svg#median2"></use>
+			      </svg>
+			    </div>
+			    <div class="col-40">
+			      <p class="fragment warning" data-fragment-index=2> 
+			        mean of $(\frac{n}{2})^{th}$ and $(\frac{n}{2}+1)^{th}$ observations</p>
+			      <br>
+			      <p class="fragment warning" data-fragment-index=1> $(\frac{n+1}{2})^{th}$ observation</p>
+			    </div>
+			  </div>
+			  <aside class="notes">
+			    Sometimes referred to as a measure of location as it tells us where the data are.
+			    <br>
+			    Median is the value which occupies the middle position when all the observations are arranged in an ascending/descending order. It divides the frequency distribution exactly into two halves. Fifty percent of observations in a distribution have scores at or below the median. Hence median is the 50th percentile.[2] Median is also known as ‘positional average’
+			    <br>
+			    To find the median, your numbers have to be listed in numerical order from smallest to largest, so you may have to rewrite your list before you can find the median.
+			  </aside>
+			</section>
+
+			<section>
+			  <h3>The mode</h3>
+			  <p class="quoted">
+			    The <span class="warning">mode</span> is the value that occurs most often in the dataset. If no value in the dataset is repeated, then there is no mode this particular dataset.
+			  </p>
+			  <p style="margin-top: 1.5em;">What is the mode in the dataset below?</p>
+			  <table style="font-size: 1.5em;">
+			    <tr>
+			      <td>4</td>
+			      <td class="fragment highlight-bckg-yellow" data-fragment-index=1>5</td>
+			      <td>9</td>
+			      <td class="fragment highlight-bckg-yellow" data-fragment-index=1>5</td>
+			      <td>11</td>
+			      <td>7</td>
+			      <td class="fragment highlight-bckg-yellow" data-fragment-index=1>5</td>
+			      <td>3</td>
+			      <td>7</td>
+			      <td>8</td>
+			      <td>6</td>
+			      <td class="fragment highlight-bckg-yellow" data-fragment-index=1>5</td>
+			      <td>12</td>
+			    </tr>
+			  </table>
+			</section>
+
+			<section>
+			  <h3>Averages can be misleading</h3>
+			  <svg width="60%" viewBox="0 0 432 432" style="margin-top: 1%;">
+			      <use xlink:href="lib/img/map-usa-ship.svg#map"></use>
+			      <use class="fragment" data-fragment-index=1 xlink:href="lib/img/map-usa-ship.svg#panama"></use>
+			      <use class="fragment" data-fragment-index=2 xlink:href="lib/img/map-usa-ship.svg#caphorn"></use>
+			      <use class="fragment" data-fragment-index=3 xlink:href="lib/img/map-usa-ship.svg#average"></use>
+			    </svg>
+			    <aside class="notes">
+			      Not only mean is not resistant, but also it doesn't represent well the data.
+			    </aside>
+			</section>
+
+
+			<section data-state="showFooterRight" data-footer="Source - <a href='http://data.un.org/Default.aspx' target='_blank'>United Nations Data Retrieval System</a>">
+			  <h3>Pick your central descriptor wisely</h3>
+			  <div class="row">
+			    <div class="col-50">
+			      <p>Number of children per household in China (2012)</p>
+			      <p><span class="fragment" data-fragment-index=1 style="margin-left: 0.7em; font-size: 1.6em;">Mean: <span class="warning">1.55</span></span><br>
+			      <span class="fragment" data-fragment-index=2 style="margin-left: 0.7em; font-size: 1.6em;">Median: <span class="info">1</span></span></p>
+			      <p class="fragment" data-fragment-index=3>More representative of the "typical" 2012 family <br>
+			      (<span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">One Child Policy</span>)</p>
+			    </div>
+			    <div class="col-50">
+			      <svg width="100%" viewBox="0 0 300 225" style="margin-top: 1%;">
+			        <use xlink:href="lib/img/family.svg#family"></use>
+			        <use class="fragment current-visible" data-fragment-index=1 xlink:href="lib/img/family.svg#childrenhalf"></use>
+			        <use class="fragment" data-fragment-index=2 xlink:href="lib/img/family.svg#childrenfull"></use>
+			      </svg>
+			    </div>
+			  </div>
+			</section>
+
+
+
+			<section>
+			  <h3>Other locations</h3>
+			  <p class="quoted">The <span class="warning">minimum</span> is the <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">smallest number</span> in the (sorted) dataset.
+			  <br> <br>
+			  The <span class="info">maximum</span> is the <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">largest number</span> in the (sorted) dataset</p>
+			  <svg width="75%" viewBox="0 0 239.5 60.5" style="margin-top: 1%;">
+			    <use xlink:href="lib/img/min-max.svg#minmax"></use>
+			  </svg>
+			</section>
+
+      <!-- 34-->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h1>Probability</h1>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin">
+      			<h4>Fundamentals</h4>
+      			<p>An <span class="info">Event</span> is a result or outcome from a procedure or experiment.</p>
+      			<p>The <span class="info">Sample Space</span> is the set of all 'simple' events.</p>
+      			<p class="quoted fragment" data-fragment-index="9">If we were to roll two dice and get a number of 3, would that outcome be a simple event?</p>
+
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin">
+      			<table class="small fragment" data-fragment-index="0">
+			        <thead>
+			        	<tr style="background: #636c72;">
+			        		<th>Experiment</th><th>Sample Space</th><th>Simple Event</th>
+			        	</tr>
+			        </thead>
+			        <tbody>
+				        <tr class="fragment" data-fragment-index="1">
+				        	<td>Ask a girl out</td><td>{Yes, No}</td><td class="fragment" data-fragment-index="2">She says No</td>
+				        </tr>
+				        <tr class="fragment" data-fragment-index="3">
+				        	<td>Flip a coin</td><td>{Heads, Tails}</td><td class="fragment" data-fragment-index="4">Getting Tails</td>
+				        </tr>
+				        <tr class="fragment" data-fragment-index="5">
+				        	<td>Have a baby</td><td>{Boy, Girl}</td><td class="fragment" data-fragment-index="6">It's a Girl!</td>
+				        </tr>
+				        <tr class="fragment" data-fragment-index="7">
+				        	<td>Rolling a Die</td><td>{1, 2, 3, 4, 5, 6}</td><td class="fragment" data-fragment-index="8">Rolling a 3</td>
+				        </tr>
+				      </tbody>
+				    </table>
+      		</div>
+      	</div>
+      	<!-- below -->
+    		<div class="row framed border-halt fragment" data-fragment-index="10">
+    				NO. The simplest form of rolling two die is ($D_1,D_2$). <br>
+    				For 3 that is (2,1) or (1,2).
+    		</div>
+      
+      		<!-- notes -->
+      		<aside class="notes">
+      			The answer is no because the outcome or event of 3 is not
+							in its simplest form. The simple form of 3 when you roll
+							two dice is (1,2). What this means is that one die is
+							showing a value of 1 and the other die is showing a value
+							of 2.
+      		</aside>
+      		
+      </section>
+      
+      <!-- 4 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h1>Probability</h1>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin">
+      			<h2>Notation</h2>
+      			<p>For the probability of event $A$ to occur once in 2, we write:</p>
+      			<p class="math">$p(A) = 1/2 = 0.5$</p> 
+      			<p class="quoted info small">The probability that $A$ occurs in the number <span class="info">possible</span> ways $A$ can occur divided by the number of different <span class="success">simple events</span>.</p>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin">
+      			<img class="plain fragment" src="lib/img/counting.jpg" />
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes">
+      			So what we do in probability is count.<br>
+      			probability is always between 0 and 1... explain
+      		</aside>
+      		
+      </section>
+      
+
+      <section>
+			  <h3>Statistical inference</h3>
+			  <p class="l-sided border-info">
+			    A key step in the statistical investigation method is drawing conclusions beyond the
+			    observed data. Statisticians often call this <span class="warning">statistical inference</span>.
+			  </p>
+			  <div class="row">
+			    <div class="col-50">
+			      <p>They are 4 main types of conclusions (inferences) that <br>
+			      we can draw from data:</p>
+			    </div>
+			    <div class="col-40">
+			      <ul>
+			        <li>Significance</li>
+			        <li>Estimation</li>
+			        <li>Generalization</li>
+			        <li>Causation</li>
+			      </ul>
+			    </div>
+			  </div>
+			  <p class="fragment l-sided border-info" data-fragment-index=2 style="font-size: 0.7em;">
+			    Could the observed result be considered <span class="info">statistically significant</span>?
+			    <br>
+			    Is our result unlikely to happen by <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">random chance</span>?
+			  </p>
+			</section>
+
+			<section data-transition="slide-in">
+			  <h3>Can dolphins communicate?</h3>
+			  <p class="push-right" style="font-size: 0.6em; margin-top:0;">Dr. Jarvins Bastian's experiment (1964)</p>
+			  <div class="col-100">
+			    <svg width="85%" viewBox="0 0 584.8 360" style="margin-top: 0;">
+			      <use xlink:href="lib/img/doris-buzz.svg#dolphins"></use>
+			      <use class="fragment" xlink:href="lib/img/doris-buzz.svg#curtain"></use>
+			    </svg>
+			  </div>
+			  <aside class="notes">
+			    A famous study from the 1960s explored whether two dolphins (Doris and Buzz) could
+			    communicate abstract ideas. Researchers believed dolphins could communicate simple
+			    feelings like “Watch out!” or “I’m happy,” but Dr. Jarvis Bastian wanted to explore
+			    whether they could also communicate in a more abstract way, much like humans do.
+			    To investigate this, Dr. Bastian spent many years training Doris and Buzz and exploring
+			    the limits of their communicative ability. <br>
+			    During a training period lasting many months, Dr. Bastian placed buttons underwater on
+			    each end of a large pool—two buttons for Doris and two buttons for Buzz. He then used an
+			    old automobile headlight as his signal. When he turned on the headlight and let it shine
+			    steadily, he intended for this signal to mean “push the button on the right.”
+			    When he let the headlight blink on and off, this was meant as a signal to “push the button
+			    on the left.” Every time the dolphins pushed the correct button, Dr. Bastian gave the dolphins
+			    a reward of some fish. Over time Doris and Buzz caught on and could earn their fish reward
+			    every time.
+			  </aside>
+			</section>
+
+			<section data-transition="none">
+			  <h3>Can dolphins communicate?</h3>
+			  <p style="font-size: 0.7em;">
+			    In one phase of the study, Dr. Bastian had Buzz attempt to push the correct button
+			    a total of 16 different times. <br>
+			    <span style="font-size: 0.9em;">
+			      => Buzz pushed the correct button
+			      <span class="warning">15 out of 16 times</span>. <span class="fragment info" data-fragment-index=1>($p(correct) = 15/16 = 0.938$)</span>
+			    </span>
+			  </p>
+			  <p class="l-sided border-warning fragment" data-fragment-index=2>
+			    <span class="u">Think about it:</span><br>
+			    Based on these data, do you think Buzz somehow knew which button to push? <br>
+			    Is 15 out of 16 correct pushes convincing to you? <br>
+			    Or do you think that Buzz could have just been guessing? <br>
+			  </p>
+			</section>
+
+			<section data-transition="slide-out">
+			  <h3>Can dolphins communicate?</h3>
+			  <div class="row" style="margin-top: 0;">
+			    <div class="col-33">
+			      <p></p>
+			    </div>
+			    <div class="col-33" style="font-size: 0.8em;">
+			      2 possible explanations
+			    </div>
+			    <div class="col-33">
+			      <p></p>
+			    </div>
+			  </div>
+			  <div class="row" style="margin-top: 0;">
+			    <div class="col-50">
+			      <p style="font-size: 0.65em;" class="framed border-info">
+			        Buzz is <span class="info">just guessing</span> (his probability of choosing the correct button is 0.50) and he
+			        <span class="info">got really lucky</span> in these 16 attempts.
+			        <span class="info">$\pi=0.5$</span>
+			      </p>
+			    </div>
+			    <div class="col-50">
+			      <p style="font-size: 0.65em;" class="framed border-halt fragment" data-fragment-index=1>
+			        Buzz is <span class="halt">doing something other than just guessing</span> (his probability of choosing the correct button is more than 0.50).
+			        <span class="halt">$\pi>0.5$</span>
+			      </p>
+			    </div>
+			  </div>
+			  <p style="margin-top: 0;" class="fragment" data-fragment-index=2>
+			    The key question here is to determine
+			    <span class="info">what results would occur in
+			    the long-run under the assumption that Buzz is
+			    just guessing.</span>
+			  </p>
+			  <div class="row" style="margin-top: 0;">
+			    <div class="col-10">
+			      <p style="margin-top: 0;" class="push-right fragment" data-fragment-index=3>
+			        =>
+			      </p>
+			    </div>
+			    <div class="col-75">
+			      <p style="margin-top: 0;" class="fragment" data-fragment-index=3>
+			      We call this assumption of random guess by Buzz the
+			      <span style="background-color: #5bc0de;
+			  color: black;">null hypothesis</span> (or null model)
+			      </p>
+			    </div>
+			  </div>
+			  <p class="fragment" data-fragment-index=4>How could we decide between our 2 hypotheses?</p>
+			</section>
+
+			<section>
+			  <h3>The chance model</h3>
+			  <p class="l-sided border-info">
+			    Statisticians often employ <span class="warning">chance models</span> to generate data
+			    from random processes to help them investigate such processes.
+			  </p>
+			  <div class="row">
+			    <div class="col-50 fragment" data-fragment-index=1>
+			      <p>
+			      What probability do we need to simulate to test our hypothesis?
+			      <br>
+			      <span class="fragment" data-fragment-index=2>
+			        => <span class="info">50/50 chance model</span>
+			      </span>
+			      </p>
+			      <p>
+			      What would be a good simulation model for Buzz & Doris communication experiment?
+			      <br>
+			      <span class="fragment" data-fragment-index=3>
+			        => <span class="info">coin flip</span>
+			      </span>
+			      </p>
+			    </div>
+			    <div class="col-50">
+			      <table style="font-size: 0.8em;" class="fragment" data-fragment-index=3>
+			        <thead>
+			          <tr>
+			            <th bgcolor="#636c72">Model</th>
+			            <th bgcolor="#636c72">Experiment</th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			          <tr>
+			            <td>Deck of Cards</td>
+			            <td>Button choice by Buzz</td>
+			          </tr>
+			          <tr>
+			            <td class="fragment highlight-cur-bg-calm" data-fragment-index=4>Black Card</td>
+			            <td class="fragment highlight-cur-bg-calm" data-fragment-index=4>Correct button</td>
+			          </tr>
+			          <tr>
+			            <td>Red Card</td>
+			            <td>Wrong button</td>
+			          </tr>
+			          <tr>
+			            <td class="fragment highlight-cur-bg-calm" data-fragment-index=5 style="vertical-align: middle;">Chance of Heart or Diamond</td>
+			            <td class="fragment highlight-cur-bg-calm" data-fragment-index=5>Probability of Buzz <br>pressing the correct button</td>
+			          </tr>
+			          <tr>
+			            <td class="fragment highlight-bg-calm" data-fragment-index=6>One Deck of <br>16 cards pulled</td>
+			            <td class="fragment highlight-bg-calm" data-fragment-index=6>One set of <br>16 experiments</td>
+			          </tr>
+			        </tbody>
+			      </table>
+			    </div>
+			  </div>
+			  <div class="left fragment success" data-fragment-index=7>
+			  Let's simulate it!
+			  </div>
+
+			  <aside class="notes">
+			  	First simulate with cards!
+			  </aside>
+			</section>
+
+      <!-- ??? -->
+      <section data-background-color="#FFF">
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h2>Simulating with Husbandry</h2>
+      	</div>
+      
+      	<!-- top row -->
+      	<div class="fig-container" data-file="lib/interactive/mice/mice.html"></div>
+      
+      	
+      	<!-- notes -->
+      	<aside class="notes">
+      		
+      	</aside>
+      
+      </section>
+      
+      <section>
+			  <h3>Long-run pattern a single coin-flip</h3>
+			  <p style="margin-top: 0; margin-bottom:0;font-size: 0.6em;">
+			    We really need to simulate this random selection process hundreds, preferably
+			    <span class="info">thousands of times</span> to obtain the
+			    <span class="warning">long-run pattern</span>
+			    of our simulation.
+			  </p>
+			  <div class="row">
+			    <div class="col-100">
+			      <img class="unbordered flat" src="lib/img/simulation-long-run-coinflip.svg", width=100%>
+			    </div>
+			  </div>
+			  <aside class="notes">
+			    Eventually, heads and tails even out.
+			  </aside>
+			</section>
+
+			<section>
+			  <h3>Long-run pattern for 16 coin-flips</h3>
+			  <p style="margin-top: 0; font-size: 0.6em;">
+			    This would be very tedious and time-consuming with coins to obtain the
+			    long-run distribution of the number of heads for 16 coin-flips, so we'll turn
+			    to technology to simulate it.
+			  </p>
+			  <div class="row">
+			    <div class="col-30">
+			      <p style="font-size: 0.55em; margin-top: 0;" class="sided fragment border-warning" data-fragment-index=5>
+			        How many of these 1000 simulations produced 15 or more correct choices by Buzz? <br>
+			        <span style="margin-left: 0.8em;" class="fragment warning" data-fragment-index=6>1 out of 1000</span>
+			      </p>
+			      <p style="font-size: 0.55em; margin-top: 0;" class="sided fragment border-info">
+			        What is the corresponding proportion of simulations that produced such an extreme result? <br>
+			        <span style="margin-left: 0.8em;" class="fragment info">$\frac{1}{1000}=0.001$</span>
+			      </p>
+			    </div>
+			    <div class="col-70">
+			      <svg width="100%" viewBox="0 0 440 288" style="margin-top: 0;">
+			        <use class="fragment" data-fragment-index=3 xlink:href="lib/img/simulation-graph-coinflip.svg#axes_4"></use>
+			        <use class="fragment" data-fragment-index=2 xlink:href="lib/img/simulation-graph-coinflip.svg#axes_3"></use>
+			        <use class="fragment" data-fragment-index=1 xlink:href="lib/img/simulation-graph-coinflip.svg#axes_2"></use>
+			        <use xlink:href="lib/img/simulation-graph-coinflip.svg#axes_1"></use>
+			        <use class="fragment" data-fragment-index=4 xlink:href="lib/img/simulation-graph-coinflip.svg#axes_6"></use>
+			        <use class="fragment" data-fragment-index=6 xlink:href="lib/img/simulation-graph-coinflip.svg#axes_5"></use>
+			      </svg>
+			    </div>
+			  </div>
+			  <aside class="notes">
+			    1000 is a number large enough to give us a fairly accurate sense
+			    of the long-run behavior for the number of heads in 16 tosses.
+			  </aside>
+			</section>
+
+			<section>
+			  <h3>p-value</h3>
+			  <p class="quoted" style="margin-top: 0;">
+			    A p-value is the <span class="warning">probability</span> of obtaining a result
+			    <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">as extreme as</span> the one observed,
+			    assuming that the
+			    <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;"> null hypothesis is true</span>.
+			  </p>
+			  <p class="fragment" style="margin-top: 0; margin-bottom: 0;">
+			    A <span class="u em">small</span> p-value casts doubt on the null hypothesis/model
+			    used to perform the calculation (in this case, that Buzz was just guessing which button to push).
+			  </p>
+
+			  <div class="row fragment" style="margin-top: 0;">
+			    <div class="col-15" style="margin-top: 4%;">
+			      <p style="text-align: right;">A p-value</p>
+			    </div>
+			    <div class="col-15" style="margin-top: 0;">
+			      <p style="margin-top: 0;">
+			        <span class="success" style="margin-left: 0.2em;">$\leq{0.10}$</span> <br>
+			        <span class="info" style="margin-left: 0.2em;">$\leq{0.05}$</span> <br>
+			        <span class="warning" style="margin-left: 0.2em;">$\leq{0.01}$</span> <br>
+			        <span class="halt" style="margin-left: 0.2em;">$\leq{0.001}$</span>
+			      </p>
+			    </div>
+			    <div class="col-20" style="margin-left:0;">
+			      <p class="l-sided border-info">is generally considered <br>to be</p>
+			    </div>
+			    <div class="col-30" style="margin-top: 0;">
+			      <p style="margin-top: 0;">
+			        <span class="success" style="margin-left: 0.2em;">some</span> <br>
+			        <span class="info" style="margin-left: 0.2em;">fairly strong</span> <br>
+			        <span class="warning" style="margin-left: 0.2em;">very strong</span> <br>
+			        <span class="halt" style="margin-left: 0.2em;">extremely strong</span>
+			      </p>
+			    </div>
+			    <div class="col-20">
+			      <p class="r-sided border-info">
+			        <span class="u">evidence</span> against the null
+			      </p>
+			    </div>
+			  </div>
+			  <p class="fragment framed border-halt" style="margin-top: 0; font-size: 0.6em;">The results ($\textrm{p-value}=1/1000=0.001$) mean our evidence is strong enough to be considered
+			  <span class="warning">statistically significant</span>.
+			  That is, we don't think our study result (15 out of 16 correct)
+			  happened by chance alone, but rather, something other than
+			  "random chance" was at play.</p>
+			</section>
+
+			<section data-transition="slide-in">
+			  <h3>Follow up study</h3>
+			  <p class="sided" style="margin-top: 0;">One goal of statistical significance testing is to rule out random
+			  chance as <span class="warning">plausible</span> (believable)
+			  explanation for what we have observed. We still need to worry
+			  about <span class="em u">how well the study was conducted</span>.</p>
+			  <p style="font-size: 0.6em; margin-top: 0;">
+			    <span style="margin-left: 0.7em;">
+			      - Could Buzz see the light through the curtain?
+			    </span>
+			    <br>
+			    <span style="margin-left: 0.7em;">
+			      - Could Buzz have detected a pattern in the succession of light signal?
+			    </span>
+			    <br>
+			    <span style="margin-left: 0.7em;">
+			      - We haven't completely rule out random chance (but probability is very small)
+			    </span>
+			  </p>
+			</section>
+
+			<section data-transition="slide-out">
+			  <h3>Follow up study</h3>
+			  <p class="sided" style="font-size: 0.6em">
+			    One option that Dr. Bastian pursued was to redo
+			    the study except
+			    now he <span class="warning">replaced the curtain with a wooden barrier</span> between the two
+			    sides of the tank in order to ensure more complete separation
+			    between Doris and Buzz.
+			  </p>
+			  <div class="row">
+			    <div class="col-65">
+			      <svg width="100%" viewBox="0 0 584.8 360" style="margin-top: 0;">
+			        <use xlink:href="lib/img/doris-buzz.svg#dolphins"></use>
+			        <use class="current-visible"
+			        xlink:href="lib/img/doris-buzz.svg#curtain"></use>
+			        <use class="fragment"
+			        xlink:href="lib/img/doris-buzz.svg#wood"></use>
+			      </svg>
+			    </div>
+			    <div class="col-35">
+			    <p class="fragment">=> In this case, Buzz pushed the correct button only
+			    <span class="info">16 out of 28 times</span>.</p>
+			    </div>
+			  </div>
+			</section>
+
+			<section data-transition="slide-in">
+			  <h3>Follow up study</h3>
+			  <p class="sided" style="margin-top: 0;">
+			    Buzz' successes: 16 out of 28 <span class="info fragment">
+			    ($\overset{\hat{}}{p} = \frac{16}{28} = 0.57$)</span>
+			  </p>
+			  <p class="sided border-halt fragment" style="margin-top: 0;">
+			    <span class="u em">Simulations:</span> <br>
+			    This time we need to do repetitions of
+			    <span class="halt">28</span> coin flips, not just 16.
+			  </p>
+			  <div class="row">
+			    <div class="col-66">
+			      <svg class="fragment" width="100%" viewBox="0 0 440 288" style="margin-top: 0;">
+			        <use xlink:href="lib/img/simulation-graph-coinflip2.svg#axes_1"></use>
+			      </svg>
+			    </div>
+			  </div>
+			</section>
+
+			<section data-transition="none">
+			  <h3>Follow up study</h3>
+			  <p class="sided" style="margin-top: 0;">
+			    Buzz' successes: 16 out of 28 <span class="info">
+			    ($\overset{\hat{}}{p} = \frac{16}{28} = 0.57$)</span>
+			  </p>
+			  <p class="sided border-halt" style="margin-top: 0;">
+			    <span class="u em">Simulations:</span> <br>
+			    This time we need to do repetitions of
+			    <span class="halt">28</span> coin flips, not just 16.
+			  </p>
+			  <div class="row">
+			    <div class="col-66">
+			      <svg width="100%" viewBox="0 0 440 288" style="margin-top: 0;">
+			        <use xlink:href="lib/img/simulation-graph-coinflip2-prop.svg#axes_1"></use>
+			        <use class="fragment" xlink:href="lib/img/simulation-graph-coinflip2-prop.svg#axes_2"></use>
+			      </svg>
+			    </div>
+			    <div class="col-33">
+			      <p class="fragment">
+			        p-value: <br> <br>
+			        $\frac{2795}{10000}=0.280$
+			        <br><br>
+			        <span class="fragment">
+			        Not enough evidence that the "by-chance-alone" model
+			        is wrong.
+			        </span>
+			      </p>
+			    </div>
+			</section>
+
+			<section data-transition="slide-out">
+			  <h3>Follow up study</h3>
+			  <p class="framed border-info" style="margin-bottom: 0; font-size: 0.65em;">
+			  In fact, Dr. Bastian soon discovered that in this set of
+			  attempts the equipment malfunctioned and the food dispenser
+			  for Doris did not operate and so Doris was not receiving
+			  her fish rewards during the study.</p>
+			  <div class="row">
+			    <div class="col-5">
+			      <p>=></p>
+			    </div>
+			    <div class="col-80">
+			      <p style="font-size: 0.65em;">It is not so surprising that removing the incentive
+			      hindered the communication between the dolphins and we
+			      cannot refute that Buzz was not guessing.</p>
+			    </div>
+			  </div>
+			  <p style="font-size: 0.65em;">Dr. Bastian fixed the equipment and ran the study again.
+			  This time he found convincing evidence that Buzz was not
+			  guessing.</p>
+			  <p class="fragment warning">
+			    <span class="em u">Conclusion/Generalization:</span><br>
+			    Dolphins can communicate abstract concepts!
+			  </p>
+			</section>
+
+			<section>
+			  <h3>Resampling p-value</h3>
+			  <div class="row">
+			    <div class="col-55">
+			      <p style="margin-top: 0; font-size: 0.55em;">
+			        1- Collect your sample and calculate your statistic
+			        of interest (ex: <span class="warning">$\overset{\hat{}}{p}=\frac{17}{24}=0.708$</span>)
+			      </p>
+			      <p class="fragment" data-fragment-index=1 style="margin-top: 0; font-size: 0.55em;">
+			        2- State your null and alternative hypothesis <br>
+			        (ex: <span class="warning">H$_0$ $\pi=0.5$</span> / <span class="warning">H$_a$ $\pi>0.5$</span>)
+			      </p>
+			      <p class="fragment" data-fragment-index=2 style="margin-top: 0; font-size: 0.55em;">
+			        3- Simulate your null hypothesis distribution.
+			        (it should be <span class="warning">centered at the stated H$_0$ parameter of interest</span>)
+			      </p>
+			      <p class="fragment" data-fragment-index=3 style="margin-top: 0; font-size: 0.55em;">
+			        4- Calculate the proportion of samples that resulted in cases at least as extreme
+			        as your initial observed statistic. This is your p-value. <br>
+			        (ex: <span class="warning">$\textrm{p-value}=\frac{289}{10000}=0.029$</span>)
+			      </p>
+			      <p class="fragment" data-fragment-index=4 style="margin-top: 0; font-size: 0.55em;">
+			        5- Conclude about whether your have evidence <span class="warning">in favor</span>
+			        or <span class="warning">against</span> the null hypothesis.
+			      </p>
+			    </div>
+			    <div class="col-45">
+			      <svg width="100%" viewBox="34 0 375 285" style="margin-top: 0;">
+			        <use class="fragment" data-fragment-index=2 xlink:href="lib/img/simulation-graph-two-tails.svg#axes_1"></use>
+			        <use class="fragment" data-fragment-index=3 xlink:href="lib/img/simulation-graph-two-tails.svg#axes_4"></use>
+			      </svg>
+			    </div>
+			  </div>
+			</section>
+
+
+			<section data-transition="none">
+			  <h3>Theory: Central limit theorem</h3>
+			  <p style="margin-top: 0; font-size: 0.6em;">
+			    In the early 1900s (and even earlier), computers weren't available to
+			    do simulations, and as peole didn't want to sit around and flip coins
+			    all day long, they focused their attention on mathematical and
+			    probabilistic rules and theories that could predict what would happen
+			    if someone did simulate.
+			  </p>
+			  <p <p style="margin-top: 0; font-size: 0.65em;">
+			    They proved the following result:
+			  </p>
+			  <p class="sided">
+			    <span class="u em info">Central limit theorem:</span><br>
+			    If the sample size (n) is <span class="u">large enough</span>, the distribution of sample
+			    proportion will be bell-shaped (or normal), centered at the long-run
+			    proportion, with a standard deviation of
+			    <span class="warning">$\sqrt{\frac{\pi(1-\pi)}{n}}$</span>
+			  </p>
+			  <p class="fragment" style="font-size: 0.6em;">
+			    <span class="u em">Validity conditions:</span><br>
+			    The normal approximation can be thought of as a prediction of what would occur if
+			    simulation was done. Many times this prediction is valid, but
+			    <span class="halt">not always</span>. The prediction is considered valid when there
+			    are at least 10 successes and 10 failures in the sample.
+			  </p>
+			</section>
+
+
+			<section data-transition="none">
+			  <h3>Theory: Binomial distribution</h3>
+			  <div class="row">
+			    <div class="col-30">
+			      <p class="framed border-light" style="font-size: 0.65em; margin-bottom: 0;">
+			        <span class="u em">Note:</span><br>
+			        Mathematically, it is possible to calculate the exact probability of getting $\geq16$ heads in 28 tosses using the binomial distribution.
+			      <br>
+			      <span class="warning">p = 0.2858</span>
+			    </div>
+			    <div class="col-70">
+			      <img src="lib/img/binomial.svg" class="unbordered flat" width=100%>
+			    </div>
+			  </div>
+			</section>
+
+			<section>
+			  <h3>Hypothesis testing for one proportion</h3>
+			  <div class="row" style="margin-top: 0;">
+			    <div class="col-50">
+			      <p></p>
+			    </div>
+			    <div class="col-50">
+			      <p class="fragment danger" data-fragment-index=6 style="text-align: center;">
+			        Lots of assumptions &
+			        required validity conditions!
+			      </p>
+			    </div>
+			  </div>
+			  <table class = "small" style="font-size: 0.9em; margin-top: 0;">
+			    <thead class="table-vert">
+			      <tr>
+			        <th bgcolor="#636c72" style="border-left: none;">
+			          Resampling simulation
+			        </th>
+			        <th bgcolor="#636c72" style="border-right: none;">
+			          Normal approximation (Z-test)
+			        </th>
+			      </tr>
+			    </thead>
+			    <tbody class="table-vert">
+			      <tr>
+			        <td colspan="2" style="border-left: none; border-right: none;"
+			          class="fragment" data-fragment-index=1>
+			          Collect your sample and calculate your statistic of interest
+			          (<span class="info">$\hat{p}$</span>)
+			        </td>
+			      </tr>
+			      <tr>
+			        <td colspan="2" style="border-left: none; border-right: none;"
+			          class="fragment" data-fragment-index=2>
+			          State your null (<span class="info">H$_0$</span>) and
+			          alternative (<span class="info">H$_a$</span>) hypotheses
+			        </td>
+			      </tr>
+			      <tr>
+			        <td style="border-left: none;" class="fragment" data-fragment-index=3>
+			          <span class="info">Directly simulate</span> your null hypothesis distribution
+			        (this results in a resampling distribution <span class="warning">centered at the stated H$_0$ proportion $\pi$</span>)
+			        </td>
+			        <td style="border-right: none;" class="fragment" data-fragment-index=3>
+			            <div class="fragment highlight-bckg-red" data-fragment-index=6>
+			            Consider the normal distribution <span class="warning">centered at the long-run
+			            H$_0$ proportion $\pi$</span>, with a standard deviation of
+			            <span class="warning">$\sqrt{\frac{\pi(1-\pi)}{n}}$</div>
+			          </span>
+			        </td>
+			      </tr>
+			      <tr>
+			        <td style="border-left: none;" class="fragment" data-fragment-index=4>
+			          Calculate the proportion of resampling samples that resulted in cases at least as extreme
+			          as your initial observed statistic. <br> This is your p-value
+			        </td>
+			        <td style="border-right: none;" class="fragment" data-fragment-index=4>
+			          Determine the proportion of area under the curve that is at least as extreme
+			        as your initial observed statistic. <br> This is your p-value
+			        </td>
+			      </tr>
+			      <tr>
+			        <td colspan="2" style="border-left: none; border-right: none;"
+			          class="fragment" data-fragment-index=5>
+			          Conclude about whether your have evidence <span class="warning">in favor</span>
+			          or <span class="warning">against</span> the null hypothesis
+			        </td>
+			      </tr>
+			    </tbody>
+			    </table>
+			</section>
+
       <!-- #########################     CONTENT END     #########################-->
     </div>
     

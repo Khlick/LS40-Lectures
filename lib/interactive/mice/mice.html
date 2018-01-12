@@ -1,0 +1,584 @@
+<html>
+<head ></head>
+<body>
+    <!-- load in D3 and Chart constructor scripts -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script>
+        var d4 = d3;
+        window.d3 = null;
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script src="lib/mouseplots.js"></script>
+    <script src="lib/mouseLineup.js"></script>
+    <script src="lib/hist.js"></script>
+
+    <style>
+        .axis path, .tick line {
+            fill: none;
+            stroke: #333;
+        }
+        .y.axis path, .y.axis line {
+            display: none;
+        }
+        .y.axis text {
+            display: none;
+        }
+        .bar rect {
+            stroke-width:3px;
+            stroke: #777;
+        }
+        .row {
+          margin: 0.15em 0em; 
+        }
+
+        .row:before,
+        .row:after {
+          content: "";
+          display: table;
+          clear: both; 
+        }
+
+        .row *[class*='col-'] {
+          box-sizing: border-box;
+          position: relative;
+          left: 0;
+          float: left;
+          min-height: 1px;
+          padding: 0em 0.15em; 
+        }
+        
+        .col-05 {
+          width: 0.5%; }
+
+        .col-1 {
+          width: 1%; }
+
+        .col-2 {
+          width: 2%; }
+
+        .col-3 {
+          width: 3%; }
+
+        .col-4 {
+          width: 4%; }
+
+        .col-5 {
+          width: 5%; }
+
+        .col-6 {
+          width: 6%; }
+
+        .col-7 {
+          width: 7%; }
+
+        .col-8 {
+          width: 8%; }
+
+        .col-9 {
+          width: 9%; }
+
+        .col-10 {
+          width: 10%; }
+
+        .col-11 {
+          width: 11%; }
+
+        .col-12 {
+          width: 12%; }
+
+        .col-13 {
+          width: 13%; }
+
+        .col-14 {
+          width: 14%; }
+
+        .col-15 {
+          width: 15%; }
+
+        .col-16 {
+          width: 16%; }
+
+        .col-17 {
+          width: 17%; }
+
+        .col-18 {
+          width: 18%; }
+
+        .col-19 {
+          width: 19%; }
+
+        .col-20 {
+          width: 20%; }
+
+        .col-21 {
+          width: 21%; }
+
+        .col-22 {
+          width: 22%; }
+
+        .col-23 {
+          width: 23%; }
+
+        .col-24 {
+          width: 24%; }
+
+        .col-25 {
+          width: 25%; }
+
+        .col-26 {
+          width: 26%; }
+
+        .col-27 {
+          width: 27%; }
+
+        .col-28 {
+          width: 28%; }
+
+        .col-29 {
+          width: 29%; }
+
+        .col-30 {
+          width: 30%; }
+
+        .col-31 {
+          width: 31%; }
+
+        .col-32 {
+          width: 32%; }
+
+        .col-33 {
+          width: 33.33%; }
+
+        .col-34 {
+          width: 34%; }
+
+        .col-35 {
+          width: 35%; }
+
+        .col-36 {
+          width: 36%; }
+
+        .col-37 {
+          width: 37%; }
+
+        .col-38 {
+          width: 38%; }
+
+        .col-39 {
+          width: 39%; }
+
+        .col-40 {
+          width: 40%; }
+
+        .col-41 {
+          width: 41%; }
+
+        .col-42 {
+          width: 42%; }
+
+        .col-43 {
+          width: 43%; }
+
+        .col-44 {
+          width: 44%; }
+
+        .col-45 {
+          width: 45%; }
+
+        .col-46 {
+          width: 46%; }
+
+        .col-47 {
+          width: 47%; }
+
+        .col-48 {
+          width: 48%; }
+
+        .col-49 {
+          width: 49%; }
+
+        .col-50 {
+          width: 50%; }
+
+        .col-51 {
+          width: 51%; }
+
+        .col-52 {
+          width: 52%; }
+
+        .col-53 {
+          width: 53%; }
+
+        .col-54 {
+          width: 54%; }
+
+        .col-55 {
+          width: 55%; }
+
+        .col-56 {
+          width: 56%; }
+
+        .col-57 {
+          width: 57%; }
+
+        .col-58 {
+          width: 58%; }
+
+        .col-59 {
+          width: 59%; }
+
+        .col-60 {
+          width: 60%; }
+
+        .col-61 {
+          width: 61%; }
+
+        .col-62 {
+          width: 62%; }
+
+        .col-63 {
+          width: 63%; }
+
+        .col-64 {
+          width: 64%; }
+
+        .col-65 {
+          width: 65%; }
+
+        .col-66 {
+          width: 66.66%; }
+
+        .col-67 {
+          width: 67%; }
+
+        .col-68 {
+          width: 68%; }
+
+        .col-69 {
+          width: 69%; }
+
+        .col-70 {
+          width: 70%; }
+
+        .col-71 {
+          width: 71%; }
+
+        .col-72 {
+          width: 72%; }
+
+        .col-73 {
+          width: 73%; }
+
+        .col-74 {
+          width: 74%; }
+
+        .col-75 {
+          width: 75%; }
+
+        .col-76 {
+          width: 76%; }
+
+        .col-77 {
+          width: 77%; }
+
+        .col-78 {
+          width: 78%; }
+
+        .col-79 {
+          width: 79%; }
+
+        .col-80 {
+          width: 80%; }
+
+        .col-81 {
+          width: 81%; }
+
+        .col-82 {
+          width: 82%; }
+
+        .col-83 {
+          width: 83%; }
+
+        .col-84 {
+          width: 84%; }
+
+        .col-85 {
+          width: 85%; }
+
+        .col-86 {
+          width: 86%; }
+
+        .col-87 {
+          width: 87%; }
+
+        .col-88 {
+          width: 88%; }
+
+        .col-89 {
+          width: 89%; }
+
+        .col-90 {
+          width: 90%; }
+
+        .col-91 {
+          width: 91%; }
+
+        .col-92 {
+          width: 92%; }
+
+        .col-93 {
+          width: 93%; }
+
+        .col-94 {
+          width: 94%; }
+
+        .col-95 {
+          width: 95%; }
+
+        .col-96 {
+          width: 96%; }
+
+        .col-97 {
+          width: 97%; }
+
+        .col-98 {
+          width: 98%; }
+
+        .col-99 {
+          width: 99%; }
+
+        .col-100 {
+          width: 100%; }
+
+        .strong {
+            font-weight: bold;
+        }
+
+        .btn {
+          background: #202020;
+          background-image: -webkit-linear-gradient(top, #202020, #001526);
+          background-image: -moz-linear-gradient(top, #202020, #001526);
+          background-image: -ms-linear-gradient(top, #202020, #001526);
+          background-image: -o-linear-gradient(top, #202020, #001526);
+          background-image: linear-gradient(to bottom, #202020, #001526);
+          -webkit-border-radius: 10;
+          -moz-border-radius: 10;
+          border-radius: 10px;
+          -webkit-box-shadow: 0px 1px 4px #666666;
+          -moz-box-shadow: 0px 1px 4px #666666;
+          box-shadow: 0px 1px 4px #666666;
+          color: #FFF8D0;
+          font-size: 16px;
+          padding: 6px 12px 6px 12px;
+          text-decoration: none;
+          max-width: 100%
+        }
+
+        .btn:hover {
+          background: #404040;
+          background-image: -webkit-linear-gradient(top, #404040, #003c69);
+          background-image: -moz-linear-gradient(top, #404040, #003c69);
+          background-image: -ms-linear-gradient(top, #404040, #003c69);
+          background-image: -o-linear-gradient(top, #404040, #003c69);
+          background-image: linear-gradient(to bottom, #404040, #003c69);
+          text-decoration: none;
+        }
+
+        .bCont {
+            padding: none;
+        }
+
+        .girls {
+            color: "#FF6699";
+        }
+        .boys {
+            color: "#66CCff";
+        }
+        .count-girls, .count-boys {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .theProb, .theNum {
+            font-weight: bold;
+        }
+        #probCheck {
+            max-width: 100%;
+        }
+    </style>
+
+    <div class="row" style="height: 100px;">
+        <div class="col-15 bCont"><button class='btn breedn'>Breed</button></div>
+        <div class="mouse col-85" style="max-height: 100%;"></div>
+    </div>
+    
+    <div class="row">
+        <!-- here's the div our chart will be injected into -->
+        <div class="col-50" style="max-height: 400px;"><div class="chart-container"></div></div>
+        <div class="col-50" style="max-height: 400px;"><div class="hist"></div></div>
+    </div>
+
+    <div class="row">
+        <div class="col-50">
+            <p class="strong">Number of <span class="girl">girls</span>: <span class="count-girls">0</span></p>
+            <p class="strong">Number of <span class="boy">boys</span>: <span class="count-boys">0</span></p>
+        </div>
+        <div class="col-10">
+            <input type="number" id="probCheck" value="4" onfocusout="doP()"><br>
+            <button class='btn reset'>reset plot</button>
+        </div>
+        <div class="col-40">
+            <p class="strong">
+                The probability of getting <span class="theNum">0</span> or more females out of 5 pups is: <span class="theProb">0</span>
+            </p>
+        </div>
+    </div>
+    
+    
+    
+
+    <script>
+        var nPups = 5;
+        function breedMice(nPups) {
+            var r=[];
+            while(r.length < nPups) {
+                r.push( Math.floor(Math.random() * 2) ? 'Female' : 'Male' );
+            }
+            return r
+        }
+
+        var Data = function(opts){
+            this.current = opts.current || [];
+            this.array = [opts.current] || [];
+            this.tracked = opts.tracked;
+            this.plotData = [];
+
+            if (!this.current.length) { return; }
+            this.updateCount();
+        }
+        Data.prototype.update = function(dat){
+            this.current = dat;
+            this.array.push(dat);
+            this.updateCount();
+        }
+        Data.prototype.reset = function(){
+            this.array.length = 0;
+            this.current.length = 0;
+        }
+        
+        Data.prototype.updateCount = function(){
+            this.count = this.doCount(this.current)
+            this.updatePlotData();
+            
+        }
+        Data.prototype.updatePlotData = function(){
+            if (!this.current.length){
+                return
+            }
+            var randomNumbers = d4.range(this.current.length).map(d4.randomBates(3));
+            var num, out = [];
+            for (num=0; num < this.current.length; num++){
+                this.plotData.push( {"group": this.current[num], "val": randomNumbers[num]} )
+            }
+        }
+        Data.prototype.getPlotData = function() {
+            if (!this.plotData.length){
+                return [{"group": [], "val": []}]
+            }
+            return this.plotData;
+        }
+        Data.prototype.getHistData = function(){
+            obj = this;
+            dat = []
+            if (this.current.length){
+                this.array.forEach(function(litter){
+                    dat.push(obj.doCount(litter));
+                })
+            }
+            
+            return dat
+        }
+        Data.prototype.doCount = function (dat){
+            return dat.reduce((a,b) => a+(b === this.tracked), 0);
+        }
+
+        // var data_for_plotting = generateData(["a", "b", "c"])
+        var data = new Data({
+            "current": [],
+            "tracked": "Female"
+        });
+        console.log(data.current)
+        // construct plots
+        var theLineup = new mouseLineup(
+                {
+                    'data': data.current,
+                    'element': document.querySelector('.mouse'),
+                    'marker': 'lib/mouse.svg',
+                    'colors': ["#FF6699", "#66CCff"],
+                    'possibleGroups': ["Female","Male"],
+                    'iconWidth': 40
+                }
+            );
+
+
+        var dot_plots = new Dot_Plots({
+            data: data.getPlotData(),
+            element: document.querySelector('.chart-container'),
+            bins: 30
+        })
+
+        var hist = new Hist({
+            element: document.querySelector('.hist'),
+            data: data.getHistData(),
+            bins: 6,
+            color: "#FF6699"
+        })
+
+        var updateIndex = 1
+        // change data on click to something randomly-generated
+        d4.selectAll('button.breedn').on('click', function(){
+            console.log(updateIndex)
+            data.update(breedMice(nPups));
+            theLineup.clearUse()
+            theLineup.setData(data.current)
+            dot_plots.setData(data.getPlotData())
+            hist.setData(data.getHistData())
+            doP();
+            updateIndex++
+        });
+
+        d4.select('button.reset').on('click', function(){
+            updateIndex = 1;
+            theLineup.clearUse();
+            d4.select(".chart-container").select("svg").remove();
+            d4.select(".hist").select("svg").remove();
+            theLineup.setData(data.current);
+            dot_plots.setData(data.getPlotData());
+            hist.setData(data.getHistData())
+            doP();
+        });
+
+        var doP = function(){
+            var len = data.array.length;
+            var prob = 0;
+            var checkVal = document.getElementById('probCheck');
+            checkVal = checkVal.value;
+            console.log("check",checkVal)
+            counts = data.getHistData();
+            counts.forEach(function(a){
+                prob += Number(a >= Number(checkVal));
+            });
+            prob /= (0.00+len);
+            console.log("counts",counts);
+            console.log("prob",prob);
+            d4.selectAll('.theProb').text(prob.toFixed(4).toString());
+            d4.selectAll('.theNum').text(checkVal);
+        }
+
+        doP();
+        // redraw chart on each resize
+        d4.select(window).on('resize', function(){
+            dot_plots.resize();
+        });
+    </script>
+</body>
+</html>
