@@ -27,6 +27,14 @@
             stroke-width:3px;
             stroke: #777;
         }
+        .hist-bar rect {
+          fill: steelblue;
+        }
+
+        .hist-bar text {
+          fill: #fff;
+          font: 10px sans-serif;
+        }
         .row {
           margin: 0.15em 0em; 
         }
@@ -413,8 +421,8 @@
     
     <div class="row">
         <!-- here's the div our chart will be injected into -->
-        <div class="col-50" style="max-height: 400px;"><div class="chart-container"></div></div>
-        <div class="col-50" style="max-height: 400px;"><div class="hist"></div></div>
+        <div class="col-50" style="max-height: 600px;"><div class="chart-container"></div></div>
+        <div class="col-50" style="max-height: 600px;"><div class="hist"></div></div>
     </div>
 
     <div class="row">
@@ -437,8 +445,28 @@
     
 
     <script>
-        var nPups = 5;
-        function breedMice(nPups) {
+        //CONSTANTS
+        var NPUPS = 12;
+
+        // Functions 
+        var doP = function(){
+            var len = data.array.length;
+            var prob = 0;
+            var checkVal = document.getElementById('probCheck');
+            checkVal = checkVal.value;
+            //console.log("check",checkVal)
+            counts = data.getHistData();
+            counts.forEach(function(a){
+                prob += Number(a >= Number(checkVal));
+            });
+            prob /= (0.00+len);
+            //console.log("counts",counts);
+            //console.log("prob",prob);
+            d4.selectAll('.theProb').text(prob.toFixed(4).toString());
+            d4.selectAll('.theNum').text(checkVal);
+        }
+
+        var breedMice = function(nPups) {
             var r=[];
             while(r.length < nPups) {
                 r.push( Math.floor(Math.random() * 2) ? 'Female' : 'Male' );
@@ -446,6 +474,7 @@
             return r
         }
 
+        //Define a data object
         var Data = function(opts){
             this.current = opts.current || [];
             this.array = [opts.current] || [];
@@ -501,43 +530,46 @@
             return dat.reduce((a,b) => a+(b === this.tracked), 0);
         }
 
-        // var data_for_plotting = generateData(["a", "b", "c"])
+        // SETUP INITIAL DATA -------------------------------------|
         var data = new Data({
-            "current": [],
+            "current": breedMice(NPUPS),
             "tracked": "Female"
         });
-        console.log(data.current)
+        
         // construct plots
         var theLineup = new mouseLineup(
-                {
-                    'data': data.current,
-                    'element': document.querySelector('.mouse'),
-                    'marker': 'lib/mouse.svg',
-                    'colors': ["#FF6699", "#66CCff"],
-                    'possibleGroups': ["Female","Male"],
-                    'iconWidth': 40
-                }
-            );
+            {
+                'data': data.current,
+                'element': document.querySelector('.mouse'),
+                'marker': 'lib/mouse.svg',
+                'colors': ["#FF6699", "#66CCff"],
+                'possibleGroups': ["Female","Male"],
+                'iconWidth': 40
+            }
+        );
 
 
         var dot_plots = new Dot_Plots({
             data: data.getPlotData(),
             element: document.querySelector('.chart-container'),
             bins: 30
-        })
+        });
 
         var hist = new Hist({
             element: document.querySelector('.hist'),
             data: data.getHistData(),
-            bins: 6,
-            color: "#FF6699"
-        })
+            bins: NPUPS+2,
+            bounds: [0,16]
+        });
 
         var updateIndex = 1
+
+        
+        // CALLBACKS --------------------------------------------|
         // change data on click to something randomly-generated
         d4.selectAll('button.breedn').on('click', function(){
             console.log(updateIndex)
-            data.update(breedMice(nPups));
+            data.update(breedMice(NPUPS));
             theLineup.clearUse()
             theLineup.setData(data.current)
             dot_plots.setData(data.getPlotData())
@@ -557,28 +589,13 @@
             doP();
         });
 
-        var doP = function(){
-            var len = data.array.length;
-            var prob = 0;
-            var checkVal = document.getElementById('probCheck');
-            checkVal = checkVal.value;
-            console.log("check",checkVal)
-            counts = data.getHistData();
-            counts.forEach(function(a){
-                prob += Number(a >= Number(checkVal));
-            });
-            prob /= (0.00+len);
-            console.log("counts",counts);
-            console.log("prob",prob);
-            d4.selectAll('.theProb').text(prob.toFixed(4).toString());
-            d4.selectAll('.theNum').text(checkVal);
-        }
-
-        doP();
         // redraw chart on each resize
         d4.select(window).on('resize', function(){
             dot_plots.resize();
         });
+
+        //Initialize some stuff in the DOM
+        doP();
     </script>
 </body>
 </html>
