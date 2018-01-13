@@ -8,33 +8,12 @@
         window.d3 = null;
     </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script src="https://d3js.org/d3-timer.v1.min.js"></script>
     <script src="lib/mouseplots.js"></script>
     <script src="lib/mouselineup.js"></script>
     <script src="lib/hist.js"></script>
 
     <style>
-        .axis path, .tick line {
-            fill: none;
-            stroke: #333;
-        }
-        .y.axis path, .y.axis line {
-            display: none;
-        }
-        .y.axis text {
-            display: none;
-        }
-        .bar rect {
-            stroke-width:3px;
-            stroke: #777;
-        }
-        .hist-bar rect {
-          fill: steelblue;
-        }
-
-        .hist-bar text {
-          fill: #fff;
-          font: 10px sans-serif;
-        }
         .row {
           margin: 0.15em 0em; 
         }
@@ -360,6 +339,7 @@
 
         .strong {
             font-weight: bold;
+            font-size: 1.1em;
         }
 
         .btn {
@@ -391,53 +371,97 @@
           background-image: linear-gradient(to bottom, #404040, #003c69);
           text-decoration: none;
         }
+        .axis path, .tick line {
+            fill: none;
+            stroke: #666;
+        }
+        .y.axis path, .y.axis line {
+            display: none;
+        }
+        .y.axis text {
+            display: none;
+        }
+        .hist-axis text {
+            font: 16px sans-serif;
+        }
+        .bar rect {
+            stroke-width:3px;
+            stroke: #777;
+        }
+        .hist-bar rect {
+          fill: #FF6699;
+        }
 
+        .hist-bar text {
+          fill: #202020;
+          font: 12px sans-serif;
+        }
         .bCont {
             padding: none;
         }
 
         .girls {
-            color: "#FF6699";
+            color: #FF6699;
         }
         .boys {
-            color: "#66CCff";
+            color: #66CCff;
         }
-        .count-girls, .count-boys {
+        .display-count {
+            display: inline-block;
+            text-align: center;
+            width: 60px;
+        }
+        #count-girls, #count-boys {
             font-size: 32px;
             font-weight: bold;
         }
         .theProb, .theNum {
             font-weight: bold;
         }
-        #probCheck {
-            max-width: 100%;
+        .pupfield{
+            max-width: 40px;
+        }
+        .probfield {
+            max-width: 40px;
+        }
+        .no-margin {
+            margin: none !important;
+        }
+        .bigger {
+            font-size: 20px;
+            white-space: nowrap;
         }
     </style>
 
     <div class="row" style="height: 100px;">
-        <div class="col-15 bCont"><button class='btn breedn'>Breed</button></div>
-        <div class="mouse col-85" style="max-height: 100%;"></div>
+        <div class="col-20 bCont no-margin">
+            <button class='btn reset'>Reset</button>
+            <button class='btn breedn'>Breed</button>
+            <input class='pupfield' type="number" id="npups" value="16" step="1" onchange="pupChange()">
+            <span id="count-girls" class="display-count girls">0</span>
+            <span id="count-boys" class="display-count boys">0</span>
+        </div>
+        <div id="mouse" class="col-80 no-margin" style="max-height: 100%;"></div>
     </div>
     
     <div class="row">
         <!-- here's the div our chart will be injected into -->
-        <div class="col-50" style="max-height: 600px;"><div class="chart-container"></div></div>
-        <div class="col-50" style="max-height: 600px;"><div class="hist"></div></div>
+
+        <div class="col-50 no-margin"><div id="chart-container" class="no-margin"></div></div>
+        <div class="col-30 no-margin">
+            <div id="hist" class="no-margin"></div>
+            <p>
+                The probability of getting <input type="number" class="probfield" id="probCheck" value="15" step="1" onchange="doP()"> or more females out of <span id="pups" class="strong"></span> pups is: <span id="theProb" class="strong bigger"></span>
+            </p>
+        </div>
+        <div class="col-20 no-margin"></div>
     </div>
 
     <div class="row">
         <div class="col-50">
-            <p class="strong">Number of <span class="girl">girls</span>: <span class="count-girls">0</span></p>
-            <p class="strong">Number of <span class="boy">boys</span>: <span class="count-boys">0</span></p>
+            <p class="strong">The total number of <span class="strong">girls</span> is <span id="total-girls" class="display-count girls">0</span> &amp; <span class="strong">boys</span> is <span id="total-boys" class="display-count boys">0</span> in <span id="total-litters" class="display-count">0</span> litters.</p>
         </div>
-        <div class="col-10">
-            <input type="number" id="probCheck" value="4" onfocusout="doP()"><br>
-            <button class='btn reset'>reset plot</button>
-        </div>
-        <div class="col-40">
-            <p class="strong">
-                The probability of getting <span class="theNum">0</span> or more females out of 5 pups is: <span class="theProb">0</span>
-            </p>
+        <div class="col-50">
         </div>
     </div>
     
@@ -446,14 +470,77 @@
 
     <script>
         //CONSTANTS
-        var NPUPS = 12;
+        var NPUPS = Number(document.getElementById('npups').value);
 
-        // Functions 
+        // Functions
+        var doReset = function(){
+            updateIndex = 1;
+            theLineup.clearUse();
+            dot_plots.reset();
+            hist.reset();
+            data.reset();
+            //reinit at 0's
+            theLineup.setData(data.current);
+            dot_plots.setData(data.getPlotData());
+            hist.setData(data.getHistData());
+            doP();
+            updateText();
+        }
+        var pupChange = function(){
+            NPUPS = Number(document.getElementById('npups').value);
+            doReset();
+            hist.bins = NPUPS+2;
+            hist.bounds = [0,NPUPS+1];
+            simulate(1);
+        }
+        var simulate = function(nSims){
+            var up = function(){
+                theLineup.clearUse();
+                theLineup.setData(data.current)
+                dot_plots.setData(data.getPlotData())
+                hist.setData(data.getHistData())
+                doP();
+                updateText();
+            }
+            for (sim=1; sim <= nSims; sim++) {
+                data.update(breedMice(NPUPS));
+            }
+            // update the last time
+            up()
+        }
+        var updateText = function(){
+            d4.select("#pups").text(NPUPS)
+            var litter = data.current;
+            if (litter.length){
+                var mps = 0, fps = 0;
+                litter.forEach(function(p){
+                    mps += Number(p == "Male");
+                    fps += Number(p == "Female");
+                });
+                // Update current counts
+                d4.select('#count-girls').html(fps)
+                d4.select('#count-boys').html(mps)
+            }
+            var collection = data.array;
+            if (collection.length){
+                var males = 0, females = 0;
+                collection.forEach(function(ltr){
+                    ltr.forEach(function(pup){
+                        males += Number(pup == 'Male');
+                        females += Number(pup == 'Female');
+                    });
+                });
+                // update totals
+                d4.select('#total-girls').html(females)
+                d4.select('#total-boys').html(males)
+                d4.select('#total-litters').html(collection.length)
+            }
+        }
+
         var doP = function(){
             var len = data.array.length;
             var prob = 0;
-            var checkVal = document.getElementById('probCheck');
-            checkVal = checkVal.value;
+            var checkVal = document.getElementById('probCheck').value;
             //console.log("check",checkVal)
             counts = data.getHistData();
             counts.forEach(function(a){
@@ -462,8 +549,11 @@
             prob /= (0.00+len);
             //console.log("counts",counts);
             //console.log("prob",prob);
-            d4.selectAll('.theProb').text(prob.toFixed(4).toString());
-            d4.selectAll('.theNum').text(checkVal);
+            if (prob > 10**(-4)){
+                d4.selectAll('#theProb').text(prob.toFixed(4).toString());
+                return
+            }
+            d4.selectAll('#theProb').html("p &lt; 10<sup>-4</sup>");
         }
 
         var breedMice = function(nPups) {
@@ -477,7 +567,7 @@
         //Define a data object
         var Data = function(opts){
             this.current = opts.current || [];
-            this.array = [opts.current] || [];
+            this.array = [];
             this.tracked = opts.tracked;
             this.plotData = [];
 
@@ -492,6 +582,7 @@
         Data.prototype.reset = function(){
             this.array.length = 0;
             this.current.length = 0;
+            this.plotData.length = 0;
         }
         
         Data.prototype.updateCount = function(){
@@ -532,7 +623,7 @@
 
         // SETUP INITIAL DATA -------------------------------------|
         var data = new Data({
-            "current": breedMice(NPUPS),
+            "current": [],
             "tracked": "Female"
         });
         
@@ -540,7 +631,7 @@
         var theLineup = new mouseLineup(
             {
                 'data': data.current,
-                'element': document.querySelector('.mouse'),
+                'element': document.querySelector('#mouse'),
                 'marker': 'lib/mouse.svg',
                 'colors': ["#FF6699", "#66CCff"],
                 'possibleGroups': ["Female","Male"],
@@ -551,15 +642,16 @@
 
         var dot_plots = new Dot_Plots({
             data: data.getPlotData(),
-            element: document.querySelector('.chart-container'),
-            bins: 30
+            element: document.querySelector('#chart-container'),
+            bins: 36
         });
 
         var hist = new Hist({
-            element: document.querySelector('.hist'),
+            element: document.querySelector('#hist'),
             data: data.getHistData(),
             bins: NPUPS+2,
-            bounds: [0,16]
+            bounds: [0,17],
+            margin: {top: 10, right: 10, bottom: 20, left: 10}
         });
 
         var updateIndex = 1
@@ -569,25 +661,11 @@
         // change data on click to something randomly-generated
         d4.selectAll('button.breedn').on('click', function(){
             console.log(updateIndex)
-            data.update(breedMice(NPUPS));
-            theLineup.clearUse()
-            theLineup.setData(data.current)
-            dot_plots.setData(data.getPlotData())
-            hist.setData(data.getHistData())
-            doP();
+            simulate(1);
             updateIndex++
         });
 
-        d4.select('button.reset').on('click', function(){
-            updateIndex = 1;
-            theLineup.clearUse();
-            d4.select(".chart-container").select("svg").remove();
-            d4.select(".hist").select("svg").remove();
-            theLineup.setData(data.current);
-            dot_plots.setData(data.getPlotData());
-            hist.setData(data.getHistData())
-            doP();
-        });
+        d4.select('button.reset').on('click', doReset);
 
         // redraw chart on each resize
         d4.select(window).on('resize', function(){
@@ -596,6 +674,7 @@
 
         //Initialize some stuff in the DOM
         doP();
+        updateText();
     </script>
 </body>
 </html>

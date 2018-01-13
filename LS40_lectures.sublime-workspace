@@ -21,20 +21,10 @@
 			}
 		},
 		{
-			"file": "lib/interactive/mice/mice.html",
+			"file": "lib/interactive/collision-detection.html",
 			"settings":
 			{
-				"buffer_size": 13556,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Lecture1.html",
-			"settings":
-			{
-				"buffer_size": 40764,
-				"encoding": "UTF-8",
+				"buffer_size": 2835,
 				"line_ending": "Windows"
 			}
 		},
@@ -57,15 +47,6 @@
 			}
 		},
 		{
-			"file": "lib/js/initReveal.js",
-			"settings":
-			{
-				"buffer_size": 833,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveald3-section-with-placeholder.sublime-snippet",
 			"settings":
 			{
@@ -74,73 +55,10 @@
 			}
 		},
 		{
-			"file": "lib/interactive/plinko/plinko.html",
+			"file": "Lecture3.html",
 			"settings":
 			{
-				"buffer_size": 465,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "lib/interactive/mice/lib/mouselineup.js",
-			"settings":
-			{
-				"buffer_size": 5149,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "lib/interactive/dots/dots.html",
-			"settings":
-			{
-				"buffer_size": 4899,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "lib/interactive/hist/lib/chart.js",
-			"settings":
-			{
-				"buffer_size": 5131,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "lib/interactive/mice/lib/hist.js",
-			"settings":
-			{
-				"buffer_size": 3162,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 6675,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "lib/interactive/dots/lib/dotplots.js",
-			"settings":
-			{
-				"buffer_size": 12601,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "lib/interactive/mice/lib/mouseplots.js",
-			"settings":
-			{
-				"buffer_size": 12769,
+				"buffer_size": 3339,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -206,6 +124,14 @@
 		"selected_items":
 		[
 			[
+				"packager",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"ht",
+				"Set Syntax: HTML"
+			],
+			[
 				"pack",
 				"PackageResourceViewer: Open Resource"
 			],
@@ -220,10 +146,6 @@
 			[
 				"html",
 				"Set Syntax: HTML"
-			],
-			[
-				"packager",
-				"PackageResourceViewer: Open Resource"
 			],
 			[
 				"package",
@@ -310,14 +232,21 @@
 	],
 	"file_history":
 	[
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/mice/lib/mouse.svg",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dots/dots.html",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-complete-template.sublime-snippet",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/initReveal.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/plinko/plinko.html",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/index.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/mice/lib/mouselineup.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dots/dots.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/hist/lib/chart.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/mice/lib/hist.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dots/lib/dotplots.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/mice/lib/mouseplots.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/mice/mice.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/mice/lib/mouse.svg",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/equiv/js/script.js",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/equiv/equivalence.html",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/equiv/css/style.css",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/initReveal.js",
-		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-complete-template.sublime-snippet",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/d3vis.sublime-snippet",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-title-section-note.sublime-snippet",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-section-empty.sublime-snippet",
@@ -330,7 +259,6 @@
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/indexTemplate.html",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/Side Bar.sublime-settings",
 		"/F/googleDrive/_StatsDev/LS40_Development/_doc/Syllabus_LS40_18W.tex",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dots/lib/dotplots.js",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dots/lib/colorbrewer.min.js",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/hist/hist.html",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dots/lib/chart.js",
@@ -431,11 +359,7 @@
 		"/F/googleDrive/JonesGroup/Khris/jonesBib-R.bib",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/LaTeXTools.sublime-settings",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/LaTeXTools/LaTeXTools.sublime-settings",
-		"/F/OneDrive/UCLA/Experimental Statistics/Experimental-Statistics/master.tex",
-		"/F/googleDrive/Garfinkel/Circadian/Circadian 20170615_smoothing.ipynb",
-		"/F/OneDrive/UCLA/LS30X_development/Syllabus/Syllabus_Winter2017.knit - Copy.md",
-		"/F/OneDrive/UCLA/LS30X_development/Syllabus/Syllabus_Winter2017.utf8 - Copy.md",
-		"/F/OneDrive/Documents/Phelps Lab/_Matlab/hosa/hosa/info.xml"
+		"/F/OneDrive/UCLA/Experimental Statistics/Experimental-Statistics/master.tex"
 	],
 	"find":
 	{
@@ -453,6 +377,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"binwidth",
 			"console.",
 			"console",
 			"consol",
@@ -613,82 +538,51 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 17413.0,
+						"translation.y": 1483.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "lib/interactive/mice/mice.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13556,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								12363,
-								12363
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1515628100.67,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 8683.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Lecture1.html",
+					"file": "lib/interactive/collision-detection.html",
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 40764,
+						"buffer_size": 2835,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								20216,
-								20575
+								145,
+								145
 							]
 						],
 						"settings":
 						{
-							"markdonw_live_preview_last_run": 1515692911.32,
+							"markdonw_live_preview_last_run": 1515816660.13,
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 8071.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 8,
+			"selected": 3,
 			"sheets":
 			[
 				{
-					"buffer": 3,
+					"buffer": 2,
 					"file": "Lecture2.html",
 					"semi_transient": false,
 					"settings":
@@ -710,14 +604,14 @@
 							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 16747.0,
+						"translation.y": 889.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"file": "/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/spi-reveal-span-info.sublime-snippet",
 					"semi_transient": false,
 					"settings":
@@ -742,42 +636,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "lib/js/initReveal.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 833,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								472,
-								472
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1515692372.7,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
+					"buffer": 4,
 					"file": "/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveald3-section-with-placeholder.sublime-snippet",
 					"semi_transient": false,
 					"settings":
@@ -802,257 +665,43 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "lib/interactive/plinko/plinko.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 465,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								140,
-								140
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "lib/interactive/mice/lib/mouselineup.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5149,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4135,
-								4135
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1440.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "lib/interactive/dots/dots.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4899,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4198,
-								4276
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1515628140.22,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 396.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "lib/interactive/hist/lib/chart.js",
+					"buffer": 5,
+					"file": "Lecture3.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5131,
+						"buffer_size": 3339,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1404,
-								1423
+								2015,
+								2015
 							]
 						],
 						"settings":
 						{
-							"markdonw_live_preview_last_run": 1515697984.61,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"auto_name": "",
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 162.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "lib/interactive/mice/lib/hist.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3162,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3162,
-								3162
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1515685905.48,
-							"open_with_edit": true,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 216.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6675,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4830,
-								4830
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1515725849.03,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2376.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 13,
-					"file": "lib/interactive/dots/lib/dotplots.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12601,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								158,
-								158
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1515623914.27,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "lib/interactive/mice/lib/mouseplots.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12769,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2945,
-								3180
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1515627845.96,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 540.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1113,7 +762,7 @@
 	"project": "LS40_lectures.sublime-project",
 	"replace":
 	{
-		"height": 68.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":
