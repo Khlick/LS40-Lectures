@@ -99,6 +99,11 @@
 		.aside-Right {
 			
 		}
+		.float-left {
+			float: left; 
+			width: 65px; 
+			white-space: nowrap;
+		}
 
 		@media all and (min-width: 600px) {
 			.aside {flex: 1 auto;}
@@ -160,8 +165,9 @@
 		<article class="main">
 			<hr>
 			
-			<p>Lecture 1: <a href="#" onclick='window.open("Lecture1.html");return false;'>An Introduction To Life Sciences 40</a></p>
-			<p>Lecture 2: <a href="#" onclick='window.open("Lecture2.html");return false;'>Simulating Probabilities</a></p>
+			<p><span class="float-left">Lecture 1:</span><a href="#" onclick='window.open("Lecture1.html");return false;'>An Introduction To Life Sciences 40</a></p>
+			<p><span class="float-left">Lecture 2:</span><a href="#" onclick='window.open("Lecture2.html");return false;'>Simulating Probabilities</a></p>
+			<!-- <p><span class="float-left">Lecture 3:</span><a href="#" onclick='window.open("Lecture3.html");return false;'>Presenting and Describing Data</a></p> -->
 
 		</article>
 

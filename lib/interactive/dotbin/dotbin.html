@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Histogram binning</title>
+  <link rel="stylesheet" href="lib/d3.slider.css" />  
+  <style>
+    body {
+      font-family: Verdana,Arial,sans-serif;
+      color: #d3d3d3;
+    }
+
+    h2 {
+      font-size: 1.2em;
+    }
+
+    .wrapper {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .wrapper > div {
+      margin: none;
+    }
+    .wrapper > p, h1,h2,h3,h4 {
+      margin: 0 0 5px 0;
+    } 
+
+    #n-slider, #bin-slider{
+      height: 250px;
+    }
+    .left {
+      float:left;
+      position: relative;
+    }
+    .right {
+      float:right;
+      position: relative;
+    }
+    .controls {
+      padding: 0;
+      margin: 0;
+      width: 200px;
+    }
+    
+    .orange {
+  		color: #F79A52; 
+  	}
+  	.purple {
+		  color: #9469AD; 
+		}
+		.red {
+		  color: #E04B4B; 
+		}
+		.green {
+		  color: #73B55B; 
+		}
+		.blue {
+  		color: #4682B4; 
+  	}
+    .small {
+      font-size: 16px;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    .strong {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    #n-slider .d3-slider-axis text {
+    	font-size: 12px;
+    }
+    .flex-container {
+		  display: flex;
+		  flex-direction: column;
+		}
+
+		.flex-container>div {
+		  width: 100%;
+		  margin: 12px;
+		  line-height: 20px;
+		}
+		.flex-container-row {
+		  display: flex;
+		  flex-direction: row;
+		  margin: none;
+		}
+
+		.display-count {
+        display: inline-block;
+        text-align: center;
+        width: 60px;
+        white-space: nowrap;
+    }
+
+		select {
+		  margin: 50px;
+		  background: transparent;
+		  width: 150px;
+		  padding: 5px 35px 5px 5px;
+		  font-size: 16px;
+		  border: 1px solid #111;
+		  -webkit-border-radius: 5px;
+		  -moz-border-radius: 5px;
+		  border-radius: 5px;
+		  height: 34px;
+		  -webkit-appearance: none;
+		  -moz-appearance: none;
+		  appearance: none;
+		  background: url(lib/disticon.png) 96% / 15% no-repeat #d3d3d3;
+		  overflow: hidden;
+		}
+		.d3-tip {
+		  line-height: 1;
+		  font-weight: bold;
+		  padding: 12px;
+		  background: rgba(0, 0, 0, 0.8);
+		  color: #fff;
+		  border-radius: 2px;
+		}
+
+		/* Creates a small triangle extender for the tooltip */
+		.d3-tip:after {
+		  box-sizing: border-box;
+		  display: inline;
+		  font-size: 10px;
+		  width: 100%;
+		  line-height: 1;
+		  color: rgba(0, 0, 0, 0.8);
+		  content: "\25BC";
+		  position: absolute;
+		  text-align: center;
+		}
+
+		/* Style northward tooltips differently */
+		.d3-tip.n:after {
+		  margin: -1px 0 0 0;
+		  top: 100%;
+		  left: 0;
+		}
+		.graphic {
+      padding: 0;
+      margin: 0;
+      width: 60%;
+      max-height: 700px;
+    }
+    .spacer {
+    	width: 25px;
+    }
+    /* syle for svg */
+    .axis path, .tick line {
+        fill: none;
+        stroke: #d3d3d3;
+    }
+    .y.axis path, .y.axis line {
+        display: none;
+    }
+    .y.axis text {
+        display: none;
+    }
+    .hist-axis text {
+        font: 16px sans-serif;
+    }
+    .bar rect {
+        stroke-width: 1px;
+        stroke: #d3d3d3;
+    }
+    .hist-bar rect {
+      fill: #F79A52;
+    }
+
+    .hist-bar text {
+      fill: #a2a2a2;
+      font: 14px sans-serif;
+    }
+    .axis--x.hist-axis text {
+    	fill: #d3d3d3;
+    	font: 14px sans-serif;
+    }
+    .kde-path path, .kde-path line {
+    	fill: #d3d3d3;
+    	stroke: #d3d3d3;
+    }
+  </style>
+</head>
+<body style="background: #202020;">
+  <div class="wrapper flex-container-row">
+  	
+
+  	<!-- 
+      Sliders From:
+       <a href="http://github.com/turban/d3.slider">http://github.com/turban/d3.slider</a> 
+    -->
+    <div class='controls flex-container'>
+      <div>
+      	<h2 class="orange">Histogram Binning</h2>
+      	<p class="small">
+      		Sample Size: <span id="n-text" class="display-count strong blue">20</span><br>
+	      	Number of Bins: <span id="bin-text" class="display-count strong blue">10</span>
+	      </p>
+	    </div>
+      <div class="sliders">
+	      <div id="n-slider" class="left"></div>
+	      <div id="bin-slider" class="right"></div>
+      </div>
+      <div>
+      	<select id="dist-type" onchange="updateDist()">
+      		<option>Normal</option>
+      		<option>Uniform</option>
+      		<option>Exponential</option>
+      		<option>Log-Normal</option>
+      	</select>
+      </div>
+
+    </div>
+    <div class="spacer"></div>
+    <div id="hist-container" class="graphic"></div>
+  </div>
+
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script>
+      var d4 = d3;
+      window.d3 = null;
+  </script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="https://d3js.org/d3-random.v1.min.js"></script>
+  <script src="lib/science.v1.min.js"></script>
+  <script src="lib/d3.slider.js"></script>
+  <script src="lib/hist.js"></script>
+  <script src="lib/dataModel.js"></script>
+  <script>
+    // Globals
+    const POPULATION = 1000;
+    var N = 20, BINS = 10, DIST = 'normal';
+
+    // Sliders
+    d3.select('#n-slider').call(
+      d3.slider().scale(d3.scale.linear().domain([1000,0])).axis(d3.svg.axis().ticks(6).orient("right")).value(1000-N).step(5).orientation("vertical").on("slide", function(evt,val){
+        N = parseInt(1000-val);
+        if (N<5){ N=5; }
+        d3.select('#n-text').text(N.toFixed(0))
+        //Add plot update
+        if (hist.exists){
+        	hist.setData(data.sample(N));
+        }
+      })
+    );
+    d3.select('#bin-slider').call(
+      d3.slider().scale(d3.scale.linear().domain([30,1])).axis(d3.svg.axis().ticks(6).orient("left")).value(31-BINS).step(1).orientation("vertical").on("slide", function(evt,val){
+        BINS = parseInt(31-val);
+        d3.select('#bin-text').text(BINS.toFixed(0));
+        if (hist.exists) {
+        	hist.setBins(BINS);
+        }
+      })
+    );
+    function updateDist(){
+    	DIST = document.getElementById("dist-type").value.toLowerCase();
+    	data.changeDistribution(DIST);
+    	//Add plot update
+      if (hist.exists){
+      	hist.setData(data.sample(N));
+      }
+    }
+   // Graphic
+   var data = new Data({
+	   	populationSize: POPULATION,
+	   	type: DIST
+   });
+
+   var hist = new Hist({
+			element: document.querySelector('#hist-container'),
+			data: data.sample(N),
+			bins: BINS,
+			margin: {top: 10, right: 10, bottom: 20, left: 10}
+    });
+
+   // draw
+   hist.draw();
+   
+  </script>
+ 
+</body>
+</html>

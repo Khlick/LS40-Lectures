@@ -1,3 +1,92 @@
 /*
 	Styles for Javascript UI elements placed directly in slide elements
 */
+
+/*********************************************
+* HTML elements
+*********************************************/
+div.tooltip {
+  color: white;
+  position: absolute;
+  text-align: left;
+  width: auto;
+  height: auto;
+  padding: 5px;
+  font: 12px sans-serif ;
+  background: #FCB8C3FF;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+/*INPUT RANGES*/
+input[type=range]{
+    -webkit-appearance: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #f0ad4e;
+    margin-top: -4px;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+/*INPUT SELECT*/
+select {
+  width: 7em;
+  padding: 0.1em 0.1em 0.1em 0.3em;
+  font-size: 0.45em;
+  border: 0.1em solid #ccc;
+  height: 1.8em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+
+/*INPUT CHECKBOX*/
+input[type="checkbox"]{
+cursor: pointer;
+-webkit-appearance: none;
+appearance: none;
+background: #d9534f;
+border-radius: 0.6em;
+box-sizing: border-box;
+position: relative;
+vertical-align: middle;
+box-sizing: content-box ;
+width: 2em;
+height: 2em;
+border-width: 0;
+transition: all .1s linear;
+}
+input[type="checkbox"]:checked{
+  background-color: #5cb85c;
+}
+input[type="checkbox"]:focus{
+  outline: 0 none;
+  box-shadow: none;
+}
+
+/*LABELS*/
+label {
+  text-align: left;
+  font-size: 0.6em !important;
+  display: inline-block !important;
+  position: relative;
+  vertical-align: middle !important;
+}
