@@ -1458,7 +1458,7 @@ section[data-transition*="none-in"].present {
 /*********************************************
 * FRAGMENT HIGHLIGHT
 *********************************************/
-/* purple */
+/********* purple ******************/
 .reveal .slides section .fragment.highlight-purple {
   opacity: 1;
   visibility: inherit; }
@@ -1477,7 +1477,49 @@ section[data-transition*="none-in"].present {
   .reveal .slides section .fragment.highlight-current-bg-purple.current-fragment {
     background-color: #9469AD; }
 
-/* mutedBlue */
+.reveal .slides section .fragment.underline-purple {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-purple.visible {
+    text-decoration: underline #9469AD;
+    -webkit-text-decoration: underline #9469AD; }
+
+.reveal .slides section .fragment.underline-current-purple {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-current-purple.current-fragment {
+    text-decoration: underline #9469AD;
+    -webkit-text-decoration: underline #9469AD; }
+
+.reveal .slides section .fragment.strike-purple {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-purple.visible {
+    text-decoration: line-through #9469AD;
+    -webkit-text-decoration: line-through #9469AD; }
+
+.reveal .slides section .fragment.strike-current-purple {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-current-purple.current-fragment {
+    text-decoration: line-through #9469AD;
+    -webkit-text-decoration: line-through #9469AD; }
+
+.reveal .slides section .fragment.wavy-strike-purple {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-purple.visible {
+    text-decoration: line-through wavy #9469AD;
+    -webkit-text-decoration: linethrough wavy #9469AD; }
+
+.reveal .slides section .fragment.wavy-strike-current-purple {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-current-purple.current-fragment {
+    text-decoration: line-through wavy #9469AD;
+    -webkit-text-decoration: line-through wavy #9469AD; }
+
+/********* mutedBlue ******************/
 .reveal .slides section .fragment.highlight-mutedBlue {
   opacity: 1;
   visibility: inherit; }
@@ -1496,7 +1538,49 @@ section[data-transition*="none-in"].present {
   .reveal .slides section .fragment.highlight-current-bg-mutedBlue.current-fragment {
     background-color: #88A9C9; }
 
-/* offWhite */
+.reveal .slides section .fragment.underline-mutedBlue {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-mutedBlue.visible {
+    text-decoration: underline #88A9C9;
+    -webkit-text-decoration: underline #88A9C9; }
+
+.reveal .slides section .fragment.underline-current-mutedBlue {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-current-mutedBlue.current-fragment {
+    text-decoration: underline #88A9C9;
+    -webkit-text-decoration: underline #88A9C9; }
+
+.reveal .slides section .fragment.strike-mutedBlue {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-mutedBlue.visible {
+    text-decoration: line-through #88A9C9;
+    -webkit-text-decoration: line-through #88A9C9; }
+
+.reveal .slides section .fragment.strike-current-mutedBlue {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-current-mutedBlue.current-fragment {
+    text-decoration: line-through #88A9C9;
+    -webkit-text-decoration: line-through #88A9C9; }
+
+.reveal .slides section .fragment.wavy-strike-mutedBlue {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-mutedBlue.visible {
+    text-decoration: line-through wavy #88A9C9;
+    -webkit-text-decoration: linethrough wavy #88A9C9; }
+
+.reveal .slides section .fragment.wavy-strike-current-mutedBlue {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-current-mutedBlue.current-fragment {
+    text-decoration: line-through wavy #88A9C9;
+    -webkit-text-decoration: line-through wavy #88A9C9; }
+
+/********* offWhite ******************/
 .reveal .slides section .fragment.highlight-offWhite {
   opacity: 1;
   visibility: inherit; }
@@ -1517,7 +1601,49 @@ section[data-transition*="none-in"].present {
     color: #202020;
     background-color: #FFF8D0; }
 
-/* orange */
+.reveal .slides section .fragment.underline-offWhite {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-offWhite.visible {
+    text-decoration: underline #FFF8D0;
+    -webkit-text-decoration: underline #FFF8D0; }
+
+.reveal .slides section .fragment.underline-current-offWhite {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-current-offWhite.current-fragment {
+    text-decoration: underline #FFF8D0;
+    -webkit-text-decoration: underline #FFF8D0; }
+
+.reveal .slides section .fragment.strike-offWhite {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-offWhite.visible {
+    text-decoration: line-through #FFF8D0;
+    -webkit-text-decoration: line-through #FFF8D0; }
+
+.reveal .slides section .fragment.strike-current-offWhite {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-current-offWhite.current-fragment {
+    text-decoration: line-through #FFF8D0;
+    -webkit-text-decoration: line-through #FFF8D0; }
+
+.reveal .slides section .fragment.wavy-strike-offWhite {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-offWhite.visible {
+    text-decoration: line-through wavy #FFF8D0;
+    -webkit-text-decoration: linethrough wavy #FFF8D0; }
+
+.reveal .slides section .fragment.wavy-strike-current-offWhite {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-current-offWhite.current-fragment {
+    text-decoration: line-through wavy #FFF8D0;
+    -webkit-text-decoration: line-through wavy #FFF8D0; }
+
+/********* orange ******************/
 .reveal .slides section .fragment.highlight-orange {
   opacity: 1;
   visibility: inherit; }
@@ -1536,7 +1662,49 @@ section[data-transition*="none-in"].present {
   .reveal .slides section .fragment.highlight-current-bg-orange.current-fragment {
     background-color: #F79A52; }
 
-/* red */
+.reveal .slides section .fragment.underline-orange {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-orange.visible {
+    text-decoration: underline #F79A52;
+    -webkit-text-decoration: underline #F79A52; }
+
+.reveal .slides section .fragment.underline-current-orange {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-current-orange.current-fragment {
+    text-decoration: underline #F79A52;
+    -webkit-text-decoration: underline #F79A52; }
+
+.reveal .slides section .fragment.strike-orange {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-orange.visible {
+    text-decoration: line-through #F79A52;
+    -webkit-text-decoration: line-through #F79A52; }
+
+.reveal .slides section .fragment.strike-current-orange {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-current-orange.current-fragment {
+    text-decoration: line-through #F79A52;
+    -webkit-text-decoration: line-through #F79A52; }
+
+.reveal .slides section .fragment.wavy-strike-orange {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-orange.visible {
+    text-decoration: line-through wavy #F79A52;
+    -webkit-text-decoration: linethrough wavy #F79A52; }
+
+.reveal .slides section .fragment.wavy-strike-current-orange {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-current-orange.current-fragment {
+    text-decoration: line-through wavy #F79A52;
+    -webkit-text-decoration: line-through wavy #F79A52; }
+
+/********* red ******************/
 .reveal .slides section .fragment.highlight-red {
   opacity: 1;
   visibility: inherit; }
@@ -1555,7 +1723,49 @@ section[data-transition*="none-in"].present {
   .reveal .slides section .fragment.highlight-current-bg-red.current-fragment {
     background-color: #E04B4B; }
 
-/* green */
+.reveal .slides section .fragment.underline-red {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-red.visible {
+    text-decoration: underline #E04B4B;
+    -webkit-text-decoration: underline #E04B4B; }
+
+.reveal .slides section .fragment.underline-current-red {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-current-red.current-fragment {
+    text-decoration: underline #E04B4B;
+    -webkit-text-decoration: underline #E04B4B; }
+
+.reveal .slides section .fragment.strike-red {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-red.visible {
+    text-decoration: line-through #E04B4B;
+    -webkit-text-decoration: line-through #E04B4B; }
+
+.reveal .slides section .fragment.strike-current-red {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-current-red.current-fragment {
+    text-decoration: line-through #E04B4B;
+    -webkit-text-decoration: line-through #E04B4B; }
+
+.reveal .slides section .fragment.wavy-strike-red {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-red.visible {
+    text-decoration: line-through wavy #E04B4B;
+    -webkit-text-decoration: linethrough wavy #E04B4B; }
+
+.reveal .slides section .fragment.wavy-strike-current-red {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-current-red.current-fragment {
+    text-decoration: line-through wavy #E04B4B;
+    -webkit-text-decoration: line-through wavy #E04B4B; }
+
+/********* green ******************/
 .reveal .slides section .fragment.highlight-green {
   opacity: 1;
   visibility: inherit; }
@@ -1574,7 +1784,49 @@ section[data-transition*="none-in"].present {
   .reveal .slides section .fragment.highlight-current-bg-green.current-fragment {
     background-color: #73B55B; }
 
-/* grey */
+.reveal .slides section .fragment.underline-green {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-green.visible {
+    text-decoration: underline #73B55B;
+    -webkit-text-decoration: underline #73B55B; }
+
+.reveal .slides section .fragment.underline-current-green {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-current-green.current-fragment {
+    text-decoration: underline #73B55B;
+    -webkit-text-decoration: underline #73B55B; }
+
+.reveal .slides section .fragment.strike-green {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-green.visible {
+    text-decoration: line-through #73B55B;
+    -webkit-text-decoration: line-through #73B55B; }
+
+.reveal .slides section .fragment.strike-current-green {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-current-green.current-fragment {
+    text-decoration: line-through #73B55B;
+    -webkit-text-decoration: line-through #73B55B; }
+
+.reveal .slides section .fragment.wavy-strike-green {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-green.visible {
+    text-decoration: line-through wavy #73B55B;
+    -webkit-text-decoration: linethrough wavy #73B55B; }
+
+.reveal .slides section .fragment.wavy-strike-current-green {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-current-green.current-fragment {
+    text-decoration: line-through wavy #73B55B;
+    -webkit-text-decoration: line-through wavy #73B55B; }
+
+/********* grey ******************/
 .reveal .slides section .fragment.highlight-grey {
   opacity: 1;
   visibility: inherit; }
@@ -1593,7 +1845,49 @@ section[data-transition*="none-in"].present {
   .reveal .slides section .fragment.highlight-current-bg-grey.current-fragment {
     background-color: #d2d2d2; }
 
-/* lightGrey */
+.reveal .slides section .fragment.underline-grey {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-grey.visible {
+    text-decoration: underline #d2d2d2;
+    -webkit-text-decoration: underline #d2d2d2; }
+
+.reveal .slides section .fragment.underline-current-grey {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-current-grey.current-fragment {
+    text-decoration: underline #d2d2d2;
+    -webkit-text-decoration: underline #d2d2d2; }
+
+.reveal .slides section .fragment.strike-grey {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-grey.visible {
+    text-decoration: line-through #d2d2d2;
+    -webkit-text-decoration: line-through #d2d2d2; }
+
+.reveal .slides section .fragment.strike-current-grey {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-current-grey.current-fragment {
+    text-decoration: line-through #d2d2d2;
+    -webkit-text-decoration: line-through #d2d2d2; }
+
+.reveal .slides section .fragment.wavy-strike-grey {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-grey.visible {
+    text-decoration: line-through wavy #d2d2d2;
+    -webkit-text-decoration: linethrough wavy #d2d2d2; }
+
+.reveal .slides section .fragment.wavy-strike-current-grey {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-current-grey.current-fragment {
+    text-decoration: line-through wavy #d2d2d2;
+    -webkit-text-decoration: line-through wavy #d2d2d2; }
+
+/********* lightGrey ******************/
 .reveal .slides section .fragment.highlight-lightGrey {
   opacity: 1;
   visibility: inherit; }
@@ -1614,7 +1908,49 @@ section[data-transition*="none-in"].present {
     color: #202020;
     background-color: #f3f3f3; }
 
-/* blue */
+.reveal .slides section .fragment.underline-lightGrey {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-lightGrey.visible {
+    text-decoration: underline #f3f3f3;
+    -webkit-text-decoration: underline #f3f3f3; }
+
+.reveal .slides section .fragment.underline-current-lightGrey {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-current-lightGrey.current-fragment {
+    text-decoration: underline #f3f3f3;
+    -webkit-text-decoration: underline #f3f3f3; }
+
+.reveal .slides section .fragment.strike-lightGrey {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-lightGrey.visible {
+    text-decoration: line-through #f3f3f3;
+    -webkit-text-decoration: line-through #f3f3f3; }
+
+.reveal .slides section .fragment.strike-current-lightGrey {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-current-lightGrey.current-fragment {
+    text-decoration: line-through #f3f3f3;
+    -webkit-text-decoration: line-through #f3f3f3; }
+
+.reveal .slides section .fragment.wavy-strike-lightGrey {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-lightGrey.visible {
+    text-decoration: line-through wavy #f3f3f3;
+    -webkit-text-decoration: linethrough wavy #f3f3f3; }
+
+.reveal .slides section .fragment.wavy-strike-current-lightGrey {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-current-lightGrey.current-fragment {
+    text-decoration: line-through wavy #f3f3f3;
+    -webkit-text-decoration: line-through wavy #f3f3f3; }
+
+/********* blue ******************/
 .reveal .slides section .fragment.highlight-blue {
   opacity: 1;
   visibility: inherit; }
@@ -1632,6 +1968,48 @@ section[data-transition*="none-in"].present {
   visibility: inherit; }
   .reveal .slides section .fragment.highlight-current-bg-blue.current-fragment {
     background-color: #4682B4; }
+
+.reveal .slides section .fragment.underline-blue {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-blue.visible {
+    text-decoration: underline #4682B4;
+    -webkit-text-decoration: underline #4682B4; }
+
+.reveal .slides section .fragment.underline-current-blue {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-current-blue.current-fragment {
+    text-decoration: underline #4682B4;
+    -webkit-text-decoration: underline #4682B4; }
+
+.reveal .slides section .fragment.strike-blue {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-blue.visible {
+    text-decoration: line-through #4682B4;
+    -webkit-text-decoration: line-through #4682B4; }
+
+.reveal .slides section .fragment.strike-current-blue {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-current-blue.current-fragment {
+    text-decoration: line-through #4682B4;
+    -webkit-text-decoration: line-through #4682B4; }
+
+.reveal .slides section .fragment.wavy-strike-blue {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-blue.visible {
+    text-decoration: line-through wavy #4682B4;
+    -webkit-text-decoration: linethrough wavy #4682B4; }
+
+.reveal .slides section .fragment.wavy-strike-current-blue {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-current-blue.current-fragment {
+    text-decoration: line-through wavy #4682B4;
+    -webkit-text-decoration: line-through wavy #4682B4; }
 
 /*********************************************
 * SCALE IFRAMES

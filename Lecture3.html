@@ -66,7 +66,7 @@
       		
       <section class="title-slide">
 				<div class="row">
-  				<div class="col-50 no-margin-top no-margin-bottom" style="z-index: 1; position: relative;"><div class="push-20 drop-40"><i class="fas fa-spinner fa-9x fa-spin info" style="opacity:5%;"></i></div></div>
+  				<div class="col-50 no-margin-top no-margin-bottom" style="z-index: 1; position: relative;"><div class="push-20 drop-40"><i class="fas fa-spinner fa-9x fa-spin mutedBlue" style="opacity:5%;"></i></div></div>
   				<div class="col-50" style="z-index:2; position: relative;">
   					<h1>Life Sciences 40</h1>
 	        	<h2>Lecture 3:</h2>
@@ -74,8 +74,14 @@
 	          <h5>Khris Griffis</h3>
   				</div>
   			</div>
-        <aside class="notes">
-          Today we are going to discuss visualizing and presenting data.
+        <aside class="notes" data-markdown>
+          ## A couple announcements.
+
+          1. There was no homework last week due to quite a few students being unable to access the server... refer to ccle.
+            - You will have a bigger homework this week because of that.
+          2. Exams Conflict 
+            - On the note of exams, anything posted to CCLE in the lecture or homework folders is fair game (per the syllabus)
+          3. The slides are fixed go to [https://khlick.github.io/LS40-Lectures/](https://khlick.github.io/LS40-Lectures/)
         </aside>
       </section>
       	
@@ -107,30 +113,33 @@
       	<div class="row">
       
       		<!-- left column -->
-      		<div class="col-25 no-top-margin">
-      
-      		</div>
-      
-      		<!-- middle left column -->
-      		<div class="col-25 no-top-margin">
-      
-      		</div>
-      
-      		<!-- middle right column -->
-      		<div class="col-25 no-top-margin">
-      
+      		<div class="col-30 no-top-margin">
+      			<p class="l-sided border-mutedBlue fragment" data-fragment-index=0>
+      					In Statistics, we practice estimating <span class="green">uncertainty</span> of our chosen <span class="fragment highlight-bg-red" data-fragment-index=1>descriptor</span> for a given set of data, i.e. a collection of simple events.
+    				</p>
+    				<p class="l-sided border-green fragment" data-fragment-index=2>
+    						We then borrow simple probability methods to determine the <span class="fragment highlight-bg-purple" data-fragment-index=3>relative frequency</span> of our simple event.
+    				</p>
+    				<p class="l-sided border-orange fragment" data-fragment-index=4>
+    						We then construct a <span class="fragment highlight-bg-green" data-fragment-index=5>chance model</span> based on an <span class="red">expected</span> probability of our simple event.
+    				</p>
       		</div>
       
       		<!-- right column -->
-      		<div class="col-25 no-top-margin">
-      
+      		<div class="col-70 no-top-margin">
+      			<ul class="icon">
+      				<li class="fragment paperclip red" data-fragment-index=1>A descriptor is a parameter or statistic of a population or sample, respectively.</li>
+      				<li class="fragment paperclip purple" data-fragment-index=3>We call this frequency a proportion.</li>
+      				<li class="fragment paperclip green" data-fragment-index=5>We draw cards from a deck, or flip a coin.. or best, we use a <i class="fas fa-laptop"></i>.</li>
+      				<li class="fragment paperclip green" data-fragment-index=6>The chance model is a type of <span class="red">NULL HYPOTHESIS</span> which can be derived from a <span class="fragment strike-red" data-fragment-index=7>formula</span> or by computer simulation.</li>
+      			</ul>
       		</div>
       
       	</div>
       
       		<!-- notes -->
       		<aside class="notes">
-      			
+      			Note that a statistic, little s, is a descriptor of sample data.
       		</aside>
       
       </section>
@@ -139,64 +148,889 @@
       
       <!-- 2 -->
       <section>
-      
-      	<!-- heading -->
-      	<div class="row">
-      		<h1></h1>
-      	</div>
-      
-      	<!-- main -->
-      	<div class="row">
-      
-      		<!-- left column -->
-      		<div class="col-25 no-top-margin">
-      
-      		</div>
-      
-      		<!-- middle left column -->
-      		<div class="col-25 no-top-margin">
-      
-      		</div>
-      
-      		<!-- middle right column -->
-      		<div class="col-25 no-top-margin">
-      
-      		</div>
-      
-      		<!-- right column -->
-      		<div class="col-25 no-top-margin">
-      
-      		</div>
-      
-      	</div>
-      
-      		<!-- notes -->
-      		<aside class="notes">
-      			
-      		</aside>
-      
+      	<h3>Probability Recap: The Long Run</h3>
+      	<p style="margin-top: 0; font-size: 0.6em;">
+			    We used a coin-flip simulation to model Buzz (the dolphin) getting $\frac{15}{16}$ correct button choices by <span class="mutedBlue">chance</span>.
+			  </p>
+			  <div class="row">
+			    <div class="col-40">
+			      <p class="l-sided fragment border-orange no-margin-bottom" data-fragment-index=5>
+			        How many of these 1000 simulations produced 15 or more correct choices by Buzz? <br>
+			        <span style="margin-left: 0.8em;" class="fragment orange" data-fragment-index=6>1 out of 1000</span>
+			      </p>
+			      <p class="l-sided fragment border-mutedBlue no-margin-bottom">
+			        What proportion of simulations were as extreme or more than Buzz's? <br>
+			        <span style="margin-left: 0.8em;" class="fragment mutedBlue big">$\frac{1}{1000}=0.001$</span>
+			      </p>
+			      <p class="l-sided fragment border-green no-margin-bottom">
+			        What is the <span class="green">distribution</span> of Heads per 16 coin-flips a <span class="green">simulation</span> of?<br>
+			        <span style="margin-left: 0.8em;" class="fragment mutedBlue big">The Null Hypothesis</span>
+			      </p>
+			    </div>
+			    <div class="col-60">
+			      <svg width="100%" viewBox="0 0 440 288" style="margin-top: 0;">
+			        <use class="fragment" data-fragment-index=3 xlink:href="lib/img/simulation-graph-coinflip.svg#axes_4"></use>
+			        <use class="fragment" data-fragment-index=2 xlink:href="lib/img/simulation-graph-coinflip.svg#axes_3"></use>
+			        <use class="fragment" data-fragment-index=1 xlink:href="lib/img/simulation-graph-coinflip.svg#axes_2"></use>
+			        <use class="fragment" data-fragment-index=0 xlink:href="lib/img/simulation-graph-coinflip.svg#axes_1"></use>
+			        <use class="fragment" data-fragment-index=4 xlink:href="lib/img/simulation-graph-coinflip.svg#axes_6"></use>
+			        <use class="fragment" data-fragment-index=6 xlink:href="lib/img/simulation-graph-coinflip.svg#axes_5"></use>
+			      </svg>
+			    </div>
+			  </div>
+			  <aside class="notes" data-markdown>
+## open
+
+Remember Buzz the dolphin. He pushed a button and the reward was that his pal in the next tank got some reward.
+
+## end of graph
+
+This kind of plot is called a histogram. It shows the frequency of, in this case, the number of heads observed in 1000 simulations of 16 coin-flips.
+
+## null hypothesis
+
+Remember, the coin-flip simulation was a model of chance. Thinking about the dolphin here, what other things may explain Buzzs outcom?
+*Maybe location in the cage? or color of the buttons? how about the time of day, where were the shadows and might they have an appreciable effect on the outcome?*
+
+## end
+
+As we increase the number of simulations, we observe 8 and 9 heads out of 16 more and more frequently, why not just 8?
+*Because 0 and 16 are possible, thus it isn't 16/2 but 17/2=8.5 and since you can't have 8.5 Heads in a coin flip (like have 1.55 children).*
+
+Finally, This histogram is actually wrong. Let's perform a real simulation in class (I wanted to do this last week) using mouse husbandry and we will use this to talk about the histogram.
+			  </aside>
       </section>
       
-      
-
 
       <!-- 3 -->
+      <section data-background-color="#FFF">
+      
+      	<!-- heading -->
+      	<h4>Simulating with Husbandry</h4>
+      
+      	<!-- top row -->
+      	<div class="fig-container no-margin" data-file="lib/interactive/mice/mice.html"></div>
+      
+      	
+      	<!-- notes -->
+      	<aside class="notes" data-markdown>
+- Go through the process of building a histogram until 3 or more unique bins.
+- Then change the threshold to demonstrate the more extreme idea of p-values.
+  - A p-value is the number of times my observation and more extreme observations occur by random chance.
+- open the console and simulate several at a time to build up the histogram... lead to dot plots.
+
+simulate in console with `simulate(20)`
+You can imagine that this distribution is pretty much the same
+
+      	</aside>
+      
+      </section>
+
+      
+      
+      <!-- 4 -->
+      <section class="title-section">
+      	<h1>Descriptive Statistics</h1>
+      	<p class="quoted">
+    			Statistics allow us to reduce our data to fewer numbers, often a single value, in order to make <span class="green-fill">describing</span> our observations simpler.</p>
+    			<span class="fragment mutedBlue" data-fragment-index=0>But at what cost?</span>
+    		<p class="l-sided border-blue fragment" data-fragment-index=1>
+						Some common <span class="orange">descriptors</span> we use to describe data are:
+				</p>
+    		<div class="row fragment" data-fragment-index=1>
+    				<div class="col-50">
+    						<div class="col-30">Central tendency:</div>
+    						<div class="col-70">
+    						<ul class="icon">
+    							<li class="play fragment" data-fragment-index=2>Mean and variants</li>
+    							<li class="play fragment" data-fragment-index=3>Median</li>
+    							<li class="play fragment" data-fragment-index=4>Mode</li>
+    							<li class="play fragment" data-fragment-index=5><span class="green-underline">Range</span></li>
+
+    						</ul>
+    					</div>
+    				</div>
+    				<div class="col-50">
+    						<p class="r-sided border-mutedBlue fragment" data-fragment-index=2>
+    								<span class="fragment" style="line-height: 2em !important;" data-fragment-index=2>$\mu \text{ or }\bar{x}=\frac{1}{N}\sum_{i=1}^{N} x_i$.</span><br>
+    								<span class="fragment" style="line-height: 2em !important;" data-fragment-index=3>$M\text{ or }\tilde{x}=\text{ The middle element of the sorted array.}$</span><br>
+    								<span class="fragment" style="line-height: 2em !important;" data-fragment-index=4>Most frequent value in the data, can occur $\geq 0$ times.</span><br>
+    								<span class="fragment" style="line-height: 2em !important;" data-fragment-index=5>$min(x),\text{ or }max(x)$</span>
+    						</p>
+    				</div>
+    		</div>
+
+      	<aside class="notes" data-markdown>
+### Statistics allow us to summarize data numerically
+
+- We will eventually make a distinction between descriptive statistics and inferential statistics
+  - But in the end, ALLL statistics, population or sample, are descriptive in "nature"
+- What do we mean by all these? The best way is to look at the histogram
+      	</aside>
+      </section>
+      
+
+      <!-- 6 -->
+    	<section>
+    		<h3>Statistics can be <span class="mutedBlue">Robust</span></h3>
+			  <p class="quoted" style="margin-top:0;">A robust estimator is resistant to <span class="orange">biases</span> caused by outliers present in the data.</p>
+			  <p style="margin-top:0;">The mean is a symmetric, non-robust descriptor while the median is a robust descriptor.</p>
+			  <div class="row">
+			    <div class="col-40">
+			      <table class="fragment" data-fragment-index=0 style="font-size: 0.8em; border-top: solid 1px #d2d2d2; border-bottom: solid 1px #d2d2d2;">
+			        <tr class="with-top">
+			          <td>2.5</td>
+			          <td>3.2</td>
+			          <td>3.5</td>
+			          <td>3.9</td>
+			          <td>4.0</td>
+			          <td>4.4</td>
+			          <td>5.3</td>
+			          <td>5.9</td>
+			          <td>6.1</td>
+			          <td>6.4</td>
+			          <td class="fragment highlight-bg-orange" data-fragment-index=2><span class="fragment" data-fragment-index=2>30</span></td>
+			        </tr>
+			      </table>
+			    </div>
+			    <div class="col-20"></div>
+			    <div class="col-15 lift-5">
+			      <p class="fragment" data-fragment-index=1 style="font-size: 0.6em; margin-top: 0;">
+			        <span class="em u">Mean:</span> 4.52 <br>
+			        <span class="em u">Median:</span> 4.2
+			      </p>
+			    </div>
+			    <div class="col-15">
+			      <p class="fragment" data-fragment-index=3 style="font-size: 0.6em; margin-top: 0;">
+			        <span class="em u">Mean:</span> <span class="fragment highlight-bg-orange" data-fragment-index=3>6.84</span> <br>
+			        <span class="em u">Median:</span> <span class="fragment highlight-bg-orange" data-fragment-index=3>4.4</span>
+			      </p>
+			    </div>
+			  </div>
+			  <div class="row">  
+				  <svg width="75%" viewBox="0 0 846 318">
+			      <use class="fragment" data-fragment-index=4 xlink:href="lib/img/outlierKG.svg#axes_1"></use>
+			      <use class="fragment" data-fragment-index=5 xlink:href="lib/img/outlierKG.svg#axes_2"></use>
+			      <use class="fragment" data-fragment-index=7 xlink:href="lib/img/outlierKG.svg#axes_3"></use>
+			      <use class="fragment" data-fragment-index=6 xlink:href="lib/img/outlierKG.svg#axes_4"></use>
+			      <use class="fragment" data-fragment-index=7 xlink:href="lib/img/outlierKG.svg#axes_5"></use>
+			    </svg>
+			  </div>
+			  <aside class="notes" data-markdown>
+In positively skewed distributions, the mean is greater than the median
+
+In negatively skewed distributions, the mean is smaller than the median
+
+What about the minimum and maximum?
+				</aside>
+    	</section>
+      
+    	<!-- 7 -->
+    	<section class="title-section">
+    		<h1 class="center fragment fade-in" data-fragment-index=1>Describing the Shape</h1>
+			  <div class="drop-10">
+			    <svg width="75%" viewBox="0 42 576 216"">
+			      <use xlink:href="lib/img/dotplot-distribution.svg#axes_1"></use>
+			      <use xlink:href="lib/img/dotplot-distribution.svg#axes_3"></use>
+			      <use  class="fragment" data-fragment-index=1 xlink:href="lib/img/dotplot-distribution.svg#axes_2"></use>
+			    </svg>
+			  </div>
+			  <h1 class="center fragment fade-out" data-fragment-index=1><span class="red">Central Tendency</span></h1>
+    		<aside class="notes" data-markdown>
+## Central tendency
+
+- We have talked, briefly about the central tendency, where most of the values fall.
+- Now let's talk about the overall shape.
+    		</aside>
+    	</section>
+    	
+    	
+    	<!-- 8 -->
       <section>
-      	<div style="height: 600px; width: 800px;">
-      		<svg version="1.1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 904 450" style="enable-background:new 0 0 904 450;" xml:space="preserve">
-	      		<use class="fragment" data-fragment-index=2 href="lib/img/PopSamp.svg#AXIS3"></use>
-	      		<use class="fragment" data-fragment-index=1 href="lib/img/PopSamp.svg#AXIS1"></use>
-	      		<use class="fragment" data-fragment-index=2 href="lib/img/PopSamp.svg#AXIS2"></use>
-	      		<use class="fragment" data-fragment-index=2 href="lib/img/PopSamp.svg#AXIS4"></use>
-      	</svg></div>
+      	<h1>Population vs. Sample: The Shape</h1>
+      	<div class="row">
+      		<div class="col-40">
+      			<p class="l-sided border-red fragment" data-fragment-index=1>
+							You can imagine drawing a <span class="red">random sample</span> from some population.
+  					</p>
+  					<p class="l-sided border-orange fragment" data-fragment-index=2>
+							If the population is very large (or unknown) and our sample relatively small, <span class="fragment highlight-bg-mutedBlue" data-fragment-index=3>how likely is our sample to <span class="orange">look</span> like the population?</span>
+  					</p>
+  					<p class="l-sided border-mutedBlue fragment" data-fragment-index=4>
+							How do we describe the shape of our sample?
+  					</p>
+  					<p class="l-sided border-green fragment" data-fragment-index=5>
+  							First we need to come up with a way to view the values so that a shape can be determined.
+  					</p>
+    			</div>	
+      		
+	      	<div style="height: 600px; width: 800px;" class="no-margin col-20 center">
+	      		<svg version="1.1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 904 450" style="enable-background:new 0 0 904 450;" xml:space="preserve">
+		      		<use class="fragment" data-fragment-index=1 href="lib/img/PopSamp.svg#AXIS3"></use>
+		      		<use href="lib/img/PopSamp.svg#AXIS1"></use>
+		      		<use class="fragment" data-fragment-index=1 href="lib/img/PopSamp.svg#AXIS2"></use>
+		      		<use class="fragment" data-fragment-index=2 href="lib/img/PopSamp.svg#AXIS4"></use>
+	      		</svg>
+	      	</div>
+      	</div>
+      	<aside class="notes" data-markdown>
+## Sample shape $\neq$ Population shape
+
+If we knew the population, we can make statements about that shape... tails, clumped around x, uni-modal...
+
+Once we have the sample, we can determine its shape easily by drawing a histogram...
+      	</aside>
       </section>
     	
-      <!-- 4 -->
+			<!-- 9 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h2>Skewness</h2>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    		<p class="quoted">
+    				Skewness refers to shape of the distribution with regard to the tails.
+    		</p>
+    			<!-- left column -->
+    		<div style="width: 100%;" class="no-margin center">
+      		<svg x="0px" y="0px" viewBox="0 0 900 270"xml:space="preserve">
+	      		<use class="fragment" data-fragment-index=1 href="lib/img/skewness2.svg#ax2"></use>
+	      		<use href="lib/img/skewness2.svg#ax1"></use>
+	      		<use class="fragment" data-fragment-index=2 href="lib/img/skewness2.svg#ax3"></use>
+      		</svg>
+      	</div>	
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+    				
+    			</aside>
+    			
+    	</section>
+    	
+    	
+    	<!-- 10 -->
+    	<section>
+    		<h2>Building a Histogram</h2>
+    		<p class="l-sided border-mutedBlue">
+    				Start with a dot-plot
+    		</p>
+    		<div style="width: 100%;" class="no-margin center">
+      		<img class="plain" src="lib/img/beeswarm@3x.png">
+      	</div>
+    		<aside class="notes" data-markdown>
+    			
+    		</aside>
+    	</section>
+    	<!-- 11 -->
+    	<section>
+    		<h2>Building a Histogram</h2>
+    		<p class="l-sided border-mutedBlue">
+    				The Choose a binning.. 
+    		</p>
+    		<div style="width: 100%;" class="no-margin center">
+      		<img class="plain" src="lib/img/beeswarmbinningBig@3x.png">
+      	</div>
+    		<aside class="notes" data-markdown>
+    			
+    		</aside>
+    	</section>
+    	<!-- 12 -->
+    	<section>
+    		<h2>Building a Histogram</h2>
+    		<p class="l-sided border-mutedBlue">
+    				And refine your binning.
+    		</p>
+    		<div style="width: 100%;" class="no-margin center">
+      		<img class="plain" src="lib/img/beeswarmbinninSmall@3x.png">
+      	</div>
+    		<aside class="notes" data-markdown>
+    			
+    		</aside>
+    	</section>
+
+
+
+    	<!-- 13 -->
+    	<section>
+    		<h2>Viewing the shape of data</h2>
+    		<div class="fig-container no-margin" data-file="lib/interactive/dotbin/dotbin.html"></div>
+    		<aside class="notes" data-markdown>
+## How to make a histogram
+
+Histograms are super cool because you have all sorts of options to let you explore the distribution.
+But we these shapes have terms associated with them
+    		</aside>
+    	</section>
+
+
+
+
+
+<!-- INSERT GC SLIDES -->
+			
+
+
+			<section class="title-slide fullwidth">
+			  <h1 class="center">Variation: the spread</h1>
+			  <div>
+			    <svg width="70%" viewBox="0 42 576 216" style="margin-top: 5%;">
+			      <use xlink:href="lib/img/dotplot-distribution.svg#axes_1"></use>
+			      <use xlink:href="lib/img/dotplot-distribution.svg#axes_2"></use>
+			      <use xlink:href="lib/img/dotplot-distribution.svg#axes_3"></use>
+			      <use class="fragment" xlink:href="lib/img/dotplot-distribution.svg#axes_4"></use>
+			    </svg>
+			  </div>
+			</section>
+
+			<section data-transition="slide-in">
+			  <h3>The standard deviation</h3>
+			  <p class="quoted" style="margin-bottom: 0;">A common measure of data variability is <br>the <span class="orange">standard deviation</span> (SD). It measures the spread of the data in a sample</p>
+			  <div class="row">
+			    <p class="orange col-60" style="font-size: 1.2em; text-align: right; margin-bottom: 0.5em; margin-top: 0.5em;">
+			      $$s=\sqrt{\frac{1}{N-1}\sum_{i=1}^{N}\left( x_i - \bar{x}\right) ^2}$$
+			    </p>
+			    <div class="col-35">
+			    <p class="fragment red" data-fragment-index=1 style="font-size: 1.2em; text-align:center;">Variance</p>
+			    <p><span class="mutedBlue">$s$</span> for a sample <br>
+			      <span class="mutedBlue">$\sigma$</span> for a population</p>
+			    </div>
+			  </div>
+			    <p style="margin-left: 1em; font-size: 0.8em;">$s=\sqrt{\frac{(x_{1}-\bar{x})^2+(x_{2}-\bar{x})^2+...+(x_{n}-\bar{x})^2}{n-1}}$</p>
+			    <p style="margin-left: 1em; font-size: 0.8em;">$s=\sqrt{\frac{\textrm{sum of observed squared difference from sample mean}}{\textrm{number of observations - 1}}}$</p>
+			  <aside class="notes">
+			    <p>The SD can be loosely interpreted as the typical distance (in absolute value) between the data values and the mean of the distribution.</p>
+			    <p>The larger the standard deviation, the more variability there is in the data and the more spread out the data are.</p>
+			    <p>In practice, we generally compute the standard deviation using a calculator or computer software. The units for the standard deviation are the same as the units for the original data.</p>
+			    <p>
+			      We would want the average of the sample variances for all possible samples
+			      to equal the population variance.
+			      It seems like a logical property and a reasonable thing to happen. This is called “unbiased”
+			      When we divide by (n −1) when calculating the sample variance, then it turns out that
+			      the average of the sample variances for all possible samples is equal the population variance.
+			      So the sample variance is what we call an unbiased estimate of the population variance.
+			      If instead we were to divide by n (rather than n −1) when calculating the sample variance, then
+			      the average for all possible samples would NOT equal the population variance. Dividing by n 
+			      does not give an “unbiased” estimate of the population standard deviation.
+			      Dividing by n−1 satisfies this property of being “unbiased”, but dividing by n does not.
+			      Therefore we prefer to divide by n-1 when calculating the sample variance.
+			    </p>
+			  </aside>
+			</section>
+
+			<section data-transition="slide-out">
+			  <h3>The standard deviation</h3>
+			  <div class="row">
+			    <div class="col-50">
+			      <p class="sided">Let's consider 2 sets of data, both have a mean of 100</p>
+			    </div>
+			    <div class="col-50">
+			      <table>
+			        <thead>
+			          <th style="background: #636c72;">Numbers</th>
+			          <th style="background: #636c72;">Mean</th>
+			          <th style="background: #636c72;">SD</th>
+			        </thead>
+			        <tbody>
+			          <tr>
+			            <td>100, 100, 100, 100, 100</td>
+			            <td>100</td>
+			            <td>0</td>
+			          </tr>
+			          <tr>
+			            <td>90, 90, 100, 110, 110</td>
+			            <td>100</td>
+			            <td>10</td>
+			          </tr>
+			        </tbody>
+			      </table>
+			    </div>
+			  </div>
+			  <div class="row">
+			    <div class="col-35">
+			      <p style="font-size: 0.6em;"><span class="em u">Set 1:</span> all values are equal to the mean, so there is no variablility at all</p>
+			    </div>
+			    <div class="col-2">
+			      <p></p>
+			    </div>
+			    <div class="col-63">
+			      <p style="font-size: 0.6em;"><span class="em u">Set 2:</span> one value equals the mean and
+			       other four values are 10 points away from the mean. So the 
+			       <span class="orange">average distance away from the
+			      mean</span> is about 10</p>
+			    </div>
+			  </div>
+			  <p class="u em fragment" data-fragment-index=1 style="font-size: 0.5em; margin-bottom: 0;">Example for Set 2:</p>
+			  <ol class="push-left fragment" data-fragment-index=1 style="font-size: 0.5em;">
+			    <li>Calculate the sample mean: $\bar{x}=100$</li>
+			    <li>For each observation, calculate the difference between the data value <br> and the mean:
+			      [-10, -10, 0, 10, 10]</li>
+			    <li>Square each difference in step 2: [100, 100, 0, 100, 100]</li>
+			    <li>Sum the squared differences in step 3, and then divide this sum by $(n-1)$: <br>
+			      variance $s^2=\frac{400}{5-1}=\frac{400}{4}=100$</li>
+			    <li>Take the square root of the value in step 4: $s=\sqrt{100}=10$</li>
+			  </ol>
+			</section>
+
+			<section>
+			  <h3>Beware of the standard deviation</h3>
+			  <p class="sided">
+			    Like the mean, the standard deviation does not cope well with skewed distributions.
+			  </p>
+			  <div class="row">
+			    <div class="col-45">
+			      <img src="lib/img/sd-bad-use-cell-paper-title.png" width="100%" class="unbordered">
+			    </div>
+			    <div class="col-55">
+			      <svg width="100%" viewBox="0 0 199.92 129.601" style="margin-top: 0;">
+			        <use xlink:href="lib/img/sd-bad-use-cell-paper-fig.svg#figure"></use>
+			        <use class="fragment" xlink:href="lib/img/sd-bad-use-cell-paper-fig.svg#circle"></use>
+			      </svg>
+			      <!-- <img src="lib/img/sd-bad-use-cell-paper-fig.png" width="100%" class="unbordered"> -->
+			    </div>
+			  </div>
+			</section>
+
+			<section>
+			  <h3>The SD is only useful in the context of the normal distribution</h3>
+			  <div class="row">
+			    <div class="col-60">
+			      <img src="lib/img/sd-normal.svg" class="unbordered" width=100%>
+			    </div>
+			    <div class="col-40">
+			      <p style="font-size: 0.5em;">
+			        <span class="u em">The Empirical Rule:</span>
+			        For any bell-shaped curve, approximately <br>
+			        <span style="margin-left:0.9em;">- 68% of the values fall within 1 SD of 
+			          the mean in either direction</span> <br>
+			        <span style="margin-left:0.9em;">- 95% of the values fall within 2 SD of 
+			          the mean in either direction</span> <br>
+			        <span style="margin-left:0.9em;">- 99.7% of the values fall within 3 SD of 
+			          the mean in either direction</span>
+			      </p>
+			      
+			    </div>
+			  </div>
+			</section>
+
+			<section>
+			  <h3>Misuse of SD is everywhere</h3>
+			  <svg width="90%" viewBox="0 0 813.114 458.502" style="margin-top: 1%;">
+			    <use xlink:href="lib/img/barplot-sd.svg#fig"></use>
+			    <use class="fragment" xlink:href="lib/img/barplot-sd.svg#inset"></use>
+			    <use class="fragment" xlink:href="lib/img/barplot-sd.svg#range"></use>
+			  </svg>
+			</section>
+
+			<section>
+			  <h3>The range</h3>
+			  <p class="quoted">The <span class="orange">range</span> gives you the most basic mutedBluermation about the spread of a dataset. It is calculated by the (arithmetic) <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">difference between the lowest and highest data value</span>.</p>
+			  <svg width="75%" viewBox="0 0 239.5 81" style="margin-top: 1%;">
+			    <use xlink:href="lib/img/min-max.svg#minmax"></use>
+			    <use class="fragment" xlink:href="lib/img/min-max.svg#range"></use>
+			  </svg>
+			</section>
+
+			<section>
+			  <h3>Interquantile range</h3>
+			  <p class="quoted" style="font-size: 0.7em;">The median divides the data into two equal halves (it is the $50^{th}$ percentile). If we divide each of those halves again, we obtain two additional statistics known as the <span class="orange">first (Q1) and third (Q3) quartiles</span>, which are the $25^{th}$ and $75^{th}$ percentiles.</p>
+			  <p><span class="u">Interquartile range:</span> <span class="orange" style="margin-left: 0.5em;">$\textrm{IQR} = Q3 − Q1$</span></p>
+			  <div class="row">
+			    <div class="col-55">
+			      <img class="unbordered" src="lib/img/quartiles.svg" width=100%>
+			    </div>
+			    <div class="col-45 fragment">
+			      <p style="font-size: 0.5em; margin-bottom: 0;">A value is considered an <span class="mutedBlue">outlier</span> if it is:</p>
+			      <div class="row framed border-mutedBlue">
+			        <div class="col-10">
+			          <p style="font-size:0.5em; margin-top: 0.55em;">or</p>
+			        </div>
+			        <div class="col-90 left" style="font-size: 0.55em;">
+			          smaller than $Q1−1.5\times IQR$<br>
+			          larger than $Q3+1.5\times IQR$
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+			  <aside class="notes">
+			    Consider again the data on mammal longevity in Data 2.2 on page 64. Our intuition suggests that the longevity of 40 years for the elephant is an unusually high value compared to the other lifespans in this sample. How do we determine objec- tively when such a value is an outlier? The criteria should depend on some measure of location for “typical” values and a measure of spread to help us judge when a data point is “far” from those typical cases. One approach, typically used for identifying outliers for boxplots, uses the quartiles and interquartile range. As a rule, most data values will fall within about 1.5(IQR)’s of the quartiles.
+			  </aside>
+			</section>
+
+			<section>
+			  <h3>Percentiles</h3>
+			  <p class="quoted">
+			    The <span class="orange">$k^{th}$ percentile</span> is a value in
+			    the dataset that has $k\%$ of the data values at or below it and $(100 – k)\%$
+			    of the data values at or above it.
+			  </p>
+			  <div class="row">
+			    <div class="col-55">
+			      <svg width="100%" viewBox="0 0 576 252" style="margin-top: 1%;">
+			        <use xlink:href="lib/img/quartiles.svg#axes_1"></use>
+			      </svg>
+			    </div>
+			    <div class="col-45">
+			      <p style="font-size: 0.5em; margin-bottom: 0;">
+			        <span class="u em">Note:</span> <br>
+			        Here our dataset contains 40 data points.
+			        So each data point correspond to $\frac{100}{40}=2.5\%$ of the data.</p>
+			    </div>
+			  </div>
+			</p>
+			</section>
+
+			<section class="title-slide fullwidth">
+			  <h1 class="center">Present your<br> (quantitative) data</h1>
+			  <div>
+			    <img src="lib/img/data-presentation.svg" class="unbordered">
+			  </div>
+			</section>
+
+
+			<section data-transition="slide-in">
+			  <h3>Bar graphs are evil</h3>
+			  <p class="em orange col-80">1) Part of the range covered by the bar might have never been observed in the sample</p>
+			  <svg width="80%" viewBox="0 0 504 288" style="margin-top: 1%;">
+			    <use xlink:href="lib/img/barplot-distributions.svg#axes_1"></use>
+			    <use xlink:href="lib/img/barplot-distributions.svg#axes_2"></use>
+			  </svg>
+			</section>
+
+			<!-- <section>
+			  <h3>Bar graphs are evil</h3>
+			  <p>2) They conceal the variance & distribution of the data</p>
+			  <div class="row">
+			    <div class="col-50">
+			      <svg width="100%" viewBox="0 0 432 324" style="margin-top: 1%;">
+			        <use xlink:href="lib/img/barplot-same.svg#axes_1"></use>
+			        <use class="fragment" data-fragment-index=1 xlink:href="lib/img/barplot-same.svg#axes_2"></use>
+			      </svg>
+			    </div>
+			    <div class="col-50">
+			      <p class="mutedBlue">Look the same?</p>
+			      <p class="red fragment" data-fragment-index=1>It's not!</p>
+			    </div>
+			  </div>
+			</section> -->
+
+			<section data-transition="none">
+			  <h3>Bar graphs are evil</h3>
+			  <p class="em orange col-80">2) They conceal the variance and the underlying distribution of the data</p>
+			  <div class="row">
+			    <div class="col-45 mutedBlue">Look the same?</div>
+			    <div class="col-50 red fragment" data-fragment-index=1>It's not!</div>
+			  </div>
+			  <div class="col-90">
+			    <svg width="100%" viewBox="0 0 576 252" style="margin-top: 1%;">
+			      <use xlink:href="lib/img/barplot-same-side.svg#axes_1"></use>
+			      <use class="fragment" data-fragment-index=1 xlink:href="lib/img/barplot-same-side.svg#axes_2"></use>
+			    </svg>
+			  </div>
+			</section>
+
+			<section data-transition="slide-out" data-state="showFooterRight" 
+			  data-footer="Source - Cumming, G. et al. (2007). 'Error bars in experimental biology'. J Cell Biol 177 (1): 7–11">
+			  <h3>Bar graphs are evil</h3>
+			  <p class="em orange col-100" style="margin-bottom: 0;">
+			    3) They are associated with (usually not defined) error bars</p>
+			  <div class="row">
+			    <div class="col-50">
+			      <p style="font-size: 0.5em;">Different types, different meanings: <br>
+			      <span style="margin-left:0.8em;">
+			        - <span class="mutedBlue">Descriptive</span> statistics (SD, range)</span> <br>
+			      <span style="margin-left:0.8em;">
+			        - <span class="mutedBlue">Inferential</span> statistics (SEM, CI)</span>
+			      </p>
+			      <img src="lib/img/barplot-cartoon.svg" class="unbordered" width=100%>
+			    </div>
+			    <div class="col-50">
+			      <img src="lib/img/error-bars.png" class="unbordered" width=80%>
+			    </div>
+			  </div>
+			</section>
+
+			<section data-state="showFooterRight" data-footer="Source - <a href='http://onlinelibrary.wiley.com/doi/10.1113/jphysiol.2011.205062/full' target='_blank'>G. Drummond - 'Show the data, don't conceal them', J Physiol. (2011) Apr 15;589(Pt 8):1861-3</a>">
+			  <h3>Avoid making bar graphs</h3>
+			  <div class="row">
+			    <div class="col-60">
+			      <p style="font-size: 0.6em; margin-top:0; margin-bottom:0;">
+			        <span class="u">To reveal the distribution of the data:</span>
+			        <ul style="font-size: 0.55em; margin-top:0;"">
+			          <li>Display data in their raw form</li>
+			          <li>A dot plot is a good start</li>
+			          <li>Dynamite plunger plots conceal data</li>
+			          <li>Check the pattern of distribution of the values</li>
+			        </ul>
+			      </p>
+			      <p class="fragment" data-fragment-index=1 style="font-size: 0.6em; margin-top:0; margin-bottom:0;">
+			      <span class="u">About Figure 1:</span>
+			      <ul class="fragment" data-fragment-index=1 style="font-size: 0.55em;">
+			        <li> <span class="mutedBlue">First set:</span> Gaussian (or normal) distribution (symmetrically distributed)</li>
+			        <li> <span class="mutedBlue">Second set:</span> right skewed, lognormal (few large values). <span class="orange">This type of distribution of values is quite common in biology</span> (ex: plasma concentrations of immune or inflammatory mediators)”</li>
+			      </ul>
+			      </p>
+			      <p class="quoted fragment" data-fragment-index=1 style="font-size: 0.6em; margin-top:0;">
+			        Plunger plots only: who would know that the values were skewed [...]
+			        and that <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">the common statistical tests would be inappropriate?</span>”
+			      </p>
+			    </div>
+			    <div class="col-35">
+			      <img src="lib/img/j-physiol-drummond-title.png" class="unbordered" width="100%" style="margin-top: 0; margin-bottom: 0;">
+			      <img src="lib/img/j-physiol-drummond-bargraph.png" class="unbordered fragment" data-fragment-index=1 width="100%" style="margin-top: 0; margin-bottom: 0;">
+			    </div>
+			    
+			  </div>
+			  <p class="sided" style="font-size: 0.65em;">
+			    <span class="orange">"For better characterization of a sample, we prefer dots plots, or box plots</span> for their ability to display a minimum of five measures of the underlying data."
+			  </p>
+			</section>
+
+
+			<section data-state="showFooterRight" data-footer="Source - <a href='https://www.jci.org/articles/view/63462' target='_blank'>Rockman H.A. (2012). 'Great expectations'. J Clin Invest 122 (4): 1133</a>">
+			  <h3>Avoid making bar graphs</h3>
+			  <div class="row">
+			    <div class="col-55">
+			      <img src="lib/img/jci-spelled-out-white-on-transparent.png" class="border-muted" width="100%" style="margin-bottom: 0 !important; margin-top: 0;">
+			      <p>
+			        <ul style="font-size: 0.5em;">
+			          <li>Impact Factor: 12.575 (2015). <br>The JCI is one of the top journals in the “Medicine, Research & Experimental” category.</li>
+			        </ul>
+			      </p>
+			      <p class="quoted" style="font-size: 0.55em;">
+			        To maintain the <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">highest level of trustworthiness of data</span>, <span class="orange">we are encouraging authors to display data in their raw form</span> and not in a fashion that conceals their variance.
+			      </p>
+			      <p class="quoted" style="font-size: 0.55em;">
+			        <span class="mutedBlue">Presenting data as columns with error bars (dynamite plunger plots) conceals data</span>. We recommend that <span class="orange">individual data be presented</span> as dot plots shown next to the average for the group with appropriate error bars (Figure 1).
+			      </p>
+			    </div>
+			    <div class="col-45">
+			      <img class="unbordered" src="lib/img/jci-editorial-fig1.png" width="100%">
+			    </div>
+			  </div>  
+			</section>
+
+
+			<section data-state="showFooterRight" data-footer="Source - <a href='http://www.nature.com/nmeth/journal/v11/n2/full/nmeth.2837.html' target='_blank'>Editorial of Nature Methods 11, 113 (2013)</a>">
+			  <h3>Avoid making bar graphs</h3>
+			  <div class="row">
+			    <div class="col-60">
+			      <img src="lib/img/nature-methods-editorial.png" class="unbordered" width="100%">
+			    </div>
+			    <div class="col-40">
+			      <p class="quoted" style="font-size: 0.7em; margin-top:0;">
+			        [...] the <span class="mutedBlue">amount of mutedBluermation</span> they provide is still <span class="mutedBlue">limited to two values</span>, the mean and the spread.
+			      </p>
+			    </div>
+			  </div>
+			  <p class="sided" style="font-size: 0.65em;">
+			    <span class="orange">"For better characterization of a sample, we prefer dots plots, or box plots</span> for their ability to display a minimum of five measures of the underlying data."
+			  </p>
+			</section>
+
+			<section>
+			  <h3>You've been warned before!</h3>
+			  <div class="row">
+			    <div class="col-5">
+			      <p></p>
+			    </div>
+			    <div class="col-90">
+			      <svg width="100%" viewBox="0 0 924 351" style="margin-top: 5%;">
+			        <use xlink:href="lib/img/wiley-coyote-plunger.svg#coyote"></use>
+			        <use class="fragment" xlink:href="lib/img/wiley-coyote-plunger.svg#arrow"></use>
+			      </svg>
+			    </div>
+			  </div>
+			  <aside class="notes">
+			    Use bar graphs at your own risk
+			    <br>
+			    Bar grahs are redous material
+			  </aside>
+			</section>
+
+			<section>
+			  <h3>Dotplot</h3>
+			  <p>
+			    If the number of data is relatively small, showing directly the raw data and accompanying mean/median is best.
+			  </p>
+			  <img src="lib/img/dotplot-data.svg" class="unbordered">
+			  
+			  <aside class="notes">
+			    <p>
+			      Average temperature on April 14th for the 21 years ending in 2015 is given in Table 2.20 for Des Moines, Iowa, and San Francisco, California.
+			    </p>
+			  </aside>
+			</section>
+
+			<section data-transition="slide-in">
+			  <h3>Boxplot</h3>
+			  <p class="sided" style="margin-top:0; font-size: 0.7em;">
+			    A boxplot is a graphical display of the <span class="orange">five number summary</span> for a quantitative variable. It shows the general shape of the distribution, identifies the middle 50% of the data, and highlights any outliers.
+			  </p>
+			  <div class="row">
+			    <div class="col-55">
+			      <img class="unbordered" src="lib/img/boxplot-general.svg" width=100%></img>
+			    </div>
+			    <div class="col-45">
+			      <p style="margin-bottom: 0.3;" class="u em">A boxplot includes:
+			      <ul style="font-size: 0.6em; margin-top: 0;">
+			        <li>A box stretching from <span class="orange">Q1</span> to <span class="orange">Q3</span></li>
+			        <li>A line that divides the box drawn at the <span class="orange">median</span></li>
+			        <li>A line from each quartile to the <span class="orange">most extreme data value</span> <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">that is not an outlier</span>. (if no outliers minimum and maxixum)</li>
+			        <li>Each <span class="orange">outlier</span> plotted individually</li>
+			      </ul>
+			      </p>
+			    </div>
+			  </div>
+			</section>
+
+			<section data-transition="slide-out">
+			  <h3>Boxplot (example)</h3>
+			  <p class="sided" style="margin-top:0; font-size: 0.7em;">
+			    A boxplot is a graphical display of the <span class="orange">five number summary</span> for a quantitative variable. It shows the general shape of the distribution, identifies the middle 50% of the data, and highlights any outliers.
+			  </p>
+			  <div class="row">
+			    <div class="col-55">
+			      <img class="unbordered" src="lib/img/boxplot-ex.svg" width=100%></img>
+			    </div>
+			    <div class="col-45">
+			      <img class="unbordered fragment" src="lib/img/boxplot-ex-distributions.svg" width=100%></img>
+			    </div>
+			  </div>
+			</section>
+
+
+			<section class="title-slide fullwidth">
+			  <h1 class="center">The gallery of<br> bad data reporting</h1>
+			  <div>
+			    <img src="lib/img/fox-tv.jpg" width=60% class="rounded">
+			  </div>
+			</section>
+
+			<section data-transition="slide-in">
+			  <h3>Common mistakes in data reporting</h3>
+			  <div class="row">
+			    <div class="col-35">
+			      <p class="sided">Relative frequencies <span class="orange">MUST sum up to 1</span> (100%)</p>
+			    </div>
+			    <div class="col-65">
+			      <img src="lib/img/fox-pie-chart.png" class="unbordered", width=100%>
+			    </div>
+			  </div>
+			</section>
+
+			<section data-transition="none">
+			  <h3>Common mistakes in data reporting</h3>
+			  <div class="row">
+			    <div class="col-35">
+			      <p class="sided">Relative frequencies <span class="orange">MUST sum up to 1</span> (100%)</p>
+			      <p class="sided">Data in pie-chart are hard to interpret</p>
+			      <img src="lib/img/steve-bar-chart.svg" class="unbordered">
+			    </div>
+			    <div class="col-65">
+			      <img src="lib/img/steve-pie-chart.jpg" class="unbordered", width=100%>
+			    </div>
+			  </div>
+			</section>
+
+			<section data-transition="none">
+			  <h3>Common mistakes in data reporting</h3>
+			  <div class="row">
+			    <div class="col-35">
+			      <p class="sided">Relative frequencies <span class="orange">MUST sum up to 1</span> (100%)</p>
+			      <p class="sided">Data in pie-chart are hard to interpret</p>
+			      <p class="sided">3D graphs are misleading</p>
+			    </div>
+			    <div class="col-65">
+			      <img src="lib/img/bar-3d.svg" class="unbordered", width=100%>
+			    </div>
+			  </div>
+			</section>
+
+			<section data-transition="none">
+			  <h3>Common mistakes in data reporting</h3>
+			  <div class="row">
+			    <div class="col-35">
+			      <p class="sided">Relative frequencies <span class="orange">MUST sum up to 1</span> (100%)</p>
+			      <p class="sided">Data in pie-chart are hard to interpret</p>
+			      <p class="sided">3D graphs are misleading</p>
+			      <p class="sided">Zero your scale</p>
+			    </div>
+			    <div class="col-65">
+			      <img src="lib/img/fox-zero-scale.png" class="unbordered" width=100%>
+			    </div>
+			  </div>
+			</section>
+
+			<section data-transition="none">
+			  <h3>Common mistakes in data reporting</h3>
+			  <div class="row">
+			    <div class="col-35">
+			      <p class="sided">Relative frequencies <span class="orange">MUST sum up to 1</span> (100%)</p>
+			      <p class="sided">Data in pie-chart are hard to interpret</p>
+			      <p class="sided">3D graphs are misleading</p>
+			      <p class="sided">Zero your scale</p>
+			    </div>
+			    <div class="col-65">
+			      <img src="lib/img/zero-scale-poll.svg" class="unbordered" width=100%>
+			    </div>
+			  </div>
+			</section>
+
+			<section data-transition="none">
+			  <h3>Common mistakes in data reporting</h3>
+			  <div class="row">
+			    <div class="col-35">
+			      <p class="sided">Relative frequencies <span class="orange">MUST sum up to 1</span> (100%)</p>
+			      <p class="sided">Data in pie-chart are hard to interpret</p>
+			      <p class="sided">3D graphs are misleading</p>
+			      <p class="sided">Zero your scale</p>
+			      <p class="sided">Labels MUST correspond to data</p>
+			    </div>
+			    <div class="col-65">
+			      <img src="lib/img/nbc-proportion.jpg" class="unbordered", width=100%>
+			    </div>
+			  </div>
+			</section>
+
+			<section data-transition="slide-out">
+			  <h3>Common mistakes in data reporting</h3>
+			  <div class="row">
+			    <div class="col-35">
+			      <p class="sided">Relative frequencies <span class="orange">MUST sum up to 1</span> (100%)</p>
+			      <p class="sided">Data in pie-chart are hard to interpret</p>
+			      <p class="sided">3D graphs are misleading</p>
+			      <p class="sided">Zero your scale</p>
+			      <p class="sided">Labels MUST correspond to data</p>
+			    </div>
+			    <div class="col-65">
+			      <svg width="100%" viewBox="0 0 590 356" style="margin-top: 5%;">
+			        <use xlink:href="lib/img/fox-line-plot.svg#image"></use>
+			        <use class="fragment" data-fragment-index=1 xlink:href="lib/img/fox-line-plot.svg#lines"></use>
+			      </svg>
+			    </div>
+			  </div>
+			</section>
+
+
+
+
+
+
+<!-- END GC -->
+
+
+      <!--  -->
       <section>
       
       	<!-- heading -->
       	<div class="row">
-      		<h1>Getting creative is good too.</h1>
+      		<h1>Getting creative is good.</h1>
       	</div>
       
       	<!-- top -->
