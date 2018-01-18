@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <style>
+      * {
+        line-height: 24px;
+      }
+      rect.bordered {
+        stroke: #bbb;
+        stroke-width:3px;   
+      }
+
+      text.mono {
+        font-size: 9pt;
+        font-family: verdana;
+        fill: #aaa;
+      }
+
+      text.mono:hover {
+        font-size: 12pt;
+        font-family: verdana;
+        fill: #aaa;
+        font-weight: bold;
+      }
+
+      .square {
+        opacity: 0.5;
+      }
+      
+      .square:hover {
+        opacity: 1.0;
+      }
+
+      .d3-tip {
+        font-family: Verdana;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 8px;
+        color: #fff; 
+        z-index: 5070;
+      }
+      .proportion{
+        margin-top: 5px;
+        max-width: 60px;
+      }
+      .btn {
+        margin-top: -5px;
+      }
+      .svg-border {
+        stroke: #d3d3d3;
+        fill: none;
+        stroke-width: 2px;
+      }
+      .htext {
+        font-weight: bold;
+        color: #d3d3d3;
+      }
+      .left-gap {
+        left: 15px;
+      }
+      .reduced {
+        margin: 0;
+        padding: 0;
+      }
+      .row {
+        margin: 0;
+        text-align: center;
+      }
+      .row:before,
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      #theBox {
+        width: 355px;
+      }
+      #theHist {
+        width: 355px;
+      }
+      .container {
+        width: 350px !important; 
+        margin: 10px auto;
+        display: table;
+      }
+      /* syle for svg */
+      .axis path, .tick line {
+          fill: none;
+          stroke: #d3d3d3;
+      }
+      .y.axis path, .y.axis line {
+          display: none;
+      }
+      .y.axis text {
+          display: none;
+      }
+      .hist-axis text {
+          font: 16px sans-serif;
+      }
+      .bar rect {
+          stroke-width: 1px;
+          stroke: #d3d3d3;
+      }
+      .hist-bar rect {
+        fill: #73B55B;
+      }
+
+      .hist-bar text {
+        fill: #a2a2a2;
+        font: 14px sans-serif;
+      }
+      .axis--x.hist-axis text {
+        fill: #d3d3d3;
+        font: 14px sans-serif;
+      }
+      #n-bootstraps {
+        display: inline-block;
+        width: 40px;
+        white-space: nowrap;
+        font-size: 1.1em;
+      }
+      .CI-bin line {
+        fill: none;
+        stroke: red;
+        stroke-width: 0.5px;
+        stroke-dasharray: 5 5;
+      }
+      .CI-bin text.ci-text {
+        fill: #d3d3d3;
+        color: #d3d3d3;
+        font-family: sans-serif;
+        font-size: 10px;
+      }
+    </style>
+
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> -->
+    <!-- <script src="bootstrap.min.js"></script> -->
+    <!-- <link href="bootstrap.min.css" rel="stylesheet" media="screen"> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.4/d3-legend.min.js"></script> -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="hist.js"></script>
+
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <button type="button" class='btn' id="reset">Reset</button>
+        <button type="button" class='btn' id="resample">Resample</button>
+        <label><input type="checkbox" id="cicheck" onclick="toggleCI(this);">Toggle CI</label>
+      </div>
+      <div class="row">
+        <span class="htext">Base proportion: </span>
+        <input class='proportion' type="number" id="theprop" min="0.01" max="0.99" value="0.56" step="0.01" onchange="propChange()"><br>
+        <span class="htext left-gap">Bootstraps per click: </span>
+        <input class='proportion' type="number" id="B" min="1" value="1" step="1" onchange="nSampleChange()"><br>
+        <span class="htext">Bootstraps count: <span class="htext" style="text-align: center;" !important;" id="n-bootstraps">0</span></span>
+      </div>
+      <div class="row reduced" id="theBox"></div>
+      <div class="row reduced" id="theHist"></div>
+    </div>
+    <script type="text/javascript">
+      // DEFINE INITIAL VARIABLES
+      var margin = { top: 10, right: 20, bottom: 10, left: 30 },
+          width = 300,
+          height = 300,
+          sizeX= width + margin.left + margin.right,
+          sizeY= height + margin.top + margin.bottom,
+          BINS = 10,
+          gridSize = Math.floor(height/BINS),
+          PROP = Number(document.getElementById('theprop').value),
+          PROP_SAMPLE = [],
+          NSAMPLES = 1;
+
+      // generate some initial data
+      var DATA = new Array(BINS**2);
+      for(var i= 0; i<BINS**2; i++){
+        DATA[i] = i < PROP*100 ? 1 : 0; // 1 = win, 0 = loss
+      }
+      
+      var UNIQUE_RESULTS = Array.from(new Set(DATA));
+
+      // DEFINE CALLBACKS AND HELPER FUNCTIONS *********************************************************\
+      // Callback for when base proportion changes
+      // Will update global PROP and DATA and then update graphs
+      var propChange = function(){
+        PROP = Number(document.getElementById('theprop').value);
+        // update DATA
+        for(var i= 0; i<BINS**2; i++){
+          DATA[i] = i < PROP*100 ? 1 : 0; // 1 = win, 0 = loss
+        }
+        // reset to new DATA
+        reset();
+      }
+
+      // Callback for number of resamples desired
+      // Updates NSAMPLES only. will not trigger into update()
+      var nSampleChange = function(){
+        let newSampl = Number(document.getElementById('B').value);
+        console.log(`B set to ${newSampl} (previously ${NSAMPLES}).`);
+        NSAMPLES = newSampl;
+      }
+      
+      // Callback for reset button
+      // will clear PROP_SAMPLE and update to original data set.
+      var reset = function() {
+        PROP_SAMPLE.length = 0;
+        hist.reset();
+        update(DATA,false);
+        d3.select('#n-bootstraps').text("0");
+      }
+
+      // Callback to perform main update on graphs
+      // Will compute and update PROPS_SAMPLE after each bootstrap
+      var update = function(d, doResample = true) {
+        var newVal = d;
+        if (doResample) {
+          // resample with replacement
+          for (let n = 0; n < NSAMPLES; n++){
+            newVal = new Array(BINS**2);
+            for (let i = 0; i < BINS**2; i++){
+              newVal[i] = d[ Math.floor(Math.random() * d.length) ];
+            }
+            //update running props
+            PROP_SAMPLE.push(newVal.reduce((v,n) => v+n)/BINS**2)
+          }
+        }
+        //console.log("props running", PROP_SAMPLE)
+        //update squares each iter? test this
+        heatMap
+          .data(newVal)
+        .transition().duration(300)
+          .style("fill", function(d) { return colorScale( d ); });
+        // update tooltips
+        tip.html(function(d) {
+          if (d){
+            label = 'Win'
+            col = 'green'
+          } else {
+            label = 'Loss'
+            col = 'red'
+          }
+          return `Result:  <span style='color:${col}'>${label}` ;
+        });
+        // update histogram
+        hist.setData(PROP_SAMPLE);
+        //update the CI lines (if exists, test is in fxn)
+        updateCI();
+        // update bootstraps text
+        d3.select('#n-bootstraps').text(PROP_SAMPLE.length);
+      }
+
+      var toggleCI = function(box) {
+        // Collect value from check box
+        if (box.checked) {
+          var cis = d3.range(2).map(a => d3.quantile(PROP_SAMPLE.sort(d3.ascending), Math.abs(a-0.025)));
+          if (cis[0] === undefined) { return; }
+          console.log("95ci",cis);
+          // toss the lines on
+          var g = hist.plot.append('g')
+              .attr('class', 'CI-bin')
+              .attr('transform', 'translate(0,0)')
+          g.selectAll('.ci-lines')
+            .data(cis)
+            .enter().append('svg:line')
+              .attr('class', 'ci-lines')
+              .attr('x1', function(d){return hist.scaleX(d);})
+              .attr('y1', 0)
+              .attr('x2', function(d){return hist.scaleX(d);})
+              .attr('y2', hist.height)
+          g.selectAll('ci-text')
+            .data(cis)
+            .enter().append('text')
+              .attr('class', 'ci-text')
+              .attr('x', function(d){return hist.scaleX(d);})
+              .attr('y', 0)
+              .attr('dy','0.8em')
+              .attr('dx', function(d,i) {
+                if (!i){
+                  var ofst = '0.5em'
+                } else {
+                  var ofst = '-0.5em'
+                }
+                return ofst;
+              })
+              .attr('text-anchor', function(d,i){
+                if (!i){
+                  var anch = 'start'
+                } else {
+                  var anch = 'end'
+                }
+                return anch;
+              })
+              .text(function(d){ return `CI: ${d.toFixed(3)}`; })
+          console.log('g',g)
+          return
+        }
+        // not adding them so need to delete the group
+        if (!hist.exists) { return; }
+        hist.plot.selectAll('.CI-bin').remove();
+      }
+
+      var updateCI = function(){
+        // don't try update if the element is not checked... ie no lines to update
+        if (!document.getElementById('cicheck').checked) { return; }
+        // now, get the new CIs
+        var cis = d3.range(2).map(a => d3.quantile(PROP_SAMPLE.sort(d3.ascending), Math.abs(a-0.025)));
+        // grab the svg node
+        var ciBin = hist.plot.select('.CI-bin');
+        if (!ciBin.data().length) { toggleCI(document.getElementById('cicheck')); }
+        //update lines
+        ciBin.selectAll('.ci-lines')
+            .data(cis)
+          .transition().duration(500)
+            .attr('x1', function(d){ return hist.scaleX(d); })
+            .attr('x2', function(d){ return hist.scaleX(d); })
+        //update text
+        ciBin.selectAll('.ci-text')
+            .data(cis)
+          .transition().duration(500)
+            .attr('x', function(d){ return hist.scaleX(d); })
+            .text(function(d) { return `CI: ${d.toFixed(3)}`; });
+      }
+
+
+
+      // Assign Button callbacks ***************************************************************************\
+      d3.select("#resample").on("click", function() { update(DATA); } );
+      d3.select("#reset").on("click", function() { reset(); } );
+
+      // SETUP ACTUAL VISUALIZATIONS************************************************************************\
+      // Build color box on #theBox div
+      var svg = d3.select("#theBox").append("svg")
+              .attr("width", sizeX)
+              .attr("height", sizeY)
+            .append("g")
+              .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+      //add border style with css
+      svg.append("rect")
+        .attr("class", "svg-border")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("rx", 8)
+        .attr("ry", 8)
+        .attr("width", BINS * gridSize + 4)
+        .attr("height", BINS * gridSize + 4)
+
+      // Get colors
+      if (UNIQUE_RESULTS.length == 2){
+        var colors = ['#F79A52','#73B55B'];
+      } else {
+        var colors = d3.interpolateRdYlBu;
+        //var colors = colorbrewer.RdYlGn[BINS];
+      }
+      colorScale = d3.scaleOrdinal(colors)
+        .domain([0, UNIQUE_RESULTS.length - 1, Math.round(d3.max(DATA))])
+      /*var colorScale = d3.scale.quantile()
+        .domain([0, UNIQUE_RESULTS.length - 1, Math.round(d3.max(DATA))])
+        .range(colors);
+      */
+      // Create the tooltip
+      var tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .style("visibility","visible")
+        .offset([-20, 0])
+        .html(function(d) {
+          if (d){
+            label = 'Win'
+            col = 'green'
+          } else {
+            label = 'Loss'
+            col = 'red'
+          }
+          return `Result:  <span style='color:${col}'>${label}` ;
+        });
+      // call the tooltip
+      svg.call(tip);
+
+      // render initial scene
+      var cnt = 0; //global counter
+      var heatMap = svg.selectAll(".dim2")
+            .data(DATA)
+        .enter().append("rect")
+          .attr("x", function(d,i) { return (i % BINS) * gridSize + 3; })
+          .attr("y", function(d,i) { return (!(i % BINS) ? cnt++ : cnt-1) * gridSize + 3; })
+          .attr("rx", 4)
+          .attr("ry", 4)
+          .attr("class", "dim2 bordered")
+          .attr("width", gridSize-2)
+          .attr("height", gridSize-2)
+          .style("fill", function(d){ return colorScale(d); })
+          .attr("class", "square")
+          .on('mouseover', tip.show)
+          .on('mouseout', tip.hide);
+
+      // SETUP HISTOGRAM on #theHist
+      var hMar = margin;
+      hMar.top *= 2;
+      console.log(hMar);
+      var opts = {
+        data: PROP_SAMPLE,
+        element: document.querySelector("#theHist"),
+        margin: hMar,
+        dims: {width:300,height:300}
+      }
+      var hist = new Hist(opts);
+    </script>
+  </body>
+</html>
