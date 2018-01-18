@@ -12,20 +12,12 @@
 	"buffers":
 	[
 		{
-			"file": "lib/interactive/dotbin/lib/d3.slider.css",
+			"file": "Lecture2.html",
 			"settings":
 			{
-				"buffer_size": 1559,
+				"buffer_size": 46527,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lib/css/flatlandDk2.css",
-			"settings":
-			{
-				"buffer_size": 46574,
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -38,47 +30,27 @@
 			}
 		},
 		{
-			"file": "index.html",
+			"file": "lib/css/flatlandDk2.css",
 			"settings":
 			{
-				"buffer_size": 6967,
+				"buffer_size": 46574,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Lecture4.html",
+			"settings":
+			{
+				"buffer_size": 70516,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-section-empty.sublime-snippet",
+			"contents": "<section data-transition=\"slide-in\">\n  <h3>Bootstrap confidence intervals</h3>\n  <p style=\"margin-top: 0; font-size: 0.6em\" class=\"l-sided\">\n    Now that we have our Bootstrap sampling distribution, we can compute the\n    confidence intervals at the 95% level.\n  </p>\n  <div class=\"row\">\n    <div class=\"col-55\">\n      <svg width=\"100%\" viewBox=\"34 0 385 285\" style=\"margin-top: 0;\">\n        <use xlink:href=\"lib/img/ucla-usc-bootstrap-ci95.svg#axes_1\"></use>\n        <use  class=\"fragment\" data-fragment-index=1 xlink:href=\"lib/img/ucla-usc-bootstrap-ci95.svg#axes_2\"></use>\n        <use  class=\"fragment\" data-fragment-index=2 xlink:href=\"lib/img/ucla-usc-bootstrap-ci95.svg#axes_3\"></use>\n      </svg>\n    </div>\n    <div class=\"col-45\">\n      <p class=\"l-sided\" style=\"font-size: 0.55em;\">\n        Where is it centered?<br>\n        <span class=\"fragment\" data-fragment-index=1>\n         centered at <span class=\"red\">$\\hat{p}$</span>\n         <br>\n         (original observed statistic)\n        </span>\n      </p>\n      <p class=\"l-sided\" style=\"font-size: 0.55em;\">\n        How do we compute the 95% confidence intervals or our population parameter?<br>\n        <span class=\"fragment\" data-fragment-index=2>\n          We consider the <span class=\"orange\">central 95% of the bootstrap statistics</span>\n           (discard the 2.5% more extreme cases on each side)\n        </span>\n      </p>\n    </div>\n  </div>\n  <p style=\"font-size: 0.6em;\" class=\"fragment framed border-mutedBlue\">\n    We are 95% confident that the true probability of the Bruins to win a game against the Trojans\n    (parameter $\\pi$) is lying in the interval $[0.498-0.622]$\n  </p>\n</section>\n\n<section data-transition=\"slide-out\">\n  <h3>Bootstrap confidence intervals</h3>\n  <p style=\"margin-top: 0; font-size: 0.65em\" class=\"quoted\">\n    A bootstrap confidence interval at the <span class=\"orange\">alpha</span>\n    level, is computed by considering the\n    <span class=\"orange\">central (1-alpha)</span> bootstrap statistics of the\n    bootstrap sampling distribution we constructed.\n  </p>\n  <p>\n    In the <span class=\"u\">sorted array</span> of bootstrap statistics,\n    this corresponds to the statistics at positions:\n  </p>\n    <ul style=\"font-size: 0.65em;\">\n      <li><span class=\"mutedBlue\">$(\\frac{\\mathrm{alpha}}{2})^{th}$</span>,\n        for the lower confidence interval limit, and</li>\n      <li><span class=\"mutedBlue\">$(1-\\frac{\\mathrm{alpha}}{2})^{th}$</span>,\n       for the upper confidence interval limit</li>\n    </ul>\n  <p style=\"font-size: 0.6em;\" class=\"fragment framed border-orange\">\n    If we were were able to get an unlimited number of original samples from the\n    population of UCLA-USC basketball games, and were computing\n    the $alpha$-% confidence interval from each of them,\n    the true probability of UCLA winning a game against USC\n    would be in $alpha$-% of these calculated intervals.\n  </p>\n</section>\n\n<section>\n  <h3>Reporting confidence intervals instead of p-value</h3>\n  <p class=\"l-sided border-red\">\n    Confidence intervals provide mutedBluermation about both: <br>\n    <span style=\"margin-left: 0.9em\">- <span class=\"red\">strength of evidence</span>\n      (<span class=\"em\">Is the parameter value we want to test against,\n      in the interval or not?</span> => 95% confidence interval)\n    </span> <br>\n    <span style=\"margin-left: 0.9em\">- <span class=\"red\">estimate of the true\n    parameter value</span>\n      ($alpha$-% of the time our interval will include our true parameter)</span>\n  </p>\n  <p class=\"framed border-red fragment\">\n    In that sense, reporting the $alpha$-% confidence intervals is better than\n    just reporting a p-value, since what we really want to know is the true value\n    of our population parameter,\n    not just if our true parameter is different or not from a particular value.\n  </p>\n</section>\n\n<section>\n  <h3>Versatility of the Bootstrap</h3>\n  <div class=\"row\">\n    <div class=\"col-50\">\n      <ul style=\"margin-top: 0; font-size: 0.55em\">\n        <li>The bootstrap procedure <span class=\"orange\">does not require any assumption</span> about\n        the distribution of your data <br>\n        (the data sample is the best approximation of the population)</li>\n        <li class=\"fragment\" data-fragment-index=\"1\">\n          The bootstrap procedure <span class=\"orange\">can be applied to any data\n          type</span> <br>(categorical or\n          quantitative variables)</li>\n        <li class=\"fragment\" data-fragment-index=\"2\">\n          The <span class=\"orange\">bootstrap statistic can be anything</span> you're\n          interesed in <br>\n          ($\\hat{p}$, median, mean, ratio, correlation coefficient, etc ...)</li>\n        <li class=\"fragment\" data-fragment-index=\"3\">\n          The <span class=\"orange\">bootstrap procedure can be adapted</span>\n          to replace any\n          theoretical statistical test <br>\n          (confidence intervals generation,\n          comparison of groups, etc ...)</li>\n      </ul>\n    </div>\n    <div class=\"col-50\">\n      <p style=\"font-size: 0.55em; text-align: center;\"\n        class=\"em fragment\" data-fragment-index=\"2\">\n        Bootstrap regression analysis</p>\n       <img src=\"lib/img/bootstrap-showcase-regression-params.svg\"\n       class=\"plain fragment\" width=\"100%\" data-fragment-index=\"2\">\n    </div>\n  </div>\n</section>",
 			"settings":
 			{
-				"buffer_size": 201,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "lib/js/initReveal.js",
-			"settings":
-			{
-				"buffer_size": 1185,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "lib/js/reveal.js/css/theme/source/flatlandDk2.scss",
-			"settings":
-			{
-				"buffer_size": 12241,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Lecture2.html",
-			"settings":
-			{
-				"buffer_size": 46527,
-				"encoding": "UTF-8",
+				"buffer_size": 5349,
 				"line_ending": "Windows"
 			}
 		}
@@ -143,20 +115,20 @@
 		"selected_items":
 		[
 			[
-				"pack",
-				"PackageResourceViewer: Open Resource"
-			],
-			[
-				"packa",
-				"PackageResourceViewer: Open Resource"
-			],
-			[
 				"html",
 				"Set Syntax: HTML"
 			],
 			[
 				"javasc",
 				"Set Syntax: JavaScript"
+			],
+			[
+				"pack",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"packa",
+				"PackageResourceViewer: Open Resource"
 			],
 			[
 				"packager",
@@ -249,16 +221,24 @@
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/css",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dotbin",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/mice",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/mice/lib",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dotbin/lib",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/heatSquares",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/customVis"
 	],
 	"file_history":
 	[
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/heatSquares/heatsquares.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/css/theme/source/flatlandDk2.scss",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-section-empty.sublime-snippet",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/index.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dotbin/lib/d3.slider.css",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/initReveal.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/heatSquares/hist.js",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dotbin/dotbin.html",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/mice/mice.html",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dotbin/lib/hist.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/heatSquares/prop.tsv",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/mice/mice.html",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-title-section-note.sublime-snippet",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/sec02-reveal-section-2row.sublime-snippet",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/sec2-reveal-section-2col.sublime-snippet",
@@ -275,22 +255,18 @@
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/LosAngeles/la.html",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/LosAngeles/styles.css",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/LosAngeles/la.svg",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dotbin/lib/d3.slider.css",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/img/disticon.svg",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/spi-reveal-span-info.sublime-snippet",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/gcLiveDots/liveDots.html",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/css/theme/template/settings.scss",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/css/flatlandDk.css",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/css/theme/source/flatlandDk2.scss",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/hbund/hbund.html",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-complete-template.sublime-snippet",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dotbin/lib/histDots.js",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/Lecture1.html",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/css/gc.css",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/css/jsStyle.css",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/initReveal.js",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/Lecture2.html",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/index.html",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/img/simulation-graph-coinflip.svg",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dotbin/lib/d3.slider.js",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dotbin/lib/d3-slider-master/dist/index.html",
@@ -310,7 +286,6 @@
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/equiv/equivalence.html",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/equiv/css/style.css",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/d3vis.sublime-snippet",
-		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-section-empty.sublime-snippet",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/html-row-div.sublime-snippet",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-section-note.sublime-snippet",
 		"/F/OneDrive/UCLA/_Lectures/Neuro210C/STATS_lecture_2017_-_Griffis.html",
@@ -380,14 +355,11 @@
 		"/F/OneDrive/UCLA/_Lectures/Neuro210C/index.html",
 		"/F/OneDrive/UCLA/_Lectures/Neuro210C/_notes.yaml",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/tufte-common.def",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/handoutTemplate.tex",
-		"/F/googleDrive/_StatsDev/LS40_Development/_doc/lectureOutlines.tex",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/LectureHandouts.sublime-project",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/text.tex"
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/handoutTemplate.tex"
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
@@ -401,6 +373,68 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"highlight-bckg",
+			"unbordered flat",
+			"\\overset{\\hat{}}{p}",
+			"warning",
+			"danger",
+			"info",
+			"sided",
+			"assets/img/lec/",
+			"\\set",
+			"<!-- ",
+			"warning",
+			"sided",
+			"assets/img/lec/",
+			"sample size",
+			"Effect of changing the sample size",
+			"=>",
+			"unbordered flat",
+			"\\overset{\\hat{}}{p}",
+			"bckg",
+			"sided",
+			"info",
+			"warning",
+			"danger",
+			"assets/img/lec/",
+			"highlight-blue-gc",
+			"underline",
+			"success\"",
+			"success:",
+			"border-success",
+			"One-l-sided vs two-l-sided tests",
+			"assets/img/lec/",
+			"\\overset{\\hat{}}{p}",
+			"unbordered flat",
+			"success\"",
+			"highlight-bckg",
+			"info",
+			"warning",
+			"danger",
+			"info",
+			"warning",
+			"danger",
+			"assets/img/lec/",
+			"sided",
+			"<section",
+			"img",
+			"assets/img/lec/",
+			"u",
+			"assets/img/lec",
+			"CI =",
+			"reset",
+			"tick",
+			"n-text",
+			"this.plot",
+			"this.plot\n",
+			"this.polot",
+			"d4",
+			"dat",
+			"UNIQUE_RESULTS.length",
+			"buckets",
+			"maxNum",
+			"Normal",
+			"button",
 			"bckg",
 			"info",
 			"danger",
@@ -466,44 +500,7 @@
 			"scale.linear",
 			"nFlips",
 			"group_",
-			"slider-m",
-			"slider_d",
-			"row",
-			", <p>",
-			"</li>",
-			"<kbd>",
-			"32px",
-			"drop",
-			"27px",
-			"muted",
-			"mainFontSize",
-			"mainFont",
-			"danger",
-			"em",
-			"FontAwesome",
-			"actColor",
-			"danger",
-			".fragment",
-			"warning",
-			"data-transi",
-			"clip-text",
-			"no-margin",
-			"error",
-			"\\uncert",
-			"\\emph{uncertainty}",
-			"loadnatbib",
-			"To",
-			"Center",
-			"Blue!10",
-			"''",
-			"\"",
-			"\\par",
-			"!20",
-			"CAM 04 ",
-			"08:",
-			"09:",
-			"08:",
-			"\"outputs\""
+			"slider-m"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -511,6 +508,49 @@
 		"regex": false,
 		"replace_history":
 		[
+			"highlight-bg",
+			"plain",
+			"\\hat{p}",
+			"orange",
+			"red",
+			"mutedBlue",
+			"l-sided",
+			"lib/img/",
+			"\\",
+			"orange",
+			"sided border-mutedBlue",
+			"l-sided",
+			"lib/img/",
+			"<i class=\"fas fa-long-arrow-alt-right\"></i>",
+			"plain",
+			"\\hat{p}",
+			"l-sided",
+			"mutedBlue",
+			"orange",
+			"red",
+			"lib/img/",
+			"highlight-mutedBlue",
+			"green\"",
+			"border-green",
+			"One-sided v. Two-sided",
+			"lib/img/",
+			"\\hat{p}",
+			"plain",
+			"highlight-bg",
+			"mutedBlue",
+			"orange",
+			"red",
+			"mutedBlue",
+			"orange",
+			"red",
+			"lib/img/",
+			"l-sided",
+			"lib/img",
+			"d3",
+			"DATA",
+			"UNIQUE_RESULTS.length - 1",
+			"BINS",
+			"UNIQUE_RESULTS.length",
 			"bg",
 			"mutedBlue",
 			"red",
@@ -587,235 +627,11 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "lib/interactive/dotbin/lib/d3.slider.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1559,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								264,
-								264
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1515992281.81,
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "lib/css/flatlandDk2.css",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 46574,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7087,
-								7091
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1516078301.33,
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 4957.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
-				{
-					"buffer": 2,
-					"file": "Lecture3.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 48890,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								47582,
-								47582
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 18617.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6967,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4638,
-								4638
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1516146310.04,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2287.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-section-empty.sublime-snippet",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 201,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								97,
-								97
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1516114846.98,
-							"syntax": "Packages/XML/XML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "lib/js/initReveal.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1185,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1177,
-								1177
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1516081520.32,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "lib/js/reveal.js/css/theme/source/flatlandDk2.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12241,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								11139,
-								11139
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1515997706.07,
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 7171.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 7,
 					"file": "Lecture2.html",
 					"semi_transient": false,
 					"settings":
@@ -827,22 +643,155 @@
 						"selection":
 						[
 							[
-								28478,
-								28878
+								29838,
+								29838
 							]
 						],
 						"settings":
 						{
-							"markdonw_live_preview_last_run": 1516082895.31,
+							"markdonw_live_preview_last_run": 1516164204.7,
 							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 10645.0,
+						"translation.y": 12013.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
 					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Lecture3.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 48890,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4281,
+								4340
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"markdonw_live_preview_last_run": 1516164204.71,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 419.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "lib/css/flatlandDk2.css",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 46574,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22375,
+								22375
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1516289841.18,
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 22939.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
 				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "Lecture4.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 70516,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								68440,
+								68440
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 29931.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5349,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								5349
+							]
+						],
+						"settings":
+						{
+							"default_dir": "F:\\googleDrive\\_StatsDev\\LS40_Development\\Lecture Presentations",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1067.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
 			]
 		}
 	],
@@ -852,7 +801,7 @@
 	},
 	"input":
 	{
-		"height": 35.0
+		"height": 36.0
 	},
 	"layout":
 	{
@@ -903,7 +852,7 @@
 	"project": "LS40_lectures.sublime-project",
 	"replace":
 	{
-		"height": 48.0
+		"height": 68.0
 	},
 	"save_all_on_build": true,
 	"select_file":
