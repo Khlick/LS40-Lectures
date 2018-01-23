@@ -1,0 +1,153 @@
+body {
+    background-color: #FFF1F9;
+    
+}
+
+.header {
+  
+    background-color: #FFF1F9;
+    background: -webkit-linear-gradient(rgba(255,241,249, 1), rgba(255,241,249, 1), rgba(255,241,249, 0));
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgba(255,241,249, 1), rgba(255,241,249, 1), rgba(255,241,249, 0));
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgba(255,241,249, 1), rgba(255,241,249, 1), rgba(255,241,249, 0));
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgba(255,241,249, 1), rgba(255,241,249, 1), rgba(255,241,249, 0));
+    /* Standard syntax */
+}
+
+.col-left {
+
+    background-color: #FFF1F9;
+}
+
+.action-buttons ul a li:hover {
+    color: #D90677;
+}
+
+#next-chapter-color:hover {
+    background-color: #2A2738;
+}
+
+
+.action-buttons ul {
+
+    border-top: 1px solid rgba(217,6,119, 0.2);
+}
+
+.radio-inline .checkmark:after{
+    background: #D90677;
+}
+
+/*.form-check .checkbox-mark:after{
+    background: #D90677;
+    border:#D90677;
+}*/
+
+
+@media screen and (min-width: 750px) {
+    #ra {
+        display: block;
+    }
+
+    #cp,
+    #pd,
+    #bp,
+    #fi,
+    #bi {
+        display: none;
+    }
+}
+
+.progress-bar-color {
+    background-color: #D90677;
+}
+
+
+
+/* Visualizations */
+
+.axis path,
+.axis line {
+	fill: none;
+	stroke: black;
+	stroke-width: 2;
+	shape-rendering: crispEdges;
+}
+
+.axis text {
+	font-family: "Helvetica Neue";
+	font-size: 11px;
+	fill: black;
+}
+
+#table_ols {
+    width: 100%;
+}
+
+#table_anova {
+	cursor:pointer;
+    background-color: transparent;
+}
+#table_anova td {
+    background-color: rgba(255,255,255,0.4);;
+}
+
+#table_corr {
+	font-size: 12px;
+	cursor:pointer;
+}
+
+
+.click { background-color: rgba(217,6,119,1); }
+.hover { background-color: rgba(217,6,119,0.6); }
+
+.hover_corr { opacity: 0.6 !important; }
+.click_corr { border: 2px solid #D90677 !important; }
+
+
+.data {
+	fill: black;
+	cursor: pointer;
+}
+
+.sse {
+	fill: #00D0A1;
+    fill-opacity: 0.5;
+    stroke-width: 2px;
+    stroke: #00D0A1;
+}
+.ols {
+	stroke-width: 4px;
+    stroke: #64BDFF;
+}
+
+/*.form-check .checkbox-mark:after{
+    border: solid #D90677;
+}*/
+
+
+@media screen and (min-width: 320px) {
+    .ra-radio{
+        width: 1em;
+
+    }
+}
+
+@media screen and (min-width: 680px) {
+
+    .ra-radio{
+        width: 0.2em;
+        padding-right: 1em;
+        padding-left: 2em;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .ra-radio{
+        width: 0.2em;
+        padding-right: 1.2em;
+        padding-left: 1.5em;
+    }
+
+}

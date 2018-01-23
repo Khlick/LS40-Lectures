@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Lecture 5: Normal, or is it?</title>
+  <meta name="author" content="Khris Griffis" />
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, minimal-ui">
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="lib/img/fic/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="lib/img/fic/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="lib/img/fic/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="lib/img/fic/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="lib/img/fic/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="lib/img/fic/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="lib/img/fic/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="lib/img/fic/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="lib/img/fic/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="lib/img/fic/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="lib/img/fic/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="lib/img/fic/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="lib/img/fic/favicon-16x16.png">
+  <link rel="manifest" href="lib/img/fic/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="lib/img/fic/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="lib/js/reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="lib/css/flatlandDk2.css" id="theme">
+  <link rel="stylesheet" href="lib/css/jsStyle.css">
+  
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/js/reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'lib/js/reveal.js/css/print/pdf.css' : 'lib/js/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!-- END PRINT EXPORT -->
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+  <link href="https://use.fontawesome.com/releases/v5.0.3/css/all.css" rel="stylesheet">
+  
+</head>
+<body>
+  
+  <div class="reveal">
+
+    <div class="slides">
+      <!-- #########################    CONTENT START    #########################-->
+      	
+      <!-- 1 -->
+      <section class="title-slide">
+				<div class="row">
+  				<div class="col-50">
+  					<img src="lib/img/Empirical_Rule_wt.PNG" class="plain">
+  				</div>
+  				
+  				<div class="col-50" style="z-index:1; position: relative; margin-left: -5%;">
+  					<h1>Life Sciences 40</h1>
+	        	<h2>Lecture 5:</h2>
+	          <h4>The Gaussian Distribution</h5>
+	          <h5>Khris Griffis</h3>
+  				</div>
+  			</div>
+        <aside class="notes" data-markdown>
+## Gauss
+
+1. Talk about homework, people having issues downloading / uploading.
+   - Due Friday at midnight, the next homework will be released friday evening, around 5.
+   - They will learn a little more this week which will make homework easier and also, email me or your TAs. We want you to succeed, that is what we're paid to do.
+2. Extra office hours on Thursday morning, office hours on friday. 
+        </aside>
+      </section>
+      
+      <!-- 2 -->
+      <section>
+      	<h2>Up to this point...</h2>
+      	
+      	<div class="row">
+      			<div class="col-10">
+      				
+      			</div>
+      			<div class="col-80">
+      					<p class="l-sided border-green fragment">
+      						<i class="fas fa-bell orange"></i> Most of the conversation we have had centered around countable data. I.e. discrete simple events that could be summed up and converted to a <span class='mutedBlue'>proportion</span>
+      					</p>
+      					<p class="l-sided border-green fragment">
+      						<i class="fas fa-bell orange"></i> To simulate the <span class='red'>Null Distribution</span> we used probabilities, i.e. expected proportions, and developed a chance model against which we compared our statistic, the count.
+      					</p>
+      					<p class="l-sided border-green fragment">
+      						<i class="fas fa-bell orange"></i> We said there was a theoretical <span class='orange'>formula</span> to help us predict the expected outcome of a binary sample space, e.g. yes or no, but that formulas are only good if you have an <span class="orange-strike">infinite</span> huge number of observations.
+      					</p>
+      					<p class="l-sided border-orange fragment">
+      						<i class="fas fa-bell orange"></i> The resulting p-value is affected by:<br>
+      						<ol class="l-sided border-orange fragment">
+      							<li class="fragment">The difference between the observed and the Null statistic: $\Delta_{\theta}$</li>
+      							<li class="fragment">The size of your experimental sample.</li>
+      							<li class="fragment">Whether we do a 1- or 2-sided test</li>
+      						</ol>
+      					</p>
+      					<p class="l-sided border-green fragment">
+      						<i class="fas fa-bell orange"></i> Confidence intervals are the measure of your <span class="mutedBlue">Uncertainty</span>, which can be directly calculated from your <spann class="satBlue">data</spann> by <span class="green">Bootstrap</span>.
+      					</p>
+      			</div>
+      			<div class="col-10">
+      					
+      			</div>
+      	</div>
+
+      	<aside class="notes" data-markdown>
+# Previously...
+
+The mechanism behind the bootstrap, i.e. randomization, can be easily visualized through a method called monte carlo area estimations.
+
+      	</aside>
+      </section>
+      	
+      <!-- 3 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>Monte Carlo</h3>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin">
+      			<p class="l-sided border-mutedBlue">
+      				The Monte Carlo randomization technique involves creating a large number of random data that we can then use to estimate some property of a theoretical space. <br>
+      				For example, we can use Monte Carlo to estimate the area of a circle by randomly, and uniformly, dropping points in an known area surrounding the circle. We can compute the area as a proportion of points inside the circle to the total area.
+      			</p>
+      			<p class="quoted border-orange fragment" data-fragment-index=0>
+      				The purpose of randomization is to estimate some characteristic of the sampling distribution.
+      			</p>
+      			<p class="r-sided border-green fragment" data-fragment-index=12>
+      				The bootstrap is a special case Monte Carlo where randomization is used for estimating a characteristic of the empirical data.
+      			</p>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin">
+      			<svg height="432pt" version="1.1" viewBox="0 0 432 432" width="432pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      				<use class="fragment" data-fragment-index=1 xlink:href="lib/img/montecarloCircle.svg#axes_1"></use>
+      				<use class="fragment current-visible" data-fragment-index=2 xlink:href="lib/img/montecarloCircle.svg#axes_2"></use>
+      				<use class="fragment current-visible" data-fragment-index=3 xlink:href="lib/img/montecarloCircle.svg#axes_3"></use>
+      				<use class="fragment current-visible" data-fragment-index=4 xlink:href="lib/img/montecarloCircle.svg#axes_4"></use>
+      				<use class="fragment current-visible" data-fragment-index=5 xlink:href="lib/img/montecarloCircle.svg#axes_5"></use>
+      				<use class="fragment current-visible" data-fragment-index=6 xlink:href="lib/img/montecarloCircle.svg#axes_6"></use>
+      				<use class="fragment current-visible" data-fragment-index=7 xlink:href="lib/img/montecarloCircle.svg#axes_7"></use>
+      				<use class="fragment current-visible" data-fragment-index=8 xlink:href="lib/img/montecarloCircle.svg#axes_8"></use>
+      				<use class="fragment current-visible" data-fragment-index=9 xlink:href="lib/img/montecarloCircle.svg#axes_9"></use>
+      				<use class="fragment current-visible" data-fragment-index=10 xlink:href="lib/img/montecarloCircle.svg#axes_10"></use>
+      				<use class="fragment current-visible" data-fragment-index=11 xlink:href="lib/img/montecarloCircle.svg#axes_11"></use>
+      			</svg>
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+# Monte Carlo
+
+Remember I said, 10,000 was a good number? Well, heres why
+
+Pts: 500, 1000, 5000, 10000, 20000
+      		</aside>
+      		
+      </section>
+      
+      <!-- 4 -->
+      <section>
+      	<h3>Probability Densities</h3>
+      	<div class="row">
+      			<p class="l-sided border-mutedBlue">
+      				In our counts case, the probability distribution was the accumulation of the <span class="mutedBlue">number of times we saw a particular event</span> scaled by the <span class="orange">number of times we could have seen the event</span>, i.e. how many <span class="mutedBlue">heads</span> in <span class="orange">16 coin flips</span>. This is an example of a <span class="green">discrete distribution</span>.<br><br>
+      				If we consider that these probabilities are on a <span class="green">continuous</span> scale, we can then use a formula to determine what our likely outcome would be for a given event.<span class="red fragment" data-fragment-index=0> We've said this before<span class="mutedBlue"></span>
+      			</p>
+      			<div class="col-60">
+      					<img src="lib/img/distribution-shape.svg" class="plain fragment" data-fragment-index=1>
+      					<p class="framed border-mutedBlue fragment" data-fragment-index=1>
+      						These differently shaped distributions have different <span class="red">formulas</span> to describe their probability function. They usually have some dead mathematician's name associated with it.
+      					</p>
+      			</div>
+      			<div class="col-40">
+      					<img src ="lib/img/sd-normal.svg" class="plain fragment" data-fragment-index=2>
+      					<p class="framed border-green fragment" data-fragment-index=2>
+      						This distribution has Karl Gauss's name associated with it, though you'll also hear: <span class="orange">Normal distribution</span>. It has the following <span class="red">formula</span>:
+      						$$\mathcal{N}(x|{\color{blue}\mu},{\color{red}\sigma^2})\sim e^{-\frac{(x-{\color{blue}\mu})^2}{2{\color{red}\sigma^2}}}$$
+      					</p>
+      			</div>
+      	</div>
+      	
+      	<aside class="notes" data-markdown>
+      	# Probability Distributions
+
+First we need to talk about a concept call probability distributions.
+
+We have been making them all along, but now we need to define a few things.
+
+Parameter for population = parameter in PDF formula. When we plot the function, we can integrate the area under the curve to determine the proportion of data points that lie within a certain region. In $N(\mu,\sigma^2)$ these percentages are estimated. THis is like taking the histograms we made before and adding up the bins for a region and dividing by the total count (empirical).
+
+We can prove the percentages:
+      	</aside>
+      </section>
+      	
+      
+      
+      <!-- 5 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h4>Intro To Gauss</h4>
+      	</div>
+      
+      	<!-- top -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin framed border-mutedBlue small">
+      			<p>
+      				We plot: $\mathcal{N}(x|{\color{blue}\mu},{\color{red}\sigma^2})\sim e^{-\frac{(x-{\color{blue}\mu})^2}{2{\color{red}\sigma^2}}}$ with parameters ${\color{blue}\mu} = 0$ and ${\color{red}\sigma^2} = 1$.
+      			</p>
+      			<ul class="icon">
+      				<li class="circle">We can plot the density function:</li>
+      				<li class="circle fragment" data-fragment-index=2>Then fill it with uniformly spaced points.</li>
+      				<li class="circle fragment" data-fragment-index=3>Then split the points into bins (like a histogram).</li>
+      				<li class="circle fragment mutedBlue" data-fragment-index=4>And count the proportion of points within $1\sigma$.</li>
+      				<li class="circle fragment green" data-fragment-index=5>And count the proportion of points within $2\sigma$.</li>
+      				<li class="circle fragment orange" data-fragment-index=6>And count the proportion of points within $3\sigma$.</li>
+      				<li class="circle fragment" data-fragment-index=7>And count the proportion of points within $4\sigma$.</li>
+      			</ul>
+      		</div>
+      
+      		<!-- right column -->
+      		<svg height="288pt" version="1.1" viewBox="0 0 676 288" width="576pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	  				<use class="fragment" data-fragment-index=6 xlink:href="lib/img/GaussianMC.svg#axes_2"></use>
+	  				<use class="fragment" data-fragment-index=5 xlink:href="lib/img/GaussianMC.svg#axes_3"></use>
+	  				<use class="fragment" data-fragment-index=4 xlink:href="lib/img/GaussianMC.svg#axes_4"></use>
+	  				<use class="fragment" data-fragment-index=7 xlink:href="lib/img/GaussianMC.svg#axes_5"></use>
+	  				<use class="fragment current-visible" data-fragment-index=2 xlink:href="lib/img/GaussianMC.svg#axes_6"></use>
+	  				<use class="fragment" data-fragment-index=3 xlink:href="lib/img/GaussianMC.svg#axes_7"></use>
+	  				<use data-fragment-index=1 xlink:href="lib/img/GaussianMC.svg#axes_1"></use>
+					</svg>
+      		
+      		
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+# Gauss Monte Carlo
+
+Just like witi the circle, we can use monte carlo to estimate the percentages of data.
+      		</aside>
+      
+      </section>
+      
+      
+      <!-- 6 -->
+      <section class="fig-container" data-file="lib/interactive/seeing-theory/probability-distributions/" data-scrollable='yes' data-background-color="#FFF">
+      	
+      	<aside class="notes" data-markdown>
+# Probability as continuous
+
+1. Paramters of Normal: move them explain.
+   - Note cumulative density function: integral over the space:
+2. Central Limit Theorem
+
+French mathematician Abraham de moivre 1733, expanded to binomial theory 1812 pierre laplace (french), then really explained in 1901 by russian Aleksandr Lyapunov who used it to describe the normal distribution.
+
+Gauss, it seems, coined 'normal' distribution, though laplace, pearson and Fisher modified it to what we use today.
+      	</aside>
+      </section>
+      
+      
+      <!-- 7 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>Normal Distributions In Biology</h3>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      	
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin l-sided border-mutedBlue">
+      			The normal distribution is often used to model either a population or a sample distribution.
+      			<p class="red fragment" data-fragment-index=3>The idea is that you sample from the population, multiple times, and on each iteration you calculate a sample mean, standard deviation and this other parameter: the <em>Standard Error</em>.</p>
+      			<p class="mutedBlue fragment" data-fragment-index=7>The standard error is meant to convey the 95% CI of the mean. But only works if the data are truly Normally distributed.</p>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin">
+      			<svg height="288pt" version="1.1" viewBox="0 0 676 288" width="576pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      				<use class="fragment" data-fragment-index=2 xlink:href="lib/img/GaussianSampling.svg#axes_7"></use>
+      				<use class="fragment current-visible" data-fragment-index=7 xlink:href="lib/img/GaussianSampling.svg#axes_2"></use>
+      				<use class="fragment current-visible" data-fragment-index=3 xlink:href="lib/img/GaussianSampling.svg#axes_3"></use>
+      				<use class="fragment current-visible" data-fragment-index=4 xlink:href="lib/img/GaussianSampling.svg#axes_4"></use>
+      				<use class="fragment current-visible" data-fragment-index=5 xlink:href="lib/img/GaussianSampling.svg#axes_5"></use>
+      				<use class="fragment current-visible" data-fragment-index=6 xlink:href="lib/img/GaussianSampling.svg#axes_6"></use>
+      				<use class="fragment" data-fragment-index=2 xlink:href="lib/img/GaussianSampling.svg#axes_7"></use>
+      				<use class="fragment" data-fragment-index=1 xlink:href="lib/img/GaussianSampling.svg#axes_1"></use>
+						</svg>
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+## Usage of the Normal Theory
+
+Often biologists, incorrectly, use the normal distribution to model either the population or the sample distribution.
+The idea is that you have some data that you sampled from some population, which you just assign as normal: central limit the. assump.
+      		</aside>
+      		
+      </section>
+      
+      
+    	<!-- 8 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h3>Standard Error of the Mean</h3>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<svg height="360pt" version="1.1" viewBox="0 0 1008 360" width="1008pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    				<use xlink:href="lib/img/GaussianSEM.svg#axes_1"></use>
+    				<use class="fragment" data-fragment-index=4 xlink:href="lib/img/GaussianSEM.svg#axes_2"></use>
+    				<use class="fragment" data-fragment-index=5 xlink:href="lib/img/GaussianSEM.svg#axes_3"></use>
+    				<use class="fragment" data-fragment-index=6 xlink:href="lib/img/GaussianSEM.svg#axes_4"></use>
+    				<use class="fragment" data-fragment-index=2 xlink:href="lib/img/GaussianSEM.svg#axes_5"></use>
+    				<use class="fragment" data-fragment-index=3 xlink:href="lib/img/GaussianSEM.svg#axes_6"></use>
+					</svg>
+    			
+    	
+    		</div>
+    		<div class="row">
+    				<p class="red fragment quoted" data-fragment-index=7>Don't use bar graphs... they don't make sense... How do you draw from $-N\sigma$ to $\mu$?</p>
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+## Standard error theory
+
+RED = few N
+PURPLE = many N
+
+Remember those bar graphs??
+
+don't use bar graphs!
+    			</aside>
+    			
+    	</section>
+      	
+      	
+      
+      <!-- 9 -->
+      	<section>
+      	
+      		<!-- heading -->
+      		<div class="row">
+      			<h3>Standard Error of the Mean</h3>
+      		</div>
+      	
+      		<!-- main -->
+      		<div class="row">
+      			<div class="col-60 no-top-margin l-sided">
+      					<ul class="icon">
+      						<li class="question-circle orange fragment">If the standard error is the standard deviation of the possible sample means ($\bar{x}$) what does that infer about the uncertainty of $\mu$?</li>
+      						<li class="question-circle orange fragment">1.96 times the SE gives us the 95% confidence interval of $\mu$.</li>
+      					</ul>
+      			</div>
+						<div class="col-40 no-top-margin">
+	    				<img src="lib/img/central-limit-theorem-one-mean-ci95.svg" class="plain fragment">
+	    			</div>
+	    	
+	    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+    				
+    			</aside>
+    			
+    	</section>
+      
+      
+      <!-- 10 -->
+      <section class="fig-container" data-file="lib/interactive/seeing-theory/frequentist-inference/" data-scrollable='yes' data-background-color="#FFF">
+      	
+      	<aside class="notes" data-markdown>
+# How the Normal distribution is used
+
+
+      	</aside>
+      </section>
+      	
+      
+      
+      <!-- 11 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h1>UCLA Salaries example</h1>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row no-top-margin framed border-mutedBlue">
+    			<p class="fragment">You were asked to find the average salary at UCLA in 2014.</p>
+    			<p class="fragment">You looked up everybody in the public directory and started calling all the names.</p>
+    			<p class="fragment">Magically, you go the whole population:</p>
+    		</div>
+      
+    		<!-- bottom -->
+    		<div class="row no-top-margin fragment">
+    				<img src="lib/img/UCLASalariesHists.svg" class="plain">
+    		</div>
+      
+      	
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+Who are the red lines?
+      		</aside>
+      		
+      </section>
+      
+      
+      <!-- 12 -->
+      <section>
+      	<div>
+					<style>
+					    .dataframe thead tr:only-child th {
+					        text-align: right;
+					    }
+
+					    .dataframe thead th {
+					        text-align: left;
+					    }
+
+					    .dataframe tbody tr th {
+					        vertical-align: top;
+					    }
+					</style>
+					<table border="1" class="dataframe smaller">
+					  <thead>
+					    <tr style="text-align: right;" class="mutedBlue-fill">
+					      <th></th>
+					      <th>Year</th>
+					      <th>Campus</th>
+					      <th>Name</th>
+					      <th>Title</th>
+					      <th>Base</th>
+					      <th>Overtime</th>
+					      <th>Extra</th>
+					      <th>Gross</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <th>34028</th>
+					      <td>2014</td>
+					      <td>LOS ANGELES</td>
+					      <td>ALFORD , STEPHEN TODD</td>
+					      <td>INTERCOL ATH HEAD COACH EX</td>
+					      <td>300000</td>
+					      <td>0</td>
+					      <td>2445341</td>
+					      <td>2745341</td>
+					    </tr>
+					    <tr>
+					      <th>34031</th>
+					      <td>2014</td>
+					      <td>LOS ANGELES</td>
+					      <td>BUSUTTIL , RONALD W</td>
+					      <td>PROF-HCOMP</td>
+					      <td>360828</td>
+					      <td>0</td>
+					      <td>1872093</td>
+					      <td>2232921</td>
+					    </tr>
+					    <tr class="fragment highlight-bg-red">
+					      <th>34040</th>
+					      <td>2014</td>
+					      <td>LOS ANGELES</td>
+					      <td>MORA , JAMES LAWRENCE</td>
+					      <td>INTERCOL ATH HEAD COACH EX</td>
+					      <td>300000</td>
+					      <td>0</td>
+					      <td>3176127</td>
+					      <td>3476127</td>
+					    </tr>
+					    <tr>
+					      <th>34044</th>
+					      <td>2014</td>
+					      <td>LOS ANGELES</td>
+					      <td>TABSH , KHALIL M</td>
+					      <td>HS CLIN PROF-HCOMP</td>
+					      <td>179402</td>
+					      <td>0</td>
+					      <td>2123925</td>
+					      <td>2303327</td>
+					    </tr>
+					  </tbody>
+					</table>
+					</div>
+      	<aside class="notes" data-markdown>
+      		
+      	</aside>
+      </section>
+      	
+      
+      <!-- 14 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>You And Your Friends</h3>
+      	</div>
+      
+      	<!-- top row -->
+      	<div class="row no-top-margin framed border-mutedBlue">
+      		Suppose you and some friends make the calls and you keep finding new friends to help. What happens to your accuracy?<br>
+      		<span class="fragment green" data-fragment-index=5>It gets better and closer to $\mu$.</span>
+      	</div>
+      
+      	<!-- bottom row -->
+      	<div class="row no-top-margin">
+      		<svg height="324pt" version="1.1" viewBox="0 0 964 324" width="864pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      				<use xlink:href="lib/img/GaussianFrequentism.svg#axes_1"></use>
+      				<use class="fragment current-visible" data-fragment-index=1 xlink:href="lib/img/GaussianFrequentism.svg#axes_2"></use>
+      				<use class="fragment current-visible" data-fragment-index=2 xlink:href="lib/img/GaussianFrequentism.svg#axes_3"></use>
+      				<use class="fragment current-visible" data-fragment-index=3 xlink:href="lib/img/GaussianFrequentism.svg#axes_4"></use>
+      				<use class="fragment current-visible" data-fragment-index=4 xlink:href="lib/img/GaussianFrequentism.svg#axes_5"></use>
+      		</svg>
+      	</div>
+      
+      	<!-- notes -->
+      	<aside class="notes" data-markdown>
+      		
+      	</aside>
+      
+      </section>
+      
+      <!-- 15 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>Your Sample</h3>
+      	</div>
+      
+      	<!-- top row -->
+      	<div class="row no-top-margin framed border-mutedBlue">
+      		Let's look at your single sample of N=10.
+      	</div>
+      
+      	<!-- bottom row -->
+      	<div class="row no-top-margin">
+      		<svg height="324pt" version="1.1" viewBox="0 0 648 324" width="648pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      				<use xlink:href="lib/img/GaussianOneSample.svg#axes_1"></use>
+      				<use class="fragment current-visible" data-fragment-index=1 xlink:href="lib/img/GaussianOneSample.svg#axes_2"></use>
+      		</svg>
+      	</div>
+      
+      	<!-- notes -->
+      	<aside class="notes" data-markdown>
+      		
+      	</aside>
+      
+      </section>
+      
+      
+      <!-- 16 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>Gaussian Estimate</h3>
+      	</div>
+      
+      	<!-- top row -->
+      	<div class="row no-top-margin framed border-mutedBlue">
+      		Let's look at your single sample. How do we determine if your sample actually came from the population?
+      	</div>
+      
+      	<!-- bottom row -->
+      	<div class="row no-top-margin">
+      		<svg height="324pt" version="1.1" viewBox="0 0 648 324" width="648pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      				<use xlink:href="lib/img/GaussianT_Test_withDist.svg#axes_1"></use>
+      				<use class="fragment current-visible" data-fragment-index=1 xlink:href="lib/img/GaussianT_Test_withDist.svg#axes_2"></use>
+      		</svg>
+      	</div>
+      
+      	<!-- notes -->
+      	<aside class="notes" data-markdown>
+      		
+      	</aside>
+      
+      </section>
+      
+      <!-- 17 -->
+      <section>
+      	<h3>The One sample T-Test</h3>
+      	<div class="row framed border-green">
+    			<p>First, we need to know the population $\mu$.</p>
+    			<p class="fragment" data-fragment-index=1>Then we can compute our sample mean, $\bar{x}$, and standard deviation, $s$.</p>
+    			<p class="fragment" data-fragment-index=2>Then we compute the $t$-statistic: $t=\frac{\bar{x}-\mu}{\frac{s}{\sqrt{n}}}$</p>
+    			<p class="fragment" data-fragment-index=3>$t=\frac{219,748-81,074}{\frac{407,896}{\sqrt{10}}} = 1.08$ with a pvalue of 0.31</p>
+    		</div>
+    		<div class="row no-top-margin">
+      		<svg height="324pt" version="1.1" viewBox="0 0 1048 324" width="1048pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      				<use class="fragment current-visible" data-fragment-index=4 xlink:href="lib/img/GaussianT_Test_withDist.svg#axes_1"></use>
+      				<use class="fragment current-visible" data-fragment-index=4 xlink:href="lib/img/GaussianT_Test_withDist.svg#axes_2"></use>
+      				<use class="fragment current-visible" data-fragment-index=5 xlink:href="lib/img/GaussianT_Test_noDist.svg#axes_1"></use>
+      				<use class="fragment current-visible" data-fragment-index=5 xlink:href="lib/img/GaussianT_Test_noDist.svg#axes_2"></use>
+      		</svg>
+      	</div>
+      	<aside class="notes" data-markdown>
+      		
+      	</aside>
+      </section>
+      	
+      
+      <!-- 18 -->
+      <section>
+      	<h3>The One sample T-Test</h3>
+      	<div class="row framed border-green">
+    			<p>First, we take our sample and resample, with replacement, 10,000 times.</p>
+    			<p class="fragment" data-fragment-index=1>Then we can compute $\overset{*}{\theta_b}$, each boostrap sample mean.</p>
+    			<p class="fragment" data-fragment-index=2>Then we sort the bootstrap means and find the lower and upper 2.5% (95%CI).</p>
+    			<p class="fragment" data-fragment-index=3>We then as if $\mu$ is within the confidence interval.</p>
+    		</div>
+    		<div class="row no-top-margin">
+      		<svg height="324pt" version="1.1" viewBox="0 0 1048 324" width="1048pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      				<use class="fragment" data-fragment-index=4 xlink:href="lib/img/GaussianBootstrap.svg#axes_1"></use>
+      				<use class="fragment" data-fragment-index=5 xlink:href="lib/img/GaussianBootstrap.svg#axes_2"></use>
+      				<use class="fragment" data-fragment-index=6 xlink:href="lib/img/GaussianBootstrap.svg#axes_3"></use>
+      		</svg>
+      	</div>
+      	<aside class="notes" data-markdown>
+      		
+      	</aside>
+      </section>
+      	
+      
+      <!-- 19 -->
+      <section class="fig-container" data-file="lib/interactive/seeing-theory/frequentist-inference/" data-scrollable='yes' data-background-color="#FFF">
+      	
+      	<aside class="notes" data-markdown>
+# How the Normal distribution is used
+
+
+      	</aside>
+      </section>
+      
+      
+      <!-- #########################     CONTENT END     #########################-->
+    </div>
+    
+  </div>
+  
+  <!-- REVEAL JS -->
+  <script src="lib/js/reveal.js/lib/js/head.min.js"></script>
+  <script src="lib/js/reveal.js/js/reveal.js"></script>
+  <script src="lib/js/initReveal.js"></script>
+</body>
+</html>

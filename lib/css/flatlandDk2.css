@@ -1436,10 +1436,10 @@ section[data-transition*="none-in"].present {
 .title-slide.fullwidth div {
   width: 100%; }
 
-.title-slide.danger {
+.title-slide.red {
   background-color: #662121; }
 
-.title-slide.soothe {
+.title-slide.blue {
   background-color: #111596; }
 
 /*********************************************
