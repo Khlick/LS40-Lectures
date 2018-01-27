@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <style>
+      h3, p {
+        color: #d3d3d3 !important;
+      }
+      .centered {
+        text-align: center;
+      }
+      .square {
+        opacity: 0.6;
+      }
+      .square:hover {
+        opacity: 1.0;
+      }
+      .d3-tip {
+        font-family: Verdana;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 8px;
+        color: #fff; 
+        z-index: 5070;
+      }
+      .svg-border {
+        stroke: #d3d3d3;
+        fill: none;
+        stroke-width: 2px;
+      }
+      .btn {
+        margin-top: -5px;
+      }
+      /* syle for svg */
+      .axis path, .tick line {
+          fill: none;
+          stroke: #d3d3d3;
+      }
+      .y.axis path, .y.axis line {
+          display: none;
+      }
+      .y.axis text {
+          display: none;
+      }
+      .hist-axis text {
+          font: 16px sans-serif;
+      }
+      .bar rect {
+          stroke-width: 1px;
+          stroke: #d3d3d3;
+      }
+      #group-one-hist, #group-two-hist .hist-bar rect {
+        fill: #9469AD;
+      }
+      
+      #theta-hist .hist-bar rect {
+        fill: #FFF8D0;
+      }
+
+      .hist-bar text {
+        fill: #a2a2a2;
+        font: 14px sans-serif;
+      }
+      .axis--x.hist-axis text {
+        fill: #d3d3d3;
+        font: 14px sans-serif;
+      }
+      .axis-x-text {
+        fill: #d3d3d3;
+        font: 14px sans-serif;
+      }
+      
+      .htext {
+        display: inline-block;
+        width: 40px;
+        white-space: nowrap;
+        font-size: 1.1em;
+        font-weight: bold;
+        color: #d3d3d3;
+      }
+      .smaller {
+        font-size: 0.95em;
+      }
+      body {
+        background: #020202 !important;
+      }
+    </style>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.4/d3-legend.min.js"></script> -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="hist.js"></script>
+    <script src="colorbox.js"></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <h3 class="centered">Big-Box Visualization</h3>
+      <div class="row">
+          <div class="col-md-2">
+            <div class="centered">
+              <button type="button" class='btn' id="resample">Resample</button><br>
+              <input class='short-field' type="number" id="n-boots" min="1" max="10000" value="1" step="1" onchange="nBootsChange()"><br>
+              <p>\(\bar{x}_{group1}=\) <span class="htext" style="text-align: center;" !important;" id="group1-mean">0</span></p>
+              <p>\(\bar{x}_{group2}=\) <span class="htext" style="text-align: center;" !important;" id="group2-mean">0</span></p>
+              <p>\(\Delta_{g1-g2}=\) <span class="htext" style="text-align: center;" !important;" id="theta-mean">0</span></p>
+              <p class="smaller">Number of BootStraps:</p>
+              <p><span class="htext" style="text-align: center;" !important;" id="total-boots">0</span></p>
+              <p class="smaller">2-tailed p-value:</p>
+              <p><span class="htext" style="text-align: center;" !important;" id="p-value">0</span></p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div id="big-box"></div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-5">
+                  <div  id="group-one"></div>
+                </div>
+                <div class="col-md-7">
+                  <div  id="group-one-hist"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div id="group-two"></div>
+                </div>
+                <div class="col-md-7">
+                  <div  id="group-two-hist"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                  <div  id="theta-hist"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+      // DEFINE INITIAL VARIABLES
+      var BINS = [5,10],
+          COLORS = ['#88A9C9','#E04B4B'], //blue,red
+          MU1 = 110420.7,
+          SIGMA1 = 88786.22,
+          MU2 = 59531.7,
+          SIGMA2 = 37695.6,
+          NPTS = parseInt(BINS[0]*BINS[1]/2),
+          NSAMPLES = 1,
+          BOOTCOUNTER = 0;
+      
+      // FUNCTIONS **************************************************************/
+      var rep = function(arr,times,each){
+        if (times == undefined){ times = 1;}
+        if (each == undefined) {each = Array.from(new Array(arr.length),(v,i)=>1);}
+        if (each.length != arr.length){
+          let len = each.length;
+          each.length = arr.length;
+          each.fill(each[len-1], len);
+        }
+        // first handle each
+        var output = new Array();
+        if (!each.every(a => a==1 )) {
+          let newLength = each.reduce((t,v) => t+v );
+          // force output to new length
+          output.length = newLength;
+          // get cumulative sum
+          var cumsum = [];
+          each.reduce((t,v,i) => cumsum[i] = t+v,-1);
+          // insert the values into the output array
+          cumsum.forEach(function(v,i,a){
+            if(!i){
+              // is zero index, should be 0th from cumsum
+              for (o=v; o>-1; o--){
+                output[o] = arr[i];
+              }
+            } else {
+              // run from the max index of current val down to the previous
+              // inserting the current array value in.
+              for(o=v; o>a[i-1]; o--) {
+                output[o] = arr[i];
+              }
+            }
+          });
+        } //end each
+        // Now, handle times
+        if (times==1){ return output; }
+        var repOut = []
+        for (var i=0; i < times; i++){
+          repOut = repOut.concat(output);
+        }
+        return repOut;
+      }
+      
+      var resample = function(){
+        //need to randomize all the same
+        var newData = {values:[],groups:[],groupNums:[]}; 
+        var g1Data = {values:[],groups:[],groupNums:[]};
+        var g2Data = {values:[],groups:[],groupNums:[]};
+        
+        // resample with replacement
+        for (let n = 0; n < NSAMPLES; n++){
+          BOOTCOUNTER++;
+          //group1
+          for (let i = 0; i < NPTS; i++){
+            let theInd = Math.floor(Math.random() * DATA.values.length);
+            g1Data.values.push(DATA.values[theInd]);
+            g1Data.groups.push(DATA.groups[theInd]);
+            g1Data.groupNums.push(DATA.groupNums[theInd]);
+          }
+          //group2
+          for (let i = 0; i < NPTS; i++){
+            let theInd = Math.floor(Math.random() * DATA.values.length);
+            g2Data.values.push(DATA.values[theInd]);
+            g2Data.groups.push(DATA.groups[theInd]);
+            g2Data.groupNums.push(DATA.groupNums[theInd]);
+          }
+          //update running boots
+          BOOTS.group1.push(d3.mean(g1Data.values));
+          BOOTS.group2.push(d3.mean(g2Data.values));
+          BOOTS.theta.push(d3.mean(g1Data.values)-d3.mean(g2Data.values));
+        }
+        Object.keys(newData).forEach(function(key){
+          newData[key] = newData[key].concat(g1Data[key]);
+          newData[key] = newData[key].concat(g2Data[key]);
+        });
+        bigbox.update(newData.groupNums, newData.groups);
+        group1.update(g1Data.groupNums, g1Data.groups);
+        group2.update(g2Data.groupNums, g2Data.groups);
+        
+        // Also update hists
+        updateHistograms();
+        // Update text
+        d3.select('#total-boots').html(BOOTCOUNTER);
+        updatePvalue();
+      }
+      
+      
+      var updateHistograms = function() {
+        g1Hist.setData(BOOTS.group1);
+        g2Hist.setData(BOOTS.group2);
+        thetaHist.setData(BOOTS.theta);
+      }
+      
+      var updatePvalue = function() {
+        var counts = 0;
+        if (ACTS.theta > 0){
+          BOOTS.theta.reduce(function(v,a){
+            if (a >= ACTS.theta) {
+              counts++;
+            } else if(a <= -ACTS.theta){
+              counts++;
+            }
+          });
+        } else {
+          BOOTS.theta.reduce(function(v,a){
+            if (a <= ACTS.theta) {
+              counts++;
+            } else if(a >= -ACTS.theta){
+              counts++;
+            }
+          });
+        }
+        counts /= BOOTCOUNTER;
+        d3.select('#p-value').html(counts.toFixed(BOOTCOUNTER.toString().length));
+      }
+      
+      var formatMoney = function(number, places, symbol, thousand, decimal) {
+        number = number || 0;
+        places = !isNaN(places = Math.abs(places)) ? places : 2;
+        symbol = symbol !== undefined ? symbol : "$";
+        thousand = thousand || ",";
+        decimal = decimal || ".";
+        var negative = number < 0 ? "-" : "",
+            i = parseInt(number = Math.abs(+number || 0).toFixed(places), 10) + "",
+            j = (j = i.length) > 3 ? j % 3 : 0;
+        return symbol + negative + (j ? i.substr(0, j) + thousand : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousand) + (places ? decimal + Math.abs(number - i).toFixed(places).slice(2) : "");
+      }
+      
+      // CALLBACKS **************************************************************/
+      var nBootsChange = function() {
+        NSAMPLES = Number(document.getElementById('n-boots').value);
+      }
+      
+      
+      // assign to buttons:
+      d3.select("#resample").on("click", function() { resample(); } );
+      // INITIALIZE ***************************************************************/
+      // generate some initial data
+      var DATA = {groups:[], groupNums: [], values: []};
+      DATA.values = d3.range(NPTS).map(d3.randomNormal(MU1,SIGMA1));
+      DATA.values = DATA.values.concat(d3.range(NPTS).map(d3.randomNormal(MU2,SIGMA2)));
+      DATA.groups = rep(['Control', 'Experiment'], times=1, each = [NPTS,NPTS]);
+      DATA.groupNums = rep([0,1], times=1, each = [NPTS,NPTS]);
+      
+      var BOOTS = {group1: [], group2: [], theta: []};
+      var ACTS = {
+        group1: d3.mean(DATA.values.slice(0,NPTS)), 
+        group2: d3.mean(DATA.values.slice(NPTS)), 
+        theta: d3.mean(DATA.values.slice(0,NPTS))-d3.mean(DATA.values.slice(NPTS))
+      };
+      
+      d3.select('#group1-mean').html(formatMoney(ACTS.group1,0,'$'));
+      d3.select('#group2-mean').html(formatMoney(ACTS.group2,0,'$'));
+      d3.select('#theta-mean').html(formatMoney(ACTS.theta,0,'$'));
+      d3.select('#total-boots').html(BOOTCOUNTER);
+      
+      // CONSTRUCT OBJECTS ******************************************************/
+      var bigbox = new ColorBox({
+        data: DATA.groupNums,
+        dataLabels: DATA.groups,
+        element: document.querySelector("#big-box"),
+        dims: {width: 300, height: 600},
+        binDim: BINS
+      });
+      
+      var group1 = new ColorBox({
+        data: DATA.groupNums.slice(0,NPTS),
+        dataLabels: DATA.groups.slice(0,NPTS),
+        element: document.querySelector("#group-one"),
+        binDim: [5,5],
+        colors: COLORS,
+        dims: {width: 200, height: 200}
+      });
+      
+      var group2 = new ColorBox({
+        data: DATA.groupNums.slice(-NPTS),
+        dataLabels: DATA.groups.slice(-NPTS),
+        element: document.querySelector("#group-two"),
+        binDim: [5,5],
+        colors: COLORS,
+        dims: {width: 200, height: 200}
+      });
+      
+      
+      var g1Hist = new Hist({
+        data: BOOTS.group1,
+        element: document.querySelector('#group-one-hist'),
+        margin: {top: 30, right: 10, bottom: 30, left: 30},
+        dims: {width:300, height:200},
+        xLabel: 'Group 1 Bootstrap Means'
+      });
+      
+      var g2Hist = new Hist({
+        data: BOOTS.group2,
+        element: document.querySelector('#group-two-hist'),
+        margin: {top: 30, right: 30, bottom: 30, left: 30},
+        dims: {width:300, height:200},
+        xLabel: 'Group 2 Bootstrap Means'
+      });
+      
+      var thetaHist = new Hist({
+        data: BOOTS.theta,
+        element: document.querySelector('#theta-hist'),
+        margin: {top: 30, right: 30, bottom: 30, left: 30},
+        dims: {width:400, height:300},
+        xLabel: 'Bootstrap Difference In Means'
+      });
+      
+    </script>
+  </body>
+</html>

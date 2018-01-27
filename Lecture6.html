@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Lecture 6</title>
+  <meta name="author" content="Khris Griffis" />
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, minimal-ui">
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="lib/img/fic/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="lib/img/fic/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="lib/img/fic/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="lib/img/fic/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="lib/img/fic/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="lib/img/fic/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="lib/img/fic/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="lib/img/fic/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="lib/img/fic/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="lib/img/fic/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="lib/img/fic/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="lib/img/fic/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="lib/img/fic/favicon-16x16.png">
+  <link rel="manifest" href="lib/img/fic/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="lib/img/fic/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="lib/js/reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="lib/css/flatlandDk2.css" id="theme">
+  <link rel="stylesheet" href="lib/css/jsStyle.css">
+  
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/js/reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'lib/js/reveal.js/css/print/pdf.css' : 'lib/js/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!-- END PRINT EXPORT -->
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+  <link href="https://use.fontawesome.com/releases/v5.0.3/css/all.css" rel="stylesheet">
+  
+</head>
+<body>
+  
+  <div class="reveal">
+
+    <div class="slides">
+      <!-- #########################    CONTENT START    #########################-->
+
+      <!-- 0 -->
+      <section class="title-slide">
+				<div class="row">
+  				<div class="col-50">
+  					<img src="lib/img/Student-t-table.png" class="plain lift-10">
+  				</div>
+  				
+  				<div class="col-50" style="z-index:1; position: relative; margin-left: -5%;">
+  					<h1>Life Sciences 40</h1>
+	        	<h2>Lecture 6:</h2>
+	          <h4>Introduction to 2-Group NHST</h5>
+	          <h5>Khris Griffis</h3>
+  				</div>
+  			</div>
+        <aside class="notes" data-markdown>
+1. Talk about homework, people having issues downloading / uploading.
+   - Due Friday at midnight, the next homework will be released friday evening, around 5.
+   - They will learn a little more this week which will make homework easier and also, email me or your TAs. We want you to succeed, that is what we're paid to do.
+2. Office hours moved to today after the last lab. Ask Sarah lab end time.
+3. Lecture related handouts are coming for the material covered over the last week. Writing a book is a long process and some of the important figures are yet to be made.
+4. If you'll notice, each lecture starts with a summary of the key points from last time.
+5. Today, we will review a bit more of everything we have talked about. Then we will introduce student's t-test.
+        </aside>
+      </section>
+
+
+    	<!-- 1 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h2>Brief Review</h2>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-60 no-top-margin">
+    				<ul class="icon">
+    					<li class="arrow-circle fragment">We use <span class="mutedBlue">S</span>tatistics to get at the <span class="orange">Underlying Process</span> of an experimental outcome.</li>
+    					<li class="arrow-circle fragment">We collect data in the form of <span class="orange">observations</span> and store them into <span class="mutedBlue">variables</span>.</li>
+    					<li class="arrow-circle fragment">The data can be either <span class="mutedBlue">categorical</span> or <span class="mutedBlue">quantitative</span>.</li>
+    					<li class="arrow-circle fragment">When we collect data, our collection is called the <span class="green">sampling distribution</span>.</li>
+    					<li class="arrow-circle fragment">We use some descriptive <span class="mutedBlue">s</span>tatistic (e.g. median, mean or others) on our sampling distribution to <span class="green">estimate</span> some parameter of the <span class="red">underlying distribution</span>.</li>
+    					<li class="arrow-circle fragment">The underlying distribution is <span class="fragment strike-current-purple">probably</span> the <span class="green">population</span>.</li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-40 no-top-margin">
+    				<img src="lib/img/sRonFis.png" class="plain">
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+    				
+    			</aside>
+    			
+    	</section>
+    	
+    	<!-- 2 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h2>Brief Review</h2>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-60 no-top-margin">
+    				<h4>Counting is everything</h4>
+    				<ul class="icon big">
+    					<li class="arrow-circle fragment" data-fragment-index=1><span class="mutedBlue">Categorical</span> data can be represented as <span class="green">discrete</span> values.</li>
+    					<li class="arrow-circle fragment" data-fragment-index=2>Discrete simple events can be <span class="green">counted</span> and a relative frequency can be calculated.</li>
+    					<li class="arrow-circle fragment" data-fragment-index=3><span class="mutedBlue">Relative frequency</span> is a <span class="red">statistic</span> that describes <span class="green">countable</span> data. In statistics, we call it a <em>Proportion</em>.</li>
+    					<li class="arrow-circle fragment" data-fragment-index=4>We can simulate an expected proportion using a <span class="purple">chance model:</span></li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-40 no-top-margin fragment" data-fragment-index=5>
+    				<div class="fragment fig-container" data-fragment-index=5 data-file="lib/interactive/dots/dots.html" style="background:#fff;max-height:500px;"></div>
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+# chance model
+
+With this simulation we can accumulate many coin flips to see in the long run, what the proportion of heads, or tails, would be on a fair coin.
+    			</aside>
+    			
+    	</section>
+    	
+    	<!-- 3 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h2>Brief Review</h2>
+    			<h5 class="fragment" data-fragment-index=0>Proportions of Proportions</h5>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-30 no-top-margin">
+    				<ul class="icon framed border-mutedBlue smaller fragment" data-fragment-index=1>
+    					<li class="arrow-circle fragment" data-fragment-index=1>A chance model is used to test if an observation can be predicted to have happened by <span class="mutedBlue">random chance</span>.</li>
+    					<li class="arrow-circle fragment" data-fragment-index=2>Computer simulation allows us to rapidly build a chance model of an <span class="mutedBlue">expected proportion</span>.</li>
+    					<li class="arrow-circle fragment" data-fragment-index=3>We can then take the proportion of our chance model that is <span class="red">as extreme and more extreme</span> that our observed proportion.</li>
+    					<li class="arrow-circle fragment" data-fragment-index=4>The chance model histogram is our <span class="orange">Null Distribution</span> and represents the expected proportion if all possible outcomes are equally probable.</li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-70 no-top-margin fragment" data-fragment-index=5>
+    				<div class="fragment fig-container framed border-offWhite" data-fragment-index=5 data-file="lib/interactive/mice/mice.html" style="background:#fff;max-height:500px;"></div>
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+- The key here is that instead of just accumulating thousands of coin flips, we want to know what proportion of the time an event occurs in N observations.
+- What we are simulating is if female and male pups are equally likely, Null, how often does my observed proportion happen by random chance?
+
+### All of this is part of counting categorical data.
+    			</aside>
+    			
+    	</section>
+    	
+    	
+    	<!-- 4 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h2>Brief Review</h2>
+    			
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-40 no-top-margin fragment framed border-offWhite" style="max-height:800px;" data-fragment-index=7>
+    				<div class="fragment fig-container" data-fragment-index=7 data-file="lib/interactive/heatSquares/heatsquares.html" style="width:100%;"></div>
+    			</div>
+    			
+    	
+    			<!-- right column -->
+    			<div class="col-60">
+    				<div class="framed border-mutedBlue">
+    					<h5 class="fragment" data-fragment-index=0>Uncertainty of Proportions</h5>
+	    				<ul class="icon smaller fragment" data-fragment-index=1>
+	    					<li class="microchip fragment" data-fragment-index=1>Using a similar simulation as when constructing the Null distribution, we can simulate the <span class="green">uncertainty</span> surrounding our observed statistic.</li>
+	    					<li class="microchip fragment" data-fragment-index=2>We put a <span class="red">confidence level</span> on our range on uncertainty, typically we use 95%.</li>
+	    					<li class="microchip fragment" data-fragment-index=3>We construct this 95% <span class="red">confidence interval</span> using resampling with replacement.</li>
+	    					<li class="microchip fragment" data-fragment-index=4>That is, we throw all our observations in a <span class="mutedBlue">big box</span> and then draw out the same number we threw in, with replacement, then calculate our statistic (proportion) again.</li>
+	    					<li class="microchip fragment" data-fragment-index=5>This process is called <span class="green">Bootstrapping</span> and the underlying principal is that we are adding randomness to our observation in order to assess if randomness can explain our result.</li>
+	    					<li class="microchip fragment" data-fragment-index=6>This method uses <span class="orange">only our actual data</span> to understand the role of random chance given that <span class="green">we only have information on our actual data</span>.</li>
+	    					<li class="microchip fragment mutedBlue" data-fragment-index=8>How does this compare to the Null distribution we constructed on the last slide? What assumptions are made here? What about in the Null?</li>
+	    				</ul>
+	    				<p class="fragment smaller blue" data-fragment-index=9>
+	    					The Null makes an assumption about all possible outcomes, e.g. they're all equally likely.<br>
+	    					The bootstrap makes no assumptions, except that the actual data are real, and requires no assumptions about all the other outcomes.
+	    				</p>
+	    			</div>
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+- Bootstrap is the term we use for resampling with replacement, it is also called randomization.
+- Replacement means, we draw a value and stick it back in the box so that it might be drawn again in the same collection of draws.
+- This assumption game is important!
+    			</aside>
+    			
+    	</section>
+    	
+    	
+    	<!-- 5 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h2>Brief Review</h2>
+    			<h5 class="fragment" data-fragment-index=0>Quantitative Analysis</h5>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-50 no-top-margin">
+    				<h4 class="fragment" data-fragment-index=0>Statistic</h4>
+    				<ul class="icon big">
+    					<li class="arrow-circle green fragment" data-fragment-index=0>Population mean: $\mu$</li>
+    					<li class="arrow-circle mutedBlue fragment" data-fragment-index=2>Sample mean: $\bar{x}$</li>
+    					<li class="arrow-circle green fragment" data-fragment-index=4>Population variance: $\sigma^2$</li>
+    					<li class="arrow-circle mutedBlue fragment" data-fragment-index=6>Sample variance: $s^2$</li>
+    					<li class="arrow-circle green fragment" data-fragment-index=8>Pop. standard deviation: $\sigma$</li>
+    					<li class="arrow-circle mutedBlue fragment" data-fragment-index=10>Sample standard deviation: $s$</li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-50 no-top-margin">
+    				<h4 class="fragment" data-fragment-index=1>Calculation</h4>
+    				<ul class="icon">
+    					<li class="arrow-circle green fragment" data-fragment-index=1>$\mu = \frac{1}{N}\sum_{i=1}^{N}x_{i}$</li>
+    					<li class="arrow-circle mutedBlue fragment" data-fragment-index=3>$\bar{x}=\frac{1}{N}\sum_{i=1}^{N}x_{i}$</li>
+    					<li class="arrow-circle green fragment" data-fragment-index=5>$\sigma^2=\frac{1}{N}\sum_{i=1}^{N}(x_i-\mu)^2$</li>
+    					<li class="arrow-circle mutedBlue fragment" data-fragment-index=7>$s^2=\frac{1}{N-1}\sum_{i=1}^{N}(x_i-\bar{x})^2$</li>
+    					<li class="arrow-circle green fragment" data-fragment-index=9>$\sigma=\sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i-\mu)^2}$</li>
+    					<li class="arrow-circle mutedBlue fragment" data-fragment-index=11>$s=\sqrt{\frac{1}{N-1}\sum_{i=1}^{N}(x_i-\bar{x})^2}$</li>
+    				</ul>
+    			</div>
+    	
+    		</div>
+    		<div class="row">
+  				<p class="framed border-orange fragment" data-fragment-index=12>
+  						These statistics are known as <span class="red">parametric</span> <span class="mutedBlue">estimators</span> because their entire purpose is to measure (metric: measure) the <span class="green">parameter</span> (para: originating from) of the underlying distribution. <span class="fragment red" data-fragment-index=13>To use them we need to satisfy some <em>ASSUMPTIONS</em>.</span>
+  				</p>
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+- The main thing here is figuring out what the heck mu and sigma are.
+- Yes, they are parameters of the population: but what does that mean? <- trigger orange box here
+- It means that they are the properties of population that we are trying to guess at, estimate, with our sample.
+- But these parameters are unique only to Gaussian Distributions: i.e. the normal functions.
+
+    			</aside>
+    			
+    	</section>
+    	
+    	
+    	<!-- 6 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h2>Gaussian Assumptions</h2>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-50 no-top-margin framed border-offWhite bigger">
+    				<ul class="icon">
+    					<li class="bullhorn red fragment">The underlying population is normally distributed.</li>
+    					<li class="bullhorn red fragment">The sample distribution of the mean is normally distributed.</li>
+    					<li class="bullhorn red fragment">The sample distributions themselves are normally distributed.</li>
+    					<li class="bullhorn red fragment">Each observation is independent of all others.</li>
+    					<li class="bullhorn orange fragment">The underlying population has infinite members.</li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-50 no-top-margin">
+    				<img src="lib/img/Gauss.png" class="plain">
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+## Important to know these assumptions!  
+
+In order to do something as magical as provide a specific probability for observing a particular mean or a particular difference between two means, our statistical procedures must make some assumptions.
+
+Sample distribution of mean: You took a sample, calculated its mean and wrote it down; then took another (independent) sample (from the same population) and got its mean and wrote it down; and did this an infinite number of times; then the distribution of the values that you wrote down would always be a perfect bell curve. As described by that e to -mu/sigma squared equation.
+
+In technical terms, the Assumption of Normality claims that the sampling distribution of the mean is normal or that the distribution of means across samples is normal.
+
+Example: Imagine (again) that you are interested in the average level of anxiety suffered by graduate students. Therefore, you take a group of grads (i.e., a random sample) and measure their levels of anxiety. Then you calculate the mean level of anxiety across all of the subjects. This final value is the sample mean. The Assumption of Normality says that if you repeat the above sequence many many many times and plot the sample means, the distribution would be normal. 
+
+Note that I never said anything about the distribution of anxiety levels within given samples, nor did I say anything about the distribution of anxiety levels in the population that was sampled. I only said that the distribution of sample means would be normal. And again, there are two ways to express this: “the distribution of sample means is normal” and/or “the sampling distribution of the mean is normal.” Both are correct as they imply the same thing.
+    			</aside>
+    			
+    	</section>
+    	
+    	<!-- 7 -->
+    	<section>
+    		
+    		<h3>Gaussian Assumptions</h3>
+    		
+    		<div class="row">
+    			<div class="col-60 no-margin centered">
+    				<div class="fig-container" data-file="lib/interactive/gausProb/index.html" style="background:#fff;max-height:500px;max-width:1000px;"></div>
+    			</div>
+    			<div class="col-40 framed border-mutedBlue">
+  					<p class="quoted big">
+  						The Assumption of Normality claims that the sampling distribution of the mean is normal or that the distribution of means across samples is normal. 
+  					</p>
+    			</div>
+    				
+    		</div>
+    		
+    		<aside class="notes" data-markdown>
+## What gaussian assumptions look like
+If the above assumptions are true, then we can always estimate the probability 'density' of our data and how the statistic models the parameter.
+    		</aside>
+    	</section>
+    		
+    	
+    	<!-- 8 -->
+    	<section>
+    		<h3>Displaying Quantitative data</h3>
+			  <p class="l-sided border-mtuedBlue" style="margin-top:0; font-size: 0.7em;">
+			    The histogram is useful for qualitatively determining if your data follow the Normal Distribution shape. It was good for proportions, it's good for quantitative data too. We can even observe the <span class="mutedBlue">cumulative density</span> histogram.
+			  </p>
+			  <div class="row">
+			    <div class="col-55">
+			      <img class="plain" src="lib/img/CDF-from-Hist.png" width=100%></img>
+			    </div>
+			    <div class="col-45">
+			      <p style="margin-bottom: 0.3;" class="u em big">A histogram includes:
+			      <ul style="margin-top: 0;">
+			        <li>The observed values along the X-Axis.</li>
+			        <li>The counts of each observation ''bin'' in the Y-Axis.</li>
+			        <li>We can draw a line that divides the histogram at the <span class="orange">median</span></li>
+			        <li>We can visually inspect the ''shape'' and modality of our data.</li>
+			      </ul>
+			      </p>
+			    </div>
+			  </div>
+			  
+    		<aside class="notes" data-markdown>
+    			
+    		</aside>
+    	</section>
+    	
+    	<!-- 9 -->
+    	<section>
+    		<h3>Displaying Quantitative data</h3>
+			  <p class="l-sided border-mtuedBlue" style="margin-top:0; font-size: 0.7em;">
+			    A boxplot is a graphical display of the <span class="orange">five number summary</span> for a quantitative variable. It shows the general shape of the distribution, identifies the middle 50% of the data, and highlights any outliers.
+			  </p>
+			  <div class="row">
+			    <div class="col-55">
+			      <img class="plain" src="lib/img/boxplot-from-dist.png" width=100%></img>
+			    </div>
+			    <div class="col-45">
+			      <img class="plain" src="lib/img/boxplot-general.svg" width=100%></img>
+			    </div>
+			  </div>
+			  
+    		<aside class="notes">
+    			<p style="margin-bottom: 0.3;" class="u em">A boxplot includes:
+			      <ul style="font-size: 0.6em; margin-top: 0;">
+			        <li>A box stretching from <span class="orange">Q1</span> to <span class="orange">Q3</span></li>
+			        <li>A line that divides the box drawn at the <span class="orange">median</span></li>
+			        <li>A line from each quartile to the <span class="orange">most extreme data value</span> <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">that is not an outlier</span>. (if no outliers minimum and maxixum)</li>
+			        <li>Each <span class="orange">outlier</span> plotted individually</li>
+			        <li>Next week, we will look at other ways to plot this kind of data.</li>
+			      </ul>
+			      </p>
+    		</aside>
+    	</section>
+    	
+    	
+    	<!-- 10 -->
+    	<section class="title-section">
+    		<h1>Statistical Inference</h1>
+    		<h3>Or</h3>
+    		<p class="quoted big">How well does my sample statistic represent the population parameter?</p>
+    		<aside class="notes" data-markdown>
+    			
+    		</aside>
+    	</section>
+    	
+    	
+    	<!-- 11 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>Normal Distributions In Biology</h3>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      	
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin l-sided border-mutedBlue">
+      			The normal distribution is often used to model either a population or a sample distribution.
+      			<p class="red fragment" data-fragment-index=3>The idea is that you sample from the population, multiple times, and on each iteration you calculate a sample mean, standard deviation and this other parameter: the <em>Standard Error</em>.</p>
+      			<p class="mutedBlue fragment" data-fragment-index=7>The standard error is meant to convey the 95% CI of the mean. But only works if the data are truly Normally distributed.</p>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin">
+      			<svg height="288pt" version="1.1" viewBox="0 0 676 288" width="576pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      				<use class="fragment" data-fragment-index=2 xlink:href="lib/img/GaussianSampling.svg#axes_7"></use>
+      				<use class="fragment current-visible" data-fragment-index=7 xlink:href="lib/img/GaussianSampling.svg#axes_2"></use>
+      				<use class="fragment current-visible" data-fragment-index=3 xlink:href="lib/img/GaussianSampling.svg#axes_3"></use>
+      				<use class="fragment current-visible" data-fragment-index=4 xlink:href="lib/img/GaussianSampling.svg#axes_4"></use>
+      				<use class="fragment current-visible" data-fragment-index=5 xlink:href="lib/img/GaussianSampling.svg#axes_5"></use>
+      				<use class="fragment current-visible" data-fragment-index=6 xlink:href="lib/img/GaussianSampling.svg#axes_6"></use>
+      				<use class="fragment" data-fragment-index=2 xlink:href="lib/img/GaussianSampling.svg#axes_7"></use>
+      				<use class="fragment" data-fragment-index=1 xlink:href="lib/img/GaussianSampling.svg#axes_1"></use>
+						</svg>
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+## Usage of the Normal Theory
+
+Often biologists, incorrectly, use the normal distribution to model either the population or the sample distribution.
+The idea is that you have some data that you sampled from some population, which you just assign as normal: central limit the. assump.
+      		</aside>
+      		
+      </section>
+    	
+    	
+    	<!-- 12 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h3>Standard Error of the Mean</h3>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<svg height="360pt" version="1.1" viewBox="0 0 1008 360" width="1008pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    				<use xlink:href="lib/img/GaussianSEM.svg#axes_1"></use>
+    				<use class="fragment" data-fragment-index=2 xlink:href="lib/img/GaussianSEM.svg#axes_5"></use>
+    				<use class="fragment" data-fragment-index=3 xlink:href="lib/img/GaussianSEM.svg#axes_6"></use>
+					</svg>
+    			
+    	
+    		</div>
+    		<div class="row">
+    				<p class="offWhite fragment l-sided border-red" data-fragment-index=4>Remember that these distributions of $\bar{x}$ are expected under Gaussian Assumptions.</p>
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+## Standard error theory
+
+RED = few N
+PURPLE = many N
+
+Remember those bar graphs??
+
+don't use bar graphs!
+    			</aside>
+    			
+    	</section>
+    	
+    	<!-- 13 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>Your Sample</h3>
+      	</div>
+      
+      	<!-- top row -->
+      	<div class="row no-top-margin framed border-mutedBlue">
+      		Let's look at your single sample of N=10. <br>
+      		In another stats class, you would be told to report:<br>
+      		<span class="red">Mean salary was $\$110,420 \pm \$28,076$.</span>. <span class="red fragment">But you'd be wrong to do so.</span>
+      	</div>
+      
+      	<!-- bottom row -->
+      	<div class="row no-top-margin">
+      		<svg height="324pt" version="1.1" viewBox="0 0 648 324" width="648pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      				<use xlink:href="lib/img/GaussianOneSample.svg#axes_1"></use>
+      				<use class="fragment current-visible" data-fragment-index=1 xlink:href="lib/img/GaussianOneSample.svg#axes_2"></use>
+      		</svg>
+      	</div>
+      
+      	<!-- notes -->
+      	<aside class="notes" data-markdown>
+      		
+      	</aside>
+      
+      </section>
+    	
+    	
+    	<!-- 14 -->
+      <section>
+      	<h3>Use bootstrap to compute the 95% CI</h3>
+      	<div class="row framed border-green">
+    			<p>We then plot our bootstrap distribution of means, based on our single sample distribution, and locate the 95%CI. We can then ask if the population $\mu$ is inside our confidence interval.</p>
+    			<p>We can then report that the mean Salary was $\$110,421\, (\$65,321,\, \$167,182; 95\%CI)$.</p>
+    			<p>This way more informative than using the $\pm SE$ approach, and tells us that we may in fact represent the true population mean with our sample.</p>
+    		</div>
+    		<div class="row no-top-margin">
+      		<svg height="324pt" version="1.1" viewBox="0 0 1048 324" width="1048pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      				<use xlink:href="lib/img/GaussianBootstrap.svg#axes_1"></use>
+      				<use xlink:href="lib/img/GaussianBootstrap.svg#axes_2"></use>
+      				<use class="fragment" data-fragment-index=1 xlink:href="lib/img/GaussianBootstrap.svg#axes_3"></use>
+      		</svg>
+      	</div>
+      	<aside class="notes" data-markdown>
+      		
+      	</aside>
+      </section>
+      
+      
+      <!-- 15 -->
+      <section class="title-section">
+      	<h1>Comparing two groups</h1>
+      	<aside class="notes" data-markdown>
+### Now consider you and a friend performed the same experiment, calling 10 people from UCLA and askiing their sal in 2014.
+      	</aside>
+      </section>
+      
+      
+      <!-- 16 -->
+      <section>
+      	<h3>Your sampling distributions</h3>
+      	<div class="row framed border-green">
+    			<p>You and a friend call up 10 people each and then show your data.</p>
+    		</div>
+    		<div class="row no-top-margin">
+      		<svg height="324pt" version="1.1" viewBox="0 0 720 324" width="720pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      				<use xlink:href="lib/img/GaussiantwoSample.svg#axes_1"></use>
+      				<use xlink:href="lib/img/GaussiantwoSample.svg#axes_2"></use>
+      		</svg>
+      	</div>
+      	<aside class="notes" data-markdown>
+      		
+      	</aside>
+      </section>
+    	
+    	<!-- 17 -->
+      <section>
+      	<h3>Use bootstrap to compute the 95% CI for each data</h3>
+      	<div class="row framed border-green">
+    			<p>We then plot our bootstrap distribution of means, based on our single sample distribution, and locate the 95%CI.</p>
+    			<p class="mutedBlue fragment">What do you think the null hypothesis is here?</p>
+    			<p class="orange fragment">That the two samples came from the same underlying population.</p>
+    			<p class="green fragment">So let's use bootstrap...</p>
+    		</div>
+    		<div class="row no-top-margin">
+      		<svg height="324pt" version="1.1" viewBox="0 0 720 324" width="720pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      				<use xlink:href="lib/img/GaussiantwoBootstraps.svg#axes_1"></use>
+      				<use xlink:href="lib/img/GaussiantwoBootstraps.svg#axes_2"></use>
+      		</svg>
+      	</div>
+      	<aside class="notes" data-markdown>
+      		
+      	</aside>
+      </section>
+    	
+    	<!-- 18 -->
+    	<section> 
+    		<div class="row">
+    				<div class="fig-container no-margin" data-file="lib/interactive/bootstrap/bootstrapResample.html"></div>
+    		</div>
+    		
+    		<aside class="notes" data-markdown>
+    			
+    		</aside>
+    	</section>
+    		
+    	
+    	
+    	
+    	
+      <!-- #########################     CONTENT END     #########################-->
+    </div>
+    
+  </div>
+  
+  <!-- REVEAL JS -->
+  <script src="lib/js/reveal.js/lib/js/head.min.js"></script>
+  <script src="lib/js/reveal.js/js/reveal.js"></script>
+  <script src="lib/js/initReveal.js"></script>
+</body>
+</html>
