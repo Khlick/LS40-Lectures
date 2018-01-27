@@ -1,3 +1,7 @@
 [submodule "lib/js/reveal.js"]
 	path = lib/js/reveal.js
 	url = https://github.com/Khlick/reveal.js
+[submodule "lib/js/reveal.js-d3"]
+	path = lib/js/reveal.js-d3
+	url = https://github.com/Khlick/reveal.js-d3
+	branch = master
