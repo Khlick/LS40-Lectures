@@ -29,6 +29,8 @@
       }
       .btn {
         margin-top: -5px;
+        margin-bottom: 10px;
+        margin-left: 2px;
       }
       /* syle for svg */
       .axis path, .tick line {
@@ -106,14 +108,17 @@
           <div class="col-md-2">
             <div class="centered">
               <button type="button" class='btn' id="resample">Resample</button><br>
-              <input class='short-field' type="number" id="n-boots" min="1" max="10000" value="1" step="1" onchange="nBootsChange()"><br>
-              <p>\(\bar{x}_{group1}=\) <span class="htext" style="text-align: center;" !important;" id="group1-mean">0</span></p>
-              <p>\(\bar{x}_{group2}=\) <span class="htext" style="text-align: center;" !important;" id="group2-mean">0</span></p>
+              <p>\(B=\)<input class='short-field' type="number" id="n-boots" min="1" max="10000" value="1" step="1" onchange="nBootsChange()"></p>
+              <p>\(\bar{x}_{group1}=\) <span class="htext" style="text-align: center;" !important;" id="group1-mean">0</span><br>
+                \(N=\)<input class='short-field' type="number" id="n-g1" min="1" max="25" value="10" step="1" onchange="nGroupChange('group1')"><br></p>
+              <p>\(\bar{x}_{group2}=\) <span class="htext" style="text-align: center;" !important;" id="group2-mean">0</span><br>
+                \(N=\)<input class='short-field' type="number" id="n-g2" min="1" max="25" value="10" step="1" onchange="nGroupChange('group2')"><br></p>
               <p>\(\Delta_{g1-g2}=\) <span class="htext" style="text-align: center;" !important;" id="theta-mean">0</span></p>
               <p class="smaller">Number of BootStraps:</p>
               <p><span class="htext" style="text-align: center;" !important;" id="total-boots">0</span></p>
               <p class="smaller">2-tailed p-value:</p>
-              <p><span class="htext" style="text-align: center;" !important;" id="p-value">0</span></p>
+              <p><span class="htext" style="text-align: center;" !important;" id="p-value">-</span></p>
+              <button type="button" class='btn' id="reset">Reset</button>
             </div>
           </div>
           <div class="col-md-4">
@@ -147,17 +152,70 @@
     
     <script type="text/javascript">
       // DEFINE INITIAL VARIABLES
-      var BINS = [5,10],
-          COLORS = ['#88A9C9','#E04B4B'], //blue,red
+      var COLORS = ['#88A9C9','#E04B4B'], //blue,red
           MU1 = 110420.7,
           SIGMA1 = 88786.22,
           MU2 = 59531.7,
           SIGMA2 = 37695.6,
-          NPTS = parseInt(BINS[0]*BINS[1]/2),
           NSAMPLES = 1,
           BOOTCOUNTER = 0;
       
+      var N_G1 = Number(document.getElementById('n-g1').value),
+          N_G2 = Number(document.getElementById('n-g2').value),
+          BINS = [0,0],
+          BINS_G1 = [0,0],
+          BINS_G2 = [0,0],
+          NPTS = N_G1+N_G2;
+        
       // FUNCTIONS **************************************************************/
+      var makeRect = function(n,maxWidth,maxHeight){
+        if (maxWidth === undefined) {
+          maxWidth = parseInt(n/2)+1;
+        }
+        if (maxHeight === undefined) {
+          maxHeight = parseInt(n/2)+1;
+        }
+        var divN = d3.range(2,maxWidth);
+        let checkRange = divN.filter(c => parseInt(n/c) == n/c);
+        var ww,hh;
+        // if not, loop through looking for the best square
+        while (ww === undefined && hh === undefined) {
+          var w,h;
+          if (!checkRange.length) {
+            w = maxWidth;
+            h = parseInt(n/w);
+          } else if (checkRange.length == 1) {
+            w = checkRange[0];
+            h = parseInt(n/w);
+          } else {
+            w = parseInt(d3.median(checkRange));//prefer squarer
+            h = parseInt(n/w);
+          }
+          //console.log(w, maxWidth,h, maxHeight)
+          if (w > maxWidth || h > maxHeight) {
+            // Check if swappable
+            if (h <= maxWidth && w <= maxHeight){
+              let tmpH = h;
+              hh = w;
+              ww = tmpH;
+              continue;
+            }
+            checkRange.pop();
+            continue;
+          }
+          ww = w;
+          hh = parseInt(n/w);
+        }
+        //next, check that we have at least n bins
+        while (ww*hh < n) {
+          //add 1 to hh
+          hh += 1;
+        }
+        
+        //return
+        return [ww,hh];
+      }
+      
       var rep = function(arr,times,each){
         if (times == undefined){ times = 1;}
         if (each == undefined) {each = Array.from(new Array(arr.length),(v,i)=>1);}
@@ -178,7 +236,7 @@
           // insert the values into the output array
           cumsum.forEach(function(v,i,a){
             if(!i){
-              // is zero index, should be 0th from cumsum
+              // is zero index, should run to 0th from cumsum[0]
               for (o=v; o>-1; o--){
                 output[o] = arr[i];
               }
@@ -203,21 +261,21 @@
       var resample = function(){
         // resample with replacement
         for (let n = 0; n < NSAMPLES; n++){
-          BOOTCOUNTER++;
-          // new data
           //need to randomize all the same
           var newData = {values:[],groups:[],groupNums:[]}; 
           var g1Data = {values:[],groups:[],groupNums:[]};
           var g2Data = {values:[],groups:[],groupNums:[]};
+          //
+          BOOTCOUNTER++;
           //group1
-          for (let i = 0; i < NPTS; i++){
+          for (let i = 0; i < N_G1; i++){
             let theInd = Math.floor(Math.random() * DATA.values.length);
             g1Data.values.push(DATA.values[theInd]);
             g1Data.groups.push(DATA.groups[theInd]);
             g1Data.groupNums.push(DATA.groupNums[theInd]);
           }
           //group2
-          for (let i = 0; i < NPTS; i++){
+          for (let i = 0; i < N_G2; i++){
             let theInd = Math.floor(Math.random() * DATA.values.length);
             g2Data.values.push(DATA.values[theInd]);
             g2Data.groups.push(DATA.groups[theInd]);
@@ -232,6 +290,7 @@
           newData[key] = newData[key].concat(g1Data[key]);
           newData[key] = newData[key].concat(g2Data[key]);
         });
+        
         bigbox.update(newData.groupNums, newData.groups);
         group1.update(g1Data.groupNums, g1Data.groups);
         group2.update(g2Data.groupNums, g2Data.groups);
@@ -251,6 +310,10 @@
       }
       
       var updatePvalue = function() {
+        if (!BOOTCOUNTER) {
+          d3.select('#p-value').html('-');
+          return;
+        }
         var counts = 0;
         if (ACTS.theta > 0){
           BOOTS.theta.reduce(function(v,a){
@@ -270,6 +333,7 @@
           });
         }
         counts /= BOOTCOUNTER;
+        
         d3.select('#p-value').html(counts.toFixed(BOOTCOUNTER.toString().length));
       }
       
@@ -290,22 +354,93 @@
         NSAMPLES = Number(document.getElementById('n-boots').value);
       }
       
+      var nGroupChange = function(group) {
+        // get which group and update the global var
+        switch (group) {
+          case 'group1':
+            var newNum = Number(document.getElementById('n-g1').value);
+            if (N_G1 == newNum){ return; }
+            N_G1 = newNum;
+            break;
+          case 'group2':
+            var newNum = Number(document.getElementById('n-g2').value);
+            if (N_G2 == newNum){ return; }
+            N_G2 = newNum;
+            break;
+          default:
+            return;
+        }
+        NPTS = N_G1+N_G2;
+        // update data
+        DATA = {groups:[], groupNums: [], values: []};
+        let tmp1 = d3.range(N_G1).map(d3.randomNormal(0,SIGMA1));
+        let t1m = d3.mean(tmp1);
+        tmp1 = tmp1.map(v => v-t1m+MU1);
+        let tmp2 = d3.range(N_G2).map(d3.randomNormal(0,SIGMA2));
+        let t2m = d3.mean(tmp2);
+        tmp2 = tmp2.map(v => v-t2m+MU2);
+        DATA.values = tmp1.concat(tmp2);
+        DATA.groups = rep(['Control', 'Experiment'], times=1, each = [N_G1,N_G2]);
+        DATA.groupNums = rep([0,1], times=1, each = [N_G1,N_G2]);
+        
+        BOOTS = {group1: [], group2: [], theta: []};
+        ACTS = {
+          group1: d3.mean(DATA.values.slice(0,N_G1)), 
+          group2: d3.mean(DATA.values.slice(-N_G2)), 
+          theta: d3.mean(DATA.values.slice(0,N_G1))-d3.mean(DATA.values.slice(-N_G2))
+        };
+        //update everything else
+        updateBINS();
+        reset();
+      }
       
+      var updateBINS = function(){
+        BINS = makeRect(NPTS);
+        BINS_G1 = makeRect(N_G1);
+        BINS_G2 = makeRect(N_G2);
+      }
+      
+      var reset = function() {
+        BOOTS = {group1: [], group2: [], theta: []};
+        //update bindims on boxes
+        bigbox.binDim = BINS;
+        group1.binDim = BINS_G1;
+        group2.binDim = BINS_G2;
+        // update box data
+        bigbox.update(DATA.groupNums, DATA.groups);
+        group1.update(DATA.groupNums.slice(0,N_G1), DATA.groups.slice(0,N_G1));
+        group2.update(DATA.groupNums.slice(-N_G2), DATA.groupNums.slice(-N_G2));
+        BOOTCOUNTER = 0;
+        // reset hists
+        g1Hist.reset();
+        g2Hist.reset();
+        thetaHist.reset();
+        // Update text
+        d3.select('#total-boots').html(BOOTCOUNTER);
+        updatePvalue();
+      }
       // assign to buttons:
       d3.select("#resample").on("click", function() { resample(); } );
+      d3.select("#reset").on("click", function() { reset(); } );
       // INITIALIZE ***************************************************************/
       // generate some initial data
+      
       var DATA = {groups:[], groupNums: [], values: []};
-      DATA.values = d3.range(NPTS).map(d3.randomNormal(MU1,SIGMA1));
-      DATA.values = DATA.values.concat(d3.range(NPTS).map(d3.randomNormal(MU2,SIGMA2)));
-      DATA.groups = rep(['Control', 'Experiment'], times=1, each = [NPTS,NPTS]);
-      DATA.groupNums = rep([0,1], times=1, each = [NPTS,NPTS]);
+      let tmp1 = d3.range(N_G1).map(d3.randomNormal(0,SIGMA1));
+      let t1m = d3.mean(tmp1);
+      tmp1 = tmp1.map(v => v-t1m+MU1);
+      let tmp2 = d3.range(N_G2).map(d3.randomNormal(0,SIGMA2));
+      let t2m = d3.mean(tmp2);
+      tmp2 = tmp2.map(v => v-t2m+MU2);
+      DATA.values = tmp1.concat(tmp2);
+      DATA.groups = rep(['Control', 'Experiment'], times=1, each = [N_G1,N_G2]);
+      DATA.groupNums = rep([0,1], times=1, each = [N_G1,N_G2]);
       
       var BOOTS = {group1: [], group2: [], theta: []};
       var ACTS = {
-        group1: d3.mean(DATA.values.slice(0,NPTS)), 
-        group2: d3.mean(DATA.values.slice(-NPTS)), 
-        theta: d3.mean(DATA.values.slice(0,NPTS))-d3.mean(DATA.values.slice(-NPTS))
+        group1: d3.mean(DATA.values.slice(0,N_G1)), 
+        group2: d3.mean(DATA.values.slice(-N_G2)), 
+        theta: d3.mean(DATA.values.slice(0,N_G1))-d3.mean(DATA.values.slice(-N_G2))
       };
       
       d3.select('#group1-mean').html(formatMoney(ACTS.group1,0,'$'));
@@ -313,38 +448,42 @@
       d3.select('#theta-mean').html(formatMoney(ACTS.theta,0,'$'));
       d3.select('#total-boots').html(BOOTCOUNTER);
       
+      BINS = makeRect(NPTS);
+      var BINS_G1 = makeRect(N_G1, undefined, 2);
+      var BINS_G2 = makeRect(N_G2, undefined, 2);
+      
       // CONSTRUCT OBJECTS ******************************************************/
       var bigbox = new ColorBox({
-        data: DATA.groupNums,
+        data: DATA.groupNums, 
         dataLabels: DATA.groups,
         element: document.querySelector("#big-box"),
-        dims: {width: 300, height: 600},
+        targetDims: {width: 300, height: 600},
         binDim: BINS
       });
       
       var group1 = new ColorBox({
-        data: DATA.groupNums.slice(0,NPTS),
-        dataLabels: DATA.groups.slice(0,NPTS),
+        data: DATA.groupNums.slice(0,N_G1),
+        dataLabels: DATA.groups.slice(0,N_G1),
         element: document.querySelector("#group-one"),
-        binDim: [5,5],
+        binDim: BINS_G1,
         colors: COLORS,
-        dims: {width: 200, height: 200}
+        targetDims: {width: 200, height: 200}
       });
       
       var group2 = new ColorBox({
-        data: DATA.groupNums.slice(-NPTS),
-        dataLabels: DATA.groups.slice(-NPTS),
+        data: DATA.groupNums.slice(-N_G2),
+        dataLabels: DATA.groups.slice(-N_G2),
         element: document.querySelector("#group-two"),
-        binDim: [5,5],
+        binDim: BINS_G2,
         colors: COLORS,
-        dims: {width: 200, height: 200}
+        targetDims: {width: 200, height: 200}
       });
       
       
       var g1Hist = new Hist({
         data: BOOTS.group1,
         element: document.querySelector('#group-one-hist'),
-        margin: {top: 30, right: 10, bottom: 30, left: 30},
+        margin: {top: 40, right: 10, bottom: 30, left: 30},
         dims: {width:300, height:200},
         xLabel: 'Group 1 Bootstrap Means'
       });
@@ -352,7 +491,7 @@
       var g2Hist = new Hist({
         data: BOOTS.group2,
         element: document.querySelector('#group-two-hist'),
-        margin: {top: 30, right: 30, bottom: 30, left: 30},
+        margin: {top: 40, right: 30, bottom: 30, left: 30},
         dims: {width:300, height:200},
         xLabel: 'Group 2 Bootstrap Means'
       });
@@ -360,7 +499,7 @@
       var thetaHist = new Hist({
         data: BOOTS.theta,
         element: document.querySelector('#theta-hist'),
-        margin: {top: 30, right: 30, bottom: 30, left: 30},
+        margin: {top: 40, right: 30, bottom: 30, left: 30},
         dims: {width:400, height:300},
         xLabel: 'Bootstrap Difference In Means'
       });

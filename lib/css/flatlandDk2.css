@@ -475,6 +475,22 @@ body {
 .blue-fill {
   background-color: #4682B4; }
 
+.yellow {
+  color: #F5D76E; }
+
+.yellow-underline {
+  text-decoration: underline;
+  text-decoration-color: #F5D76E;
+  -webkit-text-decoration-color: #F5D76E; }
+
+.yellow-strike {
+  text-decoration: line-through;
+  text-decoration-color: #F5D76E;
+  -webkit-text-decoration-color: #F5D76E; }
+
+.yellow-fill {
+  background-color: #F5D76E; }
+
 /* Text Rotation */
 .rotation-15 {
   /* IE 9 */
@@ -648,6 +664,11 @@ body {
   background-color: rgba(255, 255, 255, 0.05);
   padding: 3px 5px 3px 18px !important; }
 
+.top-sided {
+  border-top: 15px solid !important;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 18px 5px 3px 5px !important; }
+
 .framed {
   border: 3px solid rgba(255, 255, 255, 0.05) !important;
   border-radius: 8px !important;
@@ -720,6 +741,9 @@ body {
 
 .border-blue {
   border-color: #4682B4 !important; }
+
+.border-yellow {
+  border-color: #F5D76E !important; }
 
 /* Layout */
 .reveal .row {
@@ -1375,40 +1399,27 @@ ul.icon li.bullhorn:before {
 ul.icon li.microchip:before {
   content: "\f2db"; }
 
-/* OLD
-ul.icon li.circle:before {
-  content: "\f111"; }
+ul.icon li.smile:before {
+  content: "\f118"; }
 
-ul.icon li.check-circle:before {
-  content: "\f058"; }
+ul.icon li.frown:before {
+  content: "\f119"; }
 
-ul.icon li.question-circle:before {
-  content: "\f059"; }
+ul.icon li.exclamation:before {
+  content: "\f12a"; }
 
-ul.icon li.square:before {
-  content: "\f0c8"; }
+ul.icon li.exclamation-circle:before {
+  content: "\f06a"; }
 
-ul.icon li.check-square:before {
-  content: "\f14a"; }
+ul.icon li.exclamation-triangle:before {
+  content: "\f071"; }
 
-ul.icon li.arrow-circle:before {
-  content: "\f0a9"; }
+ul.icon li.thumbs-up:before {
+  content: "\f164"; }
 
-ul.icon li.gear:before {
-  content: "\f013"; }
+ul.icon li.thumbsdown:before {
+  content: "\f165"; }
 
-ul.icon li.star:before {
-  content: "\f005"; }
-
-ul.icon li.caret-right:before {
-  content: "\f0da"; }
-
-ul.icon li.play-circle:before {
-  content: "\f144"; }
-
-ul.icon li.play:before {
-  content: "\f04b"; }
-*/
 /*********************************************
 * TRANSITIONS
 *********************************************/
@@ -1436,10 +1447,10 @@ section[data-transition*="none-in"].present {
 .title-slide.fullwidth div {
   width: 100%; }
 
-.title-slide.red {
+.title-slide.danger {
   background-color: #662121; }
 
-.title-slide.blue {
+.title-slide.soothe {
   background-color: #111596; }
 
 /*********************************************
@@ -2010,6 +2021,67 @@ section[data-transition*="none-in"].present {
   .reveal .slides section .fragment.wavy-strike-current-blue.current-fragment {
     text-decoration: line-through wavy #4682B4;
     -webkit-text-decoration: line-through wavy #4682B4; }
+
+/********* yellow ******************/
+.reveal .slides section .fragment.highlight-yellow {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.highlight-yellow.visible {
+    color: #F5D76E; }
+
+.reveal .slides section .fragment.highlight-bg-yellow {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.highlight-bg-yellow.visible {
+    background-color: #F5D76E; }
+
+.reveal .slides section .fragment.highlight-current-bg-yellow {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.highlight-current-bg-yellow.current-fragment {
+    background-color: #F5D76E; }
+
+.reveal .slides section .fragment.underline-yellow {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-yellow.visible {
+    text-decoration: underline #F5D76E;
+    -webkit-text-decoration: underline #F5D76E; }
+
+.reveal .slides section .fragment.underline-current-yellow {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.underline-current-yellow.current-fragment {
+    text-decoration: underline #F5D76E;
+    -webkit-text-decoration: underline #F5D76E; }
+
+.reveal .slides section .fragment.strike-yellow {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-yellow.visible {
+    text-decoration: line-through #F5D76E;
+    -webkit-text-decoration: line-through #F5D76E; }
+
+.reveal .slides section .fragment.strike-current-yellow {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike-current-yellow.current-fragment {
+    text-decoration: line-through #F5D76E;
+    -webkit-text-decoration: line-through #F5D76E; }
+
+.reveal .slides section .fragment.wavy-strike-yellow {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-yellow.visible {
+    text-decoration: line-through wavy #F5D76E;
+    -webkit-text-decoration: linethrough wavy #F5D76E; }
+
+.reveal .slides section .fragment.wavy-strike-current-yellow {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.wavy-strike-current-yellow.current-fragment {
+    text-decoration: line-through wavy #F5D76E;
+    -webkit-text-decoration: line-through wavy #F5D76E; }
 
 /*********************************************
 * SCALE IFRAMES
