@@ -15,9 +15,18 @@
 			"file": "lib/css/flatlandDk2.css",
 			"settings":
 			{
-				"buffer_size": 46569,
+				"buffer_size": 49123,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Lecture1.html",
+			"settings":
+			{
+				"buffer_size": 40708,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -39,14 +48,6 @@
 			}
 		},
 		{
-			"file": "lib/interactive/heatSquares/heatsquares.html",
-			"settings":
-			{
-				"buffer_size": 13001,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "Lecture4.html",
 			"settings":
 			{
@@ -65,42 +66,6 @@
 			}
 		},
 		{
-			"file": "lib/js/initReveal.js",
-			"settings":
-			{
-				"buffer_size": 1342,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "lib/js/reveal.js-d3/reveald3.js",
-			"settings":
-			{
-				"buffer_size": 19088,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "lib/interactive/bootstrap/bootstrapResample.html",
-			"settings":
-			{
-				"buffer_size": 13317,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 7408,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "Lecture6.html",
 			"settings":
 			{
@@ -110,64 +75,39 @@
 			}
 		},
 		{
-			"file": "lib/js/reveal.js-d3/demo/index.html",
-			"settings":
-			{
-				"buffer_size": 7981,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/cspan-reveal-spanwithcolor.sublime-snippet",
-			"settings":
-			{
-				"buffer_size": 150,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/sec2llist-reveal-section-2col.sublime-snippet",
-			"settings":
-			{
-				"buffer_size": 629,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/sec2-reveal-section-2col.sublime-snippet",
-			"settings":
-			{
-				"buffer_size": 533,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "Lecture7.html",
 			"settings":
 			{
-				"buffer_size": 3392,
+				"buffer_size": 31004,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "lib/interactive/bootstrap/colorbox.js",
+			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 4960,
+				"buffer_size": 7554,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "lib/interactive/bootstrap/hist.js",
+			"file": "lib/interactive/twobox/twobox.html",
 			"settings":
 			{
-				"buffer_size": 9754,
+				"buffer_size": 13758,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/interactive/alphaLevel/index.html",
+			"settings":
+			{
+				"buffer_size": 11559,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -342,11 +282,35 @@
 	[
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js-d3"
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/alphaLevel",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/gausProb",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/twobox",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js"
 	],
 	"file_history":
 	[
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/initReveal.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/img/UCLAboots.svg",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/bootstrap/hist.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/twobox/colorbox.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/img/lecture7opener.svg",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/bootstrap/bootstrapUCLA.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/bootstrap2/bootstrapResample.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/twobox/twobox.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/bootstrap2/colorbox.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/twobox/lines.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/bootstrap/bootstrapResample.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/bootstrap2/hist.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/bootstrap/colorbox.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/css/theme/source/flatlandDk2.scss",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/sec2-reveal-section-2col.sublime-snippet",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/sec2llist-reveal-section-2col.sublime-snippet",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/cspan-reveal-spanwithcolor.sublime-snippet",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js-d3/demo/index.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/index.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/heatSquares/heatsquares.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js-d3/reveald3.js",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js-d3/README.md",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js-d3/package.json",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveald3.js",
@@ -355,14 +319,10 @@
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/bootstrap/heatsquares.html",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/img/montecarloCircle.svg",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/img/GaussianMC.svg",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/css/theme/source/flatlandDk2.scss",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/seeing-theory/probability-distributions/randomVariable.html",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/seeing-theory/probability-distributions/pdfs.html",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/index.html",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/heatSquares/heatsquares.html",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-section-empty.sublime-snippet",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dotbin/lib/d3.slider.css",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/initReveal.js",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/heatSquares/hist.js",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dotbin/dotbin.html",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/dotbin/lib/hist.js",
@@ -370,7 +330,6 @@
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/mice/mice.html",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-title-section-note.sublime-snippet",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/sec02-reveal-section-2row.sublime-snippet",
-		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/sec2-reveal-section-2col.sublime-snippet",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/sec22-reveal-section-2col2row.sublime-snippet",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/sec3-reveal-section-3col.sublime-snippet",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/sec4-reveal-section-4col.sublime-snippet",
@@ -458,23 +417,7 @@
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/package.json",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/package-lock.json",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/README.md",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/.gitignore",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/bower.json",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/CONTRIBUTING.md",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/Lecture04.tex",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/Lecture03.tex",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/Lecture02.tex",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/Lecture01.tex",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABSLecture04.tex",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABSLecture03.tex",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABSLecture02.tex",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABSLecture01.tex",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/lib/Asset 1.svg",
-		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/theTemplate.html",
-		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/custom_js/js-graphs/bootstrap.js",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/customVis/diceRoller.js",
-		"/F/OneDrive/UCLA/_Lectures/Neuro210C/_output.yaml",
-		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/custom_js/helperScripts.js"
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/.gitignore"
 	],
 	"find":
 	{
@@ -489,9 +432,35 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
+			"Simulate the null",
+			"icon",
+			"#chart-area",
+			"\"area\"",
+			"area",
+			"focus_a",
+			"bisectX",
+			"right_index",
+			"area",
+			"x axis",
+			"y axis",
+			"probability Density",
+			"code",
+			"axes",
+			"d3.mean",
+			"updateP",
+			"d3.mean",
+			"resample",
+			"targetDims",
+			"this.bounds",
+			"gridSize",
+			"updateBINS",
+			"NPTS",
+			".value",
+			"value",
+			"}\n",
 			"KG",
 			"data-file",
 			"- 13",
@@ -593,33 +562,7 @@
 			"this.polot",
 			"d4",
 			"dat",
-			"UNIQUE_RESULTS.length",
-			"buckets",
-			"maxNum",
-			"Normal",
-			"button",
-			"bckg",
-			"info",
-			"danger",
-			"warning",
-			"assets/img/lec",
-			"green",
-			"long run pattern",
-			"underline",
-			"lib/",
-			"options",
-			"typeList",
-			"\"",
-			"lightColor",
-			"succColor",
-			"haltColor",
-			"warnColor",
-			"calmColor",
-			"infoColor",
-			"exColor",
-			"#aaa",
-			"d3.",
-			"scale"
+			"UNIQUE_RESULTS.length"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -627,6 +570,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"x-axis",
+			"y-axis",
+			"STAT",
 			"microchip",
 			"BOOTS",
 			"NPTS",
@@ -751,8 +697,7 @@
 			"!10",
 			"",
 			"01:",
-			"02:",
-			"01:"
+			"02:"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -763,7 +708,7 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -772,15 +717,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 46569,
+						"buffer_size": 49123,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								22487,
-								22491
+								28449,
+								28455
 							]
 						],
 						"settings":
@@ -791,14 +736,45 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1141.0,
+						"translation.y": 26611.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "Lecture1.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 40708,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1517064141.42,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "Lecture2.html",
 					"semi_transient": false,
 					"settings":
@@ -810,8 +786,8 @@
 						"selection":
 						[
 							[
-								29838,
-								29838
+								2074,
+								2078
 							]
 						],
 						"settings":
@@ -820,14 +796,14 @@
 							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 12013.0,
+						"translation.y": 313.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "Lecture3.html",
 					"semi_transient": false,
 					"settings":
@@ -839,8 +815,8 @@
 						"selection":
 						[
 							[
-								41348,
-								42591
+								2075,
+								2079
 							]
 						],
 						"settings":
@@ -852,41 +828,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 17107.0,
+						"translation.y": 457.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "lib/interactive/heatSquares/heatsquares.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13001,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								990,
-								1032
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1516828195.44,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 648.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -902,8 +847,8 @@
 						"selection":
 						[
 							[
-								62803,
-								62934
+								7908,
+								8182
 							]
 						],
 						"settings":
@@ -912,10 +857,10 @@
 							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 28717.0,
+						"translation.y": 2347.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -931,8 +876,8 @@
 						"selection":
 						[
 							[
-								14901,
-								14901
+								2094,
+								2098
 							]
 						],
 						"settings":
@@ -946,7 +891,7 @@
 							"wrap_width": 0
 						},
 						"translation.x": 0.0,
-						"translation.y": 5155.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 6,
@@ -954,135 +899,6 @@
 				},
 				{
 					"buffer": 6,
-					"file": "lib/js/initReveal.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1342,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								955,
-								955
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1517028169.35,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "lib/js/reveal.js-d3/reveald3.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 19088,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								13399,
-								13399
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1517030348.63,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 4417.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 2,
-			"sheets":
-			[
-				{
-					"buffer": 8,
-					"file": "lib/interactive/bootstrap/bootstrapResample.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13317,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2299,
-								2299
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1516817208.49,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 216.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7408,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6632,
-								6632
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1516736616.85,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 684.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
 					"file": "Lecture6.html",
 					"semi_transient": false,
 					"settings":
@@ -1094,8 +910,8 @@
 						"selection":
 						[
 							[
-								2880,
-								2880
+								28212,
+								28632
 							]
 						],
 						"settings":
@@ -1103,222 +919,142 @@
 							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 11419.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "lib/js/reveal.js-d3/demo/index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7981,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4361,
-								4361
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1517032770.37,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 918.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/cspan-reveal-spanwithcolor.sublime-snippet",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 150,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								130,
-								130
-							]
-						],
-						"settings":
-						{
-							"default_extension": "sublime-snippet",
-							"syntax": "Packages/XML/XML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/sec2llist-reveal-section-2col.sublime-snippet",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 629,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								429,
-								429
-							]
-						],
-						"settings":
-						{
-							"default_extension": "sublime-snippet",
-							"syntax": "Packages/XML/XML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/sec2-reveal-section-2col.sublime-snippet",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 533,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								521,
-								403
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1516890556.91,
-							"syntax": "Packages/XML/XML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "Lecture7.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3392,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3074,
-								3074
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 54.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
+					"stack_index": 7,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
-					"buffer": 16,
-					"file": "lib/interactive/bootstrap/colorbox.js",
+					"buffer": 7,
+					"file": "Lecture7.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4960,
+						"buffer_size": 31004,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								847,
-								849
+								30316,
+								30316
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 9439.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 17,
-					"file": "lib/interactive/bootstrap/hist.js",
+					"buffer": 8,
+					"file": "index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9754,
+						"buffer_size": 7554,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2163,
-								2163
+								5709,
+								5709
 							]
 						],
 						"settings":
 						{
-							"markdonw_live_preview_last_run": 1516861213.36,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"markdonw_live_preview_last_run": 1517341416.21,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2268.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "lib/interactive/twobox/twobox.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13758,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3241,
+								3241
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1517341452.6,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 324.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 10,
+					"file": "lib/interactive/alphaLevel/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11559,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								857,
+								863
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1517322474.04,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2404.0,
+						"translation.y": 108.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1381,7 +1117,7 @@
 	"project": "LS40_lectures.sublime-project",
 	"replace":
 	{
-		"height": 48.0
+		"height": 68.0
 	},
 	"save_all_on_build": true,
 	"select_file":

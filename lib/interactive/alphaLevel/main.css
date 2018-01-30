@@ -1,0 +1,52 @@
+
+svg text {
+cursor: default;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+
+.focus line {
+    stroke: #E4002B;
+    stroke-width: 2;
+    shape-rendering: crispEdges;
+}
+.focus rect {
+  fill: transparent;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.axis text  {
+    font-size: 14px;
+    font-family: 'Roboto Slab', serif;
+}
+.dot {
+    stroke: #293b47;
+    fill: #7A99AC
+}
+
+.focus circle {
+  fill: none;
+  stroke: steelblue;
+}
+
+.area {
+  opacity: 0.2;
+}
+
+#chartdiv {
+  width:960px;
+  height: 500px;
+}
+#pdisplay{
+  font-size: 26px;
+  font-family: 'Roboto Slab', serif;
+}

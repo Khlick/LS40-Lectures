@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <style>
+      h3, h4, p {
+        color: #d3d3d3 !important;
+      }
+      .centered {
+        text-align: center;
+      }
+      .square {
+        opacity: 0.6;
+      }
+      .square:hover {
+        opacity: 1.0;
+      }
+      .d3-tip {
+        font-family: Verdana;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 8px;
+        color: #fff; 
+        z-index: 5070;
+      }
+      .svg-border {
+        stroke: #d3d3d3;
+        fill: none;
+        stroke-width: 2px;
+      }
+      .btn {
+        margin-top: -5px;
+        margin-bottom: 10px;
+        margin-left: 2px;
+      }
+      /* syle for svg */
+      .axis path, .tick line {
+          fill: none;
+          stroke: #d3d3d3;
+      }
+      .y.axis path, .y.axis line {
+          display: none;
+      }
+      .y.axis text {
+          display: none;
+      }
+      .hist-axis text {
+          font: 16px sans-serif;
+      }
+      .bar rect {
+          stroke-width: 1px;
+          stroke: #d3d3d3;
+      }
+      #group-one-hist, #group-two-hist .hist-bar rect {
+        fill: #9469AD;
+      }
+      
+      #theta-hist .hist-bar rect {
+        fill: #FFF8D0;
+      }
+
+      .hist-bar text {
+        fill: #a2a2a2;
+        font: 14px sans-serif;
+      }
+      .axis--x.hist-axis text {
+        fill: #d3d3d3;
+        font: 14px sans-serif;
+      }
+      .axis-x-text {
+        fill: #d3d3d3;
+        font: 14px sans-serif;
+      }
+      
+      .htext {
+        display: inline-block;
+        width: 40px;
+        white-space: nowrap;
+        font-size: 1.1em;
+        font-weight: bold;
+        color: #d3d3d3;
+      }
+      .smaller {
+        font-size: 0.95em;
+      }
+      body {
+        background: #020202 !important;
+      }
+    </style>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.4/d3-legend.min.js"></script> -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="rand.js"></script>
+    <script src="hist.js"></script>
+    <script src="colorbox.js"></script>
+
+  </head>
+  <body>
+    
+    <div class="container">
+      <h3 class="centered">Two-Box Visualization</h3>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="centered">
+            <h4>Group 1: Raw</h4>
+            <div style="width:100%;max-height:300px;" id="group1-raw"></div>
+            <div style="height:30px;width:100%;"></div>
+            <h4>Group 2: Raw</h4>
+            <div style="width:100%;max-height:300px;" id="group2-raw"></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="centered">
+            <h4>Group 1: Recentered</h4>
+            <div style="width:100%;max-height:300px;" id="group1-rec"></div>
+            <div style="height:30px;width:100%;"></div>
+            <h4>Group 2: Recentered</h4>
+            <div style="width:100%;max-height:300px;" id="group2-rec"></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="row">
+              <div class="col-xs-12">
+                <div  id="group-one-hist"></div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-xs-12">
+                <div  id="group-two-hist"></div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-xs-12">
+                <div  id="theta-hist"></div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div style="height:30px;width:100%;"></div>
+        <div style="height:60px;width:100%"><p>
+          <button type="button" class='btn' id="resample">Resample</button>
+          \(B=\)<input class='short-field' type="number" id="n-boots" min="1" max="10000" value="1" step="1" onchange="nBootsChange()">
+          Select a statistic: 
+          <select name="statistic" id="statistic" onchange="updateStat()">
+            <option>Mean</option>
+            <option>Median</option>
+          </select>
+          <button type="button" class='btn' id="reset">Reset</button>
+          <span style="left-margin:20px;">Number of bootstraps:</span><span class="htext" style="text-align: center;" !important;" id="total-boots">0</span>
+        </p></div>
+        <div style="height:60px;width:100%"><p>
+          p = <span class="htext" style="text-align: center;" !important;" id="p-value">-</span>, 
+          Difference in bootstrap <span id="theta-name">means</span>: <span id="theta-stat"></span>
+        </p></div>
+      </div>
+    </div>
+    
+    <script type="text/javascript">
+      // DEFINE INITIAL VARIABLES
+      //var COLORS = ['#88A9C9','#E04B4B'],
+      var NSAMPLES = 1,
+          BOOTCOUNTER = 0,
+          STATNAME = 'mean',
+          STAT = d3.mean,
+          N_G1 = 25,
+          N_G2 = 25;
+      
+      // generate some initial data
+      var RAW = {
+        G1: d3.range(N_G1).map(d3.randomNormal(10,25)),
+        G2: d3.range(N_G2).map(d3.randomNormal(7,25))
+      };
+      var DATA = {
+        G1: RAW.G1.map(v => v-STAT(RAW.G1)),
+        G2: RAW.G2.map(v => v-STAT(RAW.G2))
+      };
+      
+      var BOOTS = {group1: [], group2: [], theta: []};
+      var ACTS = {
+        G1: STAT(RAW.G1), 
+        G2: STAT(RAW.G2), 
+        theta: STAT(RAW.G2) - STAT(RAW.G1) 
+      };
+      
+      d3.select('#theta-name').html(STATNAME);
+      d3.select('#theta-stat').html(ACTS.theta.toFixed(2));
+      d3.select('#total-boots').html(BOOTCOUNTER);
+      
+      
+      // FUNCTIONS **************************************************************/
+      var rep = function(arr,times,each){
+        if (times == undefined){ times = 1;}
+        if (each == undefined) {each = Array.from(new Array(arr.length),(v,i)=>1);}
+        if (each.length != arr.length){
+          let len = each.length;
+          each.length = arr.length;
+          each.fill(each[len-1], len);
+        }
+        // first handle each
+        var output = new Array();
+        if (!each.every(a => a==1 )) {
+          let newLength = each.reduce((t,v) => t+v );
+          // force output to new length
+          output.length = newLength;
+          // get cumulative sum
+          var cumsum = [];
+          each.reduce((t,v,i) => cumsum[i] = t+v,-1);
+          // insert the values into the output array
+          cumsum.forEach(function(v,i,a){
+            if(!i){
+              // is zero index, should run to 0th from cumsum[0]
+              for (o=v; o>-1; o--){
+                output[o] = arr[i];
+              }
+            } else {
+              // run from the max index of current val down to the previous
+              // inserting the current array value in.
+              for(o=v; o>a[i-1]; o--) {
+                output[o] = arr[i];
+              }
+            }
+          });
+        } //end each
+        // Now, handle times
+        if (times==1){ return output; }
+        var repOut = []
+        for (var i=0; i < times; i++){
+          repOut = repOut.concat(output);
+        }
+        return repOut;
+      }
+      
+      var resample = function(){
+        // resample with replacement
+        for (let n = 0; n < NSAMPLES; n++){
+          //need to randomize all the same
+          var newData = {g1:[],g2:[]}; 
+          //update boot Counter
+          BOOTCOUNTER++;
+          //group1
+          for (let i = 0; i < N_G1; i++){
+            let theInd = Math.floor(Math.random() * DATA.G1.length);
+            newData.g1.push(DATA.G1[theInd]);
+          }
+          //group2
+          for (let i = 0; i < N_G2; i++){
+            let theInd = Math.floor(Math.random() * DATA.G2.length);
+            newData.g2.push(DATA.G2[theInd]);
+          }
+          //update running boots
+          BOOTS.group1.push(STAT(newData.g1));
+          BOOTS.group2.push(STAT(newData.g2));
+          BOOTS.theta.push(STAT(newData.g2)-STAT(newData.g1));
+        }
+        // after for loop, update boxes with last box
+        g1REC.update(newData.g1);
+        g2REC.update(newData.g2);
+        
+        // Also update hists
+        updateHistograms();
+        // Update text
+        d3.select('#total-boots').html(BOOTCOUNTER);
+        updatePvalue();
+      }
+      
+      
+      var updateHistograms = function() {
+        g1Hist.setData(BOOTS.group1);
+        g2Hist.setData(BOOTS.group2);
+        thetaHist.setData(BOOTS.theta);
+      }
+      
+      var updatePvalue = function() {
+        if (!BOOTCOUNTER) {
+          d3.select('#p-value').html('-');
+          return;
+        }
+        var counts = 0;
+        if (ACTS.theta > 0){
+          BOOTS.theta.reduce(function(v,a){
+            if (a >= ACTS.theta) {
+              counts++;
+            } else if(a <= -ACTS.theta){
+              counts++;
+            }
+          });
+        } else {
+          BOOTS.theta.reduce(function(v,a){
+            if (a <= ACTS.theta) {
+              counts++;
+            } else if(a >= -ACTS.theta){
+              counts++;
+            }
+          });
+        }
+        counts /= BOOTCOUNTER;
+        
+        d3.select('#p-value').html(counts.toFixed(BOOTCOUNTER.toString().length));
+      }
+      
+            
+      // CALLBACKS **************************************************************/
+      var nBootsChange = function() {
+        NSAMPLES = Number(document.getElementById('n-boots').value);
+      }
+      
+      var updateStat = function(){
+        STATNAME = document.getElementById("statistic").value.toLowerCase();
+        console.log(STATNAME)
+        if (STATNAME == 'mean') {
+          STAT = STAT;
+        }
+        if (STATNAME == 'median') {
+           STAT = d3.median;
+        }
+        
+        g1Hist.xLabel = `Group 1 Bootstrap ${STATNAME}s`
+        g2Hist.xLabel = `Group 2 Bootstrap ${STATNAME}s`
+        thetaHist.xLabel = `Bootstrap ${STATNAME} differences`
+        
+        ACTS.group1 = STAT(DATA.G1);
+        ACTS.group2 = STAT(DATA.G2);
+        ACTS.theta = STAT(DATA.G2)-STAT(DATA.G1);
+        
+        d3.select('#theta-mean').html(ACTS.theta.toFixed(2));
+        d3.select('#theta-name').html(STATNAME);
+        reset();
+      }
+      
+      var reset = function() {
+        BOOTS = {group1: [], group2: [], theta: []};
+        
+        // update box data
+        g1REC.update(DATA.G1);
+        g2REC.update(DATA.G2);
+        
+        BOOTCOUNTER = 0;
+        // reset hists
+        g1Hist.reset();
+        g2Hist.reset();
+        thetaHist.reset();
+        // Update text
+        d3.select('#total-boots').html(BOOTCOUNTER);
+        updatePvalue();
+      }
+      
+      // assign to buttons:
+      d3.select("#resample").on("click", function() { resample(); } );
+      d3.select("#reset").on("click", function() { reset(); } );
+            
+      // CONSTRUCT OBJECTS ******************************************************/
+      var g1RAW = new ColorBox({
+        data: RAW.G1, 
+        element: document.querySelector("#group1-raw"),
+        targetDims: {width: 300, height: 300},
+        binDim: [5,5],
+        colors: d3.interpolatePurples,
+        colorType: 'continuous'
+      });
+      
+      var g1REC = new ColorBox({
+        data: DATA.G1, 
+        element: document.querySelector("#group1-rec"),
+        targetDims: {width: 300, height: 300},
+        binDim: [5,5],
+        colors: d3.interpolateYlGnBu,
+        colorType: 'continuous'
+      });
+      
+      var g2RAW = new ColorBox({
+        data: RAW.G2, 
+        element: document.querySelector("#group2-raw"),
+        targetDims: {width: 300, height: 300},
+        binDim: [5,5],
+        colors: d3.interpolateGreys,
+        colorType: 'continuous'
+      });
+      
+      var g2REC = new ColorBox({
+        data: DATA.G2, 
+        element: document.querySelector("#group2-rec"),
+        targetDims: {width: 300, height: 300},
+        binDim: [5,5],
+        colors: d3.interpolateYlGnBu,
+        colorType: 'continuous'
+      });
+      
+      
+      var g1Hist = new Hist({
+        data: BOOTS.group1,
+        element: document.querySelector('#group-one-hist'),
+        margin: {top: 40, right: 10, bottom: 30, left: 30},
+        dims: {width:300, height:200},
+        xLabel: 'Group 1 Bootstrap Means'
+      });
+      
+      var g2Hist = new Hist({
+        data: BOOTS.group2,
+        element: document.querySelector('#group-two-hist'),
+        margin: {top: 40, right: 30, bottom: 30, left: 30},
+        dims: {width:300, height:200},
+        xLabel: 'Group 2 Bootstrap Means'
+      });
+      
+      var thetaHist = new Hist({
+        data: BOOTS.theta,
+        element: document.querySelector('#theta-hist'),
+        margin: {top: 40, right: 30, bottom: 30, left: 30},
+        dims: {width:400, height:300},
+        xLabel: 'Bootstrap Difference In Means'
+      });
+      
+    </script>
+  </body>
+</html>

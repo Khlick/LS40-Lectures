@@ -8,7 +8,7 @@
   
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, minimal-ui,shrink-to=fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, minimal-ui,shrink-to-fit=no">
   
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="57x57" href="lib/img/fic/apple-icon-57x57.png">
@@ -67,20 +67,43 @@
       <section class="title-slide">
 				<div class="row">
   				<div class="col-50">
-  					<img src="lib/img/Student-t-table.png" class="plain lift-10">
+  					<svg height="360pt" version="1.1" viewBox="0 0 576 360" width="576pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  						<defs>
+							  <style type="text/css">
+							*{stroke-linecap:butt;stroke-linejoin:round;}
+							  </style>
+							</defs>
+							<use  class="fragment" data-fragment-index=0 xlink:href="lib/img/lecture7opener.svg#axes_1"></use>
+							<use class="fragment current-visible" data-fragment-index=0 xlink:href="lib/img/lecture7opener.svg#axes_2"></use>
+							<use class="fragment current-visible" data-fragment-index=0 xlink:href="lib/img/lecture7opener.svg#axes_3"></use>
+							<use class="fragment current-visible" data-fragment-index=0 xlink:href="lib/img/lecture7opener.svg#axes_4"></use>
+							<use class="fragment" data-fragment-index=1 xlink:href="lib/img/lecture7opener.svg#axes_5"></use>
+							<use class="fragment current-visible" data-fragment-index=2 xlink:href="lib/img/lecture7opener.svg#axes_6"></use>
+							<use class="fragment current-visible" data-fragment-index=1 xlink:href="lib/img/lecture7opener.svg#axes_7"></use>
+							<use class="fragment" data-fragment-index=3 xlink:href="lib/img/lecture7opener.svg#axes_6"></use>
+							<use class="fragment" data-fragment-index=3 xlink:href="lib/img/lecture7opener.svg#axes_2"></use>
+							<use class="fragment" data-fragment-index=3 xlink:href="lib/img/lecture7opener.svg#axes_3"></use>
+  					</svg>
   				</div>
   				
   				<div class="col-50" style="z-index:1; position: relative; margin-left: -5%;">
   					<h1>Life Sciences 40</h1>
 	        	<h2>Lecture 7:</h2>
-	          <h4>Advanced 2-Group NHST</h5>
+	          <h4>Advanced 2-Group Analysis</h5>
 	          <h5>Khris Griffis</h3>
   				</div>
   			</div>
         <aside class="notes" data-markdown>
-1. Last week I confused you by telling you that the null hypothesis of the difference between is that they came from the same underlying population
-2. Then I showed you a Big-Box bootstrap model that actually simulates putting the two groups in a big box and then resampling and finding the big-box means
-3. Today we will expand upon that, we will talk about some new ideas and clear up some old bad ones (non-parametric.)
+- Note about homework method being a little different this week.
+- Last week I confused you by telling you that the null hypothesis of the difference between is that they came from the same underlying population
+- Then I showed you a Big-Box bootstrap model that actually simulates putting the two groups in a big box and then resampling and finding the big-box means
+- Today we will expand upon that, we will talk about some new ideas and clear up some old bad ones (non-parametric.)
+
+### Animation
+1. The idea behind testing two groups is to determine 1) the effect size, eg difference, between two groups and 2) to infer some biologically relevant fact from the data. Where the NHST comes in, is in an attempt to "quantify" the latter statement.
+2. Effect size between two groups has to do with the overlap between your sample distributions.
+3. One approach is determine the area, or frequency, of the shared region and use it to infer the probability of a random sample being in the superior or inferior group. That approach is called Cohen's d statistic.
+We are going to end on the bootstrap version of this, which doesn't require these normal assumptions.
         </aside>
       </section>
       
@@ -94,9 +117,12 @@
       					
       			</div>
       			<div class="col-60 l-sided fragment" data-fragment-index=0>
-      				<ul class="icon big">
-      					<li class="arrow-circle offWhite fragment current-visible" data-fragment-index="0,2">Normal assumptions must be met in order </li>
-      					<li class="arrow-circle offWhite fragment" data-fragment-index=1></li>
+      				<ul class="icon">
+      					<li class="arrow-circle offWhite fragment" data-fragment-index=0><span class="red">Normal assumptions</span> must be met in order to use <span class="red">parametric statistics</span>.</li>
+      					<li class="arrow-circle offWhite fragment" data-fragment-index=1><span class="mutedBlue">Bootstrap</span> can approximate parametric statistics, but can be used on <span class="green">non-Normal</span> distributions.</li>
+      					<li class="arrow-circle offWhite fragment" data-fragment-index=2><span class="mutedBlue">Bootstrap</span> methods can be used to construct a <span class="orange">Null Distribution</span>, without the need for satisfying <span class="red">Normal Assumptions</span>.</li>
+      					<li class="arrow-circle offWhite fragment" data-fragment-index=3><span class="mutedBlue">Bootstrap</span> methods can be used to construct <span class="purple">confidence intervals</span> around any statistic: <span class="green">freedom of measure</span>.</li>
+      					<li class="arrow-circle offWhite fragment" data-fragment-index=4><span class="purple">Confidence intervals</span> are the quantification of the <span class="mutedBlue">uncertainty</span> of our statistic.</li>
       				</ul>
       			</div>
       			<div class="coll-20">
@@ -104,11 +130,435 @@
       			</div>
       	</div>
       	<aside class="notes" data-markdown>
-      		
+1. Everywhere you look, parametric stats are being used, but does that mean everyone has normally shaped data?
+2. But not you guys, you will know when and where to use parametric statistics.
+3. When it comes to NHST, 
       	</aside>
       </section>
-      	
+      
+      
+      <!-- 2 -->
+      <section>
+      
+      	<!-- heading -->
+      	<h3>UCLA Salaries: recap</h3>
+      	<div class="row framed border-mutedBlue fragment" data-fragment-index=1>
+      			<ul class="icon small">
+      				<li class="caret-right offWhite fragment small" data-fragment-index=1>Your Data: <pre style="width: 1000px;"><code class="center">[123942 169083 323792  22083  41249  64931  55466  56451 144312 102898]</code></pre></li>
+      				<li class="caret-right offWhite fragment small" data-fragment-index=2>Friend's Data: <pre style="width: 1000px;"><code class="center">[ 59259  35450  59198  25502 101991  21861  38046 144860  50278  58872]</code></pre></li>
+      				<li class="caret-right mutedBlue fragment" data-fragment-index=3>The difference, $\Delta_{\mu}$, between the means is: \(\$110,421 - \$59,532=\$50,889\)</li>
+      			</ul>
+      			<p class="quoted orange fragment" data-fragment-index=4>If two samples are drawn from the same population, what's the <span class="fragment highlight-current-red" data-fragment-index=5>chance</span> of finding a difference <em>this large</em> and larger?</p>
+      			<p class="no-top-margin"><span class="fragment red small" data-fragment-index=5>$\rightarrow$ The <em>chance</em> here is quantified by a p-value!</span></p>
+      	</div>
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-40 no-top-margin">
+      			<svg height="324pt" version="1.1" viewBox="0 0 1048 324" width="990px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	    				<use xlink:href="lib/img/UCLASalariesHists.svg#axes_1"></use>
+	      		</svg>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-60 no-top-margin">
+      			<svg height="324pt" version="1.1" viewBox="0 0 720 324" width="720pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      				<use class="fragment" data-fragment-index=1 xlink:href="lib/img/GaussiantwoBootstraps.svg#axes_1"></use>
+      				<use class="fragment" data-fragment-index=2 xlink:href="lib/img/GaussiantwoBootstraps.svg#axes_2"></use>
+	      		</svg>
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+### Animations  
+0. We had this population of salaries from UCLA 2014.
+1. You chose, randomly, from the UCLA directory and picked 10 names and gave them a call. You, having mastered this class, estimated the central tendency and the uncertainty of your estimator. You got *professors*.
+2. A friend performed the same experiment, not knowing who you called and they also, knowing you, bootstrapped their statistics. Friend got lots of *lowly postdocs*.
+3. You guys compared your results and found $51K difference between your means. You also noticed that while neither CI contains the other's sample statistic, the 95CI overlap by quite a bit. **Is 50K big? How big is it?**
+4. **BEFORE** Given that you know you both called people from UCLA who were paid in 2014 (same population), what is exact question you want to know?
+5. How can we compute this? The key is the word, chance.
 
+What we know, in this case: samples drawn from same population, which means that all parameters are equal. (mu=mu, sd=sd, var=var, med=med), up the uncertainty of sampling.
+What we're doing here is a way of estimating something about the population and masking it as estimating something about the difference between the groups.
+So, let's simulate the null.
+      		</aside>
+      		
+      </section>
+      
+      
+      <!-- 3 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<h4>Simulating the Null</h4>
+    		<div class="row">
+    				<p class="quoted mutedBlue small">If two samples are drawn from the same population, what's the <span class="fragment highlight-red" data-fragment-index=0>chance</span> of finding a difference <em>this large</em> and larger?</p>
+    				<p class="l-sided border-mutedBlue fragment" data-fragment-index=1>
+    						The <span class="orange">Null Hypothesis</span> we want to test is that the means, or medians, are equal, <span class="red">assuming that the groups, A & B, were sampled from the same underlying population.</span><br>
+    						We write that as:  $p(x) = p_A(x) = p_B(x)$.
+    				</p>
+    				<p class="l-sided border-mutedBlue fragment" data-fragment-index=2>
+    						This implies that <span class="orange">that all the <em>true</em> statistics are assumed equal</span>. For example:
+    						$\{\bar{x}_A=\bar{x}_B\}\, \&\, \{\tilde{x}_A=\tilde{x}_B\}\, \&\, \{MAD_A = MAD_B\}\, ...$
+    				</p>
+    				<p class="l-sided border-green fragment" data-fragment-index=3>
+    						Formally, we write the Null hypothesis as: <span class="mutedBlue i">name: hypothesis | assumptions</span>. So:
+    						$$H_0: \tilde{x}_A = \tilde{x}_B\, |\, p_{A}(x) = p_{B}(x)$$
+    				</p>
+    				<p class="u green fragment smaller" data-fragment-index=4> Pseudo-Code </p>
+						<pre class="fragment no-top-margin" data-fragment-index=4><code class="smaller" data-trim>
+# Compute the difference of the observed statistic
+DeltaX = median(Xa) - median(Xb)
+# Combine data as "best guess" at underlying population
+Xab = [Xa, Xb];
+
+loop 10,000 times:
+  # get 2 new groups from pool
+  Xa_simulation = random choice of Xab, size=len(Xa), replace = True
+  Xb_simulation = random choice of Xab, size=len(Xb), replace = True
+  # compute statistic on each
+  thetaXa_simulation = median(Xa_simulation) #or mean, var, cor, etc.
+  thetaXb_simulation = median(Xb_simulation) #or mean, var, cor, etc.
+  # Compute the difference of the simulated statistic
+  DeltaX_simulation = thetaXa' - thetaXb'
+
+					</code></pre>	
+    		</div>
+  			<!-- notes -->
+  			<aside class="notes" data-markdown>
+To visualize simulating the null... next slide
+
+  			</aside>
+	  			
+	  	</section>
+      
+      
+      
+      <!-- 4 -->
+    	<section class="fig-container" data-file="lib/interactive/bootstrap/bootstrapUCLA.html">
+    		
+    		<aside class="notes" data-markdown>
+
+What is the chance?
+
+Since we know, or expect, that the samples came from the same underlying population, we can use the big-box approach (or one box).
+That is, we toss both groups into one box, shuffle them around with replacement, then draw 2 new samples, the same size as went in.
+From these samples we calculate a new statistic and determine the difference again.
+
+The idea is that the Null distribution centers around the Null hypothesis: that the difference in means = 0.
+
+The “big box” represents the assumption of a single population. This is our first example of simulating the null hypothesis.
+Resample new A’s and B’s to find 10,000 median differences.
+
+This time, I plugged in the real data from the previous slide.
+
+Go through means first, p-value is 0.1: does that mean we can almost reject the Null? 
+Go through medians, note that the difference is smaller because of the outliers.
+    		</aside>
+    	</section>
+    	
+    	
+    	<!-- 5 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h3>Null Hypothesis Significance Testing</h3>
+    			<p class="l-sided border-mutedBlue">
+  					<span class="em">Test:</span> if our observed difference, $\Delta_{\theta}$, is more extreme than some <span class="em b fragment highlight-red" data-fragment-index=0>critical threashold, $\Delta_{crit\pm}$,</span> then we can <span class="em fragment highlight-orange" data-fragment-index=1>reject the null</span> hypothesis that the medians are equal.
+    			</p>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-30 no-top-margin framed fragment border-red small" data-fragment-index=2>
+    				<ul class="icon">
+    					<li class="calculator offWhite fragment" data-fragment-index=2>We define the critical level by first specifying a <span class="orange"> tolerance for false positives, $\alpha$.</span></li>
+    					<li class="star offWhite fragment" data-fragment-index=3>The idea here is that if our observation is <span class="green">outside</span> of <span class="red">$\Delta_{crit\pm}$</span>, we have statistical significance AND we can then <span class="em orange">reject the null</span>.</li>
+    					<li class="question-circle offWhite fragment" data-fragment-index=4>If we had 10,000 friends conduct a replicate of our experiment with a particular <span class="red">$\Delta_{crit\pm}$</span>, how many would <span class="orange">incorrectly reject the null</span>?</li>
+    					<li class="question-circle offWhite fragment" data-fragment-index=5>To <span class="b green">limit false positive rate at</span><span class="red b"> $\alpha=0.05$</span>, what do we set <span class="red">$\Delta_{crit\pm}$</span> to?</li>
+    					<li class="exclamation-triangle orange fragment" data-fragment-index=6>But this idea of reject/accept the null is bad and dangerous!</li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-70 no-top-margin fig-container fragment" data-fragment-index=2 data-file="lib/interactive/alphaLevel/index.html">
+    	
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+## False Positives  
+dont touch interactive here
+1. Critical threshold: this is totally arbitrary!
+2. reject the null hypothesis: what does that mean? that we reject the notion that random chance explains our result, given some threshold
+3. Again, this tolerance is arbitrary, but typically you'll see p\<0.5 as the threshold which equates to $\alpha=0.05$. 
+4. Outisde the interval: prior to now, we have only calculated how many values are more extremem than ours (one or two-tailed). This is a different idea
+5. 10,000 friends
+6. false positive rate: explain overview
+7. bad idea!
+    			</aside>
+    			
+    	</section>
+    	
+    	
+    	<!-- 6 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h3>False Positive Rate</h3>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-30 no-top-margin framed fragment border-red smaller" data-fragment-index=0>
+    				<ul class="icon">
+    					<li class="calculator offWhite fragment" data-fragment-index=0>We can write the false positive rate <span class="mutedBlue">$\alpha$</span> as: $${\color{#88A9C9}\alpha} = \color{#9469AD}{p(\Delta_{\theta}^{*} > \Delta_{crit-})} + \color{#E04B4B}{p(\Delta_{\theta}^{*} < \Delta_{crit+})}$$</li>
+    					<li class="calculator offWhite fragment" data-fragment-index=1>Then assume both "parts" are equal: $$\frac{\color{#88A9C9}{\alpha}}{2} = \color{#9469AD}{p(\Delta_{\theta}^{*} > \Delta_{crit-})} = \color{#E04B4B}{p(\Delta_{\theta}^{*} < \Delta_{crit+})}$$</li>
+    					<li class="calculator offWhite fragment" data-fragment-index=2>Then, we can sort the Null Distribution: $$\{\Delta_{1}^{*},\,\Delta_{2}^{*},\, ...,\, \Delta_{10000}^{*},\,\}$$</li>
+    					<li class="calculator offWhite fragment" data-fragment-index=3>And find the <span class="mutedBlue">$\frac{\alpha}{2}$</span> interval. For <span class="mutedBlue">$\alpha = 0.5$</span>:$$\left( \color{#9469AD}{\Delta_{crit-}^{*}},\, \color{#E04B4B}{\Delta_{crit+}^{*}}\right)$$<span class="smaller fragment" data-fragment-index=4>$$=\left( \color{#9469AD}{10,000\times \frac{0.05}{2}},\, \color{#E04B4B}{10,000\times (1-\frac{0.05}{2})}\right) \\~= \left( \color{#9469AD}{10,000\times 0.025},\, \color{#E04B4B}{10,000\times (0.975)}\right)$$</span><span class="fragment" data-fragment-index=5>$$= \left( \color{#9469AD}{\Delta_{250}^{*}},\, \color{#E04B4B}{\Delta_{9,750}^{*}}\right)$$</span></li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-70 no-top-margin fig-container fragment" data-fragment-index=0 data-file="lib/interactive/alphaLevel/index.html">
+    	
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+Use interactive to demonstrate different alpha levels and their corresponding 
+    			</aside>
+    			
+    	</section>
+    	
+    	<!-- 7 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h4>A note about the homework</h4>
+    			<p class="l-sided border-mutedBlue">
+  					The homework has you performing a slightly different procedure for constructing the Null Hypothesis than we have discussed. The homework is using a method called <span class="green">Permutation</span>, which is a type of <span class="green">randomization</span> like the <span class="mutedBlue">bootstrap</span>, but actually tests something a little different...
+    			</p>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-50 no-top-margin">
+    				<h4>Permutation</h4>
+    				<svg height="360pt" version="1.1" viewBox="0 0 504 360" width="504pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    					<use class="fragment" data-fragment-index=1 xlink:href="lib/img/UCLAperms.svg#axes_1"></use>
+    					<use class="fragment" data-fragment-index=3 xlink:href="lib/img/UCLAperms.svg#axes_2"></use>
+    					<use class="fragment" data-fragment-index=2 xlink:href="lib/img/UCLAperms.svg#axes_3"></use>
+    				</svg>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-50 no-top-margin">
+    				<h4>Bootstrap</h4>
+    				<svg height="360pt" version="1.1" viewBox="0 0 504 360" width="504pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    					<use class="fragment" data-fragment-index=1 xlink:href="lib/img/UCLAboots.svg#axes_1"></use>
+    					<use class="fragment" data-fragment-index=3 xlink:href="lib/img/UCLAboots.svg#axes_2"></use>
+    					<use class="fragment" data-fragment-index=2 xlink:href="lib/img/UCLAboots.svg#axes_3"></use>
+    				</svg>
+    			</div>
+    	
+    		</div>
+    		<div class="row">
+  				<p class="l-sided border-orange fragment small" data-fragment-index=4>
+  					Think about what the Null distribution represents, which of the two might better represent "coming from the same underlying distribution"?
+    			</p>
+    		</div>
+    	
+  			<!-- notes -->
+  			<aside class="notes" data-markdown>
+## permutation versus bootstrap
+The permutation, in this case, represent that the two samples are the same distribution, which is still valid, but it might lead to a *false positive*.
+
+What's a false positive, you ask?
+  			</aside>
+    			
+    	</section>
+    	
+    	<!-- 8 -->
+    	<section>
+    		
+    		<div class="row">
+    			<h3>Statistical Significance</h3>
+  				<p class="l-sided border-red">
+						The question is:
+  				</p>
+  				<p class="quoted offWhite">
+						Is our observed statistic <span class="mutedBlue">inside</span> or <span class="red">outside</span> of the critical interval?
+  				</p>
+    		</div>
+    		<div class="row">
+    			<svg height="360pt" version="1.1" viewBox="0 0 504 360" width="504pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  					<use class="fragment" data-fragment-index=1 xlink:href="lib/img/UCLAboots.svg#axes_1"></use>
+  					<use class="fragment" data-fragment-index=5 xlink:href="lib/img/UCLAboots.svg#axes_2"></use>
+  					<use class="fragment" data-fragment-index=2 xlink:href="lib/img/UCLAboots.svg#axes_4"></use>
+  					<use class="fragment" data-fragment-index=3 xlink:href="lib/img/UCLAboots.svg#axes_3"></use>
+  				</svg>
+    		</div>
+    		<div class="row">
+    			<p class="quoted fragment" data-fragment-index=4>
+  					Do we <span class="mutedBlue">accept</span> or <span class="red">reject</span> the Null hypothesis? By <span class="red">how much</span>?
+    			</p>
+    		</div>
+    		<aside class="notes" data-markdown>
+    			
+    		</aside>
+    	</section>
+    		
+    	<!-- 9 -->
+    		<section>
+    		
+    			<!-- heading -->
+    			<div class="row">
+    				<h3>Student's T-statistic</h3>
+    			</div>
+    		
+    			<!-- main -->
+    			<div class="row">
+    		
+    				<!-- left column -->
+    				<div class="col-50 no-top-margin l-sided border=mutedBlue small">
+	    				<p>What we've done is the bootstrap equivalent of <span class="mutedBlue">Student's T-Test</span></p>
+	    				<p class="fragment smaller" data-fragment-index=1>Which tests the <span class="orange">difference between means</span> of two groups, evaluating the null hypothesis that <span class="red">both samples were from the same underlying distribution</span>:$$H_0: \bar{x}_A=\bar{x}_B | N(\mu_A, \sigma_A^2) = N(\mu_B, \sigma_B^2)$$</p>
+	    				<p class="fragment" data-fragment-index=2>So it assumes A and B have the same "true variance". Thus it is called the <span class="mutedBlue">equal variance t-test</span>.</p>
+	    				<p class="fragment" data-fragment-index=3>Similar to our $\Delta$ statistic, here it is called the $t$ statistic, which has a "standardized" form, i.e. unitless.</p>
+	    				<p class="fragment" data-fragment-index=4>In general, it looks like: $$t=\sqrt{n}\left( \frac{\bar{x}_A - \bar{x}_B}{\hat{\sigma}_{AB}}\right)$$</p>
+	    				<p class="fragment" data-fragment-index=5>Where $\hat{\sigma}_{AB}$ is the "pooled" standard deviation by combining two Gaussian distributions into a big box.</p>
+	    				<p class="quoted fragment red" data-fragment-index=7>What about if you had different $N$ in each group?</p>
+    				</div>
+    		
+    				<!-- right column -->
+    				<div class="col-50 no-top-margin">
+    					<img class="plain fragment" data-fragment-index=6 src="lib/img/dried-hops.jpg">
+    				</div>
+    		
+    			</div>
+    		
+    				<!-- notes -->
+    				<aside class="notes" data-markdown>
+    					
+    				</aside>
+    				
+    		</section>
+    		
+    		<!-- 10 -->
+    			<section>
+    				<h3>Student's t-distribution</h3>
+    				<p class="l-sided border-mutedBlue">Under our "10,000" friends approach, the $t-statistic$ follow a theoretical $t-distribution$:
+    				$$p(t|\nu) = \frac{\Gamma\left( \frac{\nu+1}{2}\right)}{\sqrt{\nu\pi}\Gamma(\frac{\nu}{2})}\left( 1+\frac{t^2}{\nu}\right)^{-\frac{\nu+1}{2}}$$
+    				Where $\nu$ represents the number of "degrees of freedom", which we don't have to worry about with <span class="mutedBlue">bootstrap</span>.</p>
+    				<img src="lib/img/studenttdist.png" class="plain">
+    				<aside class="notes" data-markdown>
+    					
+    				</aside>
+    			</section>
+    					
+    		<!-- 11 -->
+    		<section>
+    			<h1>What if our data came from 2 populations?</h1>
+    			<p class="quoted">Are the median metabolic rates different between male and female fulmars?</p>
+    			<img class="plain" src="lib/img/mfFulmars.png">
+    			<aside class="notes" data-markdown>
+    				
+    			</aside>
+    		</section>
+    			
+      	
+			  <!-- 12 -->
+      <section>
+      
+      	<!-- heading -->
+      	<h3>UCLA Salaries: recap</h3>
+      	<div class="row framed border-mutedBlue fragment" data-fragment-index=1>
+      			<ul class="icon small">
+      				<li class="caret-right offWhite fragment small" data-fragment-index=1>Male Group (n=8): <pre style="width: 1000px;"><code class="center">[1195.5, 843.3, 525.8, 605.7, 2950, 2308.7, 2135.6, 1945.6]</code></pre></li>
+      				<li class="caret-right offWhite fragment small" data-fragment-index=2>Female Group (n=6): <pre style="width: 1000px;"><code class="center">[1956.1, 1490.5, 1361.3, 1086.5, 1091, 727.7]</code></pre></li>
+      				<li class="caret-right offWhite fragment" data-fragment-index=3>The difference, $\Delta$, between the medians is: <span class="mutedBlue">1570.55</span> - <span class="red">1226.15</span> = <span class="green">344.4</span></li>
+      			</ul>
+      			<p class="quoted orange fragment" data-fragment-index=4>Are these medians different? Is $\Delta$ significant statistically? Biologically?</p>
+      	</div>
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-40 no-top-margin">
+      			<p class="fragment" data-fragment-index=5>If spread and skew are not the same between groups, <span class="orange">assume two different populations</span>.</p>
+      			<p class="fragment" data-fragment-index=6>The exact question here is:</p>
+      			<p class="fragment quoted" data-fragment-index=7>If only the medians of the two different populations were equal, <span class="red">what is the chance of seeing a difference as big and bigger than observed?</span></p>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-60 no-top-margin">
+      			<img class="plain" src="lib/img/mfFulmars.png">
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+
+      		</aside>
+      		
+      </section>
+      
+      <!-- 13 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<h4>Simulating the Null</h4>
+    		<div class="row">
+    				<p class="quoted mutedBlue small">If only the medians of the two different populations were equal, <span class="red">what is the chance of seeing a difference as big and bigger than observed?</span></p>
+    				<p class="l-sided border-mutedBlue fragment" data-fragment-index=1>
+    						The <span class="orange">Null Hypothesis</span> we want to test is that the medians are equal, <span class="red">assuming that the groups, A & B, were sampled from <span class="b green">different</span> underlying population.</span><br>
+    						Thus:  $p_A(x) \neq p_B(x)$.
+    				</p>
+    				<p class="l-sided border-mutedBlue fragment" data-fragment-index=2>
+    						Specifically, we are testing:$$H_0: \tilde{x}_A = \tilde{x}_B\, |\, p_{A}(x) \neq p_{B}(x)$$
+    				</p>
+    				<p class="l-sided border-green fragment" data-fragment-index=3>
+    						We simulate this by first <span class="green">setting the medians equal to each other</span>, i.e. <span class="green">centering</span> the data.$$X_A\leftarrow x_A - \tilde{x}_A\\~X_B\leftarrow x_B - \tilde{x}_B\\~\text{Thus,} median(X_A) = median(X_B) = 0$$
+    				</p>
+    				<p class="l-sided border-green fragment" data-fragment-index=4>
+    						Then we resample from each recentered data with replacement and compute our statistic, $\theta^*$ for each new group and compute our $\Delta^*$ statistic (differences).
+    				</p>
+    		</div>
+  			<!-- notes -->
+  			<aside class="notes" data-markdown>
+To visualize simulating the null... next slide
+
+  			</aside>
+	  			
+	  	</section>    			
+	  	
+	  	<!-- 14 -->
+    	<section class="fig-container" data-file="lib/interactive/twobox/twobox.html">
+    		
+    		<aside class="notes" data-markdown>
+
+explain 2 box.
+    		</aside>
+    	</section>
+	  	
       <!-- #########################     CONTENT END     #########################-->
     </div>
     
