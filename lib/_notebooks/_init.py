@@ -59,7 +59,8 @@ params = {
     'xtick.major.top': False,
     'ytick.right': False,
     'ytick.major.right': False,
-    'ytick.minor.right': False
+    'ytick.minor.right': False,
+    'font.family': 'serif'
 };
 for p in params:
     mpl.rcParams[p] = params[p]

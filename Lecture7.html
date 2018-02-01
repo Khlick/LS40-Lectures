@@ -426,65 +426,65 @@ What's a false positive, you ask?
     	</section>
     		
     	<!-- 9 -->
-    		<section>
-    		
-    			<!-- heading -->
-    			<div class="row">
-    				<h3>Student's T-statistic</h3>
-    			</div>
-    		
-    			<!-- main -->
-    			<div class="row">
-    		
-    				<!-- left column -->
-    				<div class="col-50 no-top-margin l-sided border=mutedBlue small">
-	    				<p>What we've done is the bootstrap equivalent of <span class="mutedBlue">Student's T-Test</span></p>
-	    				<p class="fragment smaller" data-fragment-index=1>Which tests the <span class="orange">difference between means</span> of two groups, evaluating the null hypothesis that <span class="red">both samples were from the same underlying distribution</span>:$$H_0: \bar{x}_A=\bar{x}_B | N(\mu_A, \sigma_A^2) = N(\mu_B, \sigma_B^2)$$</p>
-	    				<p class="fragment" data-fragment-index=2>So it assumes A and B have the same "true variance". Thus it is called the <span class="mutedBlue">equal variance t-test</span>.</p>
-	    				<p class="fragment" data-fragment-index=3>Similar to our $\Delta$ statistic, here it is called the $t$ statistic, which has a "standardized" form, i.e. unitless.</p>
-	    				<p class="fragment" data-fragment-index=4>In general, it looks like: $$t=\sqrt{n}\left( \frac{\bar{x}_A - \bar{x}_B}{\hat{\sigma}_{AB}}\right)$$</p>
-	    				<p class="fragment" data-fragment-index=5>Where $\hat{\sigma}_{AB}$ is the "pooled" standard deviation by combining two Gaussian distributions into a big box.</p>
-	    				<p class="quoted fragment red" data-fragment-index=7>What about if you had different $N$ in each group?</p>
-    				</div>
-    		
-    				<!-- right column -->
-    				<div class="col-50 no-top-margin">
-    					<img class="plain fragment" data-fragment-index=6 src="lib/img/dried-hops.jpg">
-    				</div>
-    		
-    			</div>
-    		
-    				<!-- notes -->
-    				<aside class="notes" data-markdown>
-    					
-    				</aside>
-    				
-    		</section>
-    		
-    		<!-- 10 -->
-    			<section>
-    				<h3>Student's t-distribution</h3>
-    				<p class="l-sided border-mutedBlue">Under our "10,000" friends approach, the $t-statistic$ follow a theoretical $t-distribution$:
-    				$$p(t|\nu) = \frac{\Gamma\left( \frac{\nu+1}{2}\right)}{\sqrt{\nu\pi}\Gamma(\frac{\nu}{2})}\left( 1+\frac{t^2}{\nu}\right)^{-\frac{\nu+1}{2}}$$
-    				Where $\nu$ represents the number of "degrees of freedom", which we don't have to worry about with <span class="mutedBlue">bootstrap</span>.</p>
-    				<img src="lib/img/studenttdist.png" class="plain">
-    				<aside class="notes" data-markdown>
-    					
-    				</aside>
-    			</section>
-    					
-    		<!-- 11 -->
-    		<section>
-    			<h1>What if our data came from 2 populations?</h1>
-    			<p class="quoted">Are the median metabolic rates different between male and female fulmars?</p>
-    			<img class="plain" src="lib/img/mfFulmars.png">
-    			<aside class="notes" data-markdown>
-    				
-    			</aside>
-    		</section>
-    			
-      	
-			  <!-- 12 -->
+  		<section>
+  		
+  			<!-- heading -->
+  			<div class="row">
+  				<h3>Student's T-statistic</h3>
+  			</div>
+  		
+  			<!-- main -->
+  			<div class="row">
+  		
+  				<!-- left column -->
+  				<div class="col-50 no-top-margin l-sided border=mutedBlue small">
+    				<p>What we've done is the bootstrap equivalent of <span class="mutedBlue">Student's T-Test</span></p>
+    				<p class="fragment smaller" data-fragment-index=1>Which tests the <span class="orange">difference between means</span> of two groups, evaluating the null hypothesis that <span class="red">both samples were from the same underlying distribution</span>:$$H_0: \bar{x}_A=\bar{x}_B | N(\mu_A, \sigma_A^2) = N(\mu_B, \sigma_B^2)$$</p>
+    				<p class="fragment" data-fragment-index=2>So it assumes A and B have the same "true variance". Thus it is called the <span class="mutedBlue">equal variance t-test</span>.</p>
+    				<p class="fragment" data-fragment-index=3>Similar to our $\Delta$ statistic, here it is called the $t$ statistic, which has a "standardized" form, i.e. unitless.</p>
+    				<p class="fragment" data-fragment-index=4>In general, it looks like: $$t=\sqrt{n}\left( \frac{\bar{x}_A - \bar{x}_B}{\hat{\sigma}_{AB}}\right)$$</p>
+    				<p class="fragment" data-fragment-index=5>Where $\hat{\sigma}_{AB}$ is the "pooled" standard deviation by combining two Gaussian distributions into a big box.</p>
+    				<p class="quoted fragment red" data-fragment-index=7>What about if you had different $N$ in each group?</p>
+  				</div>
+  		
+  				<!-- right column -->
+  				<div class="col-50 no-top-margin">
+  					<img class="plain fragment" data-fragment-index=6 src="lib/img/dried-hops.jpg">
+  				</div>
+  		
+  			</div>
+  		
+  				<!-- notes -->
+  				<aside class="notes" data-markdown>
+  					
+  				</aside>
+  				
+  		</section>
+  		
+  		<!-- 10 -->
+  			<section>
+  				<h3>Student's t-distribution</h3>
+  				<p class="l-sided border-mutedBlue">Under our "10,000" friends approach, the $t-statistic$ follow a theoretical $t-distribution$:
+  				$$p(t|\nu) = \frac{\Gamma\left( \frac{\nu+1}{2}\right)}{\sqrt{\nu\pi}\Gamma(\frac{\nu}{2})}\left( 1+\frac{t^2}{\nu}\right)^{-\frac{\nu+1}{2}}$$
+  				Where $\nu$ represents the number of "degrees of freedom", which we don't have to worry about with <span class="mutedBlue">bootstrap</span>.</p>
+  				<img src="lib/img/studenttdist.png" class="plain">
+  				<aside class="notes" data-markdown>
+  					
+  				</aside>
+  			</section>
+  					
+  		<!-- 11 -->
+  		<section>
+  			<h1>What if our data came from 2 populations?</h1>
+  			<p class="quoted">Are the median metabolic rates different between male and female fulmars?</p>
+  			<img class="plain" src="lib/img/mfFulmars.png">
+  			<aside class="notes" data-markdown>
+  				
+  			</aside>
+  		</section>
+  			
+    	
+		  <!-- 12 -->
       <section>
       
       	<!-- heading -->

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Lecture 8: Final Two groups</title>
+  <meta name="author" content="Khris Griffis" />
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, minimal-ui">
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="lib/img/fic/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="lib/img/fic/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="lib/img/fic/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="lib/img/fic/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="lib/img/fic/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="lib/img/fic/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="lib/img/fic/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="lib/img/fic/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="lib/img/fic/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="lib/img/fic/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="lib/img/fic/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="lib/img/fic/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="lib/img/fic/favicon-16x16.png">
+  <link rel="manifest" href="lib/img/fic/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="lib/img/fic/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="lib/js/reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="lib/css/flatlandDk2.css" id="theme">
+  <link rel="stylesheet" href="lib/css/jsStyle.css">
+  
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/js/reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'lib/js/reveal.js/css/print/pdf.css' : 'lib/js/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!-- END PRINT EXPORT -->
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+  <link href="https://use.fontawesome.com/releases/v5.0.3/css/all.css" rel="stylesheet">
+  
+</head>
+<body>
+  
+  <div class="reveal">
+
+    <div class="slides">
+      <!-- #########################    CONTENT START    #########################-->
+
+      <!-- 0 -->
+      <section class="title-slide">
+				<div class="row">
+  				<div class="col-50">
+  					<img src="lib/img/bootstrapping.jpg" class="plain drop-20">
+  				</div>
+  				
+  				<div class="col-50" style="z-index:1; position: relative; margin-left: -5%;">
+  					<h1>Life Sciences 40</h1>
+	        	<h2>Lecture 8:</h2>
+	          <h4>More two-groups and review</h4>
+	          <h5>Khris Griffis</h3>
+  				</div>
+  			</div>
+        <aside class="notes" data-markdown>
+
+        </aside>
+      </section>
+      
+      <!-- 1 -->
+  		<section>
+  		
+  			<!-- heading -->
+  			<div class="row">
+  				<h3>At this point...</h3>
+  			</div>
+  		
+  			<!-- main -->
+  			<div class="row">
+  		
+  				<!-- left column -->
+  				<div class="col-50 no-top-margin l-sided border-mutedBlue">
+    				<p>You should be able to conduct an analysis of two groups and report the <span class="mutedBlue">Effect Size</span> and <span class="red">p-value</span>.</p>
+    				<p class="fragment" data-fragment-index=1>Let's walk through an example using some real data:</p>
+    				<p class="fragment" data-fragment-index=2>The $CO_2$ uptake was measured in the grass species <em>Echinochloa crus-galli</em>.</p>
+    				<p class="fragment" data-fragment-index=3>The working hypothesis was based on the observation that This grass species exists both in the freezing (Quebec) and in the very warm (Mississippi). Thus, <span class="green">they hypothesized that this species exhibits cold tolerance.</span></p>
+    				<p class="fragment" data-fragment-index=4>$CO_2$ uptake is a measure of the plants respiration, so half of the plants of each type were <span class="yellow">chilled</span> overnight before the experiment was conducted.</p>
+    				<p class="fragment" data-fragment-index=5>What are the <span class="orange">explanatory</span> and <span class="mutedBlue">response</span> variables?</p>
+    				<p class="fragment" data-fragment-index=6><span class="orange">Chill</span> and <span class="mutedBlue">$CO_2$ uptake</span>.</p>
+  				</div>
+  		
+  				<!-- right column -->
+  				<div class="col-50 no-top-margin">
+  					<svg height="420pt" version="1.1" viewBox="0 0 288 360" width="336pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+	  					<use class="fragment" data-fragment-index=6 xlink:href="lib/img/CO2_box.svg#axes_1"></use>
+	  					<use class="fragment" data-fragment-index=3 xlink:href="lib/img/CO2_box.svg#axes_2"></use>
+	  					<use class="fragment" data-fragment-index=7 xlink:href="lib/img/CO2_box.svg#axes_3"></use>
+	  				</svg>
+	    		</div>
+				</div>
+  		
+  			
+  		
+  				<!-- notes -->
+  				<aside class="notes" data-markdown>
+Cover the anatomy of boxplot before last animation.
+
+There is another factor we are ignoring for the moment, which is the fact that the plants were from different places.
+
+Let's look at the data.
+  				</aside>
+  				
+  		</section>
+      
+      <!-- 2 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>$CO_2$ Uptake</h3>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row l-sided border-mutedBlue">
+      			<p>First, always look at the distribution and decide your statistic.</p>
+      	</div>
+      	<div class="row">
+      		<div class="col-100">
+      			<svg height="400pt" version="1.1" viewBox="0 0 730 298" width="1000pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+							<use class="fragment" data-fragment-index=1 xlink:href="lib/img/CO2_dots.svg#axes_1"></use>
+							<use class="fragment" data-fragment-index=1 xlink:href="lib/img/CO2_dots.svg#axes_2"></use>
+							<use class="fragment" data-fragment-index=2 xlink:href="lib/img/CO2_dots.svg#axes_3"></use>
+							<use class="fragment" data-fragment-index=2 xlink:href="lib/img/CO2_dots.svg#axes_4"></use>
+						</svg>
+					</div>	
+      	</div>
+				
+				<!-- notes -->
+				<aside class="notes" data-markdown>
+What do you think? Animation.
+
+What is the shape of the data? Is it normal? equal variance? Gaussian assumptions??
+
+
+				</aside>
+      		
+      </section>
+      
+      
+      <!-- 3 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>What is that shape?</h3>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row l-sided border-mutedBlue">
+      			<p class="quoted">Remember, data have shape, skewness and modality.</p>
+      	</div>
+      	<div class="row">
+      		<div class="col-100">
+      			<svg height="500pt" version="1.1" viewBox="0 0 504 288" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+							<style type="text/css">
+							*{stroke-linecap:butt;stroke-linejoin:round;}
+							</style>
+							</defs>
+							<use xlink:href="lib/img/barplot-distributions.svg#axes_1"></use>
+							<use xlink:href="lib/img/barplot-distributions.svg#axes_2"></use>
+						</svg>
+					</div>	
+      	</div>
+				
+				<!-- notes -->
+				<aside class="notes" data-markdown>
+What do you think? Animation.
+
+What is the shape of the data? Is it normal? equal variance? Gaussian assumptions??
+
+
+				</aside>
+      		
+      </section>
+      
+      
+      <!-- 4 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>What is that skew?</h3>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row l-sided border-mutedBlue">
+      			<p>Remember, data have shape, skewness and modality.</p>
+      	</div>
+      	<div class="row">
+      		<div class="col-100">
+      			<img src="lib/img/skewness2.svg" class="plain" style="width=500px;">
+					</div>	
+      	</div>
+				
+				<!-- notes -->
+				<aside class="notes" data-markdown>
+What do you think? Animation.
+
+What is the shape of the data? Is it normal? equal variance? Gaussian assumptions??
+
+
+				</aside>
+      		
+      </section>
+      
+      
+      
+      
+      <!-- 5 -->
+  		<section>
+  		
+  			<!-- heading -->
+  			<div class="row">
+  				<h3>Visually Inspect Normalcy</h3>
+  				<p>Interpreting a new type of plot: the <span class="mutedBlue">Q$\sim$Q plot.</span></p>
+  			</div>
+  		
+  			<!-- main -->
+  			<div class="row">
+  		
+  				<!-- left column -->
+  				<div class="col-50 no-margin">
+    				<svg version="1.1" viewBox="0 0 730 298" width="610pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+							<style type="text/css">
+							*{stroke-linecap:butt;stroke-linejoin:round;}
+							</style>
+							</defs>
+							<use class="fragment" data-fragment-index=1 xlink:href="lib/img/CO2_dots.svg#axes_1"></use>
+	  					<use class="fragment" data-fragment-index=3 xlink:href="lib/img/CO2_dots.svg#axes_2"></use>
+	  					<use class="fragment" data-fragment-index=1 xlink:href="lib/img/CO2_dots.svg#axes_3"></use>
+	  					<use class="fragment" data-fragment-index=3 xlink:href="lib/img/CO2_dots.svg#axes_4"></use>
+						</svg>
+  				</div>
+  		
+  				<!-- right column -->
+  				<div class="col-50 no-margin">
+  					<svg version="1.1" viewBox="0 0 730 298" width="610pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+	  					<use class="fragment" data-fragment-index=1 xlink:href="lib/img/CO2_QQ.svg#axes_1"></use>
+	  					<use class="fragment" data-fragment-index=3 xlink:href="lib/img/CO2_QQ.svg#axes_2"></use>
+	  					<use class="fragment" data-fragment-index=4 xlink:href="lib/img/CO2_QQ.svg#axes_3"></use>
+	  					<use class="fragment" data-fragment-index=4 xlink:href="lib/img/CO2_QQ.svg#axes_4"></use>
+	  				</svg>
+	    		</div>
+	    		<div class="row">
+	    				<div class="col-100 no-margin framed border-green fragment" data-fragment-index=5>
+	    						We plot the data (Y axis) against the corresponding quantiles of a theoretical normal distribution (X-axis) and then plot a line through the $25^{th}\%$ and $75_{th}\%$ quantiles.
+	    						<br>
+	    						<span class="fragment mutedBlue" data-fragment-index=6>If our data are normally distributed, all the quantiles will match the line.</span>
+	    				</div>
+	    		</div>
+				</div>
+  		
+  			
+  		
+  				<!-- notes -->
+  				<aside class="notes" data-markdown>
+Cover the anatomy of boxplot before last animation.
+
+There is another factor we are ignoring for the moment, which is the fact that the plants were from different places.
+
+Let's look at the data.
+  				</aside>
+  				
+  		</section>
+  		
+  		
+  		
+  		<!-- 6 -->
+  		<section>
+  			<h4>The Quantile$\sim$Quantile Plot</h4>
+  			<div>
+  				<img src="lib/img/Q-Q plots.jpeg" class="plain" style="width:700px;">
+  			</div>
+  			<aside class="notes" data-markdown>
+  				
+  			</aside>
+  		</section>
+  		
+  		
+  		<!-- 7 -->
+  		<section>
+  			<h4>The Quantile$\sim$Quantile Plot</h4>
+  			<div>
+  				<img src="lib/img/Q-Q envelope.jpeg" class="plain" style="width:700px;">
+  			</div>
+  			<aside class="notes" data-markdown>
+  				
+  			</aside>
+  		</section>
+  		
+  		
+  		<!-- 7 -->
+  		<section>
+  		
+  			<!-- heading -->
+  			<div class="row">
+  				<h3>Testing for Normalcy</h3>
+  			</div>
+  		
+  			<!-- main -->
+  			<div class="row">
+  		
+  				<!-- left column -->
+  				<div class="col-50 no-top-margin l-sided border-mutedBlue">
+    				<p>There is a number of statistical test that can give you a p-value on the <span class="red">normal-ness</span>of your data.</p>
+    				<p class="fragment" data-fragment-index=1>One of which is called the Shapiro-Wilks Test:</p>
+    				<p class="fragment" data-fragment-index=2>$$W={\left(\sum _{i=1}^{n}a_{i}x_{(i)}\right)^{2} \over \sum _{i=1}^{n}(x_{i}-{\overline {x}})^{2}}$$</p>
+    				<p class="fragment" data-fragment-index=3>Based on both visual inspection, QQ-plot, and the Shapiro Wilks test, we conclude that nither data are normally distributed.</p>
+    				<p class="fragment" data-fragment-index=4>We can also use a test of <span class="orange">Equal Variance</span>, namely the <span class="mutedBlue">Fligner-Killeen</span> test.</p>
+    				<p class="fragment" data-fragment-index=5>Shapiro-Wilks: <span class="yellow">chilled:</span>$p=0.0012$ and <span class="mutedBlue">non-chilled:</span>$p= 0.043$</p>
+    				<p class="fragment" data-fragment-index=6>For equal-variance: $p=0.236$. $\leftarrow$ What does that mean?</p>
+  				</div>
+  		
+  				<!-- right column -->
+  				<div class="col-50 no-top-margin">
+  					<svg height="420pt" version="1.1" viewBox="0 0 288 360" width="336pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+	  					<use xlink:href="lib/img/CO2_box.svg#axes_1"></use>
+	  					<use xlink:href="lib/img/CO2_box.svg#axes_2"></use>
+	  					<use xlink:href="lib/img/CO2_box.svg#axes_3"></use>
+	  				</svg>
+	    		</div>
+				</div>
+  		
+  			
+  		
+  				<!-- notes -->
+  				<aside class="notes" data-markdown>
+Cover the anatomy of boxplot before last animation.
+
+There is another factor we are ignoring for the moment, which is the fact that the plants were from different places.
+
+Let's look at the data.
+  				</aside>
+  				
+  		</section>
+  		
+  		
+  		<!-- 8 -->
+  		<section>
+  		
+  			<!-- heading -->
+  			<div class="row">
+  				<h3>Results</h3>
+  			</div>
+  		
+  			<!-- main -->
+  			<div class="row">
+  		
+  				<!-- left column -->
+  				<div class="col-50 no-margin">
+    				<svg version="1.1" viewBox="0 0 514 370" width="610pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+							<style type="text/css">
+							*{stroke-linecap:butt;stroke-linejoin:round;}
+							</style>
+							</defs>
+							<use class="fragment" data-fragment-index=1 xlink:href="lib/img/CO2_PVAL.svg#axes_1"></use>
+	  					<use class="fragment" data-fragment-index=3 xlink:href="lib/img/CO2_PVAL.svg#axes_2"></use>
+	  					<use class="fragment" data-fragment-index=1 xlink:href="lib/img/CO2_PVAL.svg#axes_3"></use>
+	  					<use class="fragment" data-fragment-index=2 xlink:href="lib/img/CO2_PVAL.svg#axes_4"></use>
+						</svg>
+  				</div>
+  		
+  				<!-- right column -->
+  				<div class="col-50 no-margin">
+  					<svg version="1.1" viewBox="0 0 514 370" width="610pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+	  					<use class="fragment" data-fragment-index=1 xlink:href="lib/img/CO2_PVAL_ONEB.svg#axes_1"></use>
+	  					<use class="fragment" data-fragment-index=3 xlink:href="lib/img/CO2_PVAL_ONEB.svg#axes_2"></use>
+	  					<use class="fragment" data-fragment-index=1 xlink:href="lib/img/CO2_PVAL_ONEB.svg#axes_3"></use>
+	  					<use class="fragment" data-fragment-index=2 xlink:href="lib/img/CO2_PVAL_ONEB.svg#axes_4"></use>
+	  				</svg>
+	    		</div>
+	    		<div class="row">
+	    				<div class="col-100 no-margin framed border-green fragment" data-fragment-index=1>
+	    						We can construct the null hypothesis either by the big box or the two box method. Which is more appropriate?
+	    						<br>
+	    						<span class="fragment mutedBlue" data-fragment-index=4>In this case, probably the one box.</span>
+	    				</div>
+	    		</div>
+				</div>
+  		
+  			
+  		
+  				<!-- notes -->
+  				<aside class="notes" data-markdown>
+Cover the anatomy of boxplot before last animation.
+
+There is another factor we are ignoring for the moment, which is the fact that the plants were from different places.
+
+Let's look at the data.
+  				</aside>
+  				
+  		</section>
+  		
+  		
+  		<!-- 9 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>Effect Size</h3>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row l-sided border-mutedBlue">
+      			<p>The most important thing to report is the Effect Size:</p>
+      	</div>
+      	<div class="row">
+      		<div class="col-100">
+      			<svg version="1.1" viewBox="0 0 514 370" height="600pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+	  					<use class="fragment" data-fragment-index=1 xlink:href="lib/img/CO2_Effectsize.svg#axes_1"></use>
+	  					<use class="fragment" data-fragment-index=3 xlink:href="lib/img/CO2_Effectsize.svg#axes_2"></use>
+	  					<use class="fragment" data-fragment-index=2 xlink:href="lib/img/CO2_Effectsize.svg#axes_3"></use>
+	  				</svg>
+					</div>	
+      	</div>
+				
+				<!-- notes -->
+				<aside class="notes" data-markdown>
+
+
+				</aside>
+      		
+      </section>
+  		
+  		
+  		<!-- 10 -->
+  		<section>
+  			<h1>Review</h1>
+  			<aside class="notes" data-markdown>
+  				
+  			</aside>
+  		</section>
+  			
+
+      <!-- #########################     CONTENT END     #########################-->
+    </div>
+    
+  </div>
+  
+  <!-- REVEAL JS -->
+  <script src="lib/js/reveal.js/lib/js/head.min.js"></script>
+  <script src="lib/js/reveal.js/js/reveal.js"></script>
+  <script src="lib/js/initReveal.js"></script>
+</body>
+</html>
