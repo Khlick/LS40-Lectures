@@ -1,0 +1,293 @@
+<html xmlns:fb="http://ogp.me/ns/fb#"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Understanding and Interpreting Correlations - an Interactive Visualization</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+   
+</head>
+<body style="">
+  <style>
+
+    body {
+        font-family: "MuseoSans-300";
+        font-size: 18px;
+        text-rendering: optimizeLegibility;
+         -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: "MuseoSlab-300";
+    }
+    h1.heading {
+      font-size: 60px;
+    }
+    .navbar {
+      height: 55px;
+      background-color: #fff;
+      border: none;
+    }
+    .navbar-brand {
+          height: 35px;
+          margin: 10px 0 0 0;
+          padding: 0;
+    }
+    .logo {
+        transition: opacity .25s ease;
+          height: 35px;
+          width: auto;
+    }
+    .logo:hover {
+      opacity: 0.75;
+
+    }
+    li.fb-like {
+      vertical-align: top;
+      margin-top: -5px;
+    }
+    .more-space {
+      padding-top: 50px;
+    }
+
+    svg {
+        shape-rendering: geometricPrecision;
+    }
+
+    #viz svg {
+     background: #F5F5F5;
+     border-radius:6px;
+    }
+    line {
+    	fill: none;
+    	stroke: #fff;
+    	/*shape-rendering: crispEdges;*/
+    }
+
+    .lm-line {
+    	stroke: #2980b9;
+    	stroke-width:2px;
+    	stroke-dasharray: 10 10
+    }
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #C8D5DA;
+
+    }
+
+    .axis .tick line {
+      display: none;
+    }
+    .axis text {
+      fill: #C8D5DA;
+      font-size: 13px;
+    }
+
+    .dot {
+      fill: #30394F;
+      stroke: none;
+      opacity:0.9;
+    }
+
+    .circle1 {
+      fill: #30394F;
+      stroke: #30394F;
+
+
+    }
+    .circle2 {
+      fill: #6ACEEB;
+      stroke:#6ACEEB;
+
+    }
+    .intersect {
+      stroke: #0E6569;
+      stroke-width: 2px;
+      fill: #0E6569;
+
+    }
+
+
+    /* Site style */
+    .btn-default {
+    color: #FFF;
+    background-color: #000;
+    border:none;
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+    transition-property: background-color, color;
+    transition-timing-function: ease-in-out;
+    }
+
+    .form-control {
+      box-shadow: none;
+    }
+
+    .form-control:focus {
+      border-color: #66afe9;
+      box-shadow: none;
+    }
+    .list-group-item {
+      transition-delay: 0s;
+    transition-duration: 0.2s;
+    transition-property: background-color, color;
+    transition-timing-function: ease-in-out;
+    }
+
+    a.list-group-item:hover {
+
+      background-color: #f2f2f2;
+    }
+
+
+    /**
+     UI Slider
+    */
+
+    .ui-slider {
+      background: #ebedef;
+      border-radius: 32px;
+      height: 12px;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .ui-slider-handle {
+      background-color: #30394F;
+      border-radius: 50%;
+      cursor: pointer;
+      height: 18px;
+      margin-left: -9px;
+      position: absolute;
+      top: -3px;
+      width: 18px;
+      z-index: 2;
+      -webkit-transition: background 0.25s;
+      transition: background 0.25s;
+    }
+    .ui-slider-handle[style*='100'] {
+      margin-left: -15px;
+    }
+    .ui-slider-handle:hover,
+    .ui-slider-handle:focus {
+      background-color: #30394F;
+      outline: none;
+    }
+    .ui-slider-handle:active {
+      background-color: #30394F;
+    }
+    .ui-slider-range {
+      background-color: #6ACEEB;
+      border-radius: 30px 0 0 30px;
+      display: block;
+      height: 100%;
+      position: absolute;
+      z-index: 1;
+    }
+
+
+    .ui-slider-value {
+      float: right;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+    .ui-slider-value.first {
+      clear: left;
+      float: left;
+    }
+
+
+    #more-viz img {
+      margin-left:auto;
+    margin-right: auto;
+    border: 1px solid #4F7396;
+    padding: 0px;
+      transition-duration: 0.2s;
+    transition-property: border-color, color;
+    transition-timing-function: ease-in-out;
+    }
+    #more-viz a {
+      text-decoration: none;
+      color: #000;
+        transition-duration: 0.2s;
+    transition-property: border-color, color;
+    transition-timing-function: ease-in-out;
+    }
+    #more-viz .viz-item:hover > *, #more-viz .viz-item:hover img {
+      color: #6ACEEB;
+      border-color: #6ACEEB;
+    }
+
+    #footer {
+      background-color: #30394F;
+      color: #fff;
+      font-size: 14px;
+    }
+    #footer a {
+      color: #6ACEEB;
+    }
+    #footer.more-space {
+      margin-top: 50px;
+      padding-top: 30px;
+      padding-bottom: 50px;
+    }
+
+    @media (max-width: 767px) { 
+
+    h1.heading {
+      font-size: 36px;
+    }
+    .navbar-brand {
+      margin-left: 10px;
+    }
+    .more-space {
+      padding-top: 0px;
+    }
+    }  
+
+
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+		<div class="container">
+			<div class="row">
+			<div class="col-md-12">
+        <h3>Slide me</h3>
+
+        <div id="slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false">
+          <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 38.5%;"></div>
+          <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 38.5%;">
+            <div class="slide-tooltip" data-original-title="" title=""></div>
+          </a>
+        </div>
+		    <div class="row">
+          <div class="col-sm-6">
+					 <div id="viz"></div>
+				  </div>
+  				<div class="col-sm-6">
+  					<h2>Correlation: <strong><span id="rho-heading">-0.23</span></strong></h2>
+            <div class="form-inline" role="form">
+              <div class="form-group">
+                <label for="sample_size" class="control-label">Sample size</label>
+                <input type="text" class="form-control" placeholder="100" id="sample_size">
+              </div>
+              <button type="button" class="btn btn-default" id="new_sample">New sample</button>
+            </div>
+            <h2>Shared variance: <strong><span id="shared-heading">5.3</span>%</strong></h2>
+            <div id="venn2"></div>
+  				</div>
+        </div>	
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="js/jquery-ui-1.10.3.custom.min.js"></script> 
+        <script src="js/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="js/jstat.js"></script>
+        <script src="js/regression.js"></script>
+        <script src="js/vis.js"></script>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

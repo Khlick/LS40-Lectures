@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Lecture 10: Relationships Episode 1</title>
+  <meta name="author" content="Khris Griffis" />
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, minimal-ui">
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="lib/img/fic/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="lib/img/fic/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="lib/img/fic/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="lib/img/fic/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="lib/img/fic/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="lib/img/fic/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="lib/img/fic/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="lib/img/fic/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="lib/img/fic/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="lib/img/fic/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="lib/img/fic/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="lib/img/fic/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="lib/img/fic/favicon-16x16.png">
+  <link rel="manifest" href="lib/img/fic/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="lib/img/fic/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="lib/js/reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="lib/css/flatlandDk2.css" id="theme">
+  <link rel="stylesheet" href="lib/css/jsStyle.css">
+  
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/js/reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'lib/js/reveal.js/css/print/pdf.css' : 'lib/js/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!-- END PRINT EXPORT -->
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+  <link href="https://use.fontawesome.com/releases/v5.0.3/css/all.css" rel="stylesheet">
+  
+</head>
+<body>
+  
+  <div class="reveal">
+
+    <div class="slides">
+      <!-- #########################    CONTENT START    #########################-->
+    	
+    	<!-- 0 -->
+      <section class="title-slide">
+				<div class="row">
+  				<div class="col-50">
+  					<img src="lib/img/handinhand.png" class="plain drop-20 fragment" data-fragment-index=1> 
+  				</div>
+  				
+  				<div class="col-50" style="z-index:1; position: relative; margin-left: -5%;">
+  					<h1>Life Sciences 40</h1>
+	        	<h2>Lecture 10:</h2>
+	          <h4 class="fragment" data-fragment-index=1>Relationships in Data</h4>
+	          <h5 class="fragment" data-fragment-index=1>Khris Griffis</h3>
+  				</div>
+  			</div>
+        <aside class="notes" data-markdown>
+
+        </aside>
+      </section>
+      
+      <!-- 1 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h2>Relationships or Independence?</h2>
+      		<p class="framed border-yellow center">
+    				What kinds of relationships are there between two variables?<br>
+    				<span class="fragment orange">To answer this, we have to consider how an experiment was conducted.</span>
+      		</p>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin fragment">
+      			<h4>Univariate data had these properties:</h4>
+      			<ul class="icon mutedBlue">
+      				<li class="fragment thumbs-up">A single variable, consisting of an independent sample, was considered in isolation.</li>
+      				<li class="fragment thumbs-up">Single measurements were collected from each observational unit.</li>
+      				<li class="fragment thumbs-up">The sample was collected such that each value was independent of the others.</li>
+      				<li class="fragment thumbs-up">The sample represented a single "snapshot" in time for the variable of interest.</li>
+      			</ul>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin fragment">
+      			<h4>Multivariate (2 or more variables) have these properties:</h4>
+      			<ul class="icon green">
+      				<li class="thumbs-up">Each variable represents a different measurement made for an observational unit.</li>
+      				<li class="fragment thumbs-up">Variables may or may not be independent from each other.</li>
+      				<li class="fragment thumbs-up">Individual variables have the same properties as Univariate variables.</li>
+      				<li class="fragment thumbs-up">The sample is a collection of variables, each variable can represent "snapshots" in time.</li>
+      			</ul>
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+      			
+      		</aside>
+      		
+      </section>
+      
+      <!-- 2 -->
+      <section>
+      	<div class="row">
+    			<h3>What does Multivariate data look like?</h3>	
+      	</div>
+      	<div class="row">
+      			<div class="col-50 no-margin">
+      				<div class="col-100 push-50">
+				        <!-- data column -->
+				        <div class="biggest em orange fragment" style="padding-bottom: 0px !important;" data-fragment-index="1">
+				        Variables
+				        </div>
+				        	<hr align="center" width=97% color="#f0ad4e" size=3px class="fragment" data-fragment-index=1>
+			        </div>
+				        <div class="row">
+				        <div class="col-10">
+				        
+				        </div>
+				        <div class="col-10" style="position: relative; margin-top: 50% !important;">
+					        <div class="biggest em orange fragment rotation-270" data-fragment-index="1">
+					        Observations
+					        </div>
+				        </div>
+				        <div class="col-80">
+		      				<style>
+									    .dataframe thead tr:only-child th {
+									        text-align: right;
+									    }
+
+									    .dataframe thead th {
+									        text-align: left;
+									    }
+
+									    .dataframe tbody tr th {
+									        vertical-align: top;
+									    }
+									</style>
+									<table border="1" class="dataframe">
+									  <thead>
+									    <tr style="text-align: right;">
+									      <th></th>
+									      <th>ID</th>
+									      <th>Age</th>
+									      <th>Quetelet</th>
+									      <th>Calories</th>
+									      <th>RetinolPlasma</th>
+									      <th>Gender</th>
+									    </tr>
+									  </thead>
+									  <tbody>
+									    <tr>
+									      <th>0</th>
+									      <td>1</td>
+									      <td>64</td>
+									      <td>21.4838</td>
+									      <td>1298.8</td>
+									      <td>915</td>
+									      <td>Female</td>
+									    </tr>
+									    <tr>
+									      <th>1</th>
+									      <td>2</td>
+									      <td>76</td>
+									      <td>23.8763</td>
+									      <td>1032.5</td>
+									      <td>727</td>
+									      <td>Female</td>
+									    </tr>
+									    <tr>
+									      <th>2</th>
+									      <td>3</td>
+									      <td>38</td>
+									      <td>20.0108</td>
+									      <td>2372.3</td>
+									      <td>721</td>
+									      <td>Female</td>
+									    </tr>
+									    <tr>
+									      <th>3</th>
+									      <td>4</td>
+									      <td>40</td>
+									      <td>25.1406</td>
+									      <td>2449.5</td>
+									      <td>615</td>
+									      <td>Female</td>
+									    </tr>
+									    <tr>
+									      <th>4</th>
+									      <td>5</td>
+									      <td>72</td>
+									      <td>20.9850</td>
+									      <td>1952.1</td>
+									      <td>799</td>
+									      <td>Female</td>
+									    </tr>
+									    <tr>
+									      <th>5</th>
+									      <td>6</td>
+									      <td>40</td>
+									      <td>27.5214</td>
+									      <td>1366.9</td>
+									      <td>654</td>
+									      <td>Female</td>
+									    </tr>
+									    <tr>
+									      <th>6</th>
+									      <td>7</td>
+									      <td>65</td>
+									      <td>22.0115</td>
+									      <td>2213.9</td>
+									      <td>834</td>
+									      <td>Female</td>
+									    </tr>
+									  </tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+      	<aside class="notes" data-markdown>
+      		
+      	</aside>
+      </section>
+      	
+      <!-- 3 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>Visualizing multivariate data</h3>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin fragment framed border-green" data-fragment-index=1>
+      			<p>
+      				When we have two variables, the best way to start viewing them, is with the scatter plot.
+      			</p>
+      			<p class="fragment" data-fragment-index=2>
+							Can you guess the correlation coefficient on this dataset?
+      			</p>
+      			<p class="fragment" data-fragment-index=3>
+  						We can draw the "best fit" line through the data to help.
+      			</p>
+      			<p class="fragment" data-fragment-index=4>
+  						Since each point represent a single observational unit, what does this tell us about the body mass and the plasma vitamin A relationship?
+      			</p>
+      			<p class="fragment orange" data-fragment-index=5>
+  						At this snapshot, they appear to be unrelated to each other.
+      			</p>
+      			<p class="fragment mutedBlue" data-fragment-index=6>
+  						Doesn't $r$ look like it could be the slope of that "best fit" line?<span class="fragment" data-fragment-index=7>It is.</span>
+      			</p>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin">
+      			<svg height="432pt" version="1.1" viewBox="0 0 442 442" width="432pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+						<defs>
+							<style type="text/css">
+								*{stroke-linecap:butt;stroke-linejoin:round;}
+							</style>
+						</defs>
+						<use class="fragment" data-fragment-index=1 xlink:href="lib/img/vitAvsBMI-cor-simple.svg#axes_1"></use>
+						<use class="fragment" data-fragment-index=3 xlink:href="lib/img/vitAvsBMI-cor-simple.svg#axes_2"></use>
+						<use class="fragment" data-fragment-index=4 xlink:href="lib/img/vitAvsBMI-cor-simple.svg#axes_3"></use>
+					</svg>
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+      			
+      		</aside>
+      		
+      </section>
+      
+      <!-- 4 -->
+      <section>
+      	<div class="row"> 
+      		<div class="col-100 no-margin fig-container" data-file="lib/interactive/UnderstandingCor/index.html" style="height:700px;">
+      				
+      		</div>
+      			
+      	</div>
+      	<div class="row">
+    			<div class="col-30">
+    					<p>We can redefine $\rho$ for the sample, $r$, as the mean of the products of the standard scores.</p>
+    			</div>
+    			<div class="col-70 no-margin">
+    				$$r=r_{xy}={\frac {1}{n-1}}\sum _{i=1}^{n}\left({\frac {x_{i}-{\bar {x}}}{s_{x}}}\right)\left({\frac {y_{i}-{\bar {y}}}{s_{y}}}\right)$$
+    					
+    			</div>
+      	</div>
+    		
+    		<aside class="notes" data-markdown>
+## Expalain independence from correlation.
+    		</aside>
+    	</section>
+      
+      <!-- 5 -->
+      <section >
+			  <h3>Why visualize your data?</h3>
+			  <div>
+			  <div style="position: relative;">
+			    <p class="u em">Anscombe's quartet</p>
+			  </div>
+			  <div class="push-right" style="postion: relative; margin-top: -1.8em; margin-right: 1.5em;">
+			  <table style="font-size: 0.7em;">
+			    <thead class="table-vert">
+			      <tr>
+			        <th style="border-left: none; border-right: none; border-bottom:0 none"></th>
+			        <th bgcolor="#636c72" colspan="2" style="border-left: none !important;">Dataset #1</th>
+			        <th bgcolor="#636c72" colspan="2">Dataset #2</th>
+			        <th bgcolor="#636c72" colspan="2">Dataset #3</th>
+			        <th bgcolor="#636c72" colspan="2" style="border-right: none;">Dataset #4</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr>
+			        <td style="border-left: none; border-bottom:0 none"></td>
+			        <td class="fragment highlight-current-bg-blue" data-fragment-index=1>x</td>
+			        <td class="fragment highlight-current-bg-yellow" data-fragment-index=2 style="border-right: solid 1px white;">y</td>
+			        <td class="fragment highlight-current-bg-blue" data-fragment-index=1>x</td>
+			        <td class="fragment highlight-current-bg-yellow" data-fragment-index=2 style="border-right: solid 1px white;">y</td>
+			        <td class="fragment highlight-current-bg-blue" data-fragment-index=1>x</td>
+			        <td class="fragment highlight-current-bg-yellow" data-fragment-index=2 style="border-right: solid 1px white;">y</td>
+			        <td class="fragment highlight-current-bg-blue" data-fragment-index=1>x</td>
+			        <td class="fragment highlight-current-bg-yellow" data-fragment-index=2>y</td>
+			      </tr>
+			      <tr>
+			        <td style="border-left: none; border-bottom:0 none"></td>
+			        <td>10</td>
+			        <td style="border-right: solid 1px white;">8.04</td>
+			        <td>10</td>
+			        <td style="border-right: solid 1px white;">9.14</td>
+			        <td>10</td>
+			        <td style="border-right: solid 1px white;">7.46</td>
+			        <td>8</td>
+			        <td>6.58</td>
+			      </tr>
+			      <tr>
+			        <td style="border-left: none; border-bottom:0 none"></td>
+			        <td>8</td>
+			        <td style="border-right: solid 1px white;">6.95</td>
+			        <td>8</td>
+			        <td style="border-right: solid 1px white;">8.14</td>
+			        <td>8</td>
+			        <td style="border-right: solid 1px white;">6.77</td>
+			        <td>8</td>
+			        <td>5.76</td>
+			      </tr>
+			      <tr>
+			        <td style="border-left: none; border-bottom:0 none"></td>
+			        <td>13</td>
+			        <td style="border-right: solid 1px white;">7.58</td>
+			        <td>13</td>
+			        <td style="border-right: solid 1px white;">8.74</td>
+			        <td>13</td>
+			        <td style="border-right: solid 1px white;">12.74</td>
+			        <td>8</td>
+			        <td>7.71</td>
+			      </tr>
+			      <tr>
+			        <td style="border-left: none; border-bottom:0 none"></td>
+			        <td>9</td>
+			        <td style="border-right: solid 1px white;">8.81</td>
+			        <td>9</td>
+			        <td style="border-right: solid 1px white;">8.77</td>
+			        <td>9</td>
+			        <td style="border-right: solid 1px white;">7.11</td>
+			        <td>8</td>
+			        <td>8.84</td>
+			      </tr>
+			      <tr>
+			        <td style="border-left: none; border-bottom:0 none"></td>
+			        <td>11</td>
+			        <td style="border-right: solid 1px white;">8.33</td>
+			        <td>11</td>
+			        <td style="border-right: solid 1px white;">9.26</td>
+			        <td>11</td>
+			        <td style="border-right: solid 1px white;">7.81</td>
+			        <td>8</td>
+			        <td>8.47</td>
+			      </tr>
+			      <tr>
+			        <td style="border-left: none; border-bottom:0 none"></td>
+			        <td>14</td>
+			        <td style="border-right: solid 1px white;">9.96</td>
+			        <td>14</td>
+			        <td  style="border-right: solid 1px white;">8.1</td>
+			        <td>14</td>
+			        <td style="border-right: solid 1px white;">8.84</td>
+			        <td>8</td>
+			        <td>7.04</td>
+			      </tr>
+			      <tr>
+			        <td style="border-left: none; border-bottom:0 none"></td>
+			        <td>6</td>
+			        <td style="border-right: solid 1px white;">7.24</td>
+			        <td>6</td>
+			        <td style="border-right: solid 1px white;">6.13</td>
+			        <td>6</td>
+			        <td style="border-right: solid 1px white;">6.08</td>
+			        <td>8</td>
+			        <td>5.25</td>
+			      </tr>
+			      <tr>
+			        <td style="border-left: none; border-bottom:0 none"></td>
+			        <td>4</td>
+			        <td style="border-right: solid 1px white;">4.26</td>
+			        <td>4</td>
+			        <td style="border-right: solid 1px white;">3.1</td>
+			        <td>4</td>
+			        <td style="border-right: solid 1px white;">5.39</td>
+			        <td>19</td>
+			        <td>12.5</td>
+			      </tr>
+			      <tr>
+			        <td style="border-left: none; border-bottom:0 none"></td>
+			        <td>12</td>
+			        <td style="border-right: solid 1px white;">10.84</td>
+			        <td>12</td>
+			        <td style="border-right: solid 1px white;">9.13</td>
+			        <td>12</td>
+			        <td style="border-right: solid 1px white;">8.15</td>
+			        <td>8</td>
+			        <td>5.56</td>
+			      </tr>
+			      <tr>
+			        <td style="border-left: none; border-bottom:0 none"></td>
+			        <td>7</td>
+			        <td style="border-right: solid 1px white;">4.82</td>
+			        <td>7</td>
+			        <td  style="border-right: solid 1px white;">7.26</td>
+			        <td>7</td>
+			        <td  style="border-right: solid 1px white;">6.42</td>
+			        <td>8</td>
+			        <td>7.91</td>
+			      </tr>
+			      <tr>
+			        <td style="border-left: none; border-bottom:0 none"></td>
+			        <td>5</td>
+			        <td  style="border-right: solid 1px white;">5.68</td>
+			        <td>5</td>
+			        <td  style="border-right: solid 1px white;">4.74</td>
+			        <td>5</td>
+			        <td style="border-right: solid 1px white;">5.73</td>
+			        <td>8</td>
+			        <td>6.89</td>
+			      </tr>
+			      <tr class="no-top no-bottom">
+			        <td style="border-left: none; border-bottom:0 none;">
+			          <span style="color: transparent;">Regression</span>
+			        </td>
+			        <td colspan="8"></td>
+			      </tr>
+			    </tbody>
+			  </table>
+
+			  <table class="fragment" data-fragment-index=0 style="position: relative; font-size: 0.7em; top:-1.5em;">
+			    <thead>
+			      <tr>
+			        <th></th>
+			        <th colspan="2"><span style="color: transparent;">Dataset #1</span></th>
+			        <th colspan="2"><span style="color: transparent;">Dataset #2</span></th>
+			        <th colspan="2"><span style="color: transparent;">Dataset #3</span></th>
+			        <th colspan="2"><span style="color: transparent;">Dataset #4</span></th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr>
+			        <td>Mean</td>
+			        <td class="fragment highlight-current-bg-blue" data-fragment-index=1>9</td>
+			        <td class="fragment highlight-current-bg-yellow" data-fragment-index=2 style="border-right: solid 1px white;">7.5</td>
+			        <td class="fragment highlight-current-bg-blue" data-fragment-index=1>9</td>
+			        <td class="fragment highlight-current-bg-yellow" data-fragment-index=2 style="border-right: solid 1px white;">7.5</td>
+			        <td class="fragment highlight-current-bg-blue" data-fragment-index=1>9</td>
+			        <td class="fragment highlight-current-bg-yellow" data-fragment-index=2 style="border-right: solid 1px white;">7.5</td>
+			        <td class="fragment highlight-current-bg-blue" data-fragment-index=1>9</td>
+			        <td class="fragment highlight-current-bg-yellow" data-fragment-index=2>7.5</td>
+			      </tr>
+			      <tr>
+			        <td>Variance</td>
+			        <td class="fragment highlight-current-bg-blue" data-fragment-index=1>11</td>
+			        <td class="fragment highlight-current-bg-yellow" data-fragment-index=2 style="border-right: solid 1px white;">4.1</td>
+			        <td class="fragment highlight-current-bg-blue" data-fragment-index=1>11</td>
+			        <td class="fragment highlight-current-bg-yellow" data-fragment-index=2 style="border-right: solid 1px white;">4.1</td>
+			        <td class="fragment highlight-current-bg-blue" data-fragment-index=1>11</td>
+			        <td class="fragment highlight-current-bg-yellow" data-fragment-index=2 style="border-right: solid 1px white;">4.1</td>
+			        <td class="fragment highlight-current-bg-blue" data-fragment-index=1>11</td>
+			        <td class="fragment highlight-current-bg-yellow" data-fragment-index=2>4.1</td>
+			      </tr>
+			      <tr>
+			        <td>Correlation</td>
+			        <td class="fragment highlight-current-highlight-bg-red" data-fragment-index=3 style="border-right: solid 1px white;" colspan="2">0.86</td>
+			        <td class="fragment highlight-current-highlight-bg-red" data-fragment-index=3 style="border-right: solid 1px white;" colspan="2">0.86</td>
+			        <td class="fragment highlight-current-highlight-bg-red" data-fragment-index=3 style="border-right: solid 1px white;" colspan="2">0.86</td>
+			        <td class="fragment highlight-current-highlight-bg-red" data-fragment-index=3 colspan="2">0.86</td>
+			      </tr>
+			      <tr>
+			        <td>Regression <br>line</td>
+			        <td class="fragment highlight-current-highlight-bg-red" data-fragment-index=4 style="border-right: solid 1px white;" colspan="2">y = 3 + 0.5x</td>
+			        <td class="fragment highlight-current-highlight-bg-red" data-fragment-index=4 style="border-right: solid 1px white;" colspan="2">y = 3 + 0.5x</td>
+			        <td class="fragment highlight-current-highlight-bg-red" data-fragment-index=4 style="border-right: solid 1px white;" colspan="2">y = 3 + 0.5x</td>
+			        <td class="fragment highlight-current-highlight-bg-red" data-fragment-index=4 colspan="2">y = 3 + 0.5x</td>
+			      </tr>
+			    </tbody>
+			  </table>
+			  </div>
+			  </div>
+			  <aside class="notes">
+			    <p>
+			      So if you were just looking at those data in their table, you would think that there is not much to see here. They are basically the same.
+			    </p>
+			  </aside>
+			</section>
+			<!-- 6 -->
+			<section>
+			  <h3>Why visualize your data?</h3>
+			  <svg width="80%" viewBox="0 0 432 324" style="margin-top: 1%;">
+			    <use xlink:href="lib/img/anscombe.svg#axes_1"></use>
+			    <use xlink:href="lib/img/anscombe.svg#axes_2"></use>
+			    <use xlink:href="lib/img/anscombe.svg#axes_3"></use>
+			    <use xlink:href="lib/img/anscombe.svg#axes_4"></use>
+			    <use class="fragment" data-fragment-index=1 xlink:href="lib/img/anscombe.svg#axes_5"></use>
+			    <use class="fragment" data-fragment-index=1 xlink:href="lib/img/anscombe.svg#axes_6"></use>
+			    <use class="fragment" data-fragment-index=1 xlink:href="lib/img/anscombe.svg#axes_7"></use>
+			    <use class="fragment" data-fragment-index=1 xlink:href="lib/img/anscombe.svg#axes_8"></use>
+			  </svg>
+			  <aside class="notes">
+			    <p>
+			      But there are in fact 4 distinct stories here.
+			      <br>
+			      And you would see that some mistakes have been made (linear fit for non-linear data, etc ...)
+			      <br>
+			      So visualization is a pre-required set to guide you to know which kind of data analysis you
+			      can apply, which kind of statistical set you'll be able to apply.
+			      <br>
+			      So it is important to know how to describe and represent data (transition).
+			    </p>
+			  </aside>  
+			</section>
+      
+      <!-- 7 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>A couple more notes on correlation</h3>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin">
+      			<img src="lib/img/vitAvsBMI-cor.svg" class="plain">
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin">
+      			<ul class="icon">
+      				<li class="exclamation-triangle orange fragment">You can think of each variable as it's own distribution.</li>
+      				<li class="exclamation-triangle orange fragment">So, this <span class="mutedBlue">bivariate</span> data has two distributions, in the X- and Y-axes, we'll denote as $p(x,y)$</li>
+      				<li class="exclamation-triangle orange fragment">Pearson's correlation is fundamental to the bivariate <span class="red">Normal</span> distribution.</li>
+      				<li class="exclamation-triangle orange fragment">In fact, bivariate distributions, the parameters are $\{ \mu_x,\, \mu_y,\, \sigma_x,\, \sigma_y,\, \rho\}$ just $\{\mu, \sigma \}$ completely specified $\mathcal{N}(\mu,\sigma^2)$.</li>
+      				<li class="exclamation-triangle orange fragment">So, you cannot use Pearson's correlation if:</li>
+      				<ul>
+      					<li class="exclamation-circle red fragment">If relationship is obviously non-linear</li>
+      					<li class="exclamation-circle red fragment">If $p(x)$ or $p(y)$ are not both Gaussian distributed</li>
+      					<li class="exclamation-circle red fragment">If the variances of x and y are not approximately uniform across the scale.<span class="green fragment">We will discuss this particular point next week.</span></li>
+      				</ul>
+      			</ul>
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+      			
+      		</aside>
+      		
+      </section>
+      
+      <!-- 8 -->
+      <section>
+      	<p class="framed border-green">
+      		If x and y aren’t linearly related, then pearson correlation is a bad measure of statistical dependency.If x and y aren’t Gaussian distributed, we can agin turn to rank-based statistics. Spearman’s correlation works on monotonic relationships between x and y. Spearman’s correlation is very easy to compute, you just rank each dataset individually, then compute Pearson’s correlation  on the ranked data set.
+      	</p>
+      	<div class="framed border-yellow">
+      		<p>This is easy to do with the scipy.stats library:</p>
+	      	<pre class="fragment no-top-margin"><code class="bigger" data-trim>
+from scipy import stats
+r_Spearman = stats.spearmanr(x, y);
+print(r_Spearman)
+					</code></pre>
+				</div>
+      	<aside class="notes" data-markdown>
+      		
+      	</aside>
+      </section>
+      	
+      <!-- 9 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h2>Joint Probability Space: and Mutual Information</h2>
+      		<p class="l-sided border-mutedBlue smaller">
+      			Another way to determine relationships, is to, essentially, merge the two variables by laying down a grid and counting the number of points within each <span class="green">square</span>. <span class="fragment" data-fragment-index=1>Turning it into a histogram gives you the <span class="green">joint probability distribution</span>.</span>
+      		</p>
+      		<p class="l-sided border-orange fragment smaller" data-fragment-index=2>
+    				We can then ask how much <span class="mutedBlue">information</span> each square contains <i class="fa fa-arrow-right green"></i> Mutual information.<br>
+    				<span class="fragment red smaller" data-fragment-index=3>How do you think bin sizes would affect this?</span>
+      		</p>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin">
+      			<img src="lib/img/vitAvsBMI-cor-grid.svg" class="plain">
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin fragment" data-fragment-index=1>
+      			<img src="lib/img/vitAvsBMI-jpd.svg" class="plain">
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+## on to something new
+      		</aside>
+      		
+      </section>
+      
+      
+      <!-- 9 -->
+      <section class="title-section">
+      	<h1>Paired Data</h1>
+      	<h3>What if our variables ARE related and we can't use correlation?</h3>
+      	<h4>This is called a dependent design</h4>
+      	<aside class="notes" data-markdown>
+      		
+      	</aside>
+      </section>
+      	
+      
+      <section>
+			  <h3>What would you do?</h3>
+			  <p>
+			    How would you go about collecting your data for each of the following:
+			  </p>
+			  <ul class="normal">
+			    <li>
+			      You want to compare grocery prices between Traders Joe's and Ralphs. Are prices different, on average?
+			    </li>
+			    <li class="fragment">
+			      You want to test <span class="em">“The Freshmen 15”</span> theory. Do college students gain, on average, 15 pounds during their first year?
+			    </li>
+			  </ul>
+			</section>
+
+			<section>
+			  <h3>Paired samples</h3>
+			  <p class="quoted">
+			    Paired samples (also called <span class="orange">dependent samples</span>) are samples in which natural or matched couplings occur. This generates a dataset in which <span class="u-orange">each data point in one sample is uniquely paired to a data point in the second sample</span>.
+			  </p>
+			  <p class="fragment">
+			    <i class="fa fa-arrow-circle-right orange"></i>
+			    Two data sets are <span class="em">"paired"</span> when the following one-to-one relationship exists between values in the two data sets:
+			  </p>
+			  <ul class="normal">
+			    <li class="fragment">There is one pair of response values for each observational units: each sample has the <span class="mutedBlue">same number</span> of data points</li>
+			    <li class="fragment">There is a built-in comparison: each data point in one sample is <span class="mutedBlue">related to one, and only one</span>, data point in the other sample</li>
+			  </ul>
+			</section>
+
+			<section>
+			  <h3>Paired samples</h3>
+			  <p class="no-margin-top no-margin-bottom">
+			    For a paired design, response values (explanatory groups)
+			    come in pairs, with one response value in the pair for each group. <br>
+			    <span class="u em">The data pairing can come from:</span>
+			  </p>
+			  <ul class="normal">
+			    <li>matching similar individuals to create groups
+			    of two: this is referred as <span class="orange">paired design using matching</span>.
+			    </li>
+			    <li>
+			      measuring the same individual (observational unit) twice, once under each condition (explanatory variable): this is referred as <span class="mutedBlue">paired design using repeated measures</span>
+			    </li>
+			  </ul>
+			  <p class="framed border-red fragment">
+			    <i class="fa fa-arrow-circle-right red"></i>
+			    when a paired design is possible, you typically get <span class="red">more mutedBluermative results</span> because units within a pair tend to be similar to each other. When pairing is effective, differences within such each pair on the response variable tend to be <span class="red">due mainly to the explanatory variable</span>.
+			  </p>
+			</section>
+
+			<section>
+			  <h3>Examples of paired samples</h3>
+			  <ul class="normal">
+			    <li><span class="orange">pre-test/post-test</span> samples in which a factor is measured before and after an intervention</li>
+			    <li><span class="orange">cross-over trials</span> in which individuals are randomized to two treatments and then the same individuals are crossed-over to the alternative treatment</li>
+			    <li><span class="orange">matched samples</span>, in which individuals are matched on personal characteristics such as age and sex</li>
+			    <li><span class="orange">duplicate measurements</span> on the same biological samples</li>
+			    <li>any circumstance in which each data point in one sample is uniquely matched to a data
+			    point in the second sample</li>
+			  </ul>
+			</section>
+
+			<section>
+			  <h3>Independent vs paired study design</h3>
+			  <p class="no-margin-top smallest">
+			    Can you study with music blaring? Does the presence of lyrics hurt students' ability to focus on their work? <br>
+			    <span class="success">Response variable</span>: Memorization game score (ex: number of words students can remember from a sheet). <br>
+			    <span class="success">Explanatory variable</span>: music with or without lyrics
+			  </p>
+			  <div class="row fragment">
+			    <div class="col-25">
+			      <p class="framed border-orange" style="text-align: center; margin-top: 0.2em;">
+			        Independent study design
+			      </p>
+			    </div>
+			    <div class="col-75">
+			      <p class="no-margin-top no-margin-bottom smallest framed b--dotted border-orange">
+			        Randomly assign students to two separate groups:
+			        <br>
+			        - one group that will listen music with lyrics
+			        <br>
+			        - one group that will listen music without lyrics
+			      </p>
+			    </div>
+			  </div>
+			  <div class="row fragment">
+			    <div class="col-25">
+			      <p class="no-margin-bottom framed border-mutedBlue" style="text-align: center; margin-top: 3em;">
+			        Paired study design
+			      </p>
+			    </div>
+			    <div class="col-75">
+			      <p class="smallest no-margin-top framed b--dotted border-mutedBlue">
+			        Paired design using <span class="mutedBlue u-mutedBlue">repeated measures</span>.
+			        <br>
+			        Each student will play the memorization game twice:
+			        <br>
+			        - once listening music with lyrics
+			        <br>
+			        - once listening music without lyrics
+			      </p>
+			      <p class="smallest framed b--dotted border-mutedBlue">
+			        Paired design using <span class="mutedBlue u-mutedBlue">matching</span>.
+			        <br>
+			        Another way to create pairs could use a pretest to rank students according to how many words they could memorize and create pairs of students with similar abilities.
+			      </p>
+			    </div>
+			  </div>
+			</section>
+
+			<section>
+			  <h3>Pairing and Random Assignment</h3>
+			  <p class="framed border-orange">
+			    Pairing often makes it easier to detect statistical significance.
+			  <br>
+			    Can we still have <span class="orange">random assignment</span> and make cause-and-effect conclusions in paired design?
+			  </p>
+			  <p>
+			    In our memorizing with or without lyrics example,
+			    if we see significant improvement in performance:
+			  </p>
+			  <ul class="normal">
+			    <li>is it attributable to the type of song (with/without lyrics)?</li>
+			    <li>is it attributable to the order the songs (with/without lyrics) were played? (<span class="em">"experience"</span> effect)</li>
+			  </ul>
+			  <p class="fragment">
+			    <i class="fa fa-arrow-circle-right mutedBlue"></i>
+			    Randomly assign each person to which song they hear first: with lyrics first, or without.
+			    This cancels out any <span class="em">“experience”</span> effect
+			  </p>
+			</section>
+
+			<section>
+			  <h3>Pairing and Observational studies</h3>
+			  <p class="framed border-orange">
+			    Can we use pairing in <span class="orange">observational studies</span>?
+			  </p>
+			  <p class="fragment" data-fragment-index=1>
+			    <i class="fa fa-arrow-circle-right mutedBlue"></i>
+			    Yes!
+			  </p>
+			  <p class="fragment" data-fragment-index=1>
+			    <span class="u em">ex:</span> If you are interested in which test was more difficult in a course, the first or the second, compare the average difference in scores for each individual (this takes away the variability in general learning abilities).
+			  </p>
+			</section>
+      
+      
+      <section data-transition="slide-in fade-out">
+			  <h3>Paired samples analysis</h3>
+			  <p class="no-margin-top">
+			    The key to analyzing paired data is to work with the <span class="mutedBlue">difference within each pair of data values</span> rather than between the two original samples. <br>
+			    <i class="fa fa-arrow-circle-right orange"></i>
+			    This helps us to <span class="orange">eliminate the variability across different units</span> (different swimmers) and instead focus on what we really care about: the difference between the values with and without a wetsuit.
+			    (By looking at this difference, the variability in general swimming ability is taken away).
+			  </p>
+			  <table style="font-size: 0.85em;" class="fragment">
+			    <tbody>
+			      <tr>
+			        <td class="smallest" style="border-right: solid 1px;">Swimmer</td>
+			        <td>1</td>
+			        <td>2</td>
+			        <td>3</td>
+			        <td>4</td>
+			        <td>5</td>
+			        <td>6</td>
+			        <td>7</td>
+			        <td>8</td>
+			        <td>9</td>
+			        <td>10</td>
+			        <td>11</td>
+			        <td style="border-right: solid 1px;">12</td>
+			        <td>$\bar{x}$</td>
+			      </tr>
+			      <tr>
+			        <td class="smallest" style="border-right: solid 1px;">Wetsuit</td>
+			        <td>1.57</td>
+			        <td>1.47</td>
+			        <td>1.42</td>
+			        <td>1.35</td>
+			        <td>1.22</td>
+			        <td>1.75</td>
+			        <td>1.64</td>
+			        <td>1.57</td>
+			        <td>1.56</td>
+			        <td>1.53</td>
+			        <td>1.49</td>
+			        <td style="border-right: solid 1px;">1.51</td>
+			        <td>1.507</td>
+			      </tr>
+			      <tr>
+			        <td class="smallest" style="border-right: solid 1px;">No Wetsuit</td>
+			        <td>1.49</td>
+			        <td>1.37</td>
+			        <td>1.35</td>
+			        <td>1.27</td>
+			        <td>1.12</td>
+			        <td>1.64</td>
+			        <td>1.59</td>
+			        <td>1.52</td>
+			        <td>1.50</td>
+			        <td>1.45</td>
+			        <td>1.44</td>
+			        <td style="border-right: solid 1px;">1.41</td>
+			        <td>1.429</td>
+			      </tr>
+			      <tr style="background-color: #5bc0de; color: black">
+			        <td style="border-right: solid 1px;">Difference</td>
+			        <td>0.08</td>
+			        <td>0.10</td>
+			        <td>0.07</td>
+			        <td>0.08</td>
+			        <td>0.10</td>
+			        <td>0.11</td>
+			        <td>0.05</td>
+			        <td>0.05</td>
+			        <td>0.06</td>
+			        <td>0.08</td>
+			        <td>0.05</td>
+			        <td style="border-right: solid 1px;">0.10</td>
+			        <td>0.078</td>
+			      </tr>
+			    </tbody>
+			  </table>
+			  <p class="fragment">
+			    <span class="u em">Note:</span> the mean of the sample of differences is equal to the difference of the sample means: $\bar{x}_\textrm{Difference} = \bar{x}_\textrm{Wetsuit}-\bar{x}_\textrm{No Wetsuit}$
+			  </p>
+			</section>
+
+			<section data-transition="fade-in slide-out">
+			  <h3>Paired samples analysis</h3>
+			  <p class="no-margin-top small">
+			    <span class="u em">Null hypothesis:</span> If wearing a wetsuit had no effect on swimming speed, then the speeds recorded for each swimmer could have been equally likely observed under either condition (with or without a wetsuit).
+			    <br>
+			    <span class="fragment" data-fragment-index=1>
+			      <i class="fa fa-arrow-circle-right red"></i>
+			      the sign (positive/negative) of each observed difference in speed between the two conditions
+			      could have equally likely been the opposite.
+			    </span>
+			  </p>
+			  <table style="font-size: 0.8em;">
+			    <tbody>
+			      <tr>
+			        <td class="smallest" style="border-right: solid 1px;">Swimmer</td>
+			        <td>1</td>
+			        <td>2</td>
+			        <td>3</td>
+			        <td>4</td>
+			        <td>5</td>
+			        <td>6</td>
+			        <td>7</td>
+			        <td>8</td>
+			        <td>9</td>
+			        <td>10</td>
+			        <td>11</td>
+			        <td>12</td>
+			      </tr>
+			      <tr>
+			        <td class="bg-mutedBlue smallest" style="border-right: solid 1px;">Wetsuit</td>
+			        <td class="bg-mutedBlue">1.57</td>
+			        <td class="bg-mutedBlue">1.47</td>
+			        <td class="bg-mutedBlue">1.42</td>
+			        <td class="bg-mutedBlue">1.35</td>
+			        <td class="bg-mutedBlue">1.22</td>
+			        <td class="bg-mutedBlue">1.75</td>
+			        <td class="bg-mutedBlue">1.64</td>
+			        <td class="bg-mutedBlue">1.57</td>
+			        <td class="bg-mutedBlue">1.56</td>
+			        <td class="bg-mutedBlue">1.53</td>
+			        <td class="bg-mutedBlue">1.49</td>
+			        <td class="bg-mutedBlue">1.51</td>
+			      </tr>
+			      <tr>
+			        <td class="smallest bg-orange" style="border-right: solid 1px;">No Wetsuit</td>
+			        <td class="bg-orange">1.49</td>
+			        <td class="bg-orange">1.37</td>
+			        <td class="bg-orange">1.35</td>
+			        <td class="bg-orange">1.27</td>
+			        <td class="bg-orange">1.12</td>
+			        <td class="bg-orange">1.64</td>
+			        <td class="bg-orange">1.59</td>
+			        <td class="bg-orange">1.52</td>
+			        <td class="bg-orange">1.50</td>
+			        <td class="bg-orange">1.45</td>
+			        <td class="bg-orange">1.44</td>
+			        <td class="bg-orange">1.41</td>
+			      </tr>
+			      <tr>
+			        <td rowspan="2" style="border-right: solid 1px; vertical-align: middle; border-bottom: none;">Difference</td>
+			        <td class="highlight-bg-red">0.08</td>
+			        <td class="highlight-bg-red">0.10</td>
+			        <td class="highlight-bg-red">0.07</td>
+			        <td class="highlight-bg-red">0.08</td>
+			        <td class="highlight-bg-red">0.10</td>
+			        <td class="highlight-bg-red">0.11</td>
+			        <td class="highlight-bg-red">0.05</td>
+			        <td class="highlight-bg-red">0.05</td>
+			        <td class="highlight-bg-red">0.06</td>
+			        <td class="highlight-bg-red">0.08</td>
+			        <td class="highlight-bg-red">0.05</td>
+			        <td class="highlight-bg-red">0.10</td>
+			      </tr>
+			      <tr class="fragment" data-fragment-index=1>
+			        <td>-0.08</td>
+			        <td>-0.10</td>
+			        <td>-0.07</td>
+			        <td>-0.08</td>
+			        <td>-0.10</td>
+			        <td>-0.11</td>
+			        <td>-0.05</td>
+			        <td>-0.05</td>
+			        <td>-0.06</td>
+			        <td>-0.08</td>
+			        <td>-0.05</td>
+			        <td>-0.10</td>
+			      </tr>
+			    </tbody>
+			  </table>
+			  <!-- table 2 -->
+			  <table class="fragment" style="font-size: 0.8em; margin-top: 0.5em;">
+			    <tbody>
+			      <tr>
+			        <td class="smallest" style="border-right: solid 1px;">Swimmer</td>
+			        <td>1</td>
+			        <td>2</td>
+			        <td>3</td>
+			        <td>4</td>
+			        <td>5</td>
+			        <td>6</td>
+			        <td>7</td>
+			        <td>8</td>
+			        <td>9</td>
+			        <td>10</td>
+			        <td>11</td>
+			        <td>12</td>
+			      </tr>
+			      <tr>
+			        <td class="bg-mutedBlue smallest" style="border-right: solid 1px;">Wetsuit</td>
+			        <td class="bg-mutedBlue">1.57</td>
+			        <td class="bg-mutedBlue">1.47</td>
+			        <td class="bg-orange">1.42</td>
+			        <td class="bg-mutedBlue">1.35</td>
+			        <td class="bg-orange">1.22</td>
+			        <td class="bg-mutedBlue">1.75</td>
+			        <td class="bg-mutedBlue">1.64</td>
+			        <td class="bg-orange">1.57</td>
+			        <td class="bg-orange">1.56</td>
+			        <td class="bg-orange">1.53</td>
+			        <td class="bg-mutedBlue">1.49</td>
+			        <td class="bg-orange">1.51</td>
+			      </tr>
+			      <tr>
+			        <td class="smallest bg-orange" style="border-right: solid 1px;">No Wetsuit</td>
+			        <td class="bg-orange">1.49</td>
+			        <td class="bg-orange">1.37</td>
+			        <td class="bg-mutedBlue">1.35</td>
+			        <td class="bg-orange">1.27</td>
+			        <td class="bg-mutedBlue">1.12</td>
+			        <td class="bg-orange">1.64</td>
+			        <td class="bg-orange">1.59</td>
+			        <td class="bg-mutedBlue">1.52</td>
+			        <td class="bg-mutedBlue">1.50</td>
+			        <td class="bg-mutedBlue">1.45</td>
+			        <td class="bg-orange">1.44</td>
+			        <td class="bg-mutedBlue">1.41</td>
+			      </tr>
+			      <tr>
+			        <td rowspan="2" style="border-right: solid 1px; vertical-align: middle; border-bottom: none;">Difference</td>
+			        <td class="highlight-bg-red">0.08</td>
+			        <td class="highlight-bg-red">0.10</td>
+			        <td>0.07</td>
+			        <td class="highlight-bg-red">0.08</td>
+			        <td>0.10</td>
+			        <td class="highlight-bg-red">0.11</td>
+			        <td class="highlight-bg-red">0.05</td>
+			        <td>0.05</td>
+			        <td>0.06</td>
+			        <td>0.08</td>
+			        <td class="highlight-bg-red">0.05</td>
+			        <td>0.10</td>
+			      </tr>
+			      <tr>
+			        <td>-0.08</td>
+			        <td>-0.10</td>
+			        <td class="highlight-bg-red">-0.07</td>
+			        <td>-0.08</td>
+			        <td class="highlight-bg-red">-0.10</td>
+			        <td>-0.11</td>
+			        <td>-0.05</td>
+			        <td class="highlight-bg-red">-0.05</td>
+			        <td class="highlight-bg-red">-0.06</td>
+			        <td class="highlight-bg-red">-0.08</td>
+			        <td>-0.05</td>
+			        <td class="highlight-bg-red">-0.10</td>
+			      </tr>
+			    </tbody>
+			  </table>
+			</section>
+
+			<section>
+			  <h3>Resampling for paired data NHST</h3>
+			  <div class="row">
+			    <div class="col-35">
+			      <p class="no-margin-top no-margin-bottom smaller">
+			        To obtain the sampling distribution of the paired differences (or ratio):
+			      </p>
+			      <ol class="smallest" style="margin-top: 0;">
+			      <li>Calculate the effect size (difference or ratio) of the explanatory variable on each pair</li>
+			      <li>Randomly assign the sign (or ratio order [1, r$^{-1}$]) for the effect sizes</li>
+			       <li>Calculate the mean (or median) with that new arrangement of signs (or ratio order)</li>
+			    </ol>
+			    </div>
+			    <div class="col-65">
+			      <img src="lib/img/two-groups-paired-resampling.svg"
+			       width=100% class="unbordered flat">
+			    </div>
+			  </div>
+			  <ol class="smallest" style="margin-top: 0;" start=4>
+			    <li>Repeat steps #2-3 10000 times (we obtain 10000 effect sizes that we could have observed if the explanatory variable didn't have any effect)</li>
+			  </ol>
+			</section>
+
+
+			<section data-transition="slide-in">
+			  <h3>Paired samples analysis</h3>
+			  <div class="row">
+			    <div class="col-45">
+			      <p class="small">
+			        Keeping the structure of the data intact (pairs) allows
+			        to filter out the variability accross pairs.
+			      </p>
+			      <p class="fragment small">
+			        These data provide very convincing evidence that swimmers are faster on average when wearing wetsuits.
+			        <br>
+			        <span class="u-orange">Because this was a randomized experiment</span>, we have strong evidence that
+			        <span class="orange">wetsuits cause swimmers to swim faster</span>.
+			      </p>
+			    </div>
+			    <div class="col-55">
+			      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+			        <use xlink:href="lib/img/wetsuit-resampling-paired.svg#axes_1"></use>
+			        <use xlink:href="lib/img/wetsuit-resampling-paired.svg#axes_3"></use>
+			        <use xlink:href="lib/img/wetsuit-resampling-paired.svg#axes_2"></use>
+			      </svg>
+			      <table>
+			        <tbody>
+			        <tr>
+			           <td></td>
+			           <td style="border-right: solid 1px;">No Wetsuit</td>
+			           <td>Wetsuit</td>
+			         </tr>
+			         <tr style="border-bottom: solid 1px;">
+			           <td style="border-right: solid 1px;">Mean</td>
+			           <td style="border-right: solid 1px;">1.43</td>
+			           <td>1.51</td>
+			         </tr>
+			         <tr>
+			           <td></td>
+			           <td colspan=2 class="red">0.078</td>
+			         </tr>
+			       </tbody>
+			      </table>
+			    </div>
+			  </div>
+			</section>
+
+			<section data-transition="fade-in slide-out">
+			  <h3>Wetsuits and swimming speed</h3>
+			  <div class="row">
+			    <div class="col-45">
+			      <p class="quoted no-margin-top small">
+			        The same data were analyzed in each case, but the
+			        conclusions reached were drastically different.
+			        <span class="orange">It is very important to think about how the data were
+			        collected before proceeding with the analysis!</span>
+			      </p>
+			      <p class="small fragment">
+			        <i class="fa fa-arrow-circle-right mutedBlue"></i>
+			        Studies leading to paired data are often more efficient (<span class="mutedBlue">better able to detect differences between conditions</span>) because you have <span class="u-mutedBlue">controlled for a source of variation</span> (individual variability among the observational units).
+			      </p>
+			    </div>
+			    <div class="col-55">
+			      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+			        <use xlink:href="lib/img/wetsuit-resampling-paired-vs-non-paired.svg#axes_1"></use>
+			        <use xlink:href="lib/img/wetsuit-resampling-paired-vs-non-paired.svg#axes_3"></use>
+			        <use xlink:href="lib/img/wetsuit-resampling-paired-vs-non-paired.svg#axes_2"></use>
+			      </svg>
+			      <table>
+			        <tbody>
+			        <tr>
+			           <td></td>
+			           <td style="border-right: solid 1px;">No Wetsuit</td>
+			           <td>Wetsuit</td>
+			         </tr>
+			         <tr style="border-bottom: solid 1px;">
+			           <td style="border-right: solid 1px;">Mean</td>
+			           <td style="border-right: solid 1px;">1.43</td>
+			           <td>1.51</td>
+			         </tr>
+			         <tr>
+			           <td></td>
+			           <td colspan=2 class="red">0.078</td>
+			         </tr>
+			       </tbody>
+			      </table>
+			    </div>
+			  </div>
+			</section>
+
+			<section>
+			  <h3>Wetsuits and swimming speed</h3>
+			  <p class="em u">Conclusions</p>
+			  <ul class="normal">
+			    <li>
+			      With a $pvalue<0.0001$, we have very
+			      <span class="orange">strong evidence against the null hypothesis</span> and can conclude that wearing a wetwuit increases, on average, your
+			      maximum speed.
+			    </li>
+			    <li class="fragment">
+			      We can draw a <span class="orange">cause-and-effect conclusion</span> since the researcher used random assignment for the order
+			      the two time trials (with/without wetsuit) took place for each swimmer <span class="em">(if all the swimmers had all started with their "wetsuit trial", then we could have argued that the slower speeds recorded on the second attempt, without wetsuit, was due to fatigue)</span>.
+			    </li>
+			    <li class="fragment">
+			      The selected 12 swimmers were males/females, triathletes/swimmers, we can <span class="orange">generalize to this
+			      specific population</span>.
+			    </li>
+			  </ul>
+			</section>
+
+
+			<section>
+			  <h3>95% Confidence intervals</h3>
+			  <p class="no-margin-top small">
+			    The differences (or ratios) are a <span class="mutedBlue">one quantitative sample</span>. We can
+			    extract the 95% CI by drawing bootstrap samples, as previously seen.
+			  </p>
+			  <div class="row">
+			    <div class="col-50 fragment">
+			      <img src="lib/img/bootstrap-one-quantitative-variable.svg" class="unbordered flat" width=100%>
+			    </div>
+			    <div class="col-50">
+			      <img src="lib/img/wetsuit-resampling-paired-ci95.svg"
+			       class="fragment unbordered flat" width=100%>
+			    </div>
+			    <p class="small fragment no-margin-top">
+			      <i class="fa fa-arrow-circle-right mutedBlue"></i>
+			      We are 95% confident that for competitive swimmers and triathletes, wetsuits increase maximum swimming velocity by an average of between 0.066 and 0.089 meters per second.
+			    </p>
+			  </div>
+			</section>
+      
+      
+      	
+
+      <!-- #########################     CONTENT END     #########################-->
+    </div>
+    
+  </div>
+  
+  <!-- REVEAL JS -->
+  <script src="lib/js/reveal.js/lib/js/head.min.js"></script>
+  <script src="lib/js/reveal.js/js/reveal.js"></script>
+  <script src="lib/js/initReveal.js"></script>
+</body>
+</html>
