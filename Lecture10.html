@@ -598,11 +598,11 @@
       				<li class="exclamation-triangle orange fragment">You can think of each variable as it's own distribution.</li>
       				<li class="exclamation-triangle orange fragment">So, this <span class="mutedBlue">bivariate</span> data has two distributions, in the X- and Y-axes, we'll denote as $p(x,y)$</li>
       				<li class="exclamation-triangle orange fragment">Pearson's correlation is fundamental to the bivariate <span class="red">Normal</span> distribution.</li>
-      				<li class="exclamation-triangle orange fragment">In fact, bivariate distributions, the parameters are $\{ \mu_x,\, \mu_y,\, \sigma_x,\, \sigma_y,\, \rho\}$ just $\{\mu, \sigma \}$ completely specified $\mathcal{N}(\mu,\sigma^2)$.</li>
+      				<li class="exclamation-triangle orange fragment">In fact, for bivariate distributions, the parameters are $\{ \mu_x,\, \mu_y,\, \sigma_x,\, \sigma_y,\, \rho\}$ just as $\{\mu, \sigma \}$ completely specify $\mathcal{N}(\mu,\sigma^2)$.</li>
       				<li class="exclamation-triangle orange fragment">So, you cannot use Pearson's correlation if:</li>
-      				<ul>
-      					<li class="exclamation-circle red fragment">If relationship is obviously non-linear</li>
-      					<li class="exclamation-circle red fragment">If $p(x)$ or $p(y)$ are not both Gaussian distributed</li>
+      				<ul class="icon" style=" list-style-type: none;">
+      					<li class="exclamation-circle red fragment">The relationship is obviously non-linear</li>
+      					<li class="exclamation-circle red fragment">The distributions $p(x)$ or $p(y)$ are not <span class="mutedBlue">each</span> Normal.</li>
       					<li class="exclamation-circle red fragment">If the variances of x and y are not approximately uniform across the scale.<span class="green fragment">We will discuss this particular point next week.</span></li>
       				</ul>
       			</ul>
@@ -676,8 +676,8 @@ print(r_Spearman)
       <!-- 9 -->
       <section class="title-section">
       	<h1>Paired Data</h1>
-      	<h3>What if our variables ARE related and we can't use correlation?</h3>
-      	<h4>This is called a dependent design</h4>
+      	<h3>What if our variables ARE related and we can't use correlation to infer anything about the population?</h3>
+      	<h4>This is an experimental design method called a dependent model.</h4>
       	<aside class="notes" data-markdown>
       		
       	</aside>
@@ -702,7 +702,7 @@ print(r_Spearman)
 			<section>
 			  <h3>Paired samples</h3>
 			  <p class="quoted">
-			    Paired samples (also called <span class="orange">dependent samples</span>) are samples in which natural or matched couplings occur. This generates a dataset in which <span class="u-orange">each data point in one sample is uniquely paired to a data point in the second sample</span>.
+			    Paired samples (also called <span class="orange">dependent samples</span>) are samples in which natural or matched couplings occur. This generates a dataset in which <span class="underline-orange">each data point in one sample is uniquely paired to a data point in the second sample</span>.
 			  </p>
 			  <p class="fragment">
 			    <i class="fa fa-arrow-circle-right orange"></i>
@@ -731,7 +731,7 @@ print(r_Spearman)
 			  </ul>
 			  <p class="framed border-red fragment">
 			    <i class="fa fa-arrow-circle-right red"></i>
-			    when a paired design is possible, you typically get <span class="red">more mutedBluermative results</span> because units within a pair tend to be similar to each other. When pairing is effective, differences within such each pair on the response variable tend to be <span class="red">due mainly to the explanatory variable</span>.
+			    when a paired design is possible, you typically get <span class="red">more informative results</span> because units within a pair tend to be similar to each other. When pairing is effective, differences within such each pair on the response variable tend to be <span class="red">due mainly to the explanatory variable</span>.
 			  </p>
 			</section>
 
@@ -748,7 +748,7 @@ print(r_Spearman)
 			</section>
 
 			<section>
-			  <h3>Independent vs paired study design</h3>
+			  <h3>Paired study design</h3>
 			  <p class="no-margin-top smallest">
 			    Can you study with music blaring? Does the presence of lyrics hurt students' ability to focus on their work? <br>
 			    <span class="success">Response variable</span>: Memorization game score (ex: number of words students can remember from a sheet). <br>
@@ -756,29 +756,13 @@ print(r_Spearman)
 			  </p>
 			  <div class="row fragment">
 			    <div class="col-25">
-			      <p class="framed border-orange" style="text-align: center; margin-top: 0.2em;">
-			        Independent study design
-			      </p>
-			    </div>
-			    <div class="col-75">
-			      <p class="no-margin-top no-margin-bottom smallest framed b--dotted border-orange">
-			        Randomly assign students to two separate groups:
-			        <br>
-			        - one group that will listen music with lyrics
-			        <br>
-			        - one group that will listen music without lyrics
-			      </p>
-			    </div>
-			  </div>
-			  <div class="row fragment">
-			    <div class="col-25">
 			      <p class="no-margin-bottom framed border-mutedBlue" style="text-align: center; margin-top: 3em;">
 			        Paired study design
 			      </p>
 			    </div>
-			    <div class="col-75">
+			    <div class="col-100">
 			      <p class="smallest no-margin-top framed b--dotted border-mutedBlue">
-			        Paired design using <span class="mutedBlue u-mutedBlue">repeated measures</span>.
+			        Paired design using <span class="mutedBlue underline-mutedBlue">repeated measures</span>.
 			        <br>
 			        Each student will play the memorization game twice:
 			        <br>
@@ -786,8 +770,8 @@ print(r_Spearman)
 			        <br>
 			        - once listening music without lyrics
 			      </p>
-			      <p class="smallest framed b--dotted border-mutedBlue">
-			        Paired design using <span class="mutedBlue u-mutedBlue">matching</span>.
+			      <p class="smallest framed border-mutedBlue">
+			        Paired design using <span class="mutedBlue underline-mutedBlue">matching</span>.
 			        <br>
 			        Another way to create pairs could use a pretest to rank students according to how many words they could memorize and create pairs of students with similar abilities.
 			      </p>
@@ -827,8 +811,9 @@ print(r_Spearman)
 			    Yes!
 			  </p>
 			  <p class="fragment" data-fragment-index=1>
-			    <span class="u em">ex:</span> If you are interested in which test was more difficult in a course, the first or the second, compare the average difference in scores for each individual (this takes away the variability in general learning abilities).
+			    <span class="u em">ex:</span> If you are interested in which test was more difficult in a course, the first or the second, compare the central tendency difference in scores for each individual (this takes away the variability in general learning abilities).
 			  </p>
+        <p>As an example, let's comparing swimmer 200m swim times with and without a wetsuit.</p>
 			</section>
       
       
@@ -837,7 +822,7 @@ print(r_Spearman)
 			  <p class="no-margin-top">
 			    The key to analyzing paired data is to work with the <span class="mutedBlue">difference within each pair of data values</span> rather than between the two original samples. <br>
 			    <i class="fa fa-arrow-circle-right orange"></i>
-			    This helps us to <span class="orange">eliminate the variability across different units</span> (different swimmers) and instead focus on what we really care about: the difference between the values with and without a wetsuit.
+			    This helps us to <span class="orange">eliminate the variability across different units</span> (different swimmers) and instead focus on what we really care about: <span class="mutedBlue">the difference between the values with and without a wetsuit</span>.
 			    (By looking at this difference, the variability in general swimming ability is taken away).
 			  </p>
 			  <table style="font-size: 0.85em;" class="fragment">
@@ -942,34 +927,34 @@ print(r_Spearman)
 			        <td>12</td>
 			      </tr>
 			      <tr>
-			        <td class="bg-mutedBlue smallest" style="border-right: solid 1px;">Wetsuit</td>
-			        <td class="bg-mutedBlue">1.57</td>
-			        <td class="bg-mutedBlue">1.47</td>
-			        <td class="bg-mutedBlue">1.42</td>
-			        <td class="bg-mutedBlue">1.35</td>
-			        <td class="bg-mutedBlue">1.22</td>
-			        <td class="bg-mutedBlue">1.75</td>
-			        <td class="bg-mutedBlue">1.64</td>
-			        <td class="bg-mutedBlue">1.57</td>
-			        <td class="bg-mutedBlue">1.56</td>
-			        <td class="bg-mutedBlue">1.53</td>
-			        <td class="bg-mutedBlue">1.49</td>
-			        <td class="bg-mutedBlue">1.51</td>
+			        <td class="highlight-bg-mutedBlue smallest" style="border-right: solid 1px;">Wetsuit</td>
+			        <td class="highlight-bg-mutedBlue">1.57</td>
+			        <td class="highlight-bg-mutedBlue">1.47</td>
+			        <td class="highlight-bg-mutedBlue">1.42</td>
+			        <td class="highlight-bg-mutedBlue">1.35</td>
+			        <td class="highlight-bg-mutedBlue">1.22</td>
+			        <td class="highlight-bg-mutedBlue">1.75</td>
+			        <td class="highlight-bg-mutedBlue">1.64</td>
+			        <td class="highlight-bg-mutedBlue">1.57</td>
+			        <td class="highlight-bg-mutedBlue">1.56</td>
+			        <td class="highlight-bg-mutedBlue">1.53</td>
+			        <td class="highlight-bg-mutedBlue">1.49</td>
+			        <td class="highlight-bg-mutedBlue">1.51</td>
 			      </tr>
 			      <tr>
 			        <td class="smallest bg-orange" style="border-right: solid 1px;">No Wetsuit</td>
-			        <td class="bg-orange">1.49</td>
-			        <td class="bg-orange">1.37</td>
-			        <td class="bg-orange">1.35</td>
-			        <td class="bg-orange">1.27</td>
-			        <td class="bg-orange">1.12</td>
-			        <td class="bg-orange">1.64</td>
-			        <td class="bg-orange">1.59</td>
-			        <td class="bg-orange">1.52</td>
-			        <td class="bg-orange">1.50</td>
-			        <td class="bg-orange">1.45</td>
-			        <td class="bg-orange">1.44</td>
-			        <td class="bg-orange">1.41</td>
+			        <td class="highlight-bg-orange">1.49</td>
+			        <td class="highlight-bg-orange">1.37</td>
+			        <td class="highlight-bg-orange">1.35</td>
+			        <td class="highlight-bg-orange">1.27</td>
+			        <td class="highlight-bg-orange">1.12</td>
+			        <td class="highlight-bg-orange">1.64</td>
+			        <td class="highlight-bg-orange">1.59</td>
+			        <td class="highlight-bg-orange">1.52</td>
+			        <td class="highlight-bg-orange">1.50</td>
+			        <td class="highlight-bg-orange">1.45</td>
+			        <td class="highlight-bg-orange">1.44</td>
+			        <td class="highlight-bg-orange">1.41</td>
 			      </tr>
 			      <tr>
 			        <td rowspan="2" style="border-right: solid 1px; vertical-align: middle; border-bottom: none;">Difference</td>
@@ -1021,34 +1006,34 @@ print(r_Spearman)
 			        <td>12</td>
 			      </tr>
 			      <tr>
-			        <td class="bg-mutedBlue smallest" style="border-right: solid 1px;">Wetsuit</td>
-			        <td class="bg-mutedBlue">1.57</td>
-			        <td class="bg-mutedBlue">1.47</td>
-			        <td class="bg-orange">1.42</td>
-			        <td class="bg-mutedBlue">1.35</td>
-			        <td class="bg-orange">1.22</td>
-			        <td class="bg-mutedBlue">1.75</td>
-			        <td class="bg-mutedBlue">1.64</td>
-			        <td class="bg-orange">1.57</td>
-			        <td class="bg-orange">1.56</td>
-			        <td class="bg-orange">1.53</td>
-			        <td class="bg-mutedBlue">1.49</td>
-			        <td class="bg-orange">1.51</td>
+			        <td class="highlight-bg-mutedBlue smallest" style="border-right: solid 1px;">Wetsuit</td>
+			        <td class="highlight-bg-mutedBlue">1.57</td>
+			        <td class="highlight-bg-mutedBlue">1.47</td>
+			        <td class="highlight-bg-orange">1.42</td>
+			        <td class="highlight-bg-mutedBlue">1.35</td>
+			        <td class="highlight-bg-orange">1.22</td>
+			        <td class="highlight-bg-mutedBlue">1.75</td>
+			        <td class="highlight-bg-mutedBlue">1.64</td>
+			        <td class="highlight-bg-orange">1.57</td>
+			        <td class="highlight-bg-orange">1.56</td>
+			        <td class="highlight-bg-orange">1.53</td>
+			        <td class="highlight-bg-mutedBlue">1.49</td>
+			        <td class="highlight-bg-orange">1.51</td>
 			      </tr>
 			      <tr>
 			        <td class="smallest bg-orange" style="border-right: solid 1px;">No Wetsuit</td>
-			        <td class="bg-orange">1.49</td>
-			        <td class="bg-orange">1.37</td>
-			        <td class="bg-mutedBlue">1.35</td>
-			        <td class="bg-orange">1.27</td>
-			        <td class="bg-mutedBlue">1.12</td>
-			        <td class="bg-orange">1.64</td>
-			        <td class="bg-orange">1.59</td>
-			        <td class="bg-mutedBlue">1.52</td>
-			        <td class="bg-mutedBlue">1.50</td>
-			        <td class="bg-mutedBlue">1.45</td>
-			        <td class="bg-orange">1.44</td>
-			        <td class="bg-mutedBlue">1.41</td>
+			        <td class="highlight-bg-orange">1.49</td>
+			        <td class="highlight-bg-orange">1.37</td>
+			        <td class="highlight-bg-mutedBlue">1.35</td>
+			        <td class="highlight-bg-orange">1.27</td>
+			        <td class="highlight-bg-mutedBlue">1.12</td>
+			        <td class="highlight-bg-orange">1.64</td>
+			        <td class="highlight-bg-orange">1.59</td>
+			        <td class="highlight-bg-mutedBlue">1.52</td>
+			        <td class="highlight-bg-mutedBlue">1.50</td>
+			        <td class="highlight-bg-mutedBlue">1.45</td>
+			        <td class="highlight-bg-orange">1.44</td>
+			        <td class="highlight-bg-mutedBlue">1.41</td>
 			      </tr>
 			      <tr>
 			        <td rowspan="2" style="border-right: solid 1px; vertical-align: middle; border-bottom: none;">Difference</td>
@@ -1118,7 +1103,7 @@ print(r_Spearman)
 			      <p class="fragment small">
 			        These data provide very convincing evidence that swimmers are faster on average when wearing wetsuits.
 			        <br>
-			        <span class="u-orange">Because this was a randomized experiment</span>, we have strong evidence that
+			        <span class="underline-orange">Because this was a randomized experiment</span>, we have strong evidence that
 			        <span class="orange">wetsuits cause swimmers to swim faster</span>.
 			      </p>
 			    </div>
@@ -1162,7 +1147,7 @@ print(r_Spearman)
 			      </p>
 			      <p class="small fragment">
 			        <i class="fa fa-arrow-circle-right mutedBlue"></i>
-			        Studies leading to paired data are often more efficient (<span class="mutedBlue">better able to detect differences between conditions</span>) because you have <span class="u-mutedBlue">controlled for a source of variation</span> (individual variability among the observational units).
+			        Studies leading to paired data are often more efficient (<span class="mutedBlue">better able to detect differences between conditions</span>) because you have <span class="underline-mutedBlue">controlled for a source of variation</span> (individual variability among the observational units).
 			      </p>
 			    </div>
 			    <div class="col-55">
