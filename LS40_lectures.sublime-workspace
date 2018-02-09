@@ -16,157 +16,15 @@
 			"settings":
 			{
 				"buffer_size": 49123,
-				"encoding": "UTF-8",
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lib/interactive/UnderstandingCor/js/vis.js",
-			"settings":
-			{
-				"buffer_size": 11238,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "lib/interactive/UnderstandingCor/js/regression.js",
-			"settings":
-			{
-				"buffer_size": 8627,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "lib/interactive/UnderstandingCor/js/jquery-ui-1.10.3.custom.min.js",
-			"settings":
-			{
-				"buffer_size": 47200,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 7828,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Lecture1.html",
-			"settings":
-			{
-				"buffer_size": 40711,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Lecture2.html",
-			"settings":
-			{
-				"buffer_size": 46527,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Lecture3.html",
-			"settings":
-			{
-				"buffer_size": 48890,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Lecture4.html",
-			"settings":
-			{
-				"buffer_size": 70485,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Lecture5.html",
-			"settings":
-			{
-				"buffer_size": 30057,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Lecture6.html",
-			"settings":
-			{
-				"buffer_size": 31396,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Lecture7.html",
-			"settings":
-			{
-				"buffer_size": 30886,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Lecture8.html",
-			"settings":
-			{
-				"buffer_size": 18582,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Lecture9.html",
-			"settings":
-			{
-				"buffer_size": 51796,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "Lecture10.html",
 			"settings":
 			{
-				"buffer_size": 52084,
+				"buffer_size": 50396,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "lib/img/vitAvsBMI-jpd.svg",
-			"settings":
-			{
-				"buffer_size": 291261,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "lib/img/vitAvsBMI-cor-grid.svg",
-			"settings":
-			{
-				"buffer_size": 88057,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "lib/img/vitAvsBMI-cor-simple.svg",
-			"settings":
-			{
-				"buffer_size": 78839,
 				"line_ending": "Windows"
 			}
 		}
@@ -340,18 +198,23 @@
 	},
 	"expanded_folders":
 	[
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/img",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/UnderstandingCor",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/UnderstandingCor/js"
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib/css"
 	],
 	"file_history":
 	[
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/UnderstandingCor/index.html",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/img/vitAvsBMI-cor.svg",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/_notebooks/data/nutritionStudy.csv",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/Lecture9.html",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/Lecture8.html",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/Lecture7.html",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/Lecture6.html",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/Lecture5.html",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/Lecture4.html",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/Lecture3.html",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/Lecture2.html",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/Lecture1.html",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/index.html",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib/css/flatlandDk2.css",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/alphaLevel/index.html",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/twobox/twobox.html",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/index.html",
@@ -468,19 +331,11 @@
 		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/css/jsUi.css",
 		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/css/custom-gc.css",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/Colorsublime/Colorsublime.sublime-settings",
-		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/Colorsublime.sublime-settings",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/css/theme/source/beige.scss",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/img/fic/manifest.json",
-		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/reveal-section-empty.sulime-snippet",
-		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/custom_js/js-graphs/histogram.js",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/css/reveal.css",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/LS40_lectures.sublime-project",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/index.html",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/Gruntfile.js"
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/Colorsublime.sublime-settings"
 	],
 	"find":
 	{
-		"height": 36.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -494,30 +349,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"icon",
-			"bg-red",
-			"-bck",
-			"assets/img/lec",
-			"info",
-			"danger",
-			"warning",
-			"assets",
-			"assests",
-			"assets",
-			"info",
-			"danger",
-			"warning",
-			"highlight-current-bckg",
-			"highlight-current",
-			"highlight-cur",
-			"highlight",
-			"assets/img/lec",
-			"info",
-			"danger",
-			"warning",
-			"observations",
-			".png",
-			"top-margin",
+			"\"bg-",
+			"bg-",
+			"u-",
+			"mutedBluer",
+			"mutedBluermation",
+			"mutedBlue",
 			"danger",
 			"sided",
 			"success",
@@ -621,7 +458,25 @@
 			"sided",
 			"assets/img/lec/",
 			"sample size",
-			"Effect of changing the sample size"
+			"Effect of changing the sample size",
+			"=>",
+			"unbordered flat",
+			"\\overset{\\hat{}}{p}",
+			"bckg",
+			"sided",
+			"info",
+			"warning",
+			"danger",
+			"assets/img/lec/",
+			"highlight-blue-gc",
+			"underline",
+			"success\"",
+			"success:",
+			"border-success",
+			"One-l-sided vs two-l-sided tests",
+			"assets/img/lec/",
+			"\\overset{\\hat{}}{p}",
+			"unbordered flat"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -629,19 +484,9 @@
 		"regex": false,
 		"replace_history":
 		[
-			"highlight-bg-red",
-			"lib/img",
-			"mutedBlue",
-			"red",
-			"orange",
-			"mutedBlue",
-			"red",
-			"orange",
-			"highlight-current-bg",
-			"lib/img",
-			"mutedBlue",
-			"red",
-			"orange",
+			"\"highlight-bg-",
+			"underline-",
+			"infor",
 			"red",
 			"l-sided",
 			"green",
@@ -756,18 +601,28 @@
 			"r-sided",
 			"caret-right",
 			"check",
-			"xax"
+			"xax",
+			"Hist",
+			"d4.",
+			"d4",
+			"current",
+			"obj",
+			"name",
+			"scaleLinear",
+			"nPups",
+			", ",
+			"</p>"
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": true,
+		"whole_word": false,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 8,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -783,426 +638,22 @@
 						"selection":
 						[
 							[
-								23076,
-								23080
+								37655,
+								37658
 							]
 						],
 						"settings":
 						{
-							"markdonw_live_preview_last_run": 1518017455.05,
+							"markdonw_live_preview_last_run": 1518134437.01,
 							"syntax": "Packages/CSS/CSS.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 23839.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "lib/interactive/UnderstandingCor/js/vis.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11238,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10059,
-								10059
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1518115123.63,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "lib/interactive/UnderstandingCor/js/regression.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8627,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8627,
-								8627
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1518115140.16,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2067.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "lib/interactive/UnderstandingCor/js/jquery-ui-1.10.3.custom.min.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 47200,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1518115180.14,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7828,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5977,
-								5977
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1518017455.05,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2052.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "Lecture1.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 40711,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								19533,
-								20159
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1518017455.06,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 7081.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "Lecture2.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 46527,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2074,
-								2078
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1518017455.06,
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 313.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "Lecture3.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 48890,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								19900,
-								21436
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"markdonw_live_preview_last_run": 1518017455.07,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 7261.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "Lecture4.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 70485,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8182,
-								7908
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"markdonw_live_preview_last_run": 1518017455.07,
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2005.0,
+						"translation.y": 35549.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "Lecture5.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 30057,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2094,
-								2098
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"markdonw_live_preview_last_run": 1518017455.07,
-							"rulers":
-							[
-								80
-							],
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"wrap_width": 0
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "Lecture6.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 31396,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4337,
-								19834
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1518017455.07,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 5940.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "Lecture7.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 30886,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								13915,
-								14981
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1518017455.05,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3697.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "Lecture8.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 18582,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3579,
-								3579
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1518017455.08,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 450.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "Lecture9.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 51796,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8099,
-								8099
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1518017455.06,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1931.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
 					"type": "text"
 				}
 			]
@@ -1212,28 +663,31 @@
 			"sheets":
 			[
 				{
-					"buffer": 14,
+					"buffer": 1,
 					"file": "Lecture10.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 52084,
+						"buffer_size": 50396,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								26869,
-								26869
+								49110,
+								49110
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
+							"markdonw_live_preview_last_run": 1518048154.02,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 10509.0,
+						"translation.y": 24229.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1242,108 +696,14 @@
 			]
 		},
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 15,
-					"file": "lib/img/vitAvsBMI-jpd.svg",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 291261,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								462,
-								462
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1518110467.79,
-							"syntax": "Packages/XML/XML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "lib/img/vitAvsBMI-cor-grid.svg",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 88057,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								677,
-								677
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1518110691.77,
-							"syntax": "Packages/XML/XML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "lib/img/vitAvsBMI-cor-simple.svg",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 78839,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								219,
-								283
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1518116709.09,
-							"syntax": "Packages/XML/XML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 26.0
+		"height": 28.0
 	},
 	"input":
 	{
@@ -1375,7 +735,7 @@
 		"cols":
 		[
 			0.0,
-			0.399108859444,
+			0.294649237106,
 			0.759246557547,
 			1.0
 		],
@@ -1398,7 +758,7 @@
 	"project": "LS40_lectures.sublime-project",
 	"replace":
 	{
-		"height": 68.0
+		"height": 72.0
 	},
 	"save_all_on_build": true,
 	"select_file":
