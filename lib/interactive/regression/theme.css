@@ -1,0 +1,42 @@
+body{
+margin:0px;
+background-color: transparent !important;
+}
+
+.h, .v {
+  stroke:#d2d2d2;
+  fill: none;
+  stroke-dasharray:4 4;
+  stroke-width:1;
+  stroke-opacity:.5;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #d2d2d2;
+  stroke-width:1;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+    color: #d2d2d2;
+    fill: #d2d2d2;;
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+.tick {
+  stroke-width: 0.5;
+}
+
+#resid_button {
+	position: absolute;
+	top: 55px;
+	left: 500px;
+}
+
+#reset_button {
+	position: absolute;
+	top: 95px;
+	left: 500px;
+}

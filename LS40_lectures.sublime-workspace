@@ -16,7 +16,98 @@
 			"settings":
 			{
 				"buffer_size": 49123,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 8109,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lecture1.html",
+			"settings":
+			{
+				"buffer_size": 40711,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lecture2.html",
+			"settings":
+			{
+				"buffer_size": 46528,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lecture3.html",
+			"settings":
+			{
+				"buffer_size": 48891,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lecture4.html",
+			"settings":
+			{
+				"buffer_size": 70486,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lecture5.html",
+			"settings":
+			{
+				"buffer_size": 30057,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lecture6.html",
+			"settings":
+			{
+				"buffer_size": 31396,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lecture7.html",
+			"settings":
+			{
+				"buffer_size": 30886,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lecture8.html",
+			"settings":
+			{
+				"buffer_size": 18582,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lecture9.html",
+			"settings":
+			{
+				"buffer_size": 51796,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -25,6 +116,32 @@
 			{
 				"buffer_size": 50396,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lecture11.html",
+			"settings":
+			{
+				"buffer_size": 36912,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/interactive/regression/theme.css",
+			"settings":
+			{
+				"buffer_size": 549,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "      <section>\n        <h3>Linear regression analysis</h3>\n        <p>\n          Linear regression analysis consists of <span class=\"mutedBlue\">more than\n          just fitting a linear line</span> through a cloud of data points. The linear regression analysis of a dataset can be decomposed in <span class=\"mutedBlue\">3 stages</span>:\n        </p>\n        <ol class=\"normal\">\n          <li><span class=\"u strong\">Analyzing</span> the correlation and directionality of the data (checking if linear regression is an <span class=\"orange\">appropriate model</span> for the data you want to analyze)</li>\n          <li><span class=\"u strong\">Estimating</span> the model using the data (fitting the line, estimating the <span class=\"orange\">best parameters</span> for the line equation)</li>\n          <li><span class=\"u strong\">Evaluating</span> the <span class=\"orange\">validity and usefulness</span> of the model</li>\n        </ol>\n      </section>\n\n      <section>\n        <h3>Evaluating the model</h3>\n        <p class=\"smaller no-margin-top no-margin-bottom\">\n          Three statistics are commonly used in linear regression analysis\n          to evaluate how well the model fit the data:\n        </p>\n        <ul class=\"normal\">\n          <li>The <span class=\"orange\">$R^2$</span>, or <span class=\"em\">coefficient of determination</span></li>\n          <li>The <span class=\"orange\">$RMSE$</span>, or <span class=\"em\">Root Mean Square Error</span></li>\n          <li>The <span class=\"green\">$F$-statistic</span> (ANOVA)</li>\n        </ul>\n        <p class=\"small\">\n          All three statistics are based on two sums of squares:\n        </p>\n        <div class=\"row\">\n          <table class=\"table-vert\">\n            <col width=50%>\n            <col width=50%>\n            <tbody>\n              <tr>\n                <td class=\"bg-mutedBlue\">Total Sum of Squares ($TSS$)</td>\n                <td class=\"bg-red\">Sum of Squares Error ($SSE$)</td>\n              </tr>\n              <tr style=\"border-bottom: 1px solid\">\n                <td>\n                  it measures how far the response variable data are from the mean.\n                  $TSS=\\sum_{i=1}^{n}(y-\\texclass{mutedBlue}{\\bar{y}})^2$\n                </td>\n                <td>\n                  it measures how far the data are from the model’s predicted values.\n                  $SSE=\\sum_{i=1}^{n}(y-\\texclass{red}{\\overset{\\hat{}}{y}})^2$\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n        <p class=\"small\">\n          <i class=\"fa fa-arrow-circle-right orange\"></i>\n           Different combinations of these two values provide different information about how the regression model compares to the mean model.\n        </p>\n      </section>\n\n\n      <section>\n        <h3>Coefficient of determination, $R^2$</h3>\n        <p class=\"framed border-orange\">\n          $R^2$ measures the percentage of total variation\n          in the response variable that is explained by the linear relationship.\n        </p>\n        <p>\n          <span class=\"orange\">$$R^2=1-\\frac{\\textrm{Sum of squared errors (SSE)}}{\\textrm{Total sum of squares (TSS)}}$</span>\n          $= 1-\\frac{\\sum_{i=1}^{n}(y-\\texclass{red}{\\overset{\\hat{}}{y}})^2}{\\sum_{i=1}^{n}(y-\\texclass{mutedBlue}{\\bar{y}})^2}$$\n        </p>\n        <p class=\"small no-margin-bottom\">\n          <span class=\"u em\">Notes:</span>\n        </p>\n        <ul class=\"small\">\n          <li> Another way to compute $R^2$ is by litteraly\n          calculating the <span class=\"mutedBlue\">square of the correlation coefficient</span> ($r$). $R^2 = r^2$</li>\n          <li>The slope ($m$) of the regresion line tells you how much change in $Y$ you can expect based on a given change in $X$. The coefficient $R^2$ tells you <span class=\"mutedBlue\">how much of the variation in $Y$ is attributable to (explained by) the variation in $X$</span>. The rest of the variation (or <span class=\"em red\">“noise”</span>), is accounted by other factors, such as measurement error, individual variation, etc.</li>\n        </ul>\n      </section>\n\n      <section>\n        <h3>Root mean square error, $RMSE$</h3>\n        <p class=\"framed border-orange\">\n          The $RMSE$ measures how close the observed data points are to the model’s predicted values.\n        </p>\n        <p class=\"small no-margin-top\">\n          The $RMSE$ is a common metric to evaluate model performance and computes the square root of the average squared residual (distance from the prediction to the best fit).\n        </p>\n        <p class=\"orange no-margin-bottom\">\n          $RMSE=\\sqrt{\\frac{1}{n}\\sum_{i=1}^{n}(y-\\overset{\\hat{}}{y})^2}$\n        </p>\n        <p class=\"smaller no-margin-top\">\n          <i class=\"fa fa-arrow-circle-right mutedBlue\"></i>\n          The key idea behind the computation of the $RMSE$\n          is that predictions ($\\overset{\\hat{}}{y}$) that are <span class=\"mutedBlue\">far away from the true observed data</span>\n          value ($y$) will contribute more heavily to <span class=\"mutedBlue\">increasing</span> the value of the $RMSE$ than predictions that are close to the true values.\n        </p>\n        <p class=\"smaller no-margin-top\">\n          <i class=\"fa fa-arrow-circle-right mutedBlue\"></i>\n          <span class=\"mutedBlue\">Lower</span> values of RMSE indicate <span class=\"mutedBlue\">better</span> fit.\n        </p>\n      </section>\n\n      <section>\n        <h3>Model evaluation, $R^2$ vs $RMSE$</h3>\n        <div class=\"row\">\n          <table>\n            <col width=50%>\n            <col width=50%>\n            <tbody>\n              <tr>\n                <td class=\"bg-mutedBlue\">$R^2$</td>\n                <td class=\"bg-red\">$RMSE$</td>\n              </tr>\n              <tr>\n                <td>Square of the correlation coefficient</td>\n                <td>Square root of the average squared residual</td>\n              </tr>\n              <tr>\n                <td colspan=\"2\">Both give an indication about the <span class=\"em\">\"goodness of the fit\"</span></td>\n              </tr>\n              <tr>\n                <td>$R^2$ is conveniently scaled between 0 and 1 (<span class=\"mutedBlue\">relative measure</span> of fit)</td>\n                <td>$RMSE$ is not scaled to any particular value (<span class=\"red\">absolute measure</span> of fit)</td>\n              </tr>\n              <tr>\n                <td>$R^2$ can be more easily interpreted\n                  in the <span class=\"mutedBlue\">context of the linear association</span>\n                  analyzed\n                  (how successful the fit is in explaining the variation of the data)\n                </td>\n                <td>$RMSE$ explicitly provides information about <span class=\"red\">how much our predictions deviate, on average</span>, from the actual values in the dataset</td>\n              </tr>\n              <tr>\n                <td>Its main purpose is either the <span class=\"mutedBlue\">prediction</span> of future outcomes or the <span class=\"mutedBlue\">testing</span> of hypotheses.</td>\n                <td>\n                  It is one of the most important criterion for fit if the main purpose of the model is <span class=\"mutedBlue\">prediction</span>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </section>\n\n      <section>\n        <h3>The use of linear regression analysis</h3>\n        <p class=\"no-margin-top em smaller\">\n          There are 3 major uses for regression analysis:\n        </p>\n        <p class=\"small framed border-orange\">\n          <span class=\"orange em u\">Causal analysis</span>: it might be used to identify the <span class=\"orange\">strength of the effect</span> that the independent variable(s) have on a dependent variable. Typical questions are what is the strength of relationship between dose and effect, sales and marketing spend, age and income, etc...\n        </p>\n        <p class=\"small framed border-mutedBlue\">\n          <span class=\"mutedBlue em u\">Forecasting</span>: it can be used to forecast <span class=\"mutedBlue\">effects or impacts of changes</span>. That is regression analysis helps us to understand how much will the dependent variable change, when we change one or more independent variables. Typical questions are how much additional $Y$ would I get for one additional unit $X$.\n        </p>\n        <p class=\"small framed border-red\">\n          <span class=\"red em u\">Prediction</span>: it can be used to predict <span class=\"red\">trends and future values</span>. The regression analysis can be used to get point estimates. Typical questions are what will the price for gold be in 6 month from now? What is the total effort for a task X?\n        </p>\n      </section>",
+			"settings":
+			{
+				"buffer_size": 8726,
 				"line_ending": "Windows"
 			}
 		}
@@ -198,23 +315,25 @@
 	},
 	"expanded_folders":
 	[
-		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations",
-		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib",
-		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib/css"
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/alphaLevel",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/UnderstandingCor",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/UnderstandingCor/js"
 	],
 	"file_history":
 	[
-		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/Lecture9.html",
-		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/Lecture8.html",
-		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/Lecture7.html",
-		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/Lecture6.html",
-		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/Lecture5.html",
-		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/Lecture4.html",
-		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/Lecture3.html",
-		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/Lecture2.html",
-		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/Lecture1.html",
-		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/index.html",
-		"/G/My Drive/_StatsDev/LS40_Development/Lecture Presentations/lib/css/flatlandDk2.css",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/regression/d3functions.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/regression/index.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/img/vitAvsBMI-jpd.svg",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/img/vitAvsBMI-cor-grid.svg",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/img/vitAvsBMI-cor-simple.svg",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/UnderstandingCor/js/regression.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/UnderstandingCor/js/vis.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/UnderstandingCor/index.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/img/vitAvsBMI-cor.svg",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/_notebooks/data/nutritionStudy.csv",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/alphaLevel/index.html",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/twobox/twobox.html",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/index.html",
@@ -331,11 +450,12 @@
 		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/css/jsUi.css",
 		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/css/custom-gc.css",
 		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/Colorsublime/Colorsublime.sublime-settings",
-		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/Colorsublime.sublime-settings"
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/Colorsublime.sublime-settings",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/reveal.js/css/theme/source/beige.scss"
 	],
 	"find":
 	{
-		"height": 38.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
@@ -349,12 +469,63 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"\"bg-",
-			"bg-",
-			"u-",
-			"mutedBluer",
-			"mutedBluermation",
-			"mutedBlue",
+			"\\overset{\\hat{}}{y}",
+			"\\texclass{mutedBlue}",
+			"\\texclass{red}",
+			"texclass",
+			"success",
+			"lec/",
+			"asse",
+			"assests",
+			"sided",
+			"info",
+			"danger",
+			"warning",
+			"lsquare-main-vs-mad",
+			"regression-residuals",
+			"regression-least-square",
+			"border",
+			"=\" ",
+			"class=\"\"",
+			"smaller",
+			"assets/img/lec/",
+			"info",
+			"warning",
+			"danger",
+			"regression-line",
+			"warning",
+			"sided",
+			"warning",
+			"info",
+			"danger",
+			"assets/img/lec/",
+			"red\"",
+			"icon",
+			"- 15 -",
+			"icon",
+			"bg-red",
+			"-bck",
+			"assets/img/lec",
+			"info",
+			"danger",
+			"warning",
+			"assets",
+			"assests",
+			"assets",
+			"info",
+			"danger",
+			"warning",
+			"highlight-current-bckg",
+			"highlight-current",
+			"highlight-cur",
+			"highlight",
+			"assets/img/lec",
+			"info",
+			"danger",
+			"warning",
+			"observations",
+			".png",
+			"top-margin",
 			"danger",
 			"sided",
 			"success",
@@ -425,58 +596,7 @@
 			"that",
 			"this",
 			"that.gridSize",
-			"this",
-			"this.this",
-			"sizeY",
-			"sizeX",
-			"DATA",
-			"UNIQUE_RESULTS",
-			"axes",
-			"axes_",
-			"strike",
-			"initialize",
-			"graphDist",
-			"background",
-			"highlight",
-			"top",
-			"with",
-			"table",
-			"mutedB",
-			"mutedBluer",
-			"-l-",
-			"highlight-bckg",
-			"unbordered flat",
-			"\\overset{\\hat{}}{p}",
-			"warning",
-			"danger",
-			"info",
-			"sided",
-			"assets/img/lec/",
-			"\\set",
-			"<!-- ",
-			"warning",
-			"sided",
-			"assets/img/lec/",
-			"sample size",
-			"Effect of changing the sample size",
-			"=>",
-			"unbordered flat",
-			"\\overset{\\hat{}}{p}",
-			"bckg",
-			"sided",
-			"info",
-			"warning",
-			"danger",
-			"assets/img/lec/",
-			"highlight-blue-gc",
-			"underline",
-			"success\"",
-			"success:",
-			"border-success",
-			"One-l-sided vs two-l-sided tests",
-			"assets/img/lec/",
-			"\\overset{\\hat{}}{p}",
-			"unbordered flat"
+			"this"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -484,9 +604,44 @@
 		"regex": false,
 		"replace_history":
 		[
-			"\"highlight-bg-",
-			"underline-",
-			"infor",
+			"\\hat{y}",
+			"\\color{blue}",
+			"\\color{red}",
+			"green",
+			"l-sided",
+			"mutedBlue",
+			"red",
+			"orange",
+			"MADvOLS",
+			"lsquare-resid",
+			"lsquare-main",
+			"=\"",
+			"",
+			"lib/img/",
+			"mutedBlue",
+			"orange",
+			"red",
+			"regline",
+			"orange",
+			"l-sided",
+			"orange",
+			"mutedBlue",
+			"red",
+			"lib/img/",
+			"red fragment\"",
+			"highlight-bg-red",
+			"lib/img",
+			"mutedBlue",
+			"red",
+			"orange",
+			"mutedBlue",
+			"red",
+			"orange",
+			"highlight-current-bg",
+			"lib/img",
+			"mutedBlue",
+			"red",
+			"orange",
 			"red",
 			"l-sided",
 			"green",
@@ -576,42 +731,7 @@
 			"red",
 			"orange",
 			"offWhite",
-			"mutedBlue",
-			"purple",
-			"#d3d3d3",
-			"HistDots",
-			"",
-			"margin-bottom:",
-			"margin-top:",
-			"margin-left:",
-			"//console.",
-			"this.data",
-			"'",
-			"d4",
-			"lib/img/",
-			"lib/img",
-			"halt",
-			"lib/img/",
-			"halt",
-			"lib/img/",
-			"halt",
-			"lib/img/",
-			"cur-bg-calm",
-			"l-sided",
-			"r-sided",
-			"caret-right",
-			"check",
-			"xax",
-			"Hist",
-			"d4.",
-			"d4",
-			"current",
-			"obj",
-			"name",
-			"scaleLinear",
-			"nPups",
-			", ",
-			"</p>"
+			"mutedBlue"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -622,7 +742,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -638,32 +758,339 @@
 						"selection":
 						[
 							[
-								37655,
-								37658
+								28504,
+								28508
 							]
 						],
 						"settings":
 						{
-							"markdonw_live_preview_last_run": 1518134437.01,
+							"markdonw_live_preview_last_run": 1518017455.05,
 							"syntax": "Packages/CSS/CSS.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 35549.0,
+						"translation.y": 26719.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
+				},
 				{
 					"buffer": 1,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8109,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6264,
+								6264
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1518017455.05,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2646.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Lecture1.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 40711,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19533,
+								20159
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1518017455.06,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7081.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Lecture2.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 46528,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1518017455.06,
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 313.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Lecture3.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 48891,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"markdonw_live_preview_last_run": 1518017455.07,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7261.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Lecture4.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 70486,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"markdonw_live_preview_last_run": 1518017455.07,
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2005.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Lecture5.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 30057,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2094,
+								2098
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"markdonw_live_preview_last_run": 1518017455.07,
+							"rulers":
+							[
+								80
+							],
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"wrap_width": 0
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "Lecture6.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 31396,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7286,
+								7523
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1518017455.07,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1512.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "Lecture7.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 30886,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13915,
+								14981
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1518017455.05,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3697.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "Lecture8.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 18582,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3579,
+								3579
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1518017455.08,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 450.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "Lecture9.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 51796,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								24028,
+								24028
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1518017455.06,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 8899.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
 					"file": "Lecture10.html",
 					"semi_transient": false,
 					"settings":
@@ -675,35 +1102,128 @@
 						"selection":
 						[
 							[
-								49110,
-								49110
+								11811,
+								11945
 							]
 						],
 						"settings":
 						{
-							"markdonw_live_preview_last_run": 1518048154.02,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 24229.0,
+						"translation.y": 4687.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
 		},
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 12,
+					"file": "Lecture11.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 36912,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								30704,
+								30704
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 11815.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 13,
+					"file": "lib/interactive/regression/theme.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 549,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								323,
+								323
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1518526974.52,
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 162.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8726,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2760,
+								2760
+							]
+						],
+						"settings":
+						{
+							"default_dir": "F:\\googleDrive\\_StatsDev\\LS40_Development\\Lecture Presentations",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 537.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 28.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -735,8 +1255,8 @@
 		"cols":
 		[
 			0.0,
-			0.294649237106,
-			0.759246557547,
+			0.377804624578,
+			0.740280592361,
 			1.0
 		],
 		"rows":
@@ -758,7 +1278,7 @@
 	"project": "LS40_lectures.sublime-project",
 	"replace":
 	{
-		"height": 72.0
+		"height": 68.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -788,7 +1308,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},

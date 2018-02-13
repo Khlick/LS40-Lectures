@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Lecture 11: Linear Regression</title>
+  <meta name="author" content="Khris Griffis" />
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, minimal-ui">
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="lib/img/fic/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="lib/img/fic/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="lib/img/fic/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="lib/img/fic/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="lib/img/fic/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="lib/img/fic/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="lib/img/fic/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="lib/img/fic/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="lib/img/fic/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="lib/img/fic/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="lib/img/fic/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="lib/img/fic/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="lib/img/fic/favicon-16x16.png">
+  <link rel="manifest" href="lib/img/fic/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="lib/img/fic/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="lib/js/reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="lib/css/flatlandDk2.css" id="theme">
+  <link rel="stylesheet" href="lib/css/jsStyle.css">
+  
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/js/reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'lib/js/reveal.js/css/print/pdf.css' : 'lib/js/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!-- END PRINT EXPORT -->
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+  <link href="https://use.fontawesome.com/releases/v5.0.3/css/all.css" rel="stylesheet">
+  
+</head>
+<body>
+  
+  <div class="reveal">
+
+    <div class="slides">
+      <!-- #########################    CONTENT START    #########################-->
+    	<!-- 0 -->
+      <section class="title-slide">
+				<div class="row">
+  				<div class="col-50">
+  					<img src="lib/img/crystalBall.png" class="plain drop-20"> 
+  				</div>
+  				
+  				<div class="col-50" style="z-index:1; position: relative; margin-left: -5%;">
+  					<h1>Life Sciences 40</h1>
+	        	<h2>Lecture 11:</h2>
+	          <h4>Linear Regression</h4>
+	          <h5>Khris Griffis</h3>
+  				</div>
+  			</div>
+        <aside class="notes" data-markdown>
+
+        </aside>
+      </section>
+      
+      <!-- 1 -->
+      <section data-transition="slide-in fade-out">
+			  <h3>Recall scatterplots</h3>
+			  <p class="em u no-margin-top no-margin-bottom">
+			    There are 4 majors characteristics to consider when describing
+			    a scatterplot:
+			  </p>
+			  <div class="row">
+			    <div class="col-45">
+			      <p class="no-margin-top big">
+			        <span class="fragment" data-fragment-index=1>1.  <span class="mutedBlue">Direction</span> (positive/negative)</span>
+			        <br>
+			        <span class="fragment" data-fragment-index=2>2.  <span class="mutedBlue">Form</span> (linear or not)</span>
+			        <br>
+			        <span class="fragment" data-fragment-index=3>3.  <span class="mutedBlue">Strength</span> (strong-moderate-weak: correlation coefficient)</span>
+			        <br>
+			        <span class="fragment" data-fragment-index=4>4.  <span class="mutedBlue">Unusual observations</span></span>
+			      </p>
+			    </div>
+			    <div class="col-55">
+			      <img src="lib/img/scatterplot.svg" class="plain" width=100%>
+			    </div>
+			  </div>
+			  <div class="row">
+			  		<div class="col-50 no-margin">
+			  				<ul class="icon small">
+			  					<li class="arrow-circle red fragment" data-fragment-index=1><span class="grey">X and Y go up</span> together<span class="grey">, or </span>one goes up while the other goes down <span class="grey">, respectively.</span></li>
+			  					<li class="arrow-circle red fragment" data-fragment-index=1>Independent<span class="grey"> data sets are </span>Uncorrelated.</li>
+			  					<li class="arrow-circle red fragment" data-fragment-index=2><span class="grey">If the data are linearly related, then the relationship is best fit by a straight</span> line<span class="grey">.</span></li>
+			  					<li class="arrow-circle red fragment" data-fragment-index=2><span class="grey">If a line does not best represent the data, then we have some </span>tricks<span class="grey"> to help $\rightarrow$</span> ranks and other transforms<span class="grey">.</span></li>
+			  				</ul>
+			  		</div>
+			  		<div class="col-50 no-margin">
+			  				<ul class="icon small">
+			  					<li class="arrow-circle red fragment" data-fragment-index=3><span class="grey">Strong relationship is very </span>linear<span class="grey">.</span></li>
+			  					<li class="arrow-circle red fragment" data-fragment-index=3>Weak<span class="grey"> relationships are blobby.</span></li>
+			  					<li class="arrow-circle red fragment" data-fragment-index=3><span class="grey">Even if it is blobby, we can assess the linearity of the blobbiness with the</span> correlation coefficient<span class="grey">.</span></li>
+			  					<li class="arrow-circle red fragment" data-fragment-index=4><span class="grey">We can ask if a <span class="orange">single data point</span> changes our </span>interpretation<span class="grey">.</span></li>
+			  				</ul>
+			  		</div>
+			  </div>
+			</section>
+			
+      <!-- 2 -->
+			<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h4>Recall Pearson's Product-Moment Correlation</h4>
+    			<p class="l-sided border-mutedBlue">
+  					For the population: $\rho_{X,Y}=\frac{cov(X,Y)}{\sigma_X \sigma_Y}$ and the sample: $r=r_{xy}={\frac {1}{n-1}}\sum _{i=1}^{n}\left({\frac {x_{i}-{\bar {x}}}{s_{x}}}\right)\left({\frac {y_{i}-{\bar {y}}}{s_{y}}}\right)$.
+    			</p>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-55 no-top-margin framed fragment border-red" data-fragment-index=1>
+    				<ul class="icon">
+    					<li class="circle offWhite fragment" data-fragment-index=1>$\rho,\, r$ are unitless on the range [-1,1].</li>
+    					<li class="circle offWhite fragment" data-fragment-index=2>Correlation coefficient gives the <span class="mutedBlue">direction</span> and <span class="orange">strength</span> of the relationship between X and Y.</li>
+    					<li class="circle offWhite fragment" data-fragment-index=3>If $r$ is high, positive or negative, the points lie closer to an imaginary line drawn through the data $\rightarrow$ <span class="mutedBlue">linearly dependent</span>.</li>
+    					<li class="circle offWhite fragment" data-fragment-index=4>If we <span class="mutedBlue">rescaled</span> the data so that each axis was on the same scale, say [-1,1], then $r$ would be the slope of that imaginary line.</li>
+    					<li class="circle offWhite fragment" data-fragment-index=5>When $r\sim 0$, we say X and Y are <span class="orange">independent</span>.</li>
+    					<li class="circle offWhite fragment" data-fragment-index=6>X and Y must each be approximately <span class="red b">normally distributed</span>.</li>
+    					<li class="circle offWhite fragment" data-fragment-index=7>X and Y must each be <span class="red b">homoscedastic</span>, i.e. equal variance across their scale.</li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-45 no-top-margin">
+    				<div class="fig-container"data-file="lib/interactive/understandingCor/index.html"  style="background:transparent;max-height:800px;height:800px;"></div>
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+
+    			</aside>
+    			
+    	</section>
+    	
+    	<!-- 3 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h3>When Data Are Not Normal?</h3>
+    			<p class="l-sided border-mutedBlue">
+    				We can use <span class="green">ranks</span> to <span class="mutedBlue">transform</span> the data into an appropriate-looking space and <span class="orange">then use Pearson's correlation</span> $\rightarrow$ <span class="green">Spearman's Correlation</span>.
+    			</p>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-45 no-top-margin">
+    				<img src="lib/img/gdplin.png" class="plain" style="width:900px;">
+    			</div>
+    			<div class="col-10 no-top-margin">
+    				<p class="big center mutedBlue">Rank<br>$\rightarrow$</p>
+    			</div>
+    			<!-- right column -->
+    			<div class="col-45 no-top-margin">
+    				<img src="lib/img/GDP ranked.png" class="plain" style="width:900px;">
+    			</div>
+    	
+    		</div>
+    		<div class="row fragment">
+    				<h5>What happened to the distributions in X and Y?</h5>
+    				<p class="center framed fragment border-red">The distributions became <span class="mutedBlue">uniform</span>.</p>
+    		</div>
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+## Distributions became uniform, what does central limit theory tell us about uniform distributions?
+If we sample from them an infinite number of times, we would get a normal distribution.
+
+### homoscedasticity
+
+What do you notice about these (left) shapes? What about if QQ-plot?
+The uniform X, and Y, also became fairly homoscedsastic.
+    			</aside>
+    			
+    	</section>
+    	
+    	    	
+    	<!-- 4 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h3>Homoscedasticity</h3>
+    			<p class="centered l-sided border-mutedBlue big">
+    				A dataset is homoscedastic if the variance at <span class="orange">any given portion</span> is the same as all others, i.e. constant.
+    			</p>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-40 no-top-margin framed border-mutedBlue big">
+    				<ul class="icon">
+    					<li class="caret-right green">X is roughly uniform, or potentially Normal-ish.</li>
+    					<li class="caret-right green">Y is roughly uniform, or potentially Normal-ish.</li>
+    					<li class="caret-right green">A distribution can be made of any nearby subset of points and the variability stays the same no matter where in the data you draw the points.</li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-60 no-top-margin">
+    				<img src="lib/img/homoscedastic.png" class="plain">
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+    				
+    			</aside>
+    			
+    	</section>
+    	
+    	<!-- 5 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h3>Heteroscedasticity</h3>
+    			<p class="centered l-sided border-red big">
+    				A dataset is heteroscedastic if the variance at <span class="orange">any given portion</span> is <span class="red">different</span> from all others, i.e. variable.
+    			</p>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-40 no-top-margin framed border-red big">
+    				<ul class="icon">
+    					<li class="caret-right orange">X is roughly uniform, or potentially Normal-ish.</li>
+    					<li class="caret-right orange">Y is roughly uniform, or potentially Normal-ish, or maybe another shape.</li>
+    					<li class="caret-right orange">A distribution can be made of any nearby subset of points and the variability is unique to each location and changes depending on where you're looking.</li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-60 no-top-margin">
+    				<img src="lib/img/heteroscedastic.png" class="plain">
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+    				
+    			</aside>
+    			
+    	</section>
+  		
+    	<!-- 6 -->
+    	<section data-transition="fade-in slide-out">
+        <h3>Going beyond correlation</h3>
+        <div class="row">
+          <div class="col-25">
+
+          </div>
+          <div class="col-75">
+            <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
+              <use xlink:href="lib/img/correlation-simulation-graph-swap.svg#axes_1"></use>
+              <use xlink:href="lib/img/correlation-simulation-graph-swap.svg#axes_2"></use>
+              <use xlink:href="lib/img/correlation-simulation-graph-swap.svg#axes_3"></use>
+              <use xlink:href="lib/img/correlation-simulation-graph-swap.svg#axes_4"></use>
+            </svg>
+          </div>
+        </div>
+        <p class="no-margin-top framed small border-orange">
+          If height and foot length are significantly correlated, couldn't
+          we use the value of one of the variables to <span class="orange">predict</span> the value of
+          the other one?
+        </p>
+        <p class="no-margin-top fragment small">
+          <i class="fa fa-arrow-circle-right orange"></i>
+          Could we use foot length to <span class="orange">gain (unknown) information</span> about someone height?
+        </p>
+      </section>
+      
+      <!-- 7 -->
+      <section>
+        <h3>Why would we want to do that?</h3>
+        <div class="row fragment" data-fragment-index=1>
+          <div class="col-20">
+            <img src="lib/img/regression-ex-forensic.jpg"
+             class="unbordered flat" width=100%>
+          </div>
+          <div class="col-80">
+            <p class="small no-margin-top">
+              <span class="u em orange">Forensic analysis:</span>
+              Most people are not accustomed to looking at foot length, so describing the suspect as having a foot of 10.5inches long would probably not help find the suspect. It would be <span class="mutedBlue">far more useful</span> to tell people to look for a suspect who is of a certain <span class="mutedBlue">height</span>.
+              <br>
+              <span class="fragment" data-fragment-index=3>
+                <i class="fa fa-arrow-circle-right red"></i>
+                The accuracy of this prediction would depend on the size of the correlation between foot length and height
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="row fragment" data-fragment-index=2>
+          <div class="col-20">
+            <img src="lib/img/regression-ex-anthropology.jpeg"
+             class="unbordered flat" width=100%>
+          </div>
+          <div class="col-80">
+            <p class="small no-margin-top">
+              <span class="u em orange">Anthropology:</span>
+              Body proportions and the dimensions of various body segments,
+              including the long bones of their limbs and the bones of the
+              foot and hand have been used to <span class="mutedBlue">estimate stature</span>.
+              <br>
+              <span class="fragment" data-fragment-index=3>
+                <i class="fa fa-arrow-circle-right red"></i>
+                The accuracy of this prediction would depend on the size of the correlation between foot length and height
+              </span>
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      
+      <!-- 8 -->
+      <section>
+        <h3>Going beyond correlation</h3>
+        <p class="no-margin-top big">
+          Because the correlation coefficient only gives information about
+          the
+          <span class="mutedBlue">direction</span> and
+          <span class="mutedBlue">strength</span> of an association,
+          we cannot use it
+          directly to get information of someone's height from
+          his/her footprint.
+        </p>
+        <div class="row">
+          <div class="col-45">
+            <svg width="100%" viewBox="340 0 295 288" style="margin-top: 0;">
+              <use xlink:href="lib/img/correlation-simulation-graph-swap.svg#axes_2"></use>
+              <use class="fragment" data-fragment-index=2 xlink:href="lib/img/correlation-simulation-graph-swap.svg#axes_5"></use>
+              <use class="fragment" data-fragment-index=3 xlink:href="lib/img/correlation-simulation-graph-swap.svg#axes_6"></use>
+            </svg>
+          </div>
+          <div class="col-55">
+            <p class="no-margin-top big fragment framed border-orange" data-fragment-index=1>
+              If we decide the association is linear (strong $r$), it is useful to
+              <span class="orange">develop a mathematical model</span>
+              of that association.
+            </p>
+            <p class="fragment small" data-fragment-index=2>
+              <i class="fa fa-arrow-circle-right orange"></i>
+              The process of fitting a line to a set of data is called <span class="orange em">linear regression</span>, and the line
+              of best fit is called the <span class="orange em">regression line</span>, which is the line that gets as close as possible
+              to all of the data points.
+            </p>
+            <p class="fragment small" data-fragment-index=3>
+              <i class="fa fa-arrow-circle-right red"></i>
+              We can use the regression line to give a <span class="red">predicted value of the response variable</span>, based on a given value of the explanatory variable.
+            </p>
+          </div>
+        </div>
+      </section>
+    	
+    	<!-- 9 -->
+    	<section>
+			  <h3>The Regression Line</h3>
+			  <p class="no-margin-top no-margin-bottom smaller">
+			    Usually, rather than estimating predictions using a graph, we
+			    directly use the <span class="info">equation of the regression line</span>.
+			  </p>
+			  <div class="row">
+			    <div class="col-45">
+			      <svg width="100%" viewBox="0 0 360 360" style="margin-top: 0;">
+			        <use xlink:href="lib/img/regline.svg#axes_1"></use>
+			        <use class="fragment" data-fragment-index=1 xlink:href="lib/img/regline.svg#axes_2"></use>
+			        <use class="fragment" data-fragment-index=2 xlink:href="lib/img/regline.svg#axes_3"></use>
+			      </svg>
+			    </div>
+			    <div class="col-55">
+			      <p class="no-margin-top no-margin-bottom">
+			        <span class="u em">Equation for a line:</span> <br>
+			        $\hat{y}= \beta_0 + \beta_1x$ <span class="fragment" data-fragment-index=1>   Remind you of: <span class="mutedBlue">$y = mx +b$</span>?</span>
+			      </p>
+			      <ul class="pull-10 normal" style="list-style:none; padding-left:0;">
+			        <li class="fragment" data-fragment-index=1>
+			          <span class="orange">$\beta_0$</span>: y-intercept at <span class="orange">$x=0$</span>
+			        </li>
+			        <li class="fragment" data-fragment-index=2>
+			          <span class="green">$\beta_1$</span>: slope of the line (often called <span class="green">$m$</span>)
+			        </li>
+			      </ul>
+			      <div class="row">
+			        <p class="big fragment">
+			          <i class="fa fa-arrow-circle-right red"></i>
+			          Predicting the response variable from the explanatory
+			          variable: <br>
+			          <span class="framed border-danger">$\mathrm{Response}= \beta_0 + \beta_1 \times \mathrm{Explanatory}$</span>
+			        </p>
+			      </div>
+			    </div>
+			  </div>
+			</section>
+    	
+    	<!-- 10 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h3>Why do we want the regression line?</h3>
+    			<h4>What can we do with it?</h4>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-50 no-top-margin l-sided border-mutedBlue">
+    				<ul class="icon offWhite">
+    					<li class="star fragment">Prediction (by <span class="mutedBlue">interpolation</span>).</li>
+    					<li class="star fragment">Physical interpretation of <span class="mutedBlue">$\beta_0$</span> and <span class="mutedBlue">$\beta_1$</span>.</li>
+    					<li class="star fragment">Model selection (think about changes in either $\beta_0$ or $\beta_1$)</li>
+    					<li class="star fragment">"Explain Variance" (We will discuss this during ANOVA)</li>
+    					<li class="star fragment">How does Regression work?</li>
+	    				<li class="star fragment orange">Find the best fit line!</li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-45 no-top-margin fragment">
+    				<div class="fig-container"data-file="lib/interactive/regression/index.html"  style="background:transparent;max-height:800px;height:800px;"></div>
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+    				
+    			</aside>
+    			
+    	</section>
+    	
+    	<!-- 11 -->
+    	<section data-transition="slide-in fade-out">
+        <h3>How does linear regression work?</h3>
+        <div class="row">
+          <div class="col-50">
+            <svg width="100%" viewBox="0 0 360 360" style="margin-top: 0;">
+              <use xlink:href="lib/img/lsquare-main.svg#axes_1"></use>
+              <use class="fragment" data-fragment-index=1 xlink:href="lib/img/lsquare-main.svg#axes_3"></use>
+            </svg>
+          </div>
+          <div class="col-50">
+            <p class="small no-margin-top no-margin-bottom fragment" data-fragment-index=1>
+              The vertical distance from a data point to the regression
+              line is called a <span class="orange">residual</span>.
+              <br>
+              <span class="fragment" data-fragment-index=2>$\mathrm{Residual} = \mathrm{Observed} − \mathrm{Predicted}$</span>
+              <br>
+              <span class="fragment" data-fragment-index=2>$\mathrm{Residual} = y − \hat{y}$</span>
+            </p>
+            <ul class="fragment" style="margin-top: 0.84em;">
+              <li>Points above the line <i class="fa fa-arrow-right"></i> <span class="mutedBlue">positive</span> residuals</li>
+              <li>Points below the line <i class="fa fa-arrow-right"></i> <span class="mutedBlue">negative</span> residuals.</li>
+              <li> If the predicted values closely match the observed data values, the residuals will be <span class="mutedBlue">small</span>.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 12 -->
+      <section data-transition="fade">
+        <h3>How does linear regression work?</h3>
+        <div class="row">
+          <div class="col-50">
+            <svg width="100%" viewBox="0 0 360 360" style="margin-top: 0;">
+              <use xlink:href="lib/img/lsquare-main.svg#axes_1"></use>
+              <use xlink:href="lib/img/lsquare-main.svg#axes_3"></use>
+            </svg>
+          </div>
+          <div class="col-50">
+            <svg width="100%" viewBox="0 0 432 180" style="margin-top: 0;">
+              <use xlink:href="lib/img/lsquare-resid.svg#axes_1"></use>
+            </svg>
+            <ul>
+              <li>Points above the line <i class="fa fa-arrow-right"></i> <span class="mutedBlue">positive</span> residuals</li>
+              <li>Points below the line <i class="fa fa-arrow-right"></i> <span class="mutedBlue">negative</span> residuals.</li>
+              <li> If the predicted values closely match the observed data values, the residuals will be <span class="mutedBlue">small</span>.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 13 -->
+      <section data-transition="fade-in slide-out">
+        <h3>How does linear regression work?</h3>
+        <div class="row">
+          <div class="col-50">
+            <svg width="100%" viewBox="0 0 360 360" style="margin-top: 0;">
+              <use xlink:href="lib/img/lsquare-main.svg#axes_1"></use>
+              <use xlink:href="lib/img/lsquare-main.svg#axes_3"></use>
+              <use class="fragment" data-fragment-index=1 xlink:href="lib/img/lsquare-main.svg#axes_2"></use>
+            </svg>
+          </div>
+          <div class="col-50">
+            <svg width="100%" viewBox="0 0 432 180" style="margin-top: 0;">
+              <use xlink:href="lib/img/lsquare-resid.svg#axes_1"></use>
+            </svg>
+            <p class="no-margin-top">
+              The line that fits the data best is the one where the residuals are close to zero.
+            </p>
+            <p class="no-margin-top fragment" data-fragment-index=1>
+              <i class="fa fa-arrow-circle-right orange"></i>
+              Instead of working directly with the residuals, we usually try to <span class="orange">minimize the sum of the square of the residuals</span>:
+              <br>
+              $SS_{residuals}=\sum_{i=1}^{n}(y_i-\overset{\hat{}}{y_i})^2$
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 14 -->
+      <section data-transition="slide-in fade-out">
+        <h3>Notes on minimizing the $SS_{residuals}$</h3>
+        <p class="no-margin-top small">
+          <i class="fa fa-arrow-circle-right mutedBlue no-margin-bottom"></i>
+          The errors (residuals) are squared to remove the $+$ or $-$ signs
+          and prevent the positive and negative errors to cancel out each
+          others, which could give you a value of zero.
+        </p>
+        <p class="no-margin-top small no-margin-bottom fragment" data-fragment-index=1>
+          <i class="fa fa-arrow-circle-right mutedBlue no-margin-bottom"></i>
+          Most statistical software packages use a procedure called
+          <span class="mutedBlue">Ordinary Least Squares (OLS)</span> to find
+          the line of best fit. This procedure finds a line that minimizes
+          the sum of the squared errors.
+        </p>
+        <div class="row">
+          <div class="col-62">
+            <p class="small fragment" data-fragment-index=2>
+              <i class="fa fa-arrow-circle-right mutedBlue no-margin-bottom"></i>
+              While OLS is pretty much the standard, different penalty functions can be use as well. For example,
+              the <span class="orange">Median Absolute Deviation (MAD)</span>
+              uses the absolute error, and so will be more robust to
+              <span class="red">outliers</span> since it assigns less weight to outliers than
+              OLS.
+            </p>
+          </div>
+          <div class="col-38">
+            <svg width="100%" viewBox="0 0 360 360" style="margin-top: 0;">
+              <use class="fragment current-visible" data-fragment-index=2 xlink:href="lib/img/MADvOLS.svg#axes_1"></use>
+              <use class="fragment" data-fragment-index=3 xlink:href="lib/img/MADvOLS-fit.svg#axes_1"></use>
+              <use class="fragment" data-fragment-index=3 xlink:href="lib/img/MADvOLS-fit.svg#axes_2"></use>
+            </svg>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 15 -->
+    	<section>
+        <h3>Linear regression analysis</h3>
+        <p>
+          Linear regression analysis consists of <span class="mutedBlue">more than
+          just fitting a linear line</span> through a cloud of data points. The linear regression analysis of a dataset can be decomposed in <span class="mutedBlue">3 stages</span>:
+        </p>
+        <ol class="normal">
+          <li><span class="u strong">Analyzing</span> the correlation and directionality of the data (checking if linear regression is an <span class="orange">appropriate model</span> for the data you want to analyze)</li>
+          <li><span class="u strong">Estimating</span> the model using the data (fitting the line, estimating the <span class="orange">best parameters</span> for the line equation)</li>
+          <li><span class="u strong">Evaluating</span> the <span class="orange">validity and usefulness</span> of the model</li>
+        </ol>
+      </section>
+      <!-- 16 -->
+      <section>
+        <h3>Evaluating the model</h3>
+        <p class="smaller no-margin-top no-margin-bottom">
+          Three statistics are commonly used in linear regression analysis
+          to evaluate how well the model fit the data:
+        </p>
+        <ul class="normal">
+          <li>The <span class="orange">$R^2$</span>, or <span class="em">coefficient of determination</span></li>
+          <li>The <span class="orange">$RMSE$</span>, or <span class="em">Root Mean Square Error</span></li>
+          <li>The <span class="green">$F$-statistic</span> (ANOVA)</li>
+        </ul>
+        <p class="small">
+          All three statistics are based on two sums of squares:
+        </p>
+        <div class="row">
+          <table class="table-vert">
+            <col width=50%>
+            <col width=50%>
+            <tbody>
+              <tr>
+                <td class="bg-mutedBlue">Total Sum of Squares ($TSS$)</td>
+                <td class="bg-red">Sum of Squares Error ($SSE$)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid">
+                <td>
+                  it measures how far the response variable data are from the mean.
+                  $TSS=\sum_{i=1}^{n}(y-\color{blue}{\bar{y}})^2$
+                </td>
+                <td>
+                  it measures how far the data are from the model’s predicted values.
+                  $SSE=\sum_{i=1}^{n}(y-\color{red}{\hat{y}})^2$
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small">
+          <i class="fa fa-arrow-circle-right orange"></i>
+           Different combinations of these two values provide different information about how the regression model compares to the mean model.
+        </p>
+      </section>
+
+      <!-- 17 -->
+      <section>
+        <h3>Coefficient of determination, $R^2$</h3>
+        <p class="framed border-orange">
+          $R^2$ measures the percentage of total variation
+          in the response variable that is explained by the linear relationship.
+        </p>
+        <p class="no-margin-bottom biggest center">
+          <span class="orange">$R^2=1-\frac{\textrm{Sum of squared errors (SSE)}}{\textrm{Total sum of squares (TSS)}}$</span>
+          $= 1-\frac{\sum_{i=1}^{n}(y-\color{red}{\hat{y}})^2}{\sum_{i=1}^{n}(y-\color{blue}{\bar{y}})^2}$
+        </p>
+        <p class="small no-margin-bottom">
+          <span class="u em">Notes:</span>
+        </p>
+        <ul class="small">
+          <li> Another way to compute $R^2$ is by litteraly
+          calculating the <span class="mutedBlue">square of the correlation coefficient</span> ($r$). $R^2 = r^2$</li>
+          <li>The slope ($m$) of the regresion line tells you how much change in $Y$ you can expect based on a given change in $X$. The coefficient $R^2$ tells you <span class="mutedBlue">how much of the variation in $Y$ is attributable to (explained by) the variation in $X$</span>. The rest of the variation (or <span class="em red">“noise”</span>), is accounted by other factors, such as measurement error, individual variation, etc.</li>
+        </ul>
+      </section>
+      <!-- 18 -->
+      <section>
+        <h3>Root mean square error, $RMSE$</h3>
+        <p class="framed border-orange">
+          The $RMSE$ measures how close the observed data points are to the model’s predicted values.
+        </p>
+        <p class="no-margin-top">
+          The $RMSE$ is a common metric to evaluate model performance and computes the square root of the average squared residual (distance from the prediction to the best fit).
+        </p>
+        <p class="orange no-margin-bottom biggest center">
+          $$RMSE=\sqrt{\frac{1}{n}\sum_{i=1}^{n}(y-\hat{y})^2}$$
+        </p>
+        <p class="small no-margin-top">
+          <i class="fa fa-arrow-circle-right mutedBlue"></i>
+          The key idea behind the computation of the $RMSE$
+          is that predictions ($\hat{y}$) that are <span class="mutedBlue">far away from the true observed data</span>
+          value ($y$) will contribute more heavily to <span class="mutedBlue">increasing</span> the value of the $RMSE$ than predictions that are close to the true values.
+        </p>
+        <p class="small no-margin-top">
+          <i class="fa fa-arrow-circle-right mutedBlue"></i>
+          <span class="mutedBlue">Lower</span> values of RMSE indicate <span class="mutedBlue">better</span> fit.
+        </p>
+      </section>
+      <!-- 19 -->
+      <section>
+        <h3>Model evaluation, $R^2$ vs $RMSE$</h3>
+        <div class="row">
+          <table>
+            <col width=50%>
+            <col width=50%>
+            <tbody>
+              <tr>
+                <td class="bg-mutedBlue">$R^2$</td>
+                <td class="bg-red">$RMSE$</td>
+              </tr>
+              <tr>
+                <td>Square of the correlation coefficient</td>
+                <td>Square root of the average squared residual</td>
+              </tr>
+              <tr>
+                <td colspan="2">Both give an indication about the <span class="em">"goodness of the fit"</span></td>
+              </tr>
+              <tr>
+                <td>$R^2$ is conveniently scaled between 0 and 1 (<span class="mutedBlue">relative measure</span> of fit)</td>
+                <td>$RMSE$ is not scaled to any particular value (<span class="red">absolute measure</span> of fit)</td>
+              </tr>
+              <tr>
+                <td>$R^2$ can be more easily interpreted
+                  in the <span class="mutedBlue">context of the linear association</span>
+                  analyzed
+                  (how successful the fit is in explaining the variation of the data)
+                </td>
+                <td>$RMSE$ explicitly provides information about <span class="red">how much our predictions deviate, on average</span>, from the actual values in the dataset</td>
+              </tr>
+              <tr>
+                <td>Its main purpose is either the <span class="mutedBlue">prediction</span> of future outcomes or the <span class="mutedBlue">testing</span> of hypotheses.</td>
+                <td>
+                  It is one of the most important criterion for fit if the main purpose of the model is <span class="mutedBlue">prediction</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <!-- 20 -->
+      <section>
+        <h3>The use of linear regression analysis</h3>
+        <p class="no-margin-top em smaller">
+          There are 3 major uses for regression analysis:
+        </p>
+        <p class="small framed border-orange">
+          <span class="orange em u">Causal analysis</span>: it might be used to identify the <span class="orange">strength of the effect</span> that the independent variable(s) have on a dependent variable. Typical questions are what is the strength of relationship between dose and effect, sales and marketing spend, age and income, etc...
+        </p>
+        <p class="small framed border-mutedBlue">
+          <span class="mutedBlue em u">Forecasting</span>: it can be used to forecast <span class="mutedBlue">effects or impacts of changes</span>. That is regression analysis helps us to understand how much will the dependent variable change, when we change one or more independent variables. Typical questions are how much additional $Y$ would I get for one additional unit $X$.
+        </p>
+        <p class="small framed border-red">
+          <span class="red em u">Prediction</span>: it can be used to predict <span class="red">trends and future values</span>. The regression analysis can be used to get point estimates. Typical questions are what will the price for gold be in 6 month from now? What is the total effort for a task X?
+        </p>
+      </section>
+    	
+    	
+      <!-- #########################     CONTENT END     #########################-->
+    </div>
+    
+  </div>
+  
+  <!-- REVEAL JS -->
+  <script src="lib/js/reveal.js/lib/js/head.min.js"></script>
+  <script src="lib/js/reveal.js/js/reveal.js"></script>
+  <script src="lib/js/initReveal.js"></script>
+</body>
+</html>
