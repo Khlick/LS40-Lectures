@@ -21,10 +21,19 @@
 			}
 		},
 		{
+			"file": "lib/img/minOLS.svg",
+			"settings":
+			{
+				"buffer_size": 775526,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 8109,
+				"buffer_size": 8171,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -123,7 +132,16 @@
 			"file": "Lecture11.html",
 			"settings":
 			{
-				"buffer_size": 36912,
+				"buffer_size": 36913,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lecture12.html",
+			"settings":
+			{
+				"buffer_size": 54986,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -138,10 +156,10 @@
 			}
 		},
 		{
-			"contents": "      <section>\n        <h3>Linear regression analysis</h3>\n        <p>\n          Linear regression analysis consists of <span class=\"mutedBlue\">more than\n          just fitting a linear line</span> through a cloud of data points. The linear regression analysis of a dataset can be decomposed in <span class=\"mutedBlue\">3 stages</span>:\n        </p>\n        <ol class=\"normal\">\n          <li><span class=\"u strong\">Analyzing</span> the correlation and directionality of the data (checking if linear regression is an <span class=\"orange\">appropriate model</span> for the data you want to analyze)</li>\n          <li><span class=\"u strong\">Estimating</span> the model using the data (fitting the line, estimating the <span class=\"orange\">best parameters</span> for the line equation)</li>\n          <li><span class=\"u strong\">Evaluating</span> the <span class=\"orange\">validity and usefulness</span> of the model</li>\n        </ol>\n      </section>\n\n      <section>\n        <h3>Evaluating the model</h3>\n        <p class=\"smaller no-margin-top no-margin-bottom\">\n          Three statistics are commonly used in linear regression analysis\n          to evaluate how well the model fit the data:\n        </p>\n        <ul class=\"normal\">\n          <li>The <span class=\"orange\">$R^2$</span>, or <span class=\"em\">coefficient of determination</span></li>\n          <li>The <span class=\"orange\">$RMSE$</span>, or <span class=\"em\">Root Mean Square Error</span></li>\n          <li>The <span class=\"green\">$F$-statistic</span> (ANOVA)</li>\n        </ul>\n        <p class=\"small\">\n          All three statistics are based on two sums of squares:\n        </p>\n        <div class=\"row\">\n          <table class=\"table-vert\">\n            <col width=50%>\n            <col width=50%>\n            <tbody>\n              <tr>\n                <td class=\"bg-mutedBlue\">Total Sum of Squares ($TSS$)</td>\n                <td class=\"bg-red\">Sum of Squares Error ($SSE$)</td>\n              </tr>\n              <tr style=\"border-bottom: 1px solid\">\n                <td>\n                  it measures how far the response variable data are from the mean.\n                  $TSS=\\sum_{i=1}^{n}(y-\\texclass{mutedBlue}{\\bar{y}})^2$\n                </td>\n                <td>\n                  it measures how far the data are from the model’s predicted values.\n                  $SSE=\\sum_{i=1}^{n}(y-\\texclass{red}{\\overset{\\hat{}}{y}})^2$\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n        <p class=\"small\">\n          <i class=\"fa fa-arrow-circle-right orange\"></i>\n           Different combinations of these two values provide different information about how the regression model compares to the mean model.\n        </p>\n      </section>\n\n\n      <section>\n        <h3>Coefficient of determination, $R^2$</h3>\n        <p class=\"framed border-orange\">\n          $R^2$ measures the percentage of total variation\n          in the response variable that is explained by the linear relationship.\n        </p>\n        <p>\n          <span class=\"orange\">$$R^2=1-\\frac{\\textrm{Sum of squared errors (SSE)}}{\\textrm{Total sum of squares (TSS)}}$</span>\n          $= 1-\\frac{\\sum_{i=1}^{n}(y-\\texclass{red}{\\overset{\\hat{}}{y}})^2}{\\sum_{i=1}^{n}(y-\\texclass{mutedBlue}{\\bar{y}})^2}$$\n        </p>\n        <p class=\"small no-margin-bottom\">\n          <span class=\"u em\">Notes:</span>\n        </p>\n        <ul class=\"small\">\n          <li> Another way to compute $R^2$ is by litteraly\n          calculating the <span class=\"mutedBlue\">square of the correlation coefficient</span> ($r$). $R^2 = r^2$</li>\n          <li>The slope ($m$) of the regresion line tells you how much change in $Y$ you can expect based on a given change in $X$. The coefficient $R^2$ tells you <span class=\"mutedBlue\">how much of the variation in $Y$ is attributable to (explained by) the variation in $X$</span>. The rest of the variation (or <span class=\"em red\">“noise”</span>), is accounted by other factors, such as measurement error, individual variation, etc.</li>\n        </ul>\n      </section>\n\n      <section>\n        <h3>Root mean square error, $RMSE$</h3>\n        <p class=\"framed border-orange\">\n          The $RMSE$ measures how close the observed data points are to the model’s predicted values.\n        </p>\n        <p class=\"small no-margin-top\">\n          The $RMSE$ is a common metric to evaluate model performance and computes the square root of the average squared residual (distance from the prediction to the best fit).\n        </p>\n        <p class=\"orange no-margin-bottom\">\n          $RMSE=\\sqrt{\\frac{1}{n}\\sum_{i=1}^{n}(y-\\overset{\\hat{}}{y})^2}$\n        </p>\n        <p class=\"smaller no-margin-top\">\n          <i class=\"fa fa-arrow-circle-right mutedBlue\"></i>\n          The key idea behind the computation of the $RMSE$\n          is that predictions ($\\overset{\\hat{}}{y}$) that are <span class=\"mutedBlue\">far away from the true observed data</span>\n          value ($y$) will contribute more heavily to <span class=\"mutedBlue\">increasing</span> the value of the $RMSE$ than predictions that are close to the true values.\n        </p>\n        <p class=\"smaller no-margin-top\">\n          <i class=\"fa fa-arrow-circle-right mutedBlue\"></i>\n          <span class=\"mutedBlue\">Lower</span> values of RMSE indicate <span class=\"mutedBlue\">better</span> fit.\n        </p>\n      </section>\n\n      <section>\n        <h3>Model evaluation, $R^2$ vs $RMSE$</h3>\n        <div class=\"row\">\n          <table>\n            <col width=50%>\n            <col width=50%>\n            <tbody>\n              <tr>\n                <td class=\"bg-mutedBlue\">$R^2$</td>\n                <td class=\"bg-red\">$RMSE$</td>\n              </tr>\n              <tr>\n                <td>Square of the correlation coefficient</td>\n                <td>Square root of the average squared residual</td>\n              </tr>\n              <tr>\n                <td colspan=\"2\">Both give an indication about the <span class=\"em\">\"goodness of the fit\"</span></td>\n              </tr>\n              <tr>\n                <td>$R^2$ is conveniently scaled between 0 and 1 (<span class=\"mutedBlue\">relative measure</span> of fit)</td>\n                <td>$RMSE$ is not scaled to any particular value (<span class=\"red\">absolute measure</span> of fit)</td>\n              </tr>\n              <tr>\n                <td>$R^2$ can be more easily interpreted\n                  in the <span class=\"mutedBlue\">context of the linear association</span>\n                  analyzed\n                  (how successful the fit is in explaining the variation of the data)\n                </td>\n                <td>$RMSE$ explicitly provides information about <span class=\"red\">how much our predictions deviate, on average</span>, from the actual values in the dataset</td>\n              </tr>\n              <tr>\n                <td>Its main purpose is either the <span class=\"mutedBlue\">prediction</span> of future outcomes or the <span class=\"mutedBlue\">testing</span> of hypotheses.</td>\n                <td>\n                  It is one of the most important criterion for fit if the main purpose of the model is <span class=\"mutedBlue\">prediction</span>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </section>\n\n      <section>\n        <h3>The use of linear regression analysis</h3>\n        <p class=\"no-margin-top em smaller\">\n          There are 3 major uses for regression analysis:\n        </p>\n        <p class=\"small framed border-orange\">\n          <span class=\"orange em u\">Causal analysis</span>: it might be used to identify the <span class=\"orange\">strength of the effect</span> that the independent variable(s) have on a dependent variable. Typical questions are what is the strength of relationship between dose and effect, sales and marketing spend, age and income, etc...\n        </p>\n        <p class=\"small framed border-mutedBlue\">\n          <span class=\"mutedBlue em u\">Forecasting</span>: it can be used to forecast <span class=\"mutedBlue\">effects or impacts of changes</span>. That is regression analysis helps us to understand how much will the dependent variable change, when we change one or more independent variables. Typical questions are how much additional $Y$ would I get for one additional unit $X$.\n        </p>\n        <p class=\"small framed border-red\">\n          <span class=\"red em u\">Prediction</span>: it can be used to predict <span class=\"red\">trends and future values</span>. The regression analysis can be used to get point estimates. Typical questions are what will the price for gold be in 6 month from now? What is the total effort for a task X?\n        </p>\n      </section>",
+			"contents": "      <section>\n        <h3>Tipping pattern</h3>\n        <div class=\"row\">\n          <div class=\"col-60\">\n            <p class=\"small no-margin-top\">\n              The owner of a bistro called <span class=\"em\">First Crush</span> in Potsdam, New York, was interested in studying the <span class=\"orange\">tipping patterns of its patrons</span>. \n            </p>\n            <p class=\"small no-margin-top no-margin-bottom\">\n              <i class=\"fa fa-arrow-circle-right mutedBlue\"></i>\n              He collected restaurant bills over a \n              two-week period that he believes provide a\n              good <span class=\"mutedBlue\">sample of his customers</span>. He recorded the data from 157 bills including:\n            </p>\n            <ul class=\"small\">\n              <li>amount of the bill</li>\n              <li>amount of the tip</li>\n              <li>corresponding percentage of the tip</li>\n              <li>number of customers in the group</li>\n              <li>whether or not a credit card was used</li>\n              <li>day of the week</li>\n              <li>coded identity of the server</li>\n            </ul>\n          </div>\n          <div class=\"col-40\">\n            <img src=\"lib/img/tipping-first-crush.jpg\" width=100% class=\"rounded\">\n          </div>\n        </div>\n      </section>\n\n      <section data-transition=\"slide-in fade-out\">\n        <h3>Tipping pattern data</h3>\n        <p class=\"no-margin-top no-margin-bottom u em\">\n          1) We want to predict the tip amount based on the bill amount.\n        </p>\n        <div class=\"row\">\n          <div class=\"col-50\">\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/tipping-data-tip-vs-bill.svg#axes_1\"></use>\n              <use class=\"fragment\" data-fragment-index=1 xlink:href=\"lib/img/tipping-data-tip-vs-bill.svg#axes_2\"></use>\n              <use class=\"fragment\" data-fragment-index=2 xlink:href=\"lib/img/tipping-data-tip-vs-bill.svg#axes_4\"></use>\n            </svg>\n          </div>\n          <div class=\"col-50 fragment\" data-fragment-index=0>\n            <p class=\"small\">\n              The scatterplot of the data show:\n            </p>\n            <ul class=\"small icon\">\n              <li class=\"play\">strong <span class=\"orange\">positive relationship</span> in the data</li>\n              <li class=\"play\">few <span class=\"orange\">outliers</span> (big tippers) above the main pattern</li>\n            </ul>\n          </div>\n        </div>\n        <p class=\"small fragment\" data-fragment-index=1 >\n          <i class=\"fa fa-arrow-circle-right mutedBlue\"></i>\n          If we calculate correlation, we obtain $r=0.915$, reinforcing the fact that\n          the data have a strong positive linear relationship.\n        </p>\n        <p class=\"small fragment\" data-fragment-index=2 >\n          <i class=\"fa fa-arrow-circle-right red\"></i>\n          We can build a linear model of the association.\n        </p>\n      </section>\n\n      <section data-transition=\"fade-in slide-out\">\n        <h3>Tipping pattern data</h3>\n        <p class=\"no-margin-top no-margin-bottom u em\">\n          1) We want to predict the tip amount based on the bill amount.\n        </p>\n        <div class=\"row\">\n          <div class=\"col-50\">\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/tipping-data-tip-vs-bill.svg#axes_1\"></use>\n              <use xlink:href=\"lib/img/tipping-data-tip-vs-bill.svg#axes_2\"></use>\n              <use xlink:href=\"lib/img/tipping-data-tip-vs-bill.svg#axes_4\"></use>\n            </svg>\n          </div>\n          <div class=\"col-50\">\n            <p class=\"small no-margin-top\">\n              Regression line equation: <br>\n              $y=-0.292+\\texclass{red}{0.182}x$ <br>\n              <span class=\"em\">What does this slope mean?</span>\n            </p>\n            <p class=\"small\">\n              <span class=\"orange\">$R^2=0.837$</span><br>\n              <span class=\"em\">What does this $R^2$ mean?</span>\n            </p>\n          </div>\n        </div>\n        <p class=\"small fragment no-margin-top no-margin-bottom\" data-fragment-index=1 >\n          <i class=\"fa fa-arrow-circle-right red\"></i>\n          The slope of $0.182$ indicates that for every extra dollar in the restaurant bill the tip will increase, <span class=\"red\">on average</span>, by about $\\$0.18$. (The <span class=\"red\">typical</span> tip rate at this restaurant is <span class=\"red\">roughly</span> $18\\%$ of the total bill.)\n        </p>\n        <p class=\"small fragment no-margin-top\" data-fragment-index=2 >\n          <i class=\"fa fa-arrow-circle-right orange\"></i>\n          $\\approx 84\\%$ of the variation in the amount in tip can be <span class=\"orange\">explained</span> by the variation in bill amount\n        </p>\n      </section>\n\n      <section>\n        <h3>Inference about the slope</h3>\n        <p class=\"framed border-orange small no-margin-top\">\n          How to get an estimate of the <span class=\"orange\">true value of the average tip rate</span> at <span class=\"em\">First Crush</span>?\n        </p>\n        <p class=\"small fragment no-margin-bottom\" data-fragment-index=1>\n          <i class=\"fa fa-arrow-circle-right orange\"></i>\n          Compute the $95\\%$ confidence intervals of the \n          slope (<span class=\"orange\">$\\beta_1$</span>) for the relationship between tip amount and bill amount.\n        </p>\n        <div class=\"row\">\n          <div class=\"col-50\">\n            <p class=\"small framed border-mutedBlue fragment\" data-fragment-index=2>\n              <span class=\"mutedBlue u em\">Method #1:</span>\n              Bootstrap of the (x,y) pairs data points.\n            </p>\n            <p class=\"small fragment no-margin-top\" data-fragment-index=3>\n              <i class=\"fa fa-arrow-circle-right mutedBlue\"></i>\n              generation of pseudo data is the more usual\n              form of bootstrapping for regression analysis.\n              The approach is robust\n              in that if an incorrect model is fitted an\n              <span class=\"mutedBlue\">appropriate measure of parameter\n              uncertainty</span> is still obtained.\n            </p>\n          </div>\n          <div class=\"col-50\">\n            <p class=\"small framed border-red fragment\" data-fragment-index=2>\n              <span class=\"red u em\">Method #2:</span>\n              Bootstrap of the residuals.\n            </p>\n            <p class=\"small fragment no-margin-top\" data-fragment-index=3>\n              <i class=\"fa fa-arrow-circle-right red\"></i>\n              implicitly <span class=\"red\">assumes that the functional form of the model is correct</span> (even though no assumption is made about the shape of the error distribution).\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <section>\n        <h3>Bootstrap CIs for regression</h3>\n        <img src=\"lib/img/regression-ci95.svg\" \n        class=\"unbordered flat\" width=90%>\n      </section>\n\n      <section data-transition=\"slide-in fade-out\">\n        <h3>Inference about the slope</h3>\n        <div class=\"row\">\n          <div class=\"col-90\">\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/tipping-data-tip-vs-bill.svg#axes_1\"></use>\n              <use class=\"fragment\" data-fragment-index=1 xlink:href=\"lib/img/tipping-data-tip-vs-bill.svg#axes_3\"></use>\n              <use xlink:href=\"lib/img/tipping-data-tip-vs-bill.svg#axes_2\"></use>\n              <use xlink:href=\"lib/img/tipping-data-tip-vs-bill.svg#axes_4\"></use>\n            </svg>\n          </div>\n        </div>\n      </section>\n\n      <section data-transition=\"fade-in slide-out\">\n        <h3>Inference about the slope</h3>\n        <div class=\"row\">\n          <div class=\"col-50\">\n            <p class=\"no-margin-top small u em\">\n              Slope sampling distribution\n            </p>\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/tipping-resampling-slope-ci95.svg#axes_1\"></use>\n              <use class=\"fragment\" data-fragment-index=1 xlink:href=\"lib/img/tipping-resampling-slope-ci95.svg#axes_2\"></use>\n              <use class=\"fragment\" data-fragment-index=2 xlink:href=\"lib/img/tipping-resampling-slope-ci95.svg#axes_3\"></use>\n            </svg>\n            <p class=\"no-margin-top smaller\">\n              <i class=\"fa fa-arrow-circle-right red\"></i>\n              We are 95% confident that the true value of the <span class=\"red\">population slope $\\beta_1$</span> is in the interval $(0.166, 0.201)$. The true \n              <span class=\"red\">average tipping\n              rate</span> of the patrons of <span class=\"em\">First Crush</span> is \n              between $16\\%$ and $20\\%$.\n            </p>\n          </div>\n          <div class=\"col-50\">\n            <p class=\"no-margin-top small u em center\">\n              Intercept sampling distribution\n            </p>\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/tipping-resampling-intercept-ci95.svg#axes_1\"></use>\n              <use class=\"fragment\" data-fragment-index=1 xlink:href=\"lib/img/tipping-resampling-intercept-ci95.svg#axes_2\"></use>\n              <use class=\"fragment\" data-fragment-index=2 xlink:href=\"lib/img/tipping-resampling-intercept-ci95.svg#axes_3\"></use>\n            </svg>\n            <p class=\"no-margin-top smaller\">\n              <i class=\"fa fa-arrow-circle-right orange\"></i>\n              We are 95% confident that the true value of the <span class=\"orange\">population intercept $\\beta_0$</span> is in the interval $(-0.674, 0.048)$. If there is \n              <span class=\"orange\">no bill</span>, there is probably <span class=\"orange\">no tip</span> <i class=\"fa fa-smile-o\"></i>\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <section data-transition=\"slide-in fade-out\">\n        <h3>What about tip percentage?</h3>\n        <p class=\"no-margin-top small\">\n          Most people use a fairly regular percentage (which may vary from person to person) of the total bill when deciding how big a tip to leave. \n        </p>\n        <p class=\"no-margin-top small\">\n          Some economists have theorized that\n          <span class=\"orange\">i) people tend to reduce that percentage when the bill gets large</span>, but in the other hand\n          <span class=\"orange\">ii) larger groups of customers might be more generous as a group due to peer pressure</span>.\n          (<span class=\"em\">Loewenstein, G. and Prelec, D. (1992). Anomalies in Intertemporal Choice: Evidence and an Interpretation, Quarterly Journal of Economics, 1992;107:573–97</span>)\n        </p>\n        <p class=\"no-margin-top no-margin-bottom framed border-mutedBlue\">\n          How could we study these two questions using \n          our dataset? <br>\n          Could we use regression analysis? What parameter would\n          particularly be of interest?\n        </p>\n      </section>\n\n\n\n      <section data-transition=\"fade\">\n        <h3>What about tip percentage?</h3>\n        <div class=\"row\">\n          <div class=\"col-45\">\n            <p class=\"smaller no-margin-top\">\n              From our dataset, we can calculate the percentage\n              of the bill that each tip represents, and display\n              the scatterplot of the percentage in fuction of \n              the total bill.\n            </p>\n            <p class=\"fragment smaller\" data-fragment-index=2>\n              <i class=\"fa fa-arrow-circle-right red\"></i>\n              We can compute the $95\\%$ confidence interval of \n              the slope of this regression line and check if \n              $0$ (no positive association) is inside.\n            </p>\n          </div>\n          <div class=\"col-55\">\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/tipping-data-pcenttip-vs-bill.svg#axes_1\"></use>\n              <use class=\"fragment\" data-fragment-index=4 xlink:href=\"lib/img/tipping-data-pcenttip-vs-bill.svg#axes_4\"></use>\n              <use xlink:href=\"lib/img/tipping-data-pcenttip-vs-bill.svg#axes_3\"></use>\n              <use class=\"fragment\" data-fragment-index=1 xlink:href=\"lib/img/tipping-data-pcenttip-vs-bill.svg#axes_2\"></use>\n            </svg>\n          </div>\n        </div>\n        <p class=\"small fragment no-margin-top\" data-fragment-index=3>\n          <i class=\"fa fa-arrow-circle-right orange\"></i>\n          We select bootstrap samples (pairs, n=157), with replacement, from the dataset. For each bootstrap sample, we run the regression model, compute the sample slope, and save it to form the bootstrap distribution.\n        </p>\n      </section>\n\n      <section data-transition=\"fade-in slide-out\">\n        <h3>What about tip percentage?</h3>\n        <div class=\"row\">\n          <div class=\"col-45\">\n            <p class=\"smaller no-margin-top\">\n              From our dataset, we can calculate the percentage\n              of the bill that each tip represents, and display\n              the scatterplot of the percentage in fuction of \n              the total bill.\n            </p>\n            <p class=\"smaller\">\n              <i class=\"fa fa-arrow-circle-right red\"></i>\n              We can compute the $95\\%$ confidence interval of \n              the slope of this regression line and check if \n              $0$ (no positive association) is inside.\n            </p>\n          </div>\n          <div class=\"col-55\">\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/tipping-resampling-pcenttipping-slope-ci95.svg#axes_1\"></use>\n              <use xlink:href=\"lib/img/tipping-resampling-pcenttipping-slope-ci95.svg#axes_2\"></use>\n              <use class=\"fragment\" data-fragment-index=1 xlink:href=\"lib/img/tipping-resampling-pcenttipping-slope-ci95.svg#axes_3\"></use>\n            </svg>\n          </div>\n        </div>\n        <p class=\"small fragment no-margin-top\" data-fragment-index=4>\n          <i class=\"fa fa-arrow-circle-right orange\"></i>\n          It does <span class=\"orange\">not include the null value of zero</span>, so we reject $H_0$ in favor of a two-tailed alternative at a the $5\\%$ level. In fact, since the confidence interval includes only positive values, this strongly suggests that the true slope is above zero. Thus we have evidence that there is some <span class=\"orange\">positive relationship between the amount of a tip and the size of a bill</span> at this restaurant.\n        </p>\n      </section>\n\n      <section data-transition=\"slide-in fade-out\">\n        <h3>What about the outliers?</h3>\n        <div class=\"row\">\n          <div class=\"col-50\">\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use class=\"fragment\" data-fragment-index=1 xlink:href=\"lib/img/tipping-data-tip-vs-bill.svg#axes_5\"></use>\n              <use xlink:href=\"lib/img/tipping-data-tip-vs-bill.svg#axes_1\"></use>\n            </svg>\n          </div>\n          <div class=\"col-50\">\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use class=\"fragment\" data-fragment-index=1 xlink:href=\"lib/img/tipping-data-pcenttip-vs-bill.svg#axes_5\"></use>\n              <use xlink:href=\"lib/img/tipping-data-pcenttip-vs-bill.svg#axes_1\"></use>\n            </svg>\n          </div>\n        </div>\n        <p class=\"small no-margin-top no-margin-bottom\">\n          The scatterplot show a <span class=\"red\">few possible outliers</span> from the pattern of the rest of the data. Three very generous customers left tips that were more than 30% of the bill. \n        </p>\n        <p class=\"small quoted\">\n          Do those points have had a <span class=\"orange\">large effect on the conclusions we did</span> based on the slopes of either of the relationships we studied?\n        </p>\n      </section>\n\n      <section data-transition=\"fade\">\n        <h3>What about the outliers?</h3>\n        <div class=\"row\">\n          <div class=\"col-50\">\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/tipping-data-tip-vs-bill.svg#axes_5\"></use>\n              <use xlink:href=\"lib/img/tipping-data-tip-vs-bill.svg#axes_1\"></use>\n            </svg>\n          </div>\n          <div class=\"col-50\">\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/tipping-data-pcenttip-vs-bill.svg#axes_5\"></use>\n              <use xlink:href=\"lib/img/tipping-data-pcenttip-vs-bill.svg#axes_1\"></use>\n            </svg>\n          </div>\n        </div>\n        <p class=\"small framed border-orange\">\n          One way to investigate this question is to omit those cases from the data and re-run the analysis without them.\n        </p>\n      </section>\n\n      <section data-transition=\"fade\">\n        <h3>What about the outliers?</h3>\n        <div class=\"row\">\n          <div class=\"col-50\">\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/tipping-data-tip-vs-bill.svg#axes_5\"></use>\n              <use xlink:href=\"lib/img/tipping-data-tip-vs-bill.svg#axes_1\"></use>\n            </svg>\n          </div>\n          <div class=\"col-50\">\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/tipping-data-pcenttip-vs-bill.svg#axes_5\"></use>\n              <use xlink:href=\"lib/img/tipping-data-pcenttip-vs-bill.svg#axes_1\"></use>\n            </svg>\n          </div>\n        </div>\n        <div class=\"row\">\n          <table class=\"table-vert\">\n            <col width=30%>\n            <col width=35%>\n            <col width=35%>\n            <tbody>\n              <tr>\n                <td style=\"border-left: none;\"></td>\n                <td class=\"bg-mutedBlue\">Tip vs Bill</td>\n                <td class=\"bg-red\">Tip (%) vs Bill</td>\n              </tr>\n              <tr style=\"border-bottom: 1px solid\">\n                <td>Full dataset</td>\n                <td>$y=-0.292+\\texclass{orange}{0.182}x$</td>\n                <td>$y=15.508+\\texclass{orange}{0.049}x$</td>\n              </tr>\n              <tr style=\"border-bottom: 1px solid\">\n                <td>No outliers</td>\n                <td>$y=-0.404+\\texclass{orange}{0.183}x$</td>\n                <td>$y=14.918+\\texclass{orange}{0.056}x$</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </section>\n\n      <section data-transition=\"fade-in slide-out\">\n        <h3>What about the outliers?</h3>\n        <div class=\"row\">\n          <table class=\"table-vert\">\n            <col width=30%>\n            <col width=35%>\n            <col width=35%>\n            <tbody>\n              <tr>\n                <td style=\"border-left: none;\"></td>\n                <td class=\"bg-mutedBlue\">Tip vs Bill</td>\n                <td class=\"bg-red\">Tip (%) vs Bill</td>\n              </tr>\n              <tr style=\"border-bottom: 1px solid\">\n                <td>Full dataset</td>\n                <td>$y=-0.292+\\texclass{orange}{0.182}x$</td>\n                <td>$y=15.508+\\texclass{orange}{0.049}x$</td>\n              </tr>\n              <tr style=\"border-bottom: 1px solid\">\n                <td>No outliers</td>\n                <td>$y=-0.404+\\texclass{orange}{0.183}x$</td>\n                <td>$y=14.918+\\texclass{orange}{0.056}x$</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n        <p class=\"small\">\n          <i class=\"fa fa-arrow-circle-right mutedBlue\"></i>\n          After dropping the three generous data points, we see\n          that the outliers have a negligible effect on the slopes of the relationships we studied.\n        </p>\n        <div class=\"row\">\n          <table class=\"table-vert\">\n            <col width=30%>\n            <col width=35%>\n            <col width=35%>\n            <tbody>\n              <tr>\n                <td style=\"border-left: none;\"></td>\n                <td class=\"bg-mutedBlue\">Tip vs Bill</td>\n                <td class=\"bg-red\">Tip (%) vs Bill</td>\n              </tr>\n              <tr style=\"border-bottom: 1px solid\">\n                <td>Full dataset</td>\n                <td>$[0.166, 0.201]$</td>\n                <td>$[0.005, 0.094]$</td>\n              </tr>\n              <tr style=\"border-bottom: 1px solid\">\n                <td>No outliers</td>\n                <td>$[0.168, 0.202]$</td>\n                <td>$[0.015, 0.101]$</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n        <p class=\"small\">\n          <i class=\"fa fa-arrow-circle-right mutedBlue\"></i>\n          The 95% confidence intervals for these slopes, based on the data without outliers, are a bit narrower, but otherwise similar to what we obtained, from the full dataset.\n        </p>\n        <p class=\"small\">\n          <i class=\"fa fa-arrow-circle-right orange\"></i>\n          The outliers did not affect our conclusions.\n        </p>\n      </section>\n\n      <section>\n        <h3>Scope of our conclusions?</h3>\n        <p class=\"small no-margin-top\">\n          <span class=\"u em mutedBlue\">Data Collection:</span>\n          What population can we draw inferences about from the dataset we anlayze?\n          The sample was generated by collecting <span class=\"mutedBlue\">all bills over several nights at the <span class=\"em\">First Crush</span> restaurant</span>.\n        </p>\n        <p class=\"small no-margin-top fragment\" data-fragment-index=1>\n          <i class=\"fa fa-arrow-circle-right orange\"></i>\n          Because the data are all from one restaurant, the population of interest is all bills and tips at this restaurant. \n        </p>\n        <p class=\"small no-margin-top fragment\" data-fragment-index=1>\n          <i class=\"fa fa-arrow-circle-right orange\"></i>\n          The original sample was <span class=\"orange\">not a random sample of all bills</span>, but rather the data were collected from all bills in a <span class=\"orange\">certain time frame</span>. That might introduce bias if the days for the bills in the sample are different in some substantial way (for example, over a holiday season or only weekends). However, <span class=\"orange\">the owner indicates</span> that the days for which bills were sampled are <span class=\"orange\">representative of the business at his restaurant</span>. \n        </p>\n        <p class=\"small no-margin-top fragment\" data-fragment-index=1>\n          <i class=\"fa fa-arrow-circle-right orange\"></i>\n          As data analysts we might alert the owner to the <span class=\"orange\">possibility of bias</span> when reporting our findings, but we proceed for now with the assumption that the sample is representative of all bills at this restaurant.\n        </p>\n      </section>\n\n\n      <section>\n        <h3>The 1970 military draft lottery</h3>\n        <div class=\"row\">\n          <div class=\"col-55\">\n            <p class=\"small\">\n              In November of 1969, with the Vietnam War raging, President Nixon signed an executive order to reinstitute <span class=\"orange\">the draft</span>. Men were drafted to fill vacancies in the United States Armed Forces that could not be filled through voluntary means.\n            </p>\n            <p class=\"small\">\n              In an attempt to expose male youth <span class=\"mutedBlue\">\"fairly\" to the risk of being drafted</span>, the Selective Service held a <span class=\"mutedBlue\">lottery</span> on December 1, 1969 to allocate birthdates at random. Men were then <span class=\"mutedBlue\">drafted in the order that their birth days were drawn</span>.\n            </p>\n          </div>\n          <div class=\"col-45\">\n            <img src=\"lib/img/Unclesamwantyou.jpg\" width=100%>\n          </div>\n        </div>\n        \n      </section>\n\n      <section>\n        <h3>The selection process</h3>\n        <div class=\"row\">\n          <div class=\"col-40\">\n            <p>\n              The order stipulated that the selection be a <span class=\"orange\">random process</span> based on the birthdays of men born between January 1, 1944 and December 31, 1950.\n            </p>\n          </div>\n          <div class=\"col-60\">\n            <img src=\"lib/img/draft-lottery-1969-1.jpg\" width=100% >\n          </div>\n        </div>\n        <p>\n          The Selective Service placed the days of the year, including February 29, into <span class=\"orange\">366 plastic capsules</span>. These capsules were placed in a glass <span class=\"orange\">container, mixed, then drawn one at a time</span>.\n        </p>\n      </section>\n\n      <section>\n        <h3>The selection process</h3>\n        <div class=\"row\">\n          <div class=\"col-50\">\n            <p class=\"small no-margin-top\">\n              The first capsule drawn contained the date September 14. This date was <span class=\"mutedBlue\">assigned the rank 1</span>.\n            </p>\n          </div>\n          <div class=\"col-50\">\n            <img src=\"lib/img/draft-lottery-1969-2.jpeg\" width=100%>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-50\">\n            <img src=\"lib/img/draft-lottery-1969-3.jpg\" width=100%>\n          </div>\n          <div class=\"col-50\">\n            <p class=\"small no-margin-top\">\n              The second date drawn, April 24, was <span class=\"mutedBlue\">assigned rank 2</span>, and so on ...\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <section>\n        <h3>The selection process</h3>\n        <div class=\"row\">\n          <div class=\"col-35\">\n            <p class=\"small no-margin-top\">\n              Those eligible for the draft who were born on September 14 (<span class=\"mutedBlue\">rank 1</span>) would be the <span class=\"mutedBlue\">first selected to serve in Vietnam</span>.\n              <br>\n              Once all eligible men born on this date were inducted into the service, then the Selective Service would begin to induct men born on April 24 (rank 2), etc ...\n            </p>\n          </div>\n          <div class=\"col-65\">\n            <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/XhLbysRh8XY\" frameborder=\"0\" allowfullscreen></iframe>\n            <p class=\"small framed border-orange fragment\">\n              <span class=\"u em\">Note:</span>\n              It was estimated by the Pentagon that men with draft numbers 200 to 366, would escape the draft entirely. In fact, no man with a draft number higher than 195 was called to duty.\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <section data-transition=\"slide-in fade-out\">\n        <h3>Was the lottery really random?</h3>\n        <p class=\"no-margin-top small\">\n          What should we expect if we plot the draft number (rank assigned) against the day of the year drawn?\n        </p>\n        <div class=\"row\">\n          <div class=\"col-75\">\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/draft-lottery-data-scatter.svg#axes_1\"></use>\n            </svg>\n          </div>\n          <div class=\"col-25\">\n            <p class=\"no-margin-top small framed border-orange fragment\">\n              Does the selection process appear random to you?\n            </p>\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <section data-transition=\"fade\">\n        <h3>Was the lottery really random?</h3>\n        <p class=\"no-margin-top small\">\n          What should we expect if we plot the draft number (rank assigned) against the day of the year drawn?\n        </p>\n        <div class=\"row\">\n          <div class=\"col-75\">\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/draft-lottery-data-boxplot.svg#axes_1\"></use>\n            </svg>\n          </div>\n          <div class=\"col-25\">\n            <p class=\"no-margin-top small framed border-red\">\n              What about now?\n            </p>\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <section data-transition=\"fade\">\n        <h3>Was the lottery really random?</h3>\n        <p class=\"no-margin-top small\">\n          What should we expect if we plot the draft number (rank assigned) against the day of the year drawn?\n        </p>\n        <div class=\"row\">\n          <div class=\"col-75\">\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/draft-lottery-data-scatter.svg#axes_1\"></use>\n              <use class=\"fragment\" xlink:href=\"lib/img/draft-lottery-data-scatter.svg#axes_2\"></use>\n            </svg>\n          </div>\n          <div class=\"col-25\">\n            <p class=\"no-margin-top small framed border-orange\">\n              Is it really random?\n            </p>\n            <p class=\"small no-margin-top\">\n              <i class=\"fa fa-arrow-circle-right orange\"></i>\n              How could we check the randomness of the data using statistics? <br>(and linear regression <i class=\"fa fa-smile-o orange\"></i>)\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <section data-transition=\"fade-in slide-out\">\n        <h3>Was the lottery really random?</h3>\n        <p class=\"no-margin-top small framed border-red\">\n          How likely would it be to observe a slope of <span class=\"orange\">$-0.23$</span> if there was no association between the day of the year selected and the rank assigned?\n        </p>\n        <div class=\"row\">\n          <div class=\"col-40\">\n            <p class=\"small no-margin-top fragment\">\n              <i class=\"fa fa-arrow-circle-right red\"></i>\n              If there was no association, the slope of the\n              underlying population shouldn't be different than\n              $0$.\n            </p>\n            <p class=\"small no-margin-top fragment\">\n              We could solve this again using confidence intervals, \n              but let's do some null hypothesis testing:\n            </p>\n            <p class=\"small sided border-orange no-margin-top fragment\">\n              $H_0$: $\\beta_1=0$ <br>\n            </p>\n            <p class=\"small sided border-mutedBlue no-margin-top fragment\">\n              $H_a$: $\\beta_1\\neq0$ <br>\n            </p>\n          </div>\n          <div class=\"col-60\">\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/draft-lottery-data-scatter.svg#axes_1\"></use>\n              <use xlink:href=\"lib/img/draft-lottery-data-scatter.svg#axes_2\"></use>\n            </svg>\n          </div>\n        </div>\n      </section>\n\n      <section>\n        <h3>Linear regression NHST</h3>\n        <img src=\"lib/img/regression-nhst.svg\" \n        class=\"unbordered flat\" width=90%>\n      </section>\n\n\n      <section data-transition=\"slide-in fade-out\">\n        <h3>Testing the randomness of the data</h3>\n        <div class=\"row\">\n          <div class=\"col-60\">\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/draft-lottery-data-scatter-nhst.svg#axes_1\"></use>\n              <use xlink:href=\"lib/img/draft-lottery-data-scatter-nhst.svg#axes_2\"></use>\n              <use class=\"fragment\" data-fragment-index=1 xlink:href=\"lib/img/draft-lottery-data-scatter-nhst.svg#axes_3\"></use>\n            </svg>\n          </div>\n          <div class=\"col-40\">\n            <p class=\"no-margin-top small em u fragment\" data-fragment-index=2>\n              Sampling distribution of the slopes if the null hypothesis was true:\n            </p>\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\" class=\"fragment\" data-fragment-index=2\">\n              <use xlink:href=\"lib/img/draft-lottery-resampling-nhst.svg#axes_1\"></use>\n              <use class=\"fragment\" xlink:href=\"lib/img/draft-lottery-resampling-nhst.svg#axes_2\"></use>\n              <use class=\"fragment\" xlink:href=\"lib/img/draft-lottery-resampling-nhst.svg#axes_3\"></use>\n            </svg>\n          </div>\n        </div>\n        <p class=\"small no-margin-top fragment\">\n          <i class=\"fa fa-arrow-circle-right orange\"></i>\n          None of the slopes obtained by simulating the no-association condition (null hypothesis)\n          are as extreme as the initial slope obtained \n          by finding the best fit on our original dataset.\n        </p>\n      </section>\n      <section data-transition=\"fade-in slide-out\">\n        <h3>Testing the randomness of the data</h3>\n        <div class=\"row\">\n          <div class=\"col-60\">\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/draft-lottery-data-scatter-nhst.svg#axes_1\"></use>\n              <use xlink:href=\"lib/img/draft-lottery-data-scatter-nhst.svg#axes_2\"></use>\n              <use xlink:href=\"lib/img/draft-lottery-data-scatter-nhst.svg#axes_3\"></use>\n            </svg>\n          </div>\n          <div class=\"col-40\">\n            <p class=\"no-margin-top small em u\" data-fragment-index=2>\n              Sampling distribution of the slopes if the null hypothesis was true:\n            </p>\n            <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/draft-lottery-resampling-nhst.svg#axes_1\"></use>\n              <use xlink:href=\"lib/img/draft-lottery-resampling-nhst.svg#axes_2\"></use>\n              <use xlink:href=\"lib/img/draft-lottery-resampling-nhst.svg#axes_3\"></use>\n            </svg>\n          </div>\n        </div>\n        <p class=\"small no-margin-top framed border-orange\">\n          This strongly suggest that there was, in fact, a negative\n          association between the birthday drawn and the draft rank that was assigned to this birthday. <br>\n          <i class=\"fa fa-arrow-circle-right orange\"></i> \n          The lottery was <span class=\"orange\">not random</span>!\n        </p>\n      </section>\n      <section>\n        <h3>Change of the lottery process</h3>\n        <div class=\"row\">\n          <div class=\"col-70\">\n            <img src=\"lib/img/draft-lottery-1969-nytimes-article-title.png\" width=100%>\n          </div>\n          <div class=\"col-30\">\n            <p class=\"no-margin-top small\">\n              NY Times article - January 4, 1970\n            </p>\n            <img src=\"lib/img/draft-lottery-1969-nytimes-article-excerpt.png\" width=100%>\n          </div>\n        </div>\n        <p class=\"small no-margin-top\">\n          The lottery process was modified for the subsequent years and was shown to be really random .\n        </p>\n      </section>\n      <section>\n        <h3>Summary</h3>\n        <div class=\"row\">\n          <div class=\"col-40\">\n            <p>\n            Regression analysis is a powerful method with a broad\n            array of applications.\n            </p>\n            <p>\n            The same Null hypothesis and confidence intervals determinations methods as what we used previously on \n            different statistics can be applied to the linear \n            regresssion parameters.\n            </p>\n          </div>\n          <div class=\"col-60\">\n            <img src=\"lib/img/bootstrap-showcase-regression-params.svg\" width=100%>\n          </div>\n        </div>\n      </section>",
 			"settings":
 			{
-				"buffer_size": 8726,
+				"buffer_size": 35321,
 				"line_ending": "Windows"
 			}
 		}
@@ -317,10 +335,10 @@
 	[
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/img",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/alphaLevel",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/UnderstandingCor",
-		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/UnderstandingCor/js"
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/UnderstandingCor"
 	],
 	"file_history":
 	[
@@ -469,6 +487,25 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\"fass",
+			"\"fa",
+			"<i",
+			"texclass",
+			"calculator",
+			"\\hat{Y}",
+			"E(Y)",
+			"$E(Y)",
+			"info",
+			"assets/img/lec/",
+			"\"fa",
+			"danger",
+			"warning",
+			"calculator",
+			"bg-muted",
+			"mg-muted",
+			"background-",
+			"assets/img/lec",
+			"icon",
 			"\\overset{\\hat{}}{y}",
 			"\\texclass{mutedBlue}",
 			"\\texclass{red}",
@@ -577,26 +614,7 @@
 			"7",
 			"32",
 			"arrow-circle",
-			"binWid",
-			"binwi",
-			"sturg",
-			"mono",
-			"console",
-			"consol",
-			"Boots",
-			"N2",
-			"N1",
-			"data",
-			"myColors",
-			"=>",
-			"Data",
-			"groups",
-			"DATA",
-			"col-",
-			"that",
-			"this",
-			"that.gridSize",
-			"this"
+			"binWid"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -604,6 +622,18 @@
 		"regex": false,
 		"replace_history":
 		[
+			"\"fas",
+			"color",
+			"calculator fragment",
+			"\\hat{Y}",
+			"$\\hat{Y}",
+			"mutedBlue",
+			"lib/img/",
+			"\"fas",
+			"red",
+			"orange",
+			"calculator fragment",
+			"lib/img",
 			"\\hat{y}",
 			"\\color{blue}",
 			"\\color{red}",
@@ -719,18 +749,6 @@
 			"BINS",
 			"UNIQUE_RESULTS.length",
 			"bg",
-			"mutedBlue",
-			"red",
-			"orange",
-			"lib/img",
-			"",
-			"option",
-			"",
-			"grey",
-			"green",
-			"red",
-			"orange",
-			"offWhite",
 			"mutedBlue"
 		],
 		"reverse": false,
@@ -758,8 +776,8 @@
 						"selection":
 						[
 							[
-								28504,
-								28508
+								6159,
+								6159
 							]
 						],
 						"settings":
@@ -770,7 +788,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 26719.0,
+						"translation.y": 4975.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -778,19 +796,50 @@
 				},
 				{
 					"buffer": 1,
-					"file": "index.html",
+					"file": "lib/img/minOLS.svg",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8109,
+						"buffer_size": 775526,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6264,
-								6264
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1518721892.66,
+							"syntax": "Packages/XML/XML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8171,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2061,
+								2061
 							]
 						],
 						"settings":
@@ -800,14 +849,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2646.0,
+						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "Lecture1.html",
 					"semi_transient": false,
 					"settings":
@@ -834,11 +883,11 @@
 						"translation.y": 7081.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "Lecture2.html",
 					"semi_transient": false,
 					"settings":
@@ -863,11 +912,11 @@
 						"translation.y": 313.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "Lecture3.html",
 					"semi_transient": false,
 					"settings":
@@ -895,11 +944,11 @@
 						"translation.y": 7261.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "Lecture4.html",
 					"semi_transient": false,
 					"settings":
@@ -925,11 +974,11 @@
 						"translation.y": 2005.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "Lecture5.html",
 					"semi_transient": false,
 					"settings":
@@ -962,11 +1011,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "Lecture6.html",
 					"semi_transient": false,
 					"settings":
@@ -993,11 +1042,11 @@
 						"translation.y": 1512.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "Lecture7.html",
 					"semi_transient": false,
 					"settings":
@@ -1024,11 +1073,11 @@
 						"translation.y": 3697.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 10,
 					"file": "Lecture8.html",
 					"semi_transient": false,
 					"settings":
@@ -1055,11 +1104,11 @@
 						"translation.y": 450.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 11,
 					"file": "Lecture9.html",
 					"semi_transient": false,
 					"settings":
@@ -1086,11 +1135,11 @@
 						"translation.y": 8899.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 12,
 					"file": "Lecture10.html",
 					"semi_transient": false,
 					"settings":
@@ -1114,6 +1163,34 @@
 						"translation.y": 4687.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "Lecture11.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 36913,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								20349,
+								21722
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 7369.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 4,
 					"type": "text"
 				}
@@ -1124,20 +1201,20 @@
 			"sheets":
 			[
 				{
-					"buffer": 12,
-					"file": "Lecture11.html",
+					"buffer": 14,
+					"file": "Lecture12.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 36912,
+						"buffer_size": 54986,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								30704,
-								30704
+								9244,
+								9244
 							]
 						],
 						"settings":
@@ -1145,10 +1222,10 @@
 							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 11815.0,
+						"translation.y": 2903.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1158,7 +1235,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 13,
+					"buffer": 15,
 					"file": "lib/interactive/regression/theme.css",
 					"semi_transient": false,
 					"settings":
@@ -1185,23 +1262,23 @@
 						"translation.y": 162.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 16,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8726,
+						"buffer_size": 35321,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2760,
-								2760
+								0,
+								35321
 							]
 						],
 						"settings":
@@ -1212,10 +1289,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 537.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1255,7 +1332,7 @@
 		"cols":
 		[
 			0.0,
-			0.377804624578,
+			0.32428422967,
 			0.740280592361,
 			1.0
 		],
@@ -1308,7 +1385,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
