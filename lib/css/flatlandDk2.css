@@ -1420,6 +1420,9 @@ ul.icon li.thumbs-up:before {
 ul.icon li.thumbsdown:before {
   content: "\f165"; }
 
+ul.icon li.flask:before {
+  content: "\f0c3"; }
+
 /*********************************************
 * TRANSITIONS
 *********************************************/
