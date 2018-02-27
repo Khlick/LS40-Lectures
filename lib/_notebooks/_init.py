@@ -52,8 +52,13 @@ params = {
     'ytick.color': col['grey'],
     'grid.color': col['grey2'],
     'text.color': col['grey'],
+    'figure.dpi': 100,
+    'axes.linewidth': 1.5,
+    'axes.labelsize': 18,
+    'xtick.labelsize': 13,
     'axes.spines.right': False,
     'axes.spines.top': False,
+    'axes.formatter.use_mathtext': True,
     'xtick.top': False,
     'xtick.minor.top': False,
     'xtick.major.top': False,
@@ -64,5 +69,3 @@ params = {
 };
 for p in params:
     mpl.rcParams[p] = params[p]
-
-

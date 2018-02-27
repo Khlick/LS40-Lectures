@@ -1,1 +1,779 @@
-{}
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 8464,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/css/flatlandDk2.css",
+			"settings":
+			{
+				"buffer_size": 49172,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Lecture10.html",
+			"settings":
+			{
+				"buffer_size": 50405,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lecture14.html",
+			"settings":
+			{
+				"buffer_size": 81602,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lecture15.html",
+			"settings":
+			{
+				"buffer_size": 4399,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/lib/notebook_figures/_init.py",
+			"settings":
+			{
+				"buffer_size": 1810,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<section data-transition=\"fasde\">\n  <h3>Is soda preference associated with age?</h3>\n  <div class=\"row\">\n    <div class=\"col-50\">\n      <table>\n        <tbody>\n          <tr>\n            <td class=\"mutedBlue-fill\" rowspan=2 style=\"border-right: solid 1px; vertical-align: middle;\">Soda</td>\n            <td class=\"red-fill\" colspan=3 style=\"border-bottom: none; border-right: solid 1px;\">\n              Age group</td>\n            <td style=\"border-bottom: none;\"></td>\n          </tr>\n         <tr>\n           <td class=\"red-fill\">15-25</td>\n           <td class=\"red-fill\">26-40</td>\n           <td class=\"red-fill\" style=\"border-right: solid 1px;\">41-55</td>\n           <td>Total</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Coke</td>\n           <td style=\"border-bottom: none;\">54</td>\n           <td style=\"border-bottom: none;\">45</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">69</td>\n           <td style=\"border-bottom: none;\"\">168</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Pepsi</td>\n           <td style=\"border-bottom: none;\">19</td>\n           <td style=\"border-bottom: none;\">41</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">38</td>\n           <td style=\"border-bottom: none;\"\">98</td>\n         </tr>\n         <tr style=\"border-bottom: 1px solid\">\n          <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Sprite</td>\n           <td style=\"border-bottom: none;\">19</td>\n           <td style=\"border-bottom: none;\">22</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">28</td>\n           <td style=\"border-bottom: none;\"\">69</td>\n        </tr>\n         <tr>\n           <td style=\"border-right: solid 1px;\">Total</td>\n           <td>92</td>\n           <td>108</td>\n           <td style=\"border-right: solid 1px;\">135</td>\n           <td>335</td>\n         </tr>\n        </tbody>\n      </table> \n    </div>\n    <div class=\"col-50\">\n      <p class=\"sided border-orange no-margin-top\">\n        <span class=\"u em orange\">Null Hypothesis:</span> <br>\n        $H_0$: Soda preference is not associated with age\n      </p>\n      <p class=\"sided border-green\">\n        <span class=\"u em green\">Alternative Hypothesis:</span> <br>\n        $H_a$: Soda preference is associated with age\n      </p>\n    </div>\n  </div>\n  <div class=\"framed border-orange fragment\" style=\"margin-top: 0.8em; padding-top: 0.3em; padding-bottom: 0.3em;\">\n    $\\textrm{Expected Count}=\\frac{\\textrm{Row total}\\times\\textrm{Column total}}{\\textrm{Sample size}}$\n  </div>\n</section>\n\n<section data-transition=\"fasde\">\n  <h3>Is soda preference associated with age?</h3>\n  <div class=\"row\">\n    <div class=\"col-50\">\n      <table>\n        <tbody>\n          <tr>\n            <td class=\"mutedBlue-fill\" rowspan=2 style=\"border-right: solid 1px; vertical-align: middle;\">Soda</td>\n            <td class=\"red-fill\" colspan=3 style=\"border-bottom: none; border-right: solid 1px;\">\n              Age group</td>\n            <td style=\"border-bottom: none;\"></td>\n          </tr>\n         <tr>\n           <td class=\"red-fill\">15-25</td>\n           <td class=\"red-fill\">26-40</td>\n           <td class=\"red-fill\" style=\"border-right: solid 1px;\">41-55</td>\n           <td>Total</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Coke</td>\n           <td style=\"border-bottom: none;\">54</td>\n           <td style=\"border-bottom: none;\">45</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">69</td>\n           <td style=\"border-bottom: none;\"\">168</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Pepsi</td>\n           <td style=\"border-bottom: none;\">19</td>\n           <td style=\"border-bottom: none;\">41</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">38</td>\n           <td style=\"border-bottom: none;\"\">98</td>\n         </tr>\n         <tr style=\"border-bottom: 1px solid\">\n          <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Sprite</td>\n           <td style=\"border-bottom: none;\">19</td>\n           <td style=\"border-bottom: none;\">22</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">28</td>\n           <td style=\"border-bottom: none;\"\">69</td>\n        </tr>\n         <tr>\n           <td style=\"border-right: solid 1px;\">Total</td>\n           <td>92</td>\n           <td>108</td>\n           <td style=\"border-right: solid 1px;\">135</td>\n           <td>335</td>\n         </tr>\n        </tbody>\n      </table> \n    </div>\n    <div class=\"col-50\">\n      <p class=\"sided border-orange no-margin-top\">\n        <span class=\"u em orange\">Null Hypothesis:</span> <br>\n        $H_0$: Soda preference is not associated with age\n      </p>\n      <p class=\"sided border-green\">\n        <span class=\"u em green\">Alternative Hypothesis:</span> <br>\n        $H_a$: Soda preference is associated with age\n      </p>\n    </div>\n  </div>\n  <p>\n    <span class=\"u em\">Exemple for coke and age group (15-25):</span>\n  </p>\n  <p>\n    $\\mathrm{Expected}_\\mathrm{coke}^\\textrm{(15-25)}=\\frac{168\\times92}{335}=46.14$\n  </p>\n</section>\n<section data-transition=\"fasde\">\n  <h3>Is soda preference associated with age?</h3>\n  <div class=\"row\">\n    <div class=\"col-50\">\n      <table>\n        <tbody>\n          <tr>\n            <td class=\"mutedBlue-fill\" rowspan=2 style=\"border-right: solid 1px; vertical-align: middle;\">Soda</td>\n            <td class=\"red-fill\" colspan=3 style=\"border-bottom: none; border-right: solid 1px;\">\n              Age group</td>\n            <td style=\"border-bottom: none;\"></td>\n          </tr>\n         <tr>\n           <td class=\"red-fill\">15-25</td>\n           <td class=\"red-fill\">26-40</td>\n           <td class=\"red-fill\" style=\"border-right: solid 1px;\">41-55</td>\n           <td>Total</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Coke</td>\n           <td style=\"border-bottom: none;\">54</td>\n           <td style=\"border-bottom: none;\">45</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">69</td>\n           <td style=\"border-bottom: none;\"\">168</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Pepsi</td>\n           <td style=\"border-bottom: none;\">19</td>\n           <td style=\"border-bottom: none;\">41</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">38</td>\n           <td style=\"border-bottom: none;\"\">98</td>\n         </tr>\n         <tr style=\"border-bottom: 1px solid\">\n          <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Sprite</td>\n           <td style=\"border-bottom: none;\">19</td>\n           <td style=\"border-bottom: none;\">22</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">28</td>\n           <td style=\"border-bottom: none;\"\">69</td>\n        </tr>\n         <tr>\n           <td style=\"border-right: solid 1px;\">Total</td>\n           <td>92</td>\n           <td>108</td>\n           <td style=\"border-right: solid 1px;\">135</td>\n           <td>335</td>\n         </tr>\n        </tbody>\n      </table> \n    </div>\n    <div class=\"col-50\">\n      <table>\n        <tbody>\n          <tr>\n            <td class=\"mutedBlue-fill\" rowspan=2 style=\"border-right: solid 1px; vertical-align: middle;\">Soda</td>\n            <td class=\"red-fill\" colspan=3 style=\"border-bottom: none; border-right: solid 1px;\">\n              Age group</td>\n            <td style=\"border-bottom: none;\"></td>\n          </tr>\n         <tr>\n           <td class=\"red-fill\">15-25</td>\n           <td class=\"red-fill\">26-40</td>\n           <td class=\"red-fill\" style=\"border-right: solid 1px;\">41-55</td>\n           <td>Total</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Coke</td>\n           <td style=\"border-bottom: none;\">46.14</td>\n           <td style=\"border-bottom: none;\">54.16</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">67.7</td>\n           <td style=\"border-bottom: none;\"\">168</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Pepsi</td>\n           <td style=\"border-bottom: none;\">26.91</td>\n           <td style=\"border-bottom: none;\">31.59</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">39.49</td>\n           <td style=\"border-bottom: none;\"\">98</td>\n         </tr>\n         <tr style=\"border-bottom: 1px solid\">\n          <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Sprite</td>\n           <td style=\"border-bottom: none;\">18.95</td>\n           <td style=\"border-bottom: none;\">22.24</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">27.81</td>\n           <td style=\"border-bottom: none;\"\">69</td>\n        </tr>\n         <tr>\n           <td style=\"border-right: solid 1px;\">Total</td>\n           <td>92</td>\n           <td>108</td>\n           <td style=\"border-right: solid 1px;\">135</td>\n           <td>335</td>\n         </tr>\n        </tbody>\n      </table> \n    </div>\n  </div>\n  <p class=\"fragment big\">\n    <span class=\"u em\">Note:</span> The <span class=\"mutedBlue\">expected counts maintain row and column totals</span>, but redistribute the counts as if there were no association.\n  </p>\n  <p class=\"fragment big\">\n    How do the observed results compared to the scenario of no-association? <br>\n    <span class=\"fragment\">\n      <i class=\"fas fa-arrow-circle-right orange\"></i>\n      compute the $\\chi^2$ <span class=\"orange\">from all the cells</span> in the table\n    </span>\n  </p>\n</section>\n<section data-transition=\"fasde-in slide-out\">\n  <h3>Is soda preference associated with age?</h3>\n  <div class=\"row\">\n    <div class=\"col-50\">\n      <table>\n        <tbody>\n          <tr>\n            <td class=\"mutedBlue-fill\" rowspan=2 style=\"border-right: solid 1px; vertical-align: middle;\">Soda</td>\n            <td class=\"red-fill\" colspan=3 style=\"border-bottom: none; border-right: solid 1px;\">\n              Age group</td>\n            <td style=\"border-bottom: none;\"></td>\n          </tr>\n         <tr>\n           <td class=\"red-fill\">15-25</td>\n           <td class=\"red-fill\">26-40</td>\n           <td class=\"red-fill\" style=\"border-right: solid 1px;\">41-55</td>\n           <td>Total</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Coke</td>\n           <td style=\"border-bottom: none;\">54</td>\n           <td style=\"border-bottom: none;\">45</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">69</td>\n           <td style=\"border-bottom: none;\"\">168</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Pepsi</td>\n           <td style=\"border-bottom: none;\">19</td>\n           <td style=\"border-bottom: none;\">41</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">38</td>\n           <td style=\"border-bottom: none;\"\">98</td>\n         </tr>\n         <tr style=\"border-bottom: 1px solid\">\n          <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Sprite</td>\n           <td style=\"border-bottom: none;\">19</td>\n           <td style=\"border-bottom: none;\">22</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">28</td>\n           <td style=\"border-bottom: none;\"\">69</td>\n        </tr>\n         <tr>\n           <td style=\"border-right: solid 1px;\">Total</td>\n           <td>92</td>\n           <td>108</td>\n           <td style=\"border-right: solid 1px;\">135</td>\n           <td>335</td>\n         </tr>\n        </tbody>\n      </table> \n    </div>\n    <div class=\"col-50\">\n      <table>\n        <tbody>\n          <tr>\n            <td class=\"mutedBlue-fill\" rowspan=2 style=\"border-right: solid 1px; vertical-align: middle;\">Soda</td>\n            <td class=\"red-fill\" colspan=3 style=\"border-bottom: none; border-right: solid 1px;\">\n              Age group</td>\n            <td style=\"border-bottom: none;\"></td>\n          </tr>\n         <tr>\n           <td class=\"red-fill\">15-25</td>\n           <td class=\"red-fill\">26-40</td>\n           <td class=\"red-fill\" style=\"border-right: solid 1px;\">41-55</td>\n           <td>Total</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Coke</td>\n           <td style=\"border-bottom: none;\">46.14</td>\n           <td style=\"border-bottom: none;\">54.16</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">67.7</td>\n           <td style=\"border-bottom: none;\"\">168</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Pepsi</td>\n           <td style=\"border-bottom: none;\">26.91</td>\n           <td style=\"border-bottom: none;\">31.59</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">39.49</td>\n           <td style=\"border-bottom: none;\"\">98</td>\n         </tr>\n         <tr style=\"border-bottom: 1px solid\">\n          <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Sprite</td>\n           <td style=\"border-bottom: none;\">18.95</td>\n           <td style=\"border-bottom: none;\">22.24</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">27.81</td>\n           <td style=\"border-bottom: none;\"\">69</td>\n        </tr>\n         <tr>\n           <td style=\"border-right: solid 1px;\">Total</td>\n           <td>92</td>\n           <td>108</td>\n           <td style=\"border-right: solid 1px;\">135</td>\n           <td>335</td>\n         </tr>\n        </tbody>\n      </table> \n    </div>\n  </div>\n  <p style=\"margin-top: 0.9em;\">\n    $\\chi^2=\\frac{(54-46.14)^2}{46.14}+\\frac{(45-54.16)^2}{54.16}+\\frac{(69-67.7)^2}{67.7}+...+\\frac{(22-22.24)^2}{22.24}+\\frac{(28-27.81)^2}{27.81}$\n  </p>\n  <p>\n    <span class=\"orange\">$\\chi^2=8.10$</span> <span class=\"fragment\" style=\"margin-left: 1em;\">Is it a big or low $\\chi^2$?</span>\n  </p>\n  <p class=\"fragment big\">\n    <i class=\"fas fa-arrow-circle-right mutedBlue\"></i>\n    We need the $\\chi^2$ distribution\n  </p>\n</section>\n<section>\n  <h3>Simulating the null hypothesis</h3>\n  <p class=\"no-margin-top no-margin-bottom\">\n    <span class=\"u em\">For no-association condition:</span>\n  </p>\n  <ol class=\"push-left big\">\n    <li>\n      Create an array for <span class=\"orange\">each of your explanatory variable categories</span> (<span class=\"em\">e.g.:</span> age groups) with as many different outcomes as the response variable outcomes (<span class=\"em\">e.g.:</span> coke=0, pepsi=1, sprite=2)\n    </li>\n    <li class=\"fragment\">\n      <span class=\"mutedBlue\">Pool together</span> all the different arrays into a single population (if age doesn't influence soda choice, then all the age groups have the <span class=\"orange\">same probability</span> of choosing one soda over another).\n    </li>\n    <li class=\"fragment\">\n      <span class=\"mutedBlue\">Shuffle</span> this population array (simulate the <span class=\"orange\">\"no-association\"</span> condition).\n    </li>\n    <li class=\"fragment\">\n      <span class=\"mutedBlue\">Split</span> this array into groups of <span class=\"orange\">same group size as the original samples</span> (each explanatory variable categories, age-groups), and <span class=\"mutedBlue\">calculate the new proportion</span> you obtain for each of the soda.\n    </li>\n    <li class=\"fragment\">\n      <span class=\"mutedBlue\">Calculate the $\\chi^2$-statistic</span> (compared to the expected counts).\n    </li>\n    <li class=\"fragment\">\n      <span class=\"mutedBlue\">Repeat this many times</span> (10000) to get a <span class=\"orange\">randomization distribution</span> of many $\\chi^2$-statistics under the assumption that the null hypothesis is true.\n    </li>\n    <li class=\"fragment\">\n      Calculate the <span class=\"red\">p-value</span> (right tail only for $\\chi^2$)\n    </li>\n  </ol>\n  </p>\n</section>\n<section>\n  <h3>Theory</h3>\n  <p>\n    For a 2-ways contingency table, the number of degrees of freedom can be obtained by:\n  </p>\n  <p class=\"framed border-orange\" style=\"padding-top: 0.3em; padding-bottom: 0.3em;\">\n    $df=(\\textrm{Number of rows} − 1)\\times(\\textrm{Number of columns} − 1)$\n  </p>\n  <div class=\"row\">\n    <div class=\"col-50\">\n      <p>\n        <i class=\"fas fa-arrow-circle-right mutedBlue\"></i>\n        For the soda study: <br>\n        $df = (3-1)\\times(3-1) = 4$\n      </p>\n    </div>\n    <div class=\"col-50\">\n      <table>\n        <tbody>\n          <tr>\n            <td class=\"mutedBlue-fill\" rowspan=2 style=\"border-right: solid 1px; vertical-align: middle;\">Soda</td>\n            <td class=\"red-fill\" colspan=3 style=\"border-bottom: none; border-right: solid 1px;\">\n              Age group</td>\n            <td style=\"border-bottom: none;\"></td>\n          </tr>\n         <tr>\n           <td class=\"red-fill\">15-25</td>\n           <td class=\"red-fill\">26-40</td>\n           <td class=\"red-fill\" style=\"border-right: solid 1px;\">41-55</td>\n           <td>Total</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Coke</td>\n           <td style=\"border-bottom: none;\">46.14</td>\n           <td style=\"border-bottom: none;\">54.16</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">67.7</td>\n           <td style=\"border-bottom: none;\"\">168</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Pepsi</td>\n           <td style=\"border-bottom: none;\">26.91</td>\n           <td style=\"border-bottom: none;\">31.59</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">39.49</td>\n           <td style=\"border-bottom: none;\"\">98</td>\n         </tr>\n         <tr style=\"border-bottom: 1px solid\">\n          <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Sprite</td>\n           <td style=\"border-bottom: none;\">18.95</td>\n           <td style=\"border-bottom: none;\">22.24</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">27.81</td>\n           <td style=\"border-bottom: none;\"\">69</td>\n        </tr>\n         <tr>\n           <td style=\"border-right: solid 1px;\">Total</td>\n           <td>92</td>\n           <td>108</td>\n           <td style=\"border-right: solid 1px;\">135</td>\n           <td>335</td>\n         </tr>\n        </tbody>\n      </table> \n    </div>\n  </div>\n</section>\n\n<section>\n  <h3> Is soda preference associated with age?</h3>\n  <div class=\"row\">\n    <div class=\"col-50\">\n      <p class=\"smaller no-margin-top no-margin-bottom\">Simulation</p>\n      <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n        <use xlink:href=\"lib/img/soda-age-simulation-chi2.svg#axes_1\"></use>\n        <use xlink:href=\"lib/img/soda-age-simulation-chi2.svg#axes_2\"></use>\n        <use xlink:href=\"lib/img/soda-age-simulation-chi2.svg#axes_3\"></use>\n      </svg>\n    </div>\n    <div class=\"col-50\">\n      <p class=\"smaller no-margin-top no-margin-bottom\">Theoretical distribution</p>\n      <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n        <use xlink:href=\"lib/img/soda-age-theory-chi2.svg#axes_1\"></use>\n        <use xlink:href=\"lib/img/soda-age-theory-chi2.svg#axes_2\"></use>\n      </svg>\n    </div>\n  </div>\n  <p class=\"big no-margin-bottom fragment\">\n    <i class=\"fas fa-arrow-circle-right red\"></i>\n     p-value > 0.05, we do not have strong evidence against the null hypothesis of no-association.\n  </p>\n  <p class=\"big no-margin-top fragment\">\n    <i class=\"fas fa-arrow-circle-right red\"></i>\n    Soda preference does not seem to be associated with age.\n  </p>\n</section>\n\n<section>\n  <h3>Follow up</h3>\n  <p>\n    What if you find evidence of an association? How do we determine exactly where the association is? \n  </p>\n  <p>\n    Again, <span class=\"u-orange\">no standard approach to follow</span>, several options \n    are possible.\n  </p>\n  <p>\n    <i class=\"fas fa-arrow-circle-right orange\"></i>\n    pairwise confidence intervals for the difference in proportions to determine exactly <span class=\"orange\">where the association lies</span>.\n  </p>\n</section>\n\n<section>\n  <h3>Recap on $\\chi^2$ tests</h3>\n  <div class=\"row\">\n    <table>\n      <col width=50%>\n      <col width=50%>\n      <tbody>\n        <tr>\n          <td class=\"mutedBlue-fill\">$\\chi^2$ for goodness of fit</td>\n          <td class=\"red-fill\">$\\chi^2$ test of independance</td>\n        </tr>\n        <tr>\n          <td>Test hypothesis about shape of discrete distribution </td>\n          <td>Test hypothesis about relationship of categorical variables</td>\n        </tr>\n        <tr style=\"border-bottom: 1px solid;\">\n          <td>Are the frequencies I observe for my categorical variable consistent with my theory? </td>\n          <td>Are the two categorical variables associated with one another in the population?</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n  <p class=\"smaller fragment\">\n    <i class=\"fas fa-arrow-circle-right orange\"></i>\n    Goodness-of-fit test and test of intependence are in fact the <span class=\"orange\">same approach</span> (how different are my data from the theoretical distribution?)</span>.\n  </p>\n  <p class=\"smaller fragment\">\n    <i class=\"fas fa-arrow-circle-right mutedBlue\"></i>\n    $\\chi^2$ is just another <span class=\"mutedBlue\">statistic of interest</span>, and the null randomization distribution can be <span class=\"mutedBlue\">easily simulated</span>.\n  </p>\n  <p class=\"smaller fragment\">\n    <i class=\"fas fa-arrow-circle-right red\"></i>\n    The theoretical approach to determine the $\\chi^2$ distribution requires the use of the <span class=\"red\">correct degrees of freedom number</span> of the contingency table you are studying. Remember that you would also need a count>10 for all the cells as <span class=\"red\">validity condition</span> of the theoretical approach.\n  </p>\n</section><section data-transition=\"fasde\">\n  <h3>Is soda preference associated with age?</h3>\n  <div class=\"row\">\n    <div class=\"col-50\">\n      <table>\n        <tbody>\n          <tr>\n            <td class=\"mutedBlue-fill\" rowspan=2 style=\"border-right: solid 1px; vertical-align: middle;\">Soda</td>\n            <td class=\"red-fill\" colspan=3 style=\"border-bottom: none; border-right: solid 1px;\">\n              Age group</td>\n            <td style=\"border-bottom: none;\"></td>\n          </tr>\n         <tr>\n           <td class=\"red-fill\">15-25</td>\n           <td class=\"red-fill\">26-40</td>\n           <td class=\"red-fill\" style=\"border-right: solid 1px;\">41-55</td>\n           <td>Total</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Coke</td>\n           <td style=\"border-bottom: none;\">54</td>\n           <td style=\"border-bottom: none;\">45</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">69</td>\n           <td style=\"border-bottom: none;\"\">168</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Pepsi</td>\n           <td style=\"border-bottom: none;\">19</td>\n           <td style=\"border-bottom: none;\">41</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">38</td>\n           <td style=\"border-bottom: none;\"\">98</td>\n         </tr>\n         <tr style=\"border-bottom: 1px solid\">\n          <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Sprite</td>\n           <td style=\"border-bottom: none;\">19</td>\n           <td style=\"border-bottom: none;\">22</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">28</td>\n           <td style=\"border-bottom: none;\"\">69</td>\n        </tr>\n         <tr>\n           <td style=\"border-right: solid 1px;\">Total</td>\n           <td>92</td>\n           <td>108</td>\n           <td style=\"border-right: solid 1px;\">135</td>\n           <td>335</td>\n         </tr>\n        </tbody>\n      </table> \n    </div>\n    <div class=\"col-50\">\n      <p class=\"sided border-orange no-margin-top\">\n        <span class=\"u em orange\">Null Hypothesis:</span> <br>\n        $H_0$: Soda preference is not associated with age\n      </p>\n      <p class=\"sided border-green\">\n        <span class=\"u em green\">Alternative Hypothesis:</span> <br>\n        $H_a$: Soda preference is associated with age\n      </p>\n    </div>\n  </div>\n  <div class=\"framed border-orange fragment\" style=\"margin-top: 0.8em; padding-top: 0.3em; padding-bottom: 0.3em;\">\n    $\\textrm{Expected Count}=\\frac{\\textrm{Row total}\\times\\textrm{Column total}}{\\textrm{Sample size}}$\n  </div>\n</section>\n\n<section data-transition=\"fasde\">\n  <h3>Is soda preference associated with age?</h3>\n  <div class=\"row\">\n    <div class=\"col-50\">\n      <table>\n        <tbody>\n          <tr>\n            <td class=\"mutedBlue-fill\" rowspan=2 style=\"border-right: solid 1px; vertical-align: middle;\">Soda</td>\n            <td class=\"red-fill\" colspan=3 style=\"border-bottom: none; border-right: solid 1px;\">\n              Age group</td>\n            <td style=\"border-bottom: none;\"></td>\n          </tr>\n         <tr>\n           <td class=\"red-fill\">15-25</td>\n           <td class=\"red-fill\">26-40</td>\n           <td class=\"red-fill\" style=\"border-right: solid 1px;\">41-55</td>\n           <td>Total</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Coke</td>\n           <td style=\"border-bottom: none;\">54</td>\n           <td style=\"border-bottom: none;\">45</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">69</td>\n           <td style=\"border-bottom: none;\"\">168</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Pepsi</td>\n           <td style=\"border-bottom: none;\">19</td>\n           <td style=\"border-bottom: none;\">41</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">38</td>\n           <td style=\"border-bottom: none;\"\">98</td>\n         </tr>\n         <tr style=\"border-bottom: 1px solid\">\n          <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Sprite</td>\n           <td style=\"border-bottom: none;\">19</td>\n           <td style=\"border-bottom: none;\">22</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">28</td>\n           <td style=\"border-bottom: none;\"\">69</td>\n        </tr>\n         <tr>\n           <td style=\"border-right: solid 1px;\">Total</td>\n           <td>92</td>\n           <td>108</td>\n           <td style=\"border-right: solid 1px;\">135</td>\n           <td>335</td>\n         </tr>\n        </tbody>\n      </table> \n    </div>\n    <div class=\"col-50\">\n      <p class=\"sided border-orange no-margin-top\">\n        <span class=\"u em orange\">Null Hypothesis:</span> <br>\n        $H_0$: Soda preference is not associated with age\n      </p>\n      <p class=\"sided border-green\">\n        <span class=\"u em green\">Alternative Hypothesis:</span> <br>\n        $H_a$: Soda preference is associated with age\n      </p>\n    </div>\n  </div>\n  <p>\n    <span class=\"u em\">Exemple for coke and age group (15-25):</span>\n  </p>\n  <p>\n    $\\mathrm{Expected}_\\mathrm{coke}^\\textrm{(15-25)}=\\frac{168\\times92}{335}=46.14$\n  </p>\n</section>\n<section data-transition=\"fasde\">\n  <h3>Is soda preference associated with age?</h3>\n  <div class=\"row\">\n    <div class=\"col-50\">\n      <table>\n        <tbody>\n          <tr>\n            <td class=\"mutedBlue-fill\" rowspan=2 style=\"border-right: solid 1px; vertical-align: middle;\">Soda</td>\n            <td class=\"red-fill\" colspan=3 style=\"border-bottom: none; border-right: solid 1px;\">\n              Age group</td>\n            <td style=\"border-bottom: none;\"></td>\n          </tr>\n         <tr>\n           <td class=\"red-fill\">15-25</td>\n           <td class=\"red-fill\">26-40</td>\n           <td class=\"red-fill\" style=\"border-right: solid 1px;\">41-55</td>\n           <td>Total</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Coke</td>\n           <td style=\"border-bottom: none;\">54</td>\n           <td style=\"border-bottom: none;\">45</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">69</td>\n           <td style=\"border-bottom: none;\"\">168</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Pepsi</td>\n           <td style=\"border-bottom: none;\">19</td>\n           <td style=\"border-bottom: none;\">41</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">38</td>\n           <td style=\"border-bottom: none;\"\">98</td>\n         </tr>\n         <tr style=\"border-bottom: 1px solid\">\n          <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Sprite</td>\n           <td style=\"border-bottom: none;\">19</td>\n           <td style=\"border-bottom: none;\">22</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">28</td>\n           <td style=\"border-bottom: none;\"\">69</td>\n        </tr>\n         <tr>\n           <td style=\"border-right: solid 1px;\">Total</td>\n           <td>92</td>\n           <td>108</td>\n           <td style=\"border-right: solid 1px;\">135</td>\n           <td>335</td>\n         </tr>\n        </tbody>\n      </table> \n    </div>\n    <div class=\"col-50\">\n      <table>\n        <tbody>\n          <tr>\n            <td class=\"mutedBlue-fill\" rowspan=2 style=\"border-right: solid 1px; vertical-align: middle;\">Soda</td>\n            <td class=\"red-fill\" colspan=3 style=\"border-bottom: none; border-right: solid 1px;\">\n              Age group</td>\n            <td style=\"border-bottom: none;\"></td>\n          </tr>\n         <tr>\n           <td class=\"red-fill\">15-25</td>\n           <td class=\"red-fill\">26-40</td>\n           <td class=\"red-fill\" style=\"border-right: solid 1px;\">41-55</td>\n           <td>Total</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Coke</td>\n           <td style=\"border-bottom: none;\">46.14</td>\n           <td style=\"border-bottom: none;\">54.16</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">67.7</td>\n           <td style=\"border-bottom: none;\"\">168</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Pepsi</td>\n           <td style=\"border-bottom: none;\">26.91</td>\n           <td style=\"border-bottom: none;\">31.59</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">39.49</td>\n           <td style=\"border-bottom: none;\"\">98</td>\n         </tr>\n         <tr style=\"border-bottom: 1px solid\">\n          <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Sprite</td>\n           <td style=\"border-bottom: none;\">18.95</td>\n           <td style=\"border-bottom: none;\">22.24</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">27.81</td>\n           <td style=\"border-bottom: none;\"\">69</td>\n        </tr>\n         <tr>\n           <td style=\"border-right: solid 1px;\">Total</td>\n           <td>92</td>\n           <td>108</td>\n           <td style=\"border-right: solid 1px;\">135</td>\n           <td>335</td>\n         </tr>\n        </tbody>\n      </table> \n    </div>\n  </div>\n  <p class=\"fragment big\">\n    <span class=\"u em\">Note:</span> The <span class=\"mutedBlue\">expected counts maintain row and column totals</span>, but redistribute the counts as if there were no association.\n  </p>\n  <p class=\"fragment big\">\n    How do the observed results compared to the scenario of no-association? <br>\n    <span class=\"fragment\">\n      <i class=\"fas fa-arrow-circle-right orange\"></i>\n      compute the $\\chi^2$ <span class=\"orange\">from all the cells</span> in the table\n    </span>\n  </p>\n</section>\n<section data-transition=\"fasde-in slide-out\">\n  <h3>Is soda preference associated with age?</h3>\n  <div class=\"row\">\n    <div class=\"col-50\">\n      <table>\n        <tbody>\n          <tr>\n            <td class=\"mutedBlue-fill\" rowspan=2 style=\"border-right: solid 1px; vertical-align: middle;\">Soda</td>\n            <td class=\"red-fill\" colspan=3 style=\"border-bottom: none; border-right: solid 1px;\">\n              Age group</td>\n            <td style=\"border-bottom: none;\"></td>\n          </tr>\n         <tr>\n           <td class=\"red-fill\">15-25</td>\n           <td class=\"red-fill\">26-40</td>\n           <td class=\"red-fill\" style=\"border-right: solid 1px;\">41-55</td>\n           <td>Total</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Coke</td>\n           <td style=\"border-bottom: none;\">54</td>\n           <td style=\"border-bottom: none;\">45</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">69</td>\n           <td style=\"border-bottom: none;\"\">168</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Pepsi</td>\n           <td style=\"border-bottom: none;\">19</td>\n           <td style=\"border-bottom: none;\">41</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">38</td>\n           <td style=\"border-bottom: none;\"\">98</td>\n         </tr>\n         <tr style=\"border-bottom: 1px solid\">\n          <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Sprite</td>\n           <td style=\"border-bottom: none;\">19</td>\n           <td style=\"border-bottom: none;\">22</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">28</td>\n           <td style=\"border-bottom: none;\"\">69</td>\n        </tr>\n         <tr>\n           <td style=\"border-right: solid 1px;\">Total</td>\n           <td>92</td>\n           <td>108</td>\n           <td style=\"border-right: solid 1px;\">135</td>\n           <td>335</td>\n         </tr>\n        </tbody>\n      </table> \n    </div>\n    <div class=\"col-50\">\n      <table>\n        <tbody>\n          <tr>\n            <td class=\"mutedBlue-fill\" rowspan=2 style=\"border-right: solid 1px; vertical-align: middle;\">Soda</td>\n            <td class=\"red-fill\" colspan=3 style=\"border-bottom: none; border-right: solid 1px;\">\n              Age group</td>\n            <td style=\"border-bottom: none;\"></td>\n          </tr>\n         <tr>\n           <td class=\"red-fill\">15-25</td>\n           <td class=\"red-fill\">26-40</td>\n           <td class=\"red-fill\" style=\"border-right: solid 1px;\">41-55</td>\n           <td>Total</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Coke</td>\n           <td style=\"border-bottom: none;\">46.14</td>\n           <td style=\"border-bottom: none;\">54.16</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">67.7</td>\n           <td style=\"border-bottom: none;\"\">168</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Pepsi</td>\n           <td style=\"border-bottom: none;\">26.91</td>\n           <td style=\"border-bottom: none;\">31.59</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">39.49</td>\n           <td style=\"border-bottom: none;\"\">98</td>\n         </tr>\n         <tr style=\"border-bottom: 1px solid\">\n          <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Sprite</td>\n           <td style=\"border-bottom: none;\">18.95</td>\n           <td style=\"border-bottom: none;\">22.24</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">27.81</td>\n           <td style=\"border-bottom: none;\"\">69</td>\n        </tr>\n         <tr>\n           <td style=\"border-right: solid 1px;\">Total</td>\n           <td>92</td>\n           <td>108</td>\n           <td style=\"border-right: solid 1px;\">135</td>\n           <td>335</td>\n         </tr>\n        </tbody>\n      </table> \n    </div>\n  </div>\n  <p style=\"margin-top: 0.9em;\">\n    $\\chi^2=\\frac{(54-46.14)^2}{46.14}+\\frac{(45-54.16)^2}{54.16}+\\frac{(69-67.7)^2}{67.7}+...+\\frac{(22-22.24)^2}{22.24}+\\frac{(28-27.81)^2}{27.81}$\n  </p>\n  <p>\n    <span class=\"orange\">$\\chi^2=8.10$</span> <span class=\"fragment\" style=\"margin-left: 1em;\">Is it a big or low $\\chi^2$?</span>\n  </p>\n  <p class=\"fragment big\">\n    <i class=\"fas fa-arrow-circle-right mutedBlue\"></i>\n    We need the $\\chi^2$ distribution\n  </p>\n</section>\n<section>\n  <h3>Simulating the null hypothesis</h3>\n  <p class=\"no-margin-top no-margin-bottom\">\n    <span class=\"u em\">For no-association condition:</span>\n  </p>\n  <ol class=\"push-left big\">\n    <li>\n      Create an array for <span class=\"orange\">each of your explanatory variable categories</span> (<span class=\"em\">e.g.:</span> age groups) with as many different outcomes as the response variable outcomes (<span class=\"em\">e.g.:</span> coke=0, pepsi=1, sprite=2)\n    </li>\n    <li class=\"fragment\">\n      <span class=\"mutedBlue\">Pool together</span> all the different arrays into a single population (if age doesn't influence soda choice, then all the age groups have the <span class=\"orange\">same probability</span> of choosing one soda over another).\n    </li>\n    <li class=\"fragment\">\n      <span class=\"mutedBlue\">Shuffle</span> this population array (simulate the <span class=\"orange\">\"no-association\"</span> condition).\n    </li>\n    <li class=\"fragment\">\n      <span class=\"mutedBlue\">Split</span> this array into groups of <span class=\"orange\">same group size as the original samples</span> (each explanatory variable categories, age-groups), and <span class=\"mutedBlue\">calculate the new proportion</span> you obtain for each of the soda.\n    </li>\n    <li class=\"fragment\">\n      <span class=\"mutedBlue\">Calculate the $\\chi^2$-statistic</span> (compared to the expected counts).\n    </li>\n    <li class=\"fragment\">\n      <span class=\"mutedBlue\">Repeat this many times</span> (10000) to get a <span class=\"orange\">randomization distribution</span> of many $\\chi^2$-statistics under the assumption that the null hypothesis is true.\n    </li>\n    <li class=\"fragment\">\n      Calculate the <span class=\"red\">p-value</span> (right tail only for $\\chi^2$)\n    </li>\n  </ol>\n  </p>\n</section>\n<section>\n  <h3>Theory</h3>\n  <p>\n    For a 2-ways contingency table, the number of degrees of freedom can be obtained by:\n  </p>\n  <p class=\"framed border-orange\" style=\"padding-top: 0.3em; padding-bottom: 0.3em;\">\n    $df=(\\textrm{Number of rows} − 1)\\times(\\textrm{Number of columns} − 1)$\n  </p>\n  <div class=\"row\">\n    <div class=\"col-50\">\n      <p>\n        <i class=\"fas fa-arrow-circle-right mutedBlue\"></i>\n        For the soda study: <br>\n        $df = (3-1)\\times(3-1) = 4$\n      </p>\n    </div>\n    <div class=\"col-50\">\n      <table>\n        <tbody>\n          <tr>\n            <td class=\"mutedBlue-fill\" rowspan=2 style=\"border-right: solid 1px; vertical-align: middle;\">Soda</td>\n            <td class=\"red-fill\" colspan=3 style=\"border-bottom: none; border-right: solid 1px;\">\n              Age group</td>\n            <td style=\"border-bottom: none;\"></td>\n          </tr>\n         <tr>\n           <td class=\"red-fill\">15-25</td>\n           <td class=\"red-fill\">26-40</td>\n           <td class=\"red-fill\" style=\"border-right: solid 1px;\">41-55</td>\n           <td>Total</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Coke</td>\n           <td style=\"border-bottom: none;\">46.14</td>\n           <td style=\"border-bottom: none;\">54.16</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">67.7</td>\n           <td style=\"border-bottom: none;\"\">168</td>\n         </tr>\n         <tr>\n           <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Pepsi</td>\n           <td style=\"border-bottom: none;\">26.91</td>\n           <td style=\"border-bottom: none;\">31.59</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">39.49</td>\n           <td style=\"border-bottom: none;\"\">98</td>\n         </tr>\n         <tr style=\"border-bottom: 1px solid\">\n          <td class=\"mutedBlue-fill\" style=\"border-bottom: none; border-right: solid 1px;\">\n            Sprite</td>\n           <td style=\"border-bottom: none;\">18.95</td>\n           <td style=\"border-bottom: none;\">22.24</td>\n           <td style=\"border-right: solid 1px; border-bottom: none;\">27.81</td>\n           <td style=\"border-bottom: none;\"\">69</td>\n        </tr>\n         <tr>\n           <td style=\"border-right: solid 1px;\">Total</td>\n           <td>92</td>\n           <td>108</td>\n           <td style=\"border-right: solid 1px;\">135</td>\n           <td>335</td>\n         </tr>\n        </tbody>\n      </table> \n    </div>\n  </div>\n</section>\n\n<section>\n  <h3> Is soda preference associated with age?</h3>\n  <div class=\"row\">\n    <div class=\"col-50\">\n      <p class=\"smaller no-margin-top no-margin-bottom\">Simulation</p>\n      <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n        <use xlink:href=\"lib/img/soda-age-simulation-chi2.svg#axes_1\"></use>\n        <use xlink:href=\"lib/img/soda-age-simulation-chi2.svg#axes_2\"></use>\n        <use xlink:href=\"lib/img/soda-age-simulation-chi2.svg#axes_3\"></use>\n      </svg>\n    </div>\n    <div class=\"col-50\">\n      <p class=\"smaller no-margin-top no-margin-bottom\">Theoretical distribution</p>\n      <svg width=\"100%\" viewBox=\"0 0 432 288\" style=\"margin-top: 0;\">\n        <use xlink:href=\"lib/img/soda-age-theory-chi2.svg#axes_1\"></use>\n        <use xlink:href=\"lib/img/soda-age-theory-chi2.svg#axes_2\"></use>\n      </svg>\n    </div>\n  </div>\n  <p class=\"big no-margin-bottom fragment\">\n    <i class=\"fas fa-arrow-circle-right red\"></i>\n     p-value > 0.05, we do not have strong evidence against the null hypothesis of no-association.\n  </p>\n  <p class=\"big no-margin-top fragment\">\n    <i class=\"fas fa-arrow-circle-right red\"></i>\n    Soda preference does not seem to be associated with age.\n  </p>\n</section>\n\n<section>\n  <h3>Follow up</h3>\n  <p>\n    What if you find evidence of an association? How do we determine exactly where the association is? \n  </p>\n  <p>\n    Again, <span class=\"u-orange\">no standard approach to follow</span>, several options \n    are possible.\n  </p>\n  <p>\n    <i class=\"fas fa-arrow-circle-right orange\"></i>\n    pairwise confidence intervals for the difference in proportions to determine exactly <span class=\"orange\">where the association lies</span>.\n  </p>\n</section>\n\n<section>\n  <h3>Recap on $\\chi^2$ tests</h3>\n  <div class=\"row\">\n    <table>\n      <col width=50%>\n      <col width=50%>\n      <tbody>\n        <tr>\n          <td class=\"mutedBlue-fill\">$\\chi^2$ for goodness of fit</td>\n          <td class=\"red-fill\">$\\chi^2$ test of independence</td>\n        </tr>\n        <tr>\n          <td>Test hypothesis about shape of discrete distribution </td>\n          <td>Test hypothesis about relationship of categorical variables</td>\n        </tr>\n        <tr style=\"border-bottom: 1px solid;\">\n          <td>Are the frequencies I observe for my categorical variable consistent with my theory? </td>\n          <td>Are the two categorical variables associated with one another in the population?</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n  <p class=\"smaller fragment\">\n    <i class=\"fas fa-arrow-circle-right orange\"></i>\n    Goodness-of-fit test and test of independence are in fact the <span class=\"orange\">same approach</span> (how different are my data from the theoretical distribution?)</span>.\n  </p>\n  <p class=\"smaller fragment\">\n    <i class=\"fas fa-arrow-circle-right mutedBlue\"></i>\n    $\\chi^2$ is just another <span class=\"mutedBlue\">statistic of interest</span>, and the null randomization distribution can be <span class=\"mutedBlue\">easily simulated</span>.\n  </p>\n  <p class=\"smaller fragment\">\n    <i class=\"fas fa-arrow-circle-right red\"></i>\n    The theoretical approach to determine the $\\chi^2$ distribution requires the use of the <span class=\"red\">correct degrees of freedom number</span> of the contingency table you are studying. Remember that you would also need a count>10 for all the cells as <span class=\"red\">validity condition</span> of the theoretical approach.\n  </p>\n</section>",
+			"settings":
+			{
+				"buffer_size": 45498,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 114.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"packa\t",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: en",
+				"Package Control: Enable Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 410.0
+	},
+	"console":
+	{
+		"height": 130.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations"
+	],
+	"file_history":
+	[
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/initReveal.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/img/hospitals.svg",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/Lecture11.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/Lecture08.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABSLecture11.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/Exams/LS40W18-Midterm-theta.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/Exams/LS40W18-Midterm-master.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/Exams/LS40W18-Midterm-beta.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/Exams/LS40W18-Midterm-alpha.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/Exams/LS40W18-Midterm-gamma.tex",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Handouts/Exams/Midterm-1A.tex",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Handouts/Exams/Midterm-1A - Copy (2).tex",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABSLecture08.tex",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Handouts/Lecture03.tex",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Handouts/Lecture02.tex",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Handouts/Lecture01.tex",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Handouts/Lecture07.tex",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABSLecture07.tex",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABSLecture04.tex",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABSLecture03.tex",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABSLecture02.tex",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABSLecture01.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/Lecture04.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/Lecture07.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/_doc/lectureTopics.tex",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/tex-tablerow.sublime-snippet",
+		"/F/googleDrive/_StatsDev/LS40_Development/_doc/Syllabus_LS40_18W.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/LectureHandouts.sublime-project",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/lib/Asset 1.svg",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/theTemplate.html",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/custom_js/js-graphs/bootstrap.js",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/js/customVis/diceRoller.js",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/_output.yaml",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/custom_js/helperScripts.js",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/custom_js/js-graphs/bar-deaths.js",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/custom_js/js-graphs/histogram.js",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/rear_includes.html",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/head_includes.html",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/custom_js/js-graphs/sampling-distribution.js",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/front_includes.html",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/package-lock.json",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/css/custom-gc.css",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/css/jsUi.css",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/lib/css/revealRestyle.css",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/index.html",
+		"/F/OneDrive/UCLA/_Lectures/Neuro210C/_notes.yaml",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/tufte-common.def",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/handoutTemplate.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/_doc/lectureOutlines.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/text.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABShandoutTemplate.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/_handoutTemplate.log",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/abstracts/ABS_handoutTemplate.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/_doc/academicIntegrity.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/_doc/_lectureOutlines.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/_doc/_lectureTopics.tex",
+		"/C/Users/khris/Desktop/tuft/tufte_test.tex",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/LaTeXTools/LaTeXTools (Advanced).sublime-settings",
+		"/G/My Drive/_StatsDev/LS40_Development/Lecture Handouts/LectureHandouts.sublime-project",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture_Overviews/Lectures/Lecture2.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture_Overviews/Overview_rev1.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture_Overviews/LectureOverviews.sublime-project",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture_Overviews/Overview_rev2.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture_Overviews/Overview_rev2.aux",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture_Overviews/Lectures/Lecture11.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture_Overviews/Lectures/Lecture10.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture_Overviews/Lectures/Lecture3.tex",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture_Overviews/Lectures/Lecture1.tex",
+		"/F/OneDrive/UCLA/STATS13/jup/Lab 3 Solutions.ipynb",
+		"/F/googleDrive/Garfinkel/Circadian/khlickTools.py",
+		"/F/googleDrive/Garfinkel/Circadian/forPublication/_Output/Figure_1.svg",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/SublimeREPL/SublimeREPL.sublime-settings",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/SublimeREPL.sublime-settings",
+		"/F/googleDrive/Garfinkel/Circadian/forPublication/figCreate.py",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/E/20170721/b0020400.smi",
+		"/E/20170720/08470400.smi",
+		"/F/googleDrive/JonesGroup/Khris/jonesBib-R.bib",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/User/LaTeXTools.sublime-settings",
+		"/C/Users/khris/AppData/Roaming/Sublime Text 3/Packages/LaTeXTools/LaTeXTools.sublime-settings",
+		"/F/OneDrive/UCLA/Experimental Statistics/Experimental-Statistics/master.tex",
+		"/F/googleDrive/Garfinkel/Circadian/Circadian 20170615_smoothing.ipynb",
+		"/F/OneDrive/UCLA/LS30X_development/Syllabus/Syllabus_Winter2017.knit - Copy.md",
+		"/F/OneDrive/UCLA/LS30X_development/Syllabus/Syllabus_Winter2017.utf8 - Copy.md",
+		"/F/OneDrive/Documents/Phelps Lab/_Matlab/hosa/hosa/info.xml"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"current",
+			"independance",
+			"Is soda ",
+			"smaller ",
+			"\"sided",
+			"small",
+			"success",
+			"danger",
+			"info",
+			"texclass",
+			"warning",
+			"assets/img/lec",
+			"bg-success",
+			"bg-warning",
+			"bg-danger",
+			"bg-info",
+			"\"fa",
+			"follow up",
+			"small ",
+			"df = ",
+			"smaller",
+			"small",
+			"p_{",
+			"}_i",
+			">\n",
+			"\\pi",
+			"texclass",
+			"texclass{mutedBlue}",
+			"info",
+			"warning",
+			"danger",
+			"success",
+			"bg-warning",
+			"bg-info",
+			"bg-danger",
+			"assets/img/lec",
+			"texclass",
+			"info",
+			"warning",
+			"danger",
+			"assets/img/lec",
+			"bg-warning",
+			"bg-info",
+			"bg-danger",
+			"texclass",
+			"bg-orange",
+			"bg-info",
+			"bg-red",
+			"success",
+			"warning",
+			"danger",
+			"assets/img/lec",
+			"background",
+			"bck",
+			"bg-",
+			"background",
+			"axes",
+			"icon",
+			"normal",
+			"icon",
+			"\\autoref",
+			"datasetJoined",
+			"descriptor",
+			"## Initialize",
+			"size=",
+			" x=",
+			"(i in  1:B)",
+			"length(",
+			"numeric(",
+			"0.9\\linewidth",
+			" = ",
+			"\\footnotesize",
+			"\\normalsize",
+			"import",
+			"[language=Python]",
+			"Python",
+			"\\begin{lstlisting}",
+			"TRUE",
+			"sample",
+			"nBootstraps",
+			"<-",
+			"hyper",
+			"auto",
+			"minipage",
+			"code",
+			"\\hat{\\Delta}",
+			"\\hat{\\theta}",
+			"\\hat",
+			"hat",
+			"autoref",
+			"key_figs",
+			"understanding that",
+			"sc",
+			"code",
+			"\\Delta'",
+			"<-",
+			"x_",
+			"\\noindent",
+			"\\textrightarrow",
+			"key_figs",
+			"error",
+			"\\uncert",
+			"\\emph{uncertainty}",
+			"loadnatbib",
+			"To",
+			"Center",
+			"Blue!10",
+			"''",
+			"\"",
+			"\\par",
+			"!20",
+			"CAM 04 ",
+			"08:",
+			"09:",
+			"08:",
+			"\"outputs\""
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"independence",
+			"",
+			"\"l-sided",
+			"big",
+			"green",
+			"red",
+			"mutedBlue",
+			"orange",
+			"lib/img",
+			"green-fill",
+			"orange-fill",
+			"red-fill",
+			"mutedBlue-fill",
+			"\"fas",
+			"",
+			"\\mathcal{k} = \\mathcal{df} =",
+			"",
+			" p_{",
+			"}",
+			"p_{i}",
+			"color",
+			"mutedBlue",
+			"orange",
+			"red",
+			"green",
+			"orange-fill",
+			"mutedBlue-fill",
+			"red-fill",
+			"lib/img",
+			"color",
+			"mutedBlue",
+			"orange",
+			"red",
+			"lib/img",
+			"orange-fill",
+			"mutedBlue-fill",
+			"red-fill",
+			"color",
+			"orange-fill",
+			"mutedBlue-fill",
+			"red-fill",
+			"green",
+			"orange",
+			"red",
+			"lib/img",
+			"Figure \\ref",
+			"dataJoined",
+			"desc",
+			"# Initialize\nimport numpy as np",
+			"",
+			"i in range(B):",
+			"len(",
+			"np.zeros(",
+			"\\linewidth",
+			"= ",
+			"",
+			"[language=iPython]",
+			"\\begin{lstlisting}[language=Python]",
+			"True",
+			"np.random.choice",
+			"B",
+			"=",
+			"\\Delta^{*}",
+			"\\theta^{*}",
+			"img",
+			"\\Delta^{*}_{\\theta}",
+			"=",
+			"\\bar{x}_",
+			"\\theta^{*}_",
+			"",
+			"$\\rightarrow$",
+			"img",
+			"uncertainty",
+			"\\uncert ",
+			"\\uncert",
+			"center",
+			"Blue!5",
+			"!10",
+			"",
+			"01:",
+			"02:",
+			"01:"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8464,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4533,
+								4533
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1519272445.84,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1890.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "lib/css/flatlandDk2.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 49172,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								28754,
+								28761
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1519308946.4,
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 161845.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Lecture10.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 50405,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9043,
+								9043
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1519322070.13,
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 4104.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Lecture14.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 81602,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								80394,
+								80394
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 34218.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "Lecture15.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4399,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3572,
+								3572
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1519439932.19,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/F/googleDrive/_StatsDev/LS40_Development/Lecture Handouts/lib/notebook_figures/_init.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1810,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1196,
+								1196
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 45498,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								45498
+							]
+						],
+						"settings":
+						{
+							"default_dir": "F:\\googleDrive\\_StatsDev\\LS40_Development\\Lecture Presentations",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 575465.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				2,
+				0,
+				3,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.319462863017,
+			0.789786687227,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
+	"project": "LS40_lectures.sublime-project",
+	"replace":
+	{
+		"height": 68.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 205.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

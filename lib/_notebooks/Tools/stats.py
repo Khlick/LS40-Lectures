@@ -6,9 +6,10 @@ Created on Thu Dec  7 09:15:55 2017
 @author: khris
 """
 
-# Dependencies
+# # Dependencies
 import numpy as np
 import scipy.stats as stats
+import pandas as pd
 ## Custom libraries
 import Tools.fourier as fl
 import Tools.utils as utils
@@ -126,115 +127,50 @@ def linRescale(val,newRange,oldRange=None):
 ecdf
 Calculate an empirical cdf. Is a function that returns the percentile.
 '''
-class StepFunction(object):
-    """
-    A basic step function.
+def getQuants(data,returnPercentiles = False):
+    # copy the input data
+    xd = np.array(data, copy=True);
+    # sort the copy
+    xd.sort();
+    # get the length    
+    N = len(xd);
+    # calculate  linear spacing
+    percents = np.asarray(np.linspace(0.,N,N+1))/N;
+    # stick a -Inf at the beginning to offset the percents
+    xd = np.asarray(np.insert(xd,0,-np.inf));
+    # define a function that searches for the percentiles based on data.
+    def searchQuants(getVals):
+        # get the index of the value
+        inds = np.searchsorted(xd,getVals,'right')-1;
+        # return the percent
+        return percents[inds]
+    if returnPercentiles:
+        #only wanted percentiles from the data
+        return searchQuants(data)
+    #otherwise I want the function so i can use it
+    return searchQuants;
+'''
+expectTable
+Get the expected contingency table.
+'''
+# get expected table
+def expectTable(observeTable,axis=0):
+    rowSums = observeTable.sum(axis=1);
+    colSums = observeTable.sum(axis=0);
+    if axis:
+        # then we want to fix the cols
+        probs = rowSums.T / np.sum(rowSums);
+        prod = colSums.T;
+    else:
+        probs = colSums / np.sum(colSums);
+        prod = rowSums;
+    return pd.DataFrame(np.outer(prod,probs), index=observeTable.index, columns=observeTable.columns);
+'''
+chi2
+compute chi squared from a contingency table
+'''
 
-    Values at the ends are handled in the simplest way possible:
-    everything to the left of x[0] is set to ival; everything
-    to the right of x[-1] is set to y[-1].
-
-    Parameters
-    ----------
-    x : array-like
-    y : array-like
-    ival : float
-        ival is the value given to the values to the left of x[0]. Default
-        is 0.
-    sorted : bool
-        Default is False.
-    side : {'left', 'right'}, optional
-        Default is 'left'. Defines the shape of the intervals constituting the
-        steps. 'right' correspond to [a, b) intervals and 'left' to (a, b].
-
-    Examples
-    --------
-    >>> import numpy as np
-    >>> from statsmodels.distributions.empirical_distribution import StepFunction
-    >>>
-    >>> x = np.arange(20)
-    >>> y = np.arange(20)
-    >>> f = StepFunction(x, y)
-    >>>
-    >>> print(f(3.2))
-    3.0
-    >>> print(f([[3.2,4.5],[24,-3.1]]))
-    [[  3.   4.]
-     [ 19.   0.]]
-    >>> f2 = StepFunction(x, y, side='right')
-    >>>
-    >>> print(f(3.0))
-    2.0
-    >>> print(f2(3.0))
-    3.0
-    """
-
-    def __init__(self, x, y, ival=0., sorted=False, side='left'):
-
-        if side.lower() not in ['right', 'left']:
-            msg = "side can take the values 'right' or 'left'"
-            raise ValueError(msg)
-        self.side = side
-
-        _x = np.asarray(x)
-        _y = np.asarray(y)
-
-        if _x.shape != _y.shape:
-            msg = "x and y do not have the same shape"
-            raise ValueError(msg)
-        if len(_x.shape) != 1:
-            msg = 'x and y must be 1-dimensional'
-            raise ValueError(msg)
-
-        self.x = np.r_[-np.inf, _x]
-        self.y = np.r_[ival, _y]
-
-        if not sorted:
-            asort = np.argsort(self.x)
-            self.x = np.take(self.x, asort, 0)
-            self.y = np.take(self.y, asort, 0)
-        self.n = self.x.shape[0]
-
-    def __call__(self, time):
-
-        tind = np.searchsorted(self.x, time, self.side) - 1
-        return self.y[tind]
-
-
-class ECDF(StepFunction):
-    """
-    Return the Empirical CDF of an array as a step function.
-
-    Parameters
-    ----------
-    x : array-like
-        Observations
-    side : {'left', 'right'}, optional
-        Default is 'right'. Defines the shape of the intervals constituting the
-        steps. 'right' correspond to [a, b) intervals and 'left' to (a, b].
-
-    Returns
-    -------
-    Empirical CDF as a step function.
-
-    Examples
-    --------
-    >>> import numpy as np
-    >>> from statsmodels.distributions.empirical_distribution import ECDF
-    >>>
-    >>> ecdf = ECDF([3, 3, 1, 4])
-    >>>
-    >>> ecdf([3, 55, 0.5, 1.5])
-    array([ 0.75,  1.  ,  0.  ,  0.25])
-    """
-    def __init__(self, x, side='right'):
-        step = True
-        if step: #TODO: make this an arg and have a linear interpolation option?
-            x = np.array(x, copy=True)
-            x.sort()
-            nobs = len(x)
-            y = np.linspace(1./nobs,1,nobs)
-            super(ECDF, self).__init__(x, y, side=side, sorted=True)
-        else:
-            return interp1d(x,y,drop_errors=False,fill_values=ival)
-
+def chi2(observed, **expectArgs):
+    expected = np.ravel(expectTable(observed, **expectArgs));
+    observed = np.ravel(observed);
+    return np.sum((observed-expected)**2/expected);

@@ -153,7 +153,7 @@ def datshaper(dat, windowLength, overlap=None, padWith=0):
 
 
 # convert strings to multi-factor or vectors to 
-def expandGrid(*vals, doPaste = True, sep = ' ', expansion=None):
+def expandGrid(*vals, doPaste = True, sep = ' ', expansion=None, doSort=False):
     '''
     Takes unnamed inputs and creates a matrix of all possible combinations. Rows of the
     resulting matrix can be pasted together as strings using the provided separator ,sep.
@@ -163,7 +163,8 @@ def expandGrid(*vals, doPaste = True, sep = ' ', expansion=None):
     output = np.array(
         np.meshgrid(*vals)
       ).reshape(len(vals),-1).T
-    output = output[output[:,0].argsort(),:]
+    if doSort:
+        output = output[output[:,0].argsort(),:]
     if doPaste:
         stringOut = [];
         for row in range(output.shape[0]):
@@ -171,13 +172,13 @@ def expandGrid(*vals, doPaste = True, sep = ' ', expansion=None):
         output = np.array(stringOut)
     
     if expansion is not None:
-        print(output.shape[0])
         if (len(expansion) != output.shape[0]):
             import warnings
             warnings.warn('Length of "expansion" must be the same as output.')
             return output
         output = np.repeat(output, expansion, axis=0);
     return output
+
 
 '''
 Validate String
