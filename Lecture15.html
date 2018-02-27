@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Lecture 15: Risk and Intro to ANOVA</title>
+  <title>Lecture 15: Fishers exact and Intro to ANOVA</title>
   <meta name="author" content="Khris Griffis" />
   
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -73,7 +73,7 @@
   				<div class="col-50" style="z-index:1; position: relative; margin-left: -5%;">
   					<h1>Life Sciences 40</h1>
 	        	<h2>Lecture 15:</h2>
-	          <h4>Risk and Analysis of Variance</h4>
+	          <h4>Fishers and Analysis of Variance</h4>
 	          <h5>Khris Griffis</h5>
   				</div>
   			</div>
@@ -81,15 +81,467 @@
 
         </aside>
       </section>	
-      
-      
-      
-      
-      <!-- test -->
+      <!-- 1 -->
       <section>
+        <h3>Recap on $\chi^2$ tests</h3>
+        <div class="row">
+          <table>
+            <col width=50%>
+            <col width=50%>
+            <tbody>
+              <tr>
+                <td class="mutedBlue-fill">$\chi^2$ for goodness of fit</td>
+                <td class="red-fill">$\chi^2$ test of independence</td>
+              </tr>
+              <tr>
+                <td>Test hypothesis about shape of discrete distribution </td>
+                <td>Test hypothesis about relationship of categorical variables</td>
+              </tr>
+              <tr style="border-bottom: 1px solid;">
+                <td>Are the frequencies I observe for my categorical variable consistent with my theory? </td>
+                <td>Are the two categorical variables associated with one another in the population?</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="fragment">
+          <i class="fas fa-arrow-circle-right orange"></i>
+          Goodness-of-fit test and test of independence are in fact the <span class="orange">same approach</span> (how different are my data from the theoretical distribution?)</span>.
+        </p>
+        <p class="fragment">
+          <i class="fas fa-arrow-circle-right mutedBlue"></i>
+          $\chi^2$ is just another <span class="mutedBlue">statistic of interest</span>, and the null randomization distribution can be <span class="mutedBlue">easily simulated</span>.
+        </p>
+        <p class="fragment">
+          <i class="fas fa-arrow-circle-right red"></i>
+          The theoretical approach to determine the $\chi^2$ distribution requires the use of the <span class="red">correct degrees of freedom number</span> of the contingency table you are studying. Remember that you would also need a count>10 for all the cells as <span class="red">validity condition</span> of the theoretical approach.
+        </p>
+      
+      </section>
+      <!-- 2 -->
+      <section>
+        <h3>Last time</h3>
+        <p>
+          The <span class="orange">$\chi^2$</span>, statistic to compare proportions to <span class="em">"hypothesized"</span> proportions.
+        </p>
+        <ul class="small">
+          <li>
+            Pattern of a proportion distribution (<span class="orange">$\chi^2$ test for goodness-of-fit</span>)
+          </li>
+          <li>
+            Association of a response variable to an explanatory variable (<span class="orange">$\chi^2$ test for independence</span>)
+          </li>
+        </ul>
+        <div class="row fragment">
+          <div class="col-60">
+            <p class="small">
+              <span class="u em">Note:</span> <br>
+              The $\chi^2$ test for independence <span class="orange">can also be applied to a 2x2 contingency table</span>, and will give you the <span class="orange">same results</span> (p-value or confidence intervals) than if you were comparing the difference in proportions, or the ratio of the two proportions.
+            </p>
+          </div>
+          <div class="col-40">
+            <table style="margin-top: 0.9em;">
+              <tbody>
+                <tr>
+                  <td class="mutedBlue-fill" rowspan=2 style="border-right: solid 1px; vertical-align: middle;">Response <br>variable</td>
+                  <td class="red-fill" colspan=2 style="border-bottom: none; border-right: solid 1px;">
+                    Explanatory var.</td>
+                </tr>
+               <tr>
+                 <td class="red-fill">Cat. #1</td>
+                 <td class="red-fill">Cat. #2</td>
+               </tr>
+               <tr>
+                 <td class="mutedBlue-fill" style="border-bottom: none; border-right: solid 1px;">
+                  Yes</td>
+                 <td style="border-bottom: none;">50</td>
+                 <td style="border-bottom: none;">65</td>
+               </tr>
+               <tr>
+                 <td class="mutedBlue-fill" style="border-bottom: none; border-right: solid 1px;">
+                  No</td>
+                 <td style="border-bottom: none;">30</td>
+                 <td style="border-bottom: none;">45</td>
+               </tr>
+              </tbody>
+            </table> 
+          </div>
+        </div>
+      </section>
+      
+      <!-- 3 -->
+      <section>
+      
+        <!-- heading -->
+        <div class="row">
+          <h1>Fisher's Exact Test</h1>
+          <h3>Recall $\chi^2$</h3>
+        </div>
+      
+        <!-- main -->
+        <div class="row">
+      
+          <!-- left column -->
+          <div class="col-100 no-top-margin small">
+            $$\chi^2 = \sum_{i}\sum_{j}\frac{(O_{ij}-E_{ij})^2}{E_{ij}}$$
+
+            <p>For a given table:
+              <table border="1" class="dataframe">
+                <thead>
+                  <tr style="text-align: right;">
+                    <th></th>
+                    <th>Yes</th>
+                    <th>No</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>Male</th>
+                    <td>60</td>
+                    <td>40</td>
+                  </tr>
+                  <tr>
+                    <th>Female</th>
+                    <td>50</td>
+                    <td>50</td>
+                  </tr>
+                </tbody>
+              </table>
+            </p>
+            <p>We can compute the expected count for each cell using the $n_{group}\cdot p(\text{outcome})$ approach. So for the above table we get:
+
+              <table border="1">
+                <thead>
+                  <tr style="text-align: right;">
+                    <th></th>
+                    <th>Yes</th>
+                    <th>No</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="text-align: justify;">
+                    <th>Male</th>
+                    <td>$E(Y|M)=$$n_M\cdot p(Y)=$$100\times\frac{110}{200}=55$</td>
+                    <td>$E(N|M)=$$n_M\cdot p(N)=$$100\times\frac{90}{200}=45$</td>
+                  </tr>
+                  <tr style="text-align: justify;">
+                    <th>Female</th>
+                    <td>$E(Y|F)=$$n_F\cdot p(Y)=$$100\times\frac{110}{200}=55$</td>
+                    <td>$E(N|F)=$$n_F\cdot p(N)=$$100\times\frac{90}{200}=45$</td>
+                  </tr>
+                </tbody>
+              </table>
+            </p>
+            <p>Which can be neatly performed using the `outer` product, $\phantom{} \otimes\phantom{}$, such that $E(\, \text{Condition}|\, \text{Group}) = \overrightarrow{n_G}\otimes \overrightarrow{p_C}$, which becomes:
+
+            $$\begin{bmatrix} E(Y|M) & E(N|M) \\ E(Y|F) & E(N|F) \end{bmatrix} = \begin{bmatrix}n_M \\ n_F\end{bmatrix} \bigotimes\, ( p(Y)\, p(N))$$
+            </p>
+
+          </div>
+      
+          
+        </div>
+      
+          <!-- notes -->
+          <aside class="notes" data-markdown>
+            
+          </aside>
+          
+      </section>
+      
+      
+      <!-- 4 -->
+      <section>
+        <!-- heading -->
+        <div class="row">
+          <h3>Recall $\chi^2$</h3>
+        </div>
+      
+        <!-- main -->
+        <div class="row">
+      
+          <!-- left column -->
+          <div class="col-100 no-top-margin small">
+            $${\displaystyle \chi^{2}=\sum\frac{\left( O-E\right)^{2}}{E}}$$
+            $${\displaystyle O={\begin{pmatrix}60&40\\50&50\end{pmatrix}}}$$
+            $${\displaystyle E={\begin{pmatrix}55&45\\55&45\end{pmatrix}}}$$
+            $${\displaystyle \chi^{2}=\sum\frac{\left[ {\begin{pmatrix}\color{lightblue}{60}&\color{lightblue}{40}\\\color{red}{50}&\color{red}{50}\end{pmatrix}}-{\begin{pmatrix}55&45\\55&45\end{pmatrix}}\right]^{2}}{{\begin{pmatrix}55&45\\55&45\end{pmatrix}}}}$$
+
+
+            We can think of this like summing the $\chi^2$ for each category. In this case, that would be: ${\displaystyle \chi^2={\color{lightblue}\chi^{{\color{lightblue}2}}_{\color{lightblue}{Male}}}+{\color{red}\chi^{\color{red}2}_{\color{red}{Female}}}}$.
+
+            We can then expand our matrices to have:
+            <p class="fragment">
+              $${\displaystyle \chi^2=\left[ \frac{\left( \color{lightblue}{60}-55\right)^{2}}{55}+\frac{\left( \color{lightblue}{40}-45\right)^{2}}{45}\right]_{\color{lightblue}{Male}}+\left[ \frac{\left( \color{red}{50}-55\right)^{2}}{55}+\frac{\left( \color{red}{50}-45\right)^{2}}{45}\right]_{\color{red}{Female}}}$$
+            </p>
+            <p class="fragment">
+              $${\displaystyle \chi^2=\left[ \frac{25}{55}+\frac{25}{45}\right]_{\color{lightblue}{Male}} + \left[ \frac{25}{55}+\frac{25}{45}\right]_{\color{red}{Female}}}=1.01+1.01=2.02$$
+            </p>
+          </div>
+      
+          
+        </div>
+        <aside class="notes" data-markdown>
+          
+        </aside>
+      </section>
+        
+      <!-- 5 -->
+      <section>
+      
+        <!-- heading -->
+        <div class="row">
+          <h3>Recall $\chi^2$</h3>
+        </div>
+      
+        <!-- main -->
+        <div class="row">
+      
+          <!-- left column -->
+          <div class="col-50 no-top-margin l-sided border-mutedBlue">
+            <p>For ${\displaystyle \chi^2={\color{lightblue}\chi^{{\color{lightblue}2}}_{\color{lightblue}{Male}}}+{\color{red}\chi^{\color{red}2}_{\color{red}{Female}}}}$, we can consider plotting the pairs on count-axes:</p>
+            <p class="fragment" data-fragment-index=1>We can also plot the expected table (again by pairs of $No\sim Yes$).</p>
+            <p class="fragment" data-fragment-index=2>And draw lines from each the categories to the corresponding expected counts.</p>
+            <p class="fragment" data-fragment-index=3>And the resulting squares are the unscaled $\chi^2$ values.</p>
+            <p class="fragment" data-fragment-index=3>${\displaystyle {\begin{pmatrix}\color{lightblue}{60}&\color{lightblue}{40}\\\color{red}{50}&\color{red}{50}\end{pmatrix}}},\quad {\begin{pmatrix}55&45\\55&45\end{pmatrix}}$</p>
+            <p class="fragment" data-fragment-index=4>The we would scale these and add them together (as we did on the previous slide).</p>
+          </div>
+      
+          <!-- right column -->
+          <div class="col-50 no-top-margin">
+            <svg height="432pt" version="1.1" viewBox="0 0 504 432" width="504pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <defs>
+              <style type="text/css">
+              *{stroke-linecap:butt;stroke-linejoin:round;}
+              </style>
+              </defs>
+              <use class="fragment" data-fragment-index=3 xlink:href="lib/img/chisquraedDist.svg#axes_3"></use>
+              <use class="fragment" data-fragment-index=1 xlink:href="lib/img/chisquraedDist.svg#axes_1"></use>
+              <use class="fragment" data-fragment-index=2 xlink:href="lib/img/chisquraedDist.svg#axes_2"></use>
+            </svg>
+          </div>
+      
+        </div>
+      
+          <!-- notes -->
+          <aside class="notes" data-markdown>
+            
+          </aside>
+          
+      </section>
+      
+      <!-- 6 -->
+      <section>
+      
+        <!-- heading -->
+        <div class="row">
+          <h1>Fisher's Exact Test</h1>
+          <h3>What if our counts were very small?</h3>
+        </div>
+      
+        <!-- main -->
+        <div class="row">
+      
+          <!-- left column -->
+          <div class="col-50 no-top-margin">
+            <p class="big purple-underline center">$\chi^2$ requires the following conditions:</p>
+            <ul class="icon">
+            <li class="exclaim-circle">When any elements are zero, $\chi^2$ is not possible (think the process).</li>
+            <li class="exclaim-circle">When any value is $\phantom{}<10$, the Gaussian assumptions in $\chi^2$ fails.</li>
+            <li class="exclaim-circle">$\chi^2$ is generally defined with *free marginals*$^1$.</li>
+
+          </div>
+      
+          <!-- right column -->
+          <div class="col-50 no-top-margin">
+            <p class="big purple-underline center">For example, let's look at this small table:</p>
+
+            <table border="1" class="dataframe">
+              <thead>
+                <tr style="text-align: right;">
+                  <th></th>
+                  <th>Diabetes</th>
+                  <th>No Diabetes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>Male</th>
+                  <td>5</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <th>Female</th>
+                  <td>1</td>
+                  <td>4</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      
+        </div>
+        <div class="row">
+            <div class="col-100 fragment">
+                If we demand that row and table totals (<em>marginals</em>) remain constant, then there are a finite number of possible tables. In this case, there are 6:
+                $${\displaystyle {\begin{pmatrix}6&0\\0&5\end{pmatrix}},\quad 
+                {\begin{pmatrix}5&1\\1&4\end{pmatrix}},\quad 
+                {\begin{pmatrix}4&2\\2&3\end{pmatrix}},\quad 
+                {\begin{pmatrix}3&3\\3&2\end{pmatrix}},\quad 
+                {\begin{pmatrix}2&4\\4&1\end{pmatrix}},\quad 
+                {\begin{pmatrix}1&5\\5&0\end{pmatrix}}.}$$
+            </div>
+        </div>
+      
+          <!-- notes -->
+          <aside class="notes" data-markdown>
+            
+          </aside>
+          
+      </section>
+      
+      <!-- 7 -->
+      <section>
+        <!-- heading -->
+        <div class="row">
+          <h1>Fisher's Exact Test</h1>
+          <h3>What if our counts were very small?</h3>
+        </div>
+      
+        <!-- main -->
         <div class="row">
             <div class="col-100">
-                <p>Testing an inline equation where $\chi^2=$ <span class="fragment mutedBlue fade-down" data-fragment-index=1>$\sum$</span>$\frac{(O - E)}{E}$<span class="fragment red fade-left" data-fragment-index=2>$\overset{^2\phantom{1}}{\phantom{1}}$</span></p>
+                <p>Thus, there are only 6 possible $chi^2$ values:
+                $$0.11,0.78,2.4,4.41,7.64, 11.00$$</p>
+
+
+                <p>Which makes it hard to interpret the $\chi^2$ distribution.</p>
+
+
+                Muriel Bristol, a scientist the Rothamstead Experiment Station, claimed that she could tell the difference between a cup of tea in which the milk had been poured before the tea, and on in which the tea had been poured before the milk. Fisher, devised an experiment in which he made 8 cups of tea, 4 of each method. <span class="mutedBlue">This fixes row and column marginals (at 4 each).</span> Ms Bristol was asked to taste each cup and assign 4 cups to each method.
+            </div>  
+        </div>
+        <aside class="notes" data-markdown>
+          
+        </aside>
+      </section>
+        
+      <!-- 8 -->
+      <section>
+      
+        <!-- heading -->
+        <div class="row">
+          <h1>Fisher's Exact Test</h1>
+          <p>By fixing the marginals, Fisher could then determine the probability of getting the *exact* table observed. He did this by combinatorics:</p>
+        </div>
+      
+        <!-- main -->
+        <div class="row">
+      
+          <!-- left column -->
+          <div class="col-50 no-top-margin">
+            <p>e.g. yourTable:</p>
+            <p>$${\displaystyle {\begin{pmatrix}a_1&a_2\\b_1&b_2\end{pmatrix}}}$$
+
+              $${\displaystyle p_{yourTable} = \frac{ \binom{a_1+a_2}{a_1} \binom{b_1+b_2}{b_1} }{ \binom{a_1+a_2+b_1+b_2}{a_1+b_1} } }$$
+            </p>
+            <p>Which can be written as factorials:
+            $${\displaystyle \frac{ (a_1+a_2)!\, (b_1+b_2)!\, (a_1+b_1)!\, (a_2+b_2)!\,  }{ a_1!\,a_2!\,b_1!\,b_2!\,(a_1+a_2+b_1+b_2)! }}$$</p>
+
+          </div>
+      
+          <!-- right column -->
+          <div class="col-50 no-top-margin">
+            <p class="big red small center">But this gets crazy as the numbers get large, which can be seen even by just looking at the table of the first 15 factorials:</p>
+            <p class="smaller">
+            $${\displaystyle {\begin{pmatrix}0&1\\1&1\\2&2\\3&6\\4&24\\5&120\\6&720\\7&5,040\\8&40,320\\9&362,880\\10&3,628,800\\11&39,916,800\\12&479,001,600\\13&6,227,020,800\\14&87,178,291,200\end{pmatrix}}}$$
+            </p>
+          </div>
+      
+        </div>
+      
+        <!-- notes -->
+        <aside class="notes" data-markdown>
+          
+        </aside>
+          
+      </section>
+      
+      <!-- 9 -->
+      <section>
+        <!-- heading -->
+        <div class="row">
+          <h1>Fisher's Exact Test</h1>
+          <hp>So what Fisher did, was compute the probabilities of all the possible tables (which sum to 1 if you have them all) and ordered them and summed up the ones that were as extreme or more extreme than the observed probability. For our Diabetes table:</hp>
+        </div>
+      
+        <!-- main -->
+        <div class="row">
+            <div class="col-50">
+                <table border="1" class="dataframe">
+                <thead>
+                  <tr style="text-align: right;">
+                    <th></th>
+                    <th>Diabetes</th>
+                    <th>No Diabetes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>Male</th>
+                    <td>5</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <th>Female</th>
+                    <td>1</td>
+                    <td>4</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>That was:$${\displaystyle p_{diabetes}=\frac{ (5+1)!\, (1+4)!\, (5+1)!\, (1+4)!\,  }{ 5!\,1!\,1!\,4!\,(5+1+1+4)! }}= 0.0649351$$</p>
+              
+          </div>    
+          <div class="col-50">
+            <h4>And all the probabilities (sorted):</h4>
+            <p>$\{ 0.0021645,\quad 0.012987,\quad 0.0649351,\quad 0.0162338,\quad 0.324675,\quad 0.4329\}$</p>
+            <p>So we sum the extreme probabilities: $p = \sum\{ 0.0649351,\quad 0.0021645,\quad 0.012987 \}=$ <span class="red">0.08</span></p>
+          </div>
+            
+        </div>
+        <aside class="notes" data-markdown>
+          
+        </aside>
+      </section>
+      
+      <!-- 10 -->
+      <section>
+        <div class="row">
+            <h1>Fisher's Exact Test</h1>
+        </div>
+        <div class="row">
+            <div class="col-100">
+                <p>The bootstrap version of Fisher's Exact test (idiomatically, we call this Alan's inexact test):</p>
+
+                <ol class="push-left">
+                    <li>
+                      Convert your contingency table into a data frame with 2 columns: One contains the <span class="mutedBlue">Outcome</span> labels, the other contains the <span class="red">Category</span> labels, and each row represents an observed pairing, e.g. rows 1 through 5 would each be: <code>(<span class="mutedBlue">Diabetes</span>, <span class="red">Male</span>)</code>.
+                    </li>
+                    <li class="fragment">
+                      Only <span class="mutedBlue em b">shuffle</span> the outcome variables, effectively randomizing the soda preferences for each individual.
+                    </li>
+                    <li class="fragment">
+                      Re-tabulate the data frame, creating a new <span class="mutedBlue">bootstrap</span> contingency table.
+                    </li>
+                    <li class="fragment">
+                      <span class="mutedBlue">Calculate the new table probability.
+                    </li>
+                    <li class="fragment">
+                      <span class="mutedBlue">Repeat this many times</span> (10000) to get a <span class="orange">randomization distribution</span> of many probabilites under the assumption that the null hypothesis is true.
+                    </li>
+                    <li class="fragment">
+                      Calculate the <span class="red">p-value</span> (one-tail).
+                    </li>
+                </ol>
             </div>
         </div>
         <aside class="notes" data-markdown>
@@ -97,15 +549,866 @@
         </aside>
       </section>
         
-      
-      <!--  -->
-      <section>
-        
-        <aside class="notes" data-markdown>
+      <!-- 11 -->
+      <section class="title-slide">
+        <div class="row">
+          <div class="col-50">
+            <img src="lib/img/HospDistZoom.svg" class="plain">
+          </div>
           
+          <div class="col-50" style="z-index:1; position: relative; margin-left: -5%;">
+            <h1>Life Sciences 40</h1>
+            <h2>Lecture 15:</h2>
+            <h4>Fishers and Analysis of Variance</h4>
+            <h5>Khris Griffis</h5>
+          </div>
+        </div>
+        <aside class="notes" data-markdown>
+
         </aside>
-      </section>
+      </section>  
         
+      <section>
+        <h3>Multiple explanatory categories for quantitative variables</h3>
+        <p>
+          So far, we’ve learned how to do inference for a difference in means IF the categorical variable has only two categories (i.e. compare two groups)
+        </p>
+        <div class="row">
+          <div class="col-50">
+            <p class="small">
+              Today, we’ll learn how to do hypothesis tests for a <span class="mutedBlue">difference in mean (or median) across multiple categories</span> (i.e. compare more than two groups)
+            </p>
+          </div>
+          <div class="col-50">
+            <img src="lib/img/multiple-means-ex.svg" width=100%>
+          </div>
+        </div>
+      </section>
+
+
+      <section data-transition="slide-in fade-out">
+        <h3>Gluttonous ants</h3>
+        <div class="row">
+          <div class="col-65">
+            <p class="no-margin-top small no-margin-bottom">
+              As young students in Australia, Dominic Kelly and his friends <span class="orange">enjoyed watching ants gather on pieces of sandwiches</span>. Later, as a university student, Dominic decided to study this with a <span class="mutedBlue">more formal experiment</span>. He chose three types of sandwich fillings to compare:
+            </p>
+            <div class="row">
+              <ul class="small no-margin-top no-margin-bottom push-left">
+                <li>Vegemite</li>
+                <li>Peanut Butter</li>
+                <li>Ham and Pickles</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-35">
+            <img src="lib/img/ants-sandwich.png" width=100%>
+          </div>
+        </div>
+        <p class="small">
+          To conduct the experiment he <span class="mutedBlue">randomly chose a sandwich</span>, broke off a piece, and left it on the ground near an ant hill. After several minutes he placed a jar over the sandwich bit and <span class="mutedBlue">counted the number of ants</span>. He <span class="mutedBlue">repeated the process</span>, allowing time for ants to return to the hill after each trial, until he had <span class="mutedBlue">eight samples for each</span> of the three sandwich fillings. 
+        </p>
+      </section>
+
+      <section data-transition="fade">
+        <h3>Gluttonous ants</h3>
+        <p>
+          Dominic's data are shown below:
+        </p>
+        <div class="row" style="margin-top: 0.7em;">
+          <div class="col-10"></div>
+          <div class="col-80">
+            <table>
+              <tbody>
+                <tr class="no-bottom">
+                  <td></td>
+                  <td class="bg-muted" colspan="8" style="border-top: 1px solid; border-left: 1px solid; border-right: 1px solid;">Number of ants visiting sandwiches</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="bg-muted" style="border-left: 1px solid;">#1</td>
+                  <td class="bg-muted">#2</td>
+                  <td class="bg-muted">#3</td>
+                  <td class="bg-muted">#4</td>
+                  <td class="bg-muted">#5</td>
+                  <td class="bg-muted">#6</td>
+                  <td class="bg-muted">#7</td>
+                  <td class="bg-muted" style="border-right: 1px solid;">#8</td>
+                  <td>$\bar{x}$</td>
+                  <td>$s$</td>
+                </tr>
+                <tr>
+                  <td class="orange-fill" height="60" style="vertical-align: middle;">Vegemite</td>
+                  <td style="border-left: 1px solid; vertical-align: middle;">18</td>
+                  <td style="vertical-align: middle;">29</td>
+                  <td style="vertical-align: middle;">42</td>
+                  <td style="vertical-align: middle;">42</td>
+                  <td style="vertical-align: middle;">31</td>
+                  <td style="vertical-align: middle;">21</td>
+                  <td style="vertical-align: middle;">38</td>
+                  <td style="vertical-align: middle; border-right: 1px solid;">25</td>
+                  <td class="orange">30.75</td>
+                  <td class="orange">9.25</td>
+                </tr>
+                <tr>
+                  <td class="mutedBlue-fill">Peanut Butter</td>
+                  <td style="border-left: 1px solid; vertical-align: middle;">43</td>
+                  <td style="vertical-align: middle;">59</td>
+                  <td style="vertical-align: middle;">22</td>
+                  <td style="vertical-align: middle;">25</td>
+                  <td style="vertical-align: middle;">36</td>
+                  <td style="vertical-align: middle;">47</td>
+                  <td style="vertical-align: middle;">19</td>
+                  <td style="border-right: 1px solid; vertical-align: middle;">21</td>
+                  <td class="mutedBlue">34.0</td>
+                  <td class="mutedBlue">14.63</td>
+                </tr>
+                <tr>
+                  <td class="red-fill">Ham & Pickles</td>
+                  <td style="border-left: 1px solid; vertical-align: middle;">44</td>
+                  <td style="vertical-align: middle;">34</td>
+                  <td style="vertical-align: middle;">36</td>
+                  <td style="vertical-align: middle;">49</td>
+                  <td style="vertical-align: middle;">54</td>
+                  <td style="vertical-align: middle;">65</td>
+                  <td style="vertical-align: middle;">59</td>
+                  <td style="vertical-align: middle; border-right: 1px solid;">53</td>
+                  <td class="red">49.25</td>
+                  <td class="red">10.79</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section data-transition="fade-in slide-out">
+        <h3>Gluttonous ants</h3>
+        <div class="row">
+          <div class="col-45">
+            <p>
+              Do ants have a preferential sandwich filling?
+            </p>
+            <div class="row">
+              <i class="fa fa-question fa-3x orange"></i>
+              <img src="lib/img/ants-sandwich-preferred.png" width=50%>
+              <i class="fa fa-question fa-3x orange"></i>
+            </div>
+            <p class="sided border-mutedBlue fragment">
+              $H_0$: $\mu_\color{orange}{1}=\mu_\color{lightblue}{2}=\mu_\color{red}{3}$
+            </p>
+            <p class="sided border-red fragment">
+              $H_a$: At least one $\mu_i=\mu_j$
+            </p>
+          </div>
+          <div class="col-55">
+            <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+              <use xlink:href="lib/img/ants-sandwich-dotplot.svg#axes_1"></use>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Comparing means</h3>
+        <p class="small no-margin-top">
+          We have 3 groups. 
+          Why not just carry out a bunch of pair-wise analyses of the difference in mean?
+        </p>
+        <div class="row">
+          <div class="col-33">
+            <p class="no-margin-top framed border-light" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+              $H_0$: $\mu_\color{orange}{1}\neq\mu_\color{lightblue}{2}$
+            </p>
+          </div>
+          <div class="col-33">
+            <p class="no-margin-top framed border-light" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+              $H_0$: $\mu_\color{orange}{1}\neq\mu_\color{red}{3}$
+            </p>
+          </div>
+          <div class="col-33">
+            <p class="no-margin-top framed border-light" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+              $H_0$: $\mu_\color{lightblue}{2}\neq\mu_\color{red}{3}$
+            </p>
+          </div>
+        </div>
+        <div class="row fragment" style="margin-top: 0.5em;">
+          <img src="lib/img/multi-testing-angel-demon.svg" width=62%>
+        </div>
+      </section>
+
+      <section>
+        <h3>Controlling for Type I error</h3>
+        <p class="no-margin-top">
+          Each test is carried out at $\alpha=0.05$, so the risk of <span class="success">making a Type I error is $5\%$ each time</span> (rejecting the null when it's true).
+        </p>
+        <p class="no-margin-bottom fragment">
+          These risk of making a Type I errors increases as we multiply the number of tests on the same data:
+        </p>
+        <div class="row fragment">
+        <ul class="push-left small">
+          <li>
+            At the $5\%$ significance level, the probability of making at least one type I error for <span class="mutedBlue">3 tests</span> would be <span class="mutedBlue">$14\%$</span>
+          </li>
+          <li>
+            Comparing <span class="orange">4 means</span> (6 tests), this jumps to <span class="orange">$26\%$</span>
+          </li>
+          <li>
+            Comparing <span class="red">5 means</span> (10 tests), this jumps to <span class="red">$40\%$</span>
+          </li>
+        </ul>
+        </div>
+        <p class="small framed border-success fragment" style="margin-top: 1em;">
+          We need to make multiple comparisons with an <span class="mutedBlue">overall</span> Type I error of $\alpha=0.05$ (or whichever level is specified). We need an alternative approach that uses one overall test that compares all means at once.
+        </p>
+      </section>
+
+
+      <section>
+        <h3>Overall test (part 2: <span class="mutedBlue">the complicated way</span>)</h3>
+        <p>
+          Like for comparing multiple proportions ($\chi^2$), 
+          comparing multiple means also has its own <span class="mutedBlue">more complex statistic</span> with a distribution that can be pretty much modeled by theory.
+        </p>
+        <p>
+          This new statistic is called an <span class="orange">$F$-statistic</span> and the resampling-based (or theory-based) distribution that estimates the null distribution is called an <span class="orange">$F$-distribution</span>.
+        </p>
+        <p class="framed border-light fragment">
+          What is this $F$-statistic?
+        </p>
+      </section>
+
+      <section data-transition="slide-in fade-out">
+        <h3>Variability in a multiple-group dataset</h3>
+        <div class="row">
+          <div class="col-100">
+            <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
+              <use xlink:href="lib/img/total-variability-ex.svg#axes_1"></use>
+              <use xlink:href="lib/img/total-variability-ex.svg#axes_2"></use>
+            </svg>
+          </div>
+        </div>
+        <p>
+          Consider those 3 groups (same mean in left and right panels). Intuitively, in which case the groups seem <span class="mutedBlue">more different from one to another</span>? Why?
+        </p>
+      </section>
+
+      <section data-transition="fade">
+        <h3>Variability in a multiple-group dataset</h3>
+        <div class="row">
+          <div class="col-100">
+            <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
+              <use xlink:href="lib/img/total-variability-ex.svg#axes_1"></use>
+              <use xlink:href="lib/img/total-variability-ex.svg#axes_2"></use>
+              <use xlink:href="lib/img/total-variability-ex.svg#axes_3"></use>
+              <use xlink:href="lib/img/total-variability-ex.svg#axes_4"></use>
+              <use class="fragment" data-fragment-index=2 xlink:href="lib/img/total-variability-ex.svg#axes_5"></use>
+              <use class="fragment" data-fragment-index=2 xlink:href="lib/img/total-variability-ex.svg#axes_6"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="row fragment">
+          <div class="col-25">
+            <p class="small framed border-red" style="text-align: center;">
+              Total <br> variability
+            </p>
+          </div>
+          <div class="col-7" style="margin-top: 0.6em;">
+              $=$
+          </div>
+          <div class="col-30">
+            <p class="small framed border-orange" style="text-align: center;">
+              Variability <br> between groups
+            </p>
+          </div>
+          <div class="col-7" style="margin-top: 0.6em;">
+              $+$
+          </div>
+          <div class="col-30">
+            <p class="small framed border-mutedBlue" style="text-align: center;">
+              Variability <br> within groups
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section data-transition="fade-in slide-out">
+        <h3>Variability in a multiple-group dataset</h3>
+        <div class="row">
+          <div class="col-100">
+            <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
+              <use xlink:href="lib/img/total-variability-ex.svg#axes_1"></use>
+              <use xlink:href="lib/img/total-variability-ex.svg#axes_2"></use>
+              <use xlink:href="lib/img/total-variability-ex.svg#axes_3"></use>
+              <use xlink:href="lib/img/total-variability-ex.svg#axes_4"></use>
+              <use xlink:href="lib/img/total-variability-ex.svg#axes_5"></use>
+              <use xlink:href="lib/img/total-variability-ex.svg#axes_6"></use>
+            </svg>
+          </div>
+        </div>
+        <p>
+          <i class="fa fa-arrow-circle-right red"></i>
+          For the same total variability, the <span class="orange">greater the variability between groups</span> will be compared the the variability within groups, the more likely the groups will be <span class="orange">different</span> from one to another.
+        </p>
+      </section>
+
+      <section>
+        <h3>Analysis of variance</h3>
+        <p class="quoted no-margin-top">
+          An <span class="orange">AN</span>alysis <span class="orange">O</span>f <span class="orange">VA</span>riance (ANOVA) is a comparison between the <span class="em">variability between groups</span> to the <span class="em">variability within groups</span>. The statistic of interested that reflex this comparison between the two types of variability when performing an ANOVA is the <span class="orange">$F$-statistic</span>.
+        </p>
+        <div class="row">
+          <div class="col-25">
+            <p class="small framed border-red" style="text-align: center;">
+              Total <br> variability
+            </p>
+          </div>
+          <div class="col-7" style="margin-top: 0.6em;">
+              $=$
+          </div>
+          <div class="col-30">
+            <p class="small framed border-orange" style="text-align: center;">
+              Variability <br> between groups
+            </p>
+          </div>
+          <div class="col-7" style="margin-top: 0.6em;">
+              $+$
+          </div>
+          <div class="col-30">
+            <p class="small framed border-mutedBlue" style="text-align: center;">
+              Variability <br> within groups
+            </p>
+          </div>
+        </div>
+        <p class="small fragment">
+          How to <span class="orange">measure variability between</span> groups?
+        </p>
+        <p class="small fragment">
+          How to <span class="mutedBlue">measure variability within</span> groups?
+        </p>
+        <p class="small fragment">
+          How to <span class="success">compare</span> the two measures?
+        </p>
+        <p class="small fragment">
+          How to <span class="success">determine significance</span>?
+        </p>
+      </section>
+
+      <section data-transition="slide-in fade-out">
+        <h3>Sums of squares</h3>
+        <div class="row">
+          <div class="col-50">
+            <p class="no-margin-top smaller">
+              To caracterize the <span class="orange">variability between groups</span>, we are considering how far each sample mean ($\bar{x}_k$) is from the <span class="em orange">"Grand mean"</span> ($\bar{x}$, mean of the means)
+            </p>
+            <p class="no-margin-top smaller fragment" data-fragment-index=1>
+              To caracterize the <span class="mutedBlue">variability within groups</span>, we are considering how far each data point ($x_{ik}$) inside each sample is from the <span class="mutedBlue">sample mean</span> ($\bar{x}_k$).
+            </p>
+          </div>
+          <div class="col-50">
+            <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+              <use xlink:href="lib/img/total-variability-sum-of-squares.svg#axes_1"></use>
+              <use xlink:href="lib/img/total-variability-sum-of-squares.svg#axes_2"></use>
+              <use xlink:href="lib/img/total-variability-sum-of-squares.svg#axes_3"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <p class="small framed border-red" style="text-align: center;">
+              Total <br> variability
+            </p>
+          </div>
+          <div class="col-6" style="margin-top: 0.6em;">
+              $=$
+          </div>
+          <div class="col-32">
+            <p class="small framed border-orange" style="text-align: center;">
+              Variability <br> between groups
+            </p>
+          </div>
+          <div class="col-6" style="margin-top: 0.6em;">
+              $+$
+          </div>
+          <div class="col-30">
+            <p class="small framed border-mutedBlue" style="text-align: center;">
+              Variability <br> within groups
+            </p>
+          </div>
+        </div>
+        <div class="row fragment">
+          <div class="col-25">
+            <p class="small framed border-red" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+              $\sum_{i=1}^n(x_{i}-\bar{x})^2$
+            </p>
+          </div>
+          <div class="col-6" style="margin-top: 0.6em;">
+              $=$
+          </div>
+          <div class="col-32">
+            <p class="small framed border-orange" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+              $\sum_{k=1}^{nk}n_{ik}(\bar{x}_k-\bar{x})^2$
+            </p>
+          </div>
+          <div class="col-6" style="margin-top: 0.6em;">
+              $+$
+          </div>
+          <div class="col-30">
+            <p class="small framed border-mutedBlue" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+              $\sum_{i=1}^{n}(x_{ik}-\bar{x}_k)^2$
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section data-transition="fade-in slide-out">
+        <h3>Sums of squares</h3>
+        <div class="row">
+          <div class="col-50">
+            <p class="no-margin-top smaller">
+              To caracterize the variability between groups, we are considering how far each sample mean ($\bar{x}_k$) is from the <span class="em">"Grand mean"</span> ($\bar{x}$, mean of the means)
+            </p>
+            <p class="no-margin-top smaller">
+              To caracterize the variability within groups, we are considering how far each data point ($x_{ik}$) inside each sample is from the sample mean ($\bar{x}_k$).
+            </p>
+          </div>
+          <div class="col-50">
+            <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+              <use xlink:href="lib/img/total-variability-sum-of-squares.svg#axes_1"></use>
+              <use xlink:href="lib/img/total-variability-sum-of-squares.svg#axes_2"></use>
+              <use xlink:href="lib/img/total-variability-sum-of-squares.svg#axes_3"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <p class="small framed border-red" style="text-align: center;">
+              Total sum of squares (<span class="red">SST</span>)
+            </p>
+          </div>
+          <div class="col-6" style="margin-top: 0.6em;">
+              $=$
+          </div>
+          <div class="col-32">
+            <p class="small framed border-orange" style="text-align: center;">
+              Sum of squares due to groups (<span class="orange">SSG</span>)
+            </p>
+          </div>
+          <div class="col-6" style="margin-top: 0.6em;">
+              $+$
+          </div>
+          <div class="col-30">
+            <p class="small framed border-mutedBlue" style="text-align: center;">
+              "Error" sum of squares (<span class="mutedBlue">SSE</span>)
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <p class="small framed border-red" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+              $\sum_{i=1}^n(x_{i}-\bar{x})^2$
+            </p>
+          </div>
+          <div class="col-6" style="margin-top: 0.6em;">
+              $=$
+          </div>
+          <div class="col-32">
+            <p class="small framed border-orange" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+              $\sum_{k=1}^{nk}n_{ik}(\bar{x}_k-\bar{x})^2$
+            </p>
+          </div>
+          <div class="col-6" style="margin-top: 0.6em;">
+              $+$
+          </div>
+          <div class="col-30">
+            <p class="small framed border-mutedBlue" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+              $\sum_{i=1}^{n}(x_{ik}-\bar{x}_k)^2$
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section data-transition="slide-in fade-out">
+        <h3>The $F$-statistic</h3>
+        <p class="small no-margin-top framed border-light">
+          The $F$-statistic is a <span class="success">ratio of the variability</span> between groups and the variability withing groups,
+          but uses the mean variability instead of the total variability for each component.
+        </p>
+        <p>
+          $F=\frac{\color{orange}{\textrm{Mean variability between groups}}}{\color{lightblue}{\textrm{Mean variability within groups}}}$
+        </p>
+        <p style="margin-top: 0.9em;">
+          $F=\frac{\color{orange}{\textrm{Mean SSG}}}{\color{lightblue}{\textrm{Mean SSE}}}=\frac{\color{orange}{\textrm{SSG}/(k-1)}}{\color{lightblue}{\textrm{SSE}/(n-k)}}$
+        </p>
+        <p class="smaller no-margin-bottom fragment" data-fragment-index=1>
+          <span class="u em">Notes:</span>
+        </p>
+        <ul class="smaller push-left" >
+          <li class="fragment" data-fragment-index=1>
+            $(k-1)$ and $(n-k)$ are the respective degrees of freedom for the variability between and within groups. (degree of freedom for the total varaibility is $(n-1)$)
+          </li>
+          <li class="fragment">
+            This is like normalizing the difference in means between each group and the <span class="em">"Grand mean"</span> with their respective <span class="red">variance ($s^2$)</span>. The $F$-statistic is a <span class="em red">standardized</span> statistic.
+          </li>
+        </ul>
+
+      </section>
+
+      <section data-transition="fade">
+        <h3>The $F$-statistic</h3>
+        <p>
+          The $F$-statistic equation can then be expressed as:
+        </p>
+        <div class="row">
+          <div class="col-25"></div>
+          <div class="col-50 framed border-orange" style="padding-top: 0.4em; padding-bottom: 0.4em;">
+          $F=\frac{
+            \frac{\sum_{i=1}^n n_i(\bar{x}_i-\bar{x})^2}{(k-1)}
+          }{
+            \frac{\sum_{i=1}^k (n_i-1)s_i^2}{(n-k)}
+          }$
+          </div>
+          <div class="col-25"></div>
+        </div>  
+        <p class="fragment">
+          <span class="em u">Note:</span> <br>
+          Don't worry, <span class="highlight-bckg-mutedBlue">nobody calculates it by hand</span>, it would be very tedious. You can rely on technology to do the hard work for you.
+        </p>
+      </section>
+
+      <section data-transition="fade-in slide-out">
+        <h3>The $F$-statistic</h3>
+        <p>
+          The $F$-statistic is <span class="u orange">just another statistic</span>, like the MAD, this doesn't change the approach to compare different groups.
+        </p>
+        <div class="row framed border-mutedBlue fragment" data-fragment-index=1>
+        <p class="em u fragment" data-fragment-index=1>
+          Null hypothesis testing:
+        </p>
+        <ol class="normal">
+          <li class="fragment">
+            State hypotheses
+          </li>
+          <li class="fragment">
+            Calculate a statistic, based on your sample data
+          </li>
+          <li class="fragment">
+            Create a distribution of this statistic, as it would be observed if the null hypothesis were true
+          </li>
+          <li class="fragment">
+            Measure how extreme your test statistic from (2) is, as compared to the distribution generated in (3)
+          </li>
+        </ol>
+        </div>
+      </section>
+
+
+      <section>
+        <h3>Simulating the null ($F$)</h3> 
+        <p class="no-margin-top smaller">
+          To simulate the null hypothesis, we have to randomize the groups (number of ants observed per filling) and calculate the resulting $F$-statistic each time.
+        </p>
+        <div class="row">
+          <div class="col-20">
+            <p>
+              $F_\mathrm{original}=5.63$
+            </p>
+          </div>
+          <div class="col-80">
+            <table class="small">
+              <tbody>
+                <tr class="no-bottom">
+                  <td></td>
+                  <td class="bg-muted" colspan="8" style="border-top: 1px solid; border-left: 1px solid; border-right: 1px solid;">Number of ants visiting sandwiches</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="bg-muted" style="border-left: 1px solid;">#1</td>
+                  <td class="bg-muted">#2</td>
+                  <td class="bg-muted">#3</td>
+                  <td class="bg-muted">#4</td>
+                  <td class="bg-muted">#5</td>
+                  <td class="bg-muted">#6</td>
+                  <td class="bg-muted">#7</td>
+                  <td class="bg-muted">#8</td>
+                  <td>$\bar{x}$</td>
+                </tr>
+                <tr>
+                  <td class="orange-fill">Vegemite</td>
+                  <td class="orange-fill" style="border-left: 1px solid;">18</td>
+                  <td class="orange-fill">29</td>
+                  <td class="orange-fill">42</td>
+                  <td class="orange-fill">42</td>
+                  <td class="orange-fill">31</td>
+                  <td class="orange-fill">21</td>
+                  <td class="orange-fill">38</td>
+                  <td class="orange-fill">25</td>
+                  <td class="orange">30.75</td>
+                </tr>
+                <tr>
+                  <td class="mutedBlue-fill">Peanut Butter</td>
+                  <td class="mutedBlue-fill" style="border-left: 1px solid;">43</td>
+                  <td class="mutedBlue-fill">59</td>
+                  <td class="mutedBlue-fill">22</td>
+                  <td class="mutedBlue-fill">25</td>
+                  <td class="mutedBlue-fill">36</td>
+                  <td class="mutedBlue-fill">47</td>
+                  <td class="mutedBlue-fill">19</td>
+                  <td class="mutedBlue-fill">21</td>
+                  <td class="mutedBlue">34.0</td>
+                </tr>
+                <tr>
+                  <td class="red-fill">Ham & Pickles</td>
+                  <td class="red-fill" style="border-left: 1px solid;">44</td>
+                  <td class="red-fill">34</td>
+                  <td class="red-fill">36</td>
+                  <td class="red-fill">49</td>
+                  <td class="red-fill">54</td>
+                  <td class="red-fill">65</td>
+                  <td class="red-fill">59</td>
+                  <td class="red-fill">53</td>
+                  <td class="red">49.25</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      <!-- The resampling tables -->
+        <div class="row" style="margin-top: 0.8em;">
+          <div class="col-50 fragment">
+            <table class="small">
+              <tbody>
+                <tr class="no-bottom">
+                  <td></td>
+                  <td class="bg-muted" colspan="8">Number of ants visiting sandwiches</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="bg-muted">#1</td>
+                  <td class="bg-muted">#2</td>
+                  <td class="bg-muted">#3</td>
+                  <td class="bg-muted">#4</td>
+                  <td class="bg-muted">#5</td>
+                  <td class="bg-muted">#6</td>
+                  <td class="bg-muted">#7</td>
+                  <td class="bg-muted">#8</td>
+                  <td>$\bar{x}$</td>
+                </tr>
+                <tr>
+                  <td class="orange-fill">Vegemite</td>
+                  <td class="mutedBlue-fill">47</td>
+                  <td class="red-fill">49</td>
+                  <td class="mutedBlue-fill">22</td>
+                  <td class="orange-fill">42</td>
+                  <td class="orange-fill">31</td>
+                  <td class="red-fill">65</td>
+                  <td class="orange-fill">38</td>
+                  <td class="mutedBlue-fill">25</td>
+                  <td class="success">39.88</td>
+                </tr>
+                <tr>
+                  <td class="mutedBlue-fill">Peanut Butter</td>
+                  <td class="red-fill">53</td>
+                  <td class="red-fill">34</td>
+                  <td class="mutedBlue-fill">43</td>
+                  <td class="orange-fill">21</td>
+                  <td class="mutedBlue-fill">21</td>
+                  <td class="mutedBlue-fill">59</td>
+                  <td class="red-fill">54</td>
+                  <td class="orange-fill">25</td>
+                  <td class="success">38.75</td>
+                </tr>
+                <tr>
+                  <td class="red-fill">Ham & Pickles</td>
+                  <td class="orange-fill">18</td>
+                  <td class="mutedBlue-fill">19</td>
+                  <td class="red-fill">44</td>
+                  <td class="red-fill">36</td>
+                  <td class="orange-fill">42</td>
+                  <td class="orange-fill">29</td>
+                  <td class="mutedBlue-fill">36</td>
+                  <td class="red-fill">59</td>
+                  <td class="success">35.37</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="smaller no-margin-bottom">
+              $F_1=0.21$
+            </p>
+          </div>
+          <div class="col-50 fragment">
+            <table class="small">
+              <tbody>
+                <tr class="no-bottom">
+                  <td></td>
+                  <td class="bg-muted" colspan="8">Number of ants visiting sandwiches</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="bg-muted">#1</td>
+                  <td class="bg-muted">#2</td>
+                  <td class="bg-muted">#3</td>
+                  <td class="bg-muted">#4</td>
+                  <td class="bg-muted">#5</td>
+                  <td class="bg-muted">#6</td>
+                  <td class="bg-muted">#7</td>
+                  <td class="bg-muted">#8</td>
+                  <td>$\bar{x}$</td>
+                </tr>
+                <tr>
+                  <td class="orange-fill">Vegemite</td>
+                  <td class="red-fill">44</td>
+                  <td class="orange-fill">29</td>
+                  <td class="red-fill">36</td>
+                  <td class="mutedBlue-fill">36</td>
+                  <td class="mutedBlue-fill">43</td>
+                  <td class="orange-fill">42</td>
+                  <td class="mutedBlue-fill">19</td>
+                  <td class="orange-fill">25</td>
+                  <td class="success">34.25</td>
+                </tr>
+                <tr>
+                  <td class="mutedBlue-fill">Peanut Butter</td>
+                  <td class="mutedBlue-fill">59</td>
+                  <td class="mutedBlue-fill">25</td>
+                  <td class="orange-fill">18</td><td class="red-fill">34</td>
+                  <td class="mutedBlue-fill">47</td>
+                  <td class="red-fill">53</td>
+                  <td class="orange-fill">31</td>
+                  <td class="mutedBlue-fill">21</td>
+                  <td class="success">36</td>
+                </tr>
+                <tr>
+                  <td class="red-fill">Ham & Pickles</td>
+                  <td class="mutedBlue-fill">22</td>
+                  <td class="orange-fill">21</td>
+                  <td class="red-fill">49</td>
+                  <td class="red-fill">65</td>
+                  <td class="orange-fill">42</td>
+                  <td class="red-fill">59</td>
+                  <td class="red-fill">54</td>
+                  <td class="orange-fill">38</td>
+                  <td class="success">43.75</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="smaller no-margin-bottom">
+              $F_2=1.06$
+            </p>
+          </div>
+        </div>
+        <p class="small fragment">
+          <i class="fa fa-arrow-circle-right success"></i>
+          Repeat this process 10000 times! ($F_1 ... F_{10000}$)
+        </p>
+      </section>
+
+      <section>
+        <h3>Simulating the null (MAD)</h3>
+        <div class="row">
+          <div class="col-45">
+            <p class="no-margin-top smaller">
+              We obtain 10000 $F$-statistics that <span class="mutedBlue">could have been observed if there was no association</span> between the sandwich filling and the number of ants attracted to it.
+            </p>
+            <p class="small framed border-red fragment no-margin-bottom" data-fragment-index=1>
+              Where does the initial $F$-statistic lies in this distribution? What was the probability of getting such an extreme statistic <span class="red"> by chance?</span>
+            </p>
+          </div>
+          <div class="col-55">
+            <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+              <use xlink:href="lib/img/ants-sandwich-simulation-fstat.svg#axes_1"></use>
+              <use class="fragment" data-fragment-index=1 xlink:href="lib/img/ants-sandwich-simulation-fstat.svg#axes_2"></use>
+              <use class="fragment" data-fragment-index=2 xlink:href="lib/img/ants-sandwich-simulation-fstat.svg#axes_3"></use>
+            </svg>
+          </div>
+        </div>
+        <p class="small fragment" data-fragment-index=3>
+          <i class="fa fa-arrow-circle-right red"></i>
+          The probability of observing such a difference in the number of ants attracted by the sandwiches if the filling had no effect would be $1.3\%$.
+          <br>
+          <i class="fa fa-arrow-circle-right red"></i>
+          There is evidence that ants do not prefer sandwich fillings equally.
+        </p>
+      </section>
+
+      <section>
+        <h3>Which filling is particularly attractive?</h3>
+        <p class="no-margin-top small">
+          Using the $F$-statistic as our statistic of interest, we obtained <span class="orange">the same p-value</span> than when we used the $MAD$, and our conclusions will be the same, i.e. that ants do not prefer sandwich fillings equally. Which filling is particularly attractive?
+        </p>
+        <p class="small no-margin-bottom fragment u em" data-fragment-index=1>
+          Several options are possible as follow-up test (like for the MAD analysis ):
+        </p>
+        <div class="row">
+          <ul class="small push-left fragment" data-fragment-index=1>
+            <li>
+              Confidence interval for a single mean
+            </li>
+            <li>
+              <span class="fragment highlight-blue-gc" data-fragment-index=1>Confidence interval for a difference in two means</span>
+            </li>
+            <li>
+              Pairwise comparison for a difference in two means
+            </li>
+          </ul>
+        </div>
+        <div class="row">
+          <div class="col-80 fragment" data-fragment-index=2>
+            <p class="small no-margin-top">
+              <span class="u em">Vegemite vs Peanut Butter:</span> <br>
+              $30.75 - 34.0 = -3.25$ with $95\%$ CIs ($-14.75, 7.50$)
+            </p>
+            <p class="small">
+              <span class="u em">Vegemite vs Ham & Pickles:</span> <br>
+              $30.75 - 49.25 = -18.50$ with $95\%$ CIs <span class="fragment highlight-bckg-blue" data-fragment-index=3>($-27.50, -9.375$)</span>
+            </p>
+            <p class="small">
+              <span class="u em">Peanut Butter vs Ham & Pickles:</span> <br>
+              $34.0 - 49.25 = -15.25$ with $95\%$ CIs <span class="fragment highlight-bckg-blue" data-fragment-index=3>($-26.75, -3.00$)</span>
+            </p>
+          </div>
+          <div class="col-20">
+            <p class="small framed border-mutedBlue fragment" data-fragment-index=4>
+              Ham & Pickles is a big hit at every parties in the ant world!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Theory approach: the $F$-distribution</h3>
+        <p class="no-margin-top">
+          The distribution of the <span class="mutedBlue">$F$-statistic under the assumption that the null hypothesis is true</span> can be described theoretically by a particular distribution, called
+          $F$-distribution, which depends on the degrees of freedom for the variability between $(k-1)$ and within (n-k) groups.
+        </p>
+        <div class="row">
+          <div class="col-45">
+            <p class="small framed border-red no-margin-bottom">
+              A p-value is obtained by computing the area 
+              under the curve for $F\geq F_{original}$.
+            </p>
+            <p class="small">
+              (Here again, the p-value obtained is pretty close to what we calculated and the conclusions of our study will be the same).
+            </p>
+          </div>
+          <div class="col-55">
+            <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+              <use xlink:href="lib/img/ants-sandwich-theory-f.svg#axes_1"></use>
+              <use xlink:href="lib/img/ants-sandwich-theory-f.svg#axes_2"></use>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+      
       <!-- #########################     CONTENT END     #########################-->
     </div>
     
