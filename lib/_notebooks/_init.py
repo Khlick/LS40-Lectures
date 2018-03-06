@@ -46,13 +46,14 @@ col = {
 
 #----------------- :Behavior: ------------------#
 params = {
+    'figure.figsize': [9,6],
+    'figure.dpi': 150,
     'axes.edgecolor': col['grey'],
     'axes.labelcolor': col['grey'],
     'xtick.color': col['grey'],
     'ytick.color': col['grey'],
     'grid.color': col['grey2'],
     'text.color': col['grey'],
-    'figure.dpi': 100,
     'axes.linewidth': 1.5,
     'axes.labelsize': 18,
     'xtick.labelsize': 13,

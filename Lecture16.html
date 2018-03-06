@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Lecture 16: ANOVA II</title>
+  <meta name="author" content="Khris Griffis" />
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, minimal-ui">
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="lib/img/fic/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="lib/img/fic/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="lib/img/fic/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="lib/img/fic/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="lib/img/fic/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="lib/img/fic/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="lib/img/fic/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="lib/img/fic/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="lib/img/fic/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="lib/img/fic/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="lib/img/fic/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="lib/img/fic/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="lib/img/fic/favicon-16x16.png">
+  <link rel="manifest" href="lib/img/fic/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="lib/img/fic/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="lib/js/reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="lib/css/flatlandDk2.css" id="theme">
+  <link rel="stylesheet" href="lib/css/jsStyle.css">
+  
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/js/reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'lib/js/reveal.js/css/print/pdf.css' : 'lib/js/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!-- END PRINT EXPORT -->
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+  <link href="https://use.fontawesome.com/releases/v5.0.3/css/all.css" rel="stylesheet">
+  
+</head>
+<body>
+  
+  <div class="reveal">
+
+    <div class="slides">
+      <!-- #########################    CONTENT START    #########################-->
+
+      <!-- 0 -->
+      <section class="title-slide">
+				<div class="row">
+  				<div class="col-50">
+  					<svg class="drop-20 pull-10" width="100%" viewBox="0 0 340 288" style="margin-top: 0;">
+              <use xlink:href="lib/img/total-variability-ex.svg#axes_1"></use>
+              <use xlink:href="lib/img/total-variability-ex.svg#axes_5"></use>
+              <use xlink:href="lib/img/total-variability-ex.svg#axes_3"></use>
+            </svg>
+  				</div>
+  				
+  				<div class="col-50" style="z-index:1; position: relative; margin-left: -5%;">
+  					<h1>Life Sciences 40</h1>
+	        	<h2>Lecture 15:</h2>
+	          <h4>Analysis of Variance Part II</h4>
+	          <h5>Khris Griffis</h5>
+  				</div>
+  			</div>
+        <aside class="notes" data-markdown>
+
+        </aside>
+      </section>	
+      
+      <!-- 1 -->
+      <section>
+        <h3>Analysis of variance</h3>
+        <p class="quoted no-margin-top big">
+          <span class="orange">AN</span>alysis <span class="orange">O</span>f <span class="orange">VA</span>riance (ANOVA) is a comparison of the <span class="em">variation between groups</span> to the <span class="em">variation within groups</span>.
+        </p>
+        <div class="row">
+          <div class="col-25">
+            <p class="small framed border-red big" style="text-align: center;">
+              Total <br> variability
+            </p>
+          </div>
+          <div class="col-7" style="margin-top: 0.6em;">
+              $=$
+          </div>
+          <div class="col-30">
+            <p class="small framed border-orange big" style="text-align: center;">
+              Variability <br> between groups
+            </p>
+          </div>
+          <div class="col-7" style="margin-top: 0.6em;">
+              $+$
+          </div>
+          <div class="col-30">
+            <p class="small framed border-mutedBlue big" style="text-align: center;">
+              Variability <br> within groups
+            </p>
+          </div>
+        </div>
+        <div class="row fragment">
+        	<h4>One-Way ANOVA</h4>
+          <div class="col-25">
+            <p class="big framed border-red" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+              $$\sum_{i=1}^{n}(y_{i}-\bar{y})^2$$
+            </p>
+          </div>
+          <div class="col-6" style="margin-top: 1em;">
+              $=$
+          </div>
+          <div class="col-32">
+            <p class="big framed border-orange" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+              $$\sum_{g=1}^{k}n_{g}(\hat{y}_{g}-\bar{y})^2$$
+            </p>
+          </div>
+          <div class="col-6" style="margin-top: 1em;">
+              $+$
+          </div>
+          <div class="col-30">
+            <p class="big framed border-mutedBlue" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+              $$\sum_{g=1}^{k}\sum_{i=1}^{n_g}(y_{gi} - \hat{y}_{g})^2$$
+            </p>
+          </div>
+        </div>
+        <div class="row fragment">
+        	<h4>Repeated Measures ANOVA</h4>
+          <div class="col-25">
+            <p class="big framed border-red" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+              $$\sum_{i=1}^{n}(y_{i}-\bar{y})^2$$
+            </p>
+          </div>
+          <div class="col-6" style="margin-top: 1em;">
+              $=$
+          </div>
+          <div class="col-22">
+            <p class="big framed border-orange" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+              $$\sum_{g=1}^{k}n_{g}(\hat{y}_{g}-\bar{y})^2$$
+            </p>
+          </div>
+          <div class="col-6" style="margin-top: 1em;">
+              $+$
+          </div>
+          <div class="col-40">
+            <p class="framed border-mutedBlue" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+              $$\sum_{i=1}^{n}(y_{i,k}-\hat{y}_k)^2 - k_{t}\sum_{i=1}^{n}(\hat{y}_{i/t}-\bar{y})^{2}$$
+              <span class="mutedBlue smaller">Where $t$ = timepoints and $i/t$ is subject per timepoint.</span>
+            </p>
+          </div>
+        </div>
+        <aside class="notes" data-markdown>
+### ANOVA
+- [$\hat{y}_i$] This denotes the mean (central tendency) of the ith group.
+- [$\bar{y}$] This denotes the Grand Mu, i.e. the $\mu$ of all values.
+- [$k$] This is the number of groups, levels, etc. in a factor.
+- [$n_i$] This denotes the sample size of the ith group.
+- [$n$] This is the total number of n in the study, i.e. $\sum_{i=1}^{k}n_i$
+- [$y_{ij}$] This is an individual value, the jth value of the ith group.
+
+
+        </aside>
+      </section>
+      
+      
+      
+      <!-- 2 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>ANOVA Does Even More</h3>
+      	</div>
+      
+      	<!-- top -->
+      	<div class="row">
+      
+      		<!-- top left column -->
+      		<div class="col-50 no-top-margin fragment framed border-mutedBlue" style="height:330px;">
+      			<h4>One-Way ANOVA</h4>
+      			<p>
+      				One-Way ANOVA considers multiple groups belonging to a single categorical family called a <span class="mutedBlue">factor level</span>, i.e. sandwiches, treatment types, etc.
+      			</p>
+      			<p class="smaller">$$\mathcal{F}=\frac{\color{orange}{SS_{between}}}{\color{lightblue}{SS_{Within}}}$$</p>
+      		</div>
+      
+      		<!-- top right column -->
+      		<div class="col-50 no-top-margin fragment framed border-orange" style="height:330px;">
+      			<h4>One-Way Repeated Measures ANOVA</h4>
+      			<p>
+      				Just as we discussed with <span class="orange">before $\sim$ after</span> in two-group NHST, ANOVA has special methods for dealing with repeatedly measuring from a single subject. It takes the form of:
+      			</p>
+      			<p class="smaller">
+      				$$\mathcal{F}=\frac{\color{orange}{SS_{between}}}{\color{lightblue}{(SS_{Within}-SS_{random})}}=\frac{SS_{between.timepoints}}{SS_{fixed}}$$
+      			</p>
+      		</div>
+      
+      	</div>
+      
+      	<!-- bottom -->
+      	<div class="row">
+      
+      		<!-- bottom left column -->
+      		<div class="col-50 no-top-margin fragment framed border-blue" style="height:330px;">
+      			<h4>N-Way ANOVA</h4>
+      			<p>We aren't limited to one level (plus time) and can model multiple factors, though it starts getting complicated because we have new <span class="mutedBlue">kinds</span> of terms to discuss call <span class="orange">interactions</span>. Note that each new factor level will get its own $\mathcal{F}$-statistic.</p>
+      			<p class="smaller">$$\mathcal{F}=\frac{\{ SS_{b.group1},\, SS_{b.group2},\, \ldots ,\, SS_{b.groupN},\, \{ SS_{\color{orange}{interactions}}\} \} }{SS_{Within}}$$</p>
+      		</div>
+      
+      		<!-- bottom right column -->
+      		<div class="col-50 no-top-margin fragment framed border-yellow" style="height:330px;">
+      			<h4>N-Way Repeated Measures ANOVA</h4>
+      			<p>Just like in the One-Way approach, we now have to consider the effects of time and remove the <span class="mutedBlue">random</span> effects, i.e. the <span class="mutedBlue">within subject</span> variation.</p>
+      			<p class="smaller">$$\mathcal{F}=\frac{\{ SS_{b.time},\, SS_{b.group2},\, \ldots ,\, SS_{b.groupN},\, \{ SS_{\color{orange}{interactions}}\} \} }{SS_{Within}-SS_{random}}$$</p>
+      		</div>
+      
+      	</div>
+      	
+      	<div class="row">
+      			<div class="col-100 center fragment">
+      					<p class="bigger offWhite">As we add more and more <span class="mutedBlue">factors</span>, we call this <span class="orange">factor analysis</span> and it starts to take on a new shape. We will not be discussing it to that depth.</p>
+      			</div>
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+Note that we call the SS-within - SS-random the fixed effects and we can use a little graphic to help understand this.
+      		</aside>
+      
+      </section>
+      
+      <!-- 3 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>Understanding the $SS_{terms}$</h3>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin">
+      			<div class="row framed border-mutedBlue">
+      					<p class="offWhite smaller">
+      						Statistic:
+									$$\mathcal{F}=\frac{\color{orange}{SS_{between}}}{\color{lightblue}{SS_{Within}}}=\frac{\color{orange}{\partial^2(fit,null)}}{\color{lightblue}{\partial^2(fit,data)}}$$
+									Effect Size:
+									$$R^2=\frac{\color{orange}{\partial^2(fit,null)}}{\color{seagreen}{\partial^2(data,null)}}$$
+      					</p>
+      			</div>
+      			<div class="row">
+      				<div class="col-100 no-margin">
+      					<svg version="1.1" viewBox="100 10 486 486" width="700pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<defs>
+										<style type="text/css">
+											*{stroke-linecap:butt;stroke-linejoin:round;}
+										</style>
+									</defs>
+									<use xlink:href="lib/img/AOV_SS.svg#axes_1"></use>
+								</svg>	
+      				</div>
+      					
+      			</div>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin">
+      			<div class="row framed border-mutedBlue">
+      					<p class="offWhite smaller">
+      						RM Statistic:
+									$$\mathcal{F}=\frac{\color{orange}{\partial^2(fit,null)}}{\color{lightblue}{\partial^2(fit,\color{yellow}{reduced})}}$$
+									RM Effect Size:
+									$$\eta^2_{p}=\frac{\color{orange}{\partial^2(fit,null)}}{\color{purple}{\partial^2(reduced,null)}}=\frac{SS_{Between}}{SS_{Total}}$$
+      					</p>
+      			</div>
+      			<div class="row">
+      				<div class="col-100 no-margin">
+      					<svg version="1.1" viewBox="100 10 486 486" width="700pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<defs>
+										<style type="text/css">
+											*{stroke-linecap:butt;stroke-linejoin:round;}
+										</style>
+									</defs>
+									<use xlink:href="lib/img/AOV_SSRM.svg#axes_1"></use>
+								</svg>	
+      				</div>
+      					
+      			</div>
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+# Geometric interpretation
+
+F = SSB/SSW.
+
+So then, when F is large, then $\partial^2(fit,null) > \partial^2(fit,data)$ and when F is small (less than 1) then $\partial^2(fit,null) < \partial^2(fit,data)$.
+
+And the same case can be said about the reduced, we are just correcting the _data_ term for "mixed" effects.
+      		</aside>
+      		
+      </section>
+      
+      
+      <!-- 4 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>ANOVA Coding Interlude</h3>
+      		<p class="offWhite smaller">To help us compute our F-Statistics we need to create a few functions that simplify the grouping process.</p>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin framed border-mutedBlue" style="height:900px;">
+      			<p class="small">
+      				First, we need some way to combine grouping vectors into a single interaction vector.
+      			</p> 
+      			<pre class="fragment" style="max-height:700px;"><code class="python" style="max-height:700px !important;"># function to get interaction group vector
+def interactions(*groups,sep='.'):
+    nGroups = len(groups);
+    if nGroups == 1:
+      return np.ravel(groups[0]);
+    interacts = np.ravel(groups[0]);
+    cleanString = lambda x: "".join(x.split());
+    for g in range(1,nGroups):
+      interacts = interacts+sep;
+      currentGroup = np.ravel(
+        [cleanString(s) for s in groups[g]]
+      );
+      interacts = interacts + currentGroup;
+    return interacts
+# In Use:
+g1 = np.array(['A','A','A','A','A','A','B','B','B','B','B','B'],dtype=np.object)
+g2 = np.array(['X','X','X','Y','Y','Y','X','X','X','Y','Y','Y'],dtype=np.object)
+interactions(g1,g2)</code></pre>
+						<p class="fragment">Which Returns:<br>
+						<code class="smaller">['A.X', 'A.X', 'A.X', 'A.Y', 'A.Y', 'A.Y', 'B.X', 'B.X', 'B.X', 'B.Y', 'B.Y', 'B.Y']</code></p>
+					
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin framed border-mutedBlue fragment" style="height:900px;">
+      			<p class="small">
+      				Then we need a way to compute a desired statistic and return it in the same ordering of the interaction vector.
+      			</p> 
+      			<pre class="fragment" style="max-height:700px;"><code class="python" style="max-height:700px !important;"># function to apply statistic over groups
+def ave(x, *groups, FUN=np.mean, **funArgs):
+    x = np.ravel(x);
+    y = x.copy()
+    nGroups = len(groups);
+    if not nGroups:
+      x.fill(FUN(x));
+      return x
+    #Determine interactions
+    groupVector = interactions(*groups,sep=".");
+    levels = np.unique(groupVector);
+    for lev in levels:
+      y[groupVector==lev] = FUN(
+        x[groupVector==lev], 
+        **funArgs
+      );
+    return y
+# In Use:
+dat = np.random.normal(20,10,12);
+ave(dat,g1,g2)</code></pre>
+						<p class="fragment">Which Returns:<br>
+							<code class="smaller">[18.11, 18.11, 18.11,  9.2 ,  9.2 ,  9.2 , 20.33, 20.33, 20.33, 14.82, 14.82, 14.82]</code><br>
+							What would <code class="smaller">dat - ave(dat,g1,g2);</code> look like?<br>
+							<code class="smaller fragment">  [1.4 ,  -2.62,   1.22, -13.81,   1.17,  12.64, -12.85,   2.73, 10.13,  13.11,  -8.77,  -4.34]</code><br>
+						</p>
+      		</div>
+      
+      	</div>
+      
+	  		<!-- notes -->
+	  		<aside class="notes" data-markdown>
+Looking at the ave() output you can see how easily we could extend our ANOVA analysis to more than 2 groups or even more than 1 factor, right?
+	  		</aside>
+      		
+      </section>
+      
+      
+      <!-- 5 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h2>Repeated Measures</h2>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin">
+      			<p>
+      				With repeated measures, the question we are asking is: <span class="mutedBlue">Is there a Time Effect?</span>.
+      			</p>
+      			<p class="fragment" data-fragment-index=0>
+      				So our experimental design is such that we measure multiple subjects over the course of some time.
+      			</p>
+      			<p class="fragment" data-fragment-index=1>
+      				For examples, we can ask if combining <span class="green">a specific diet</span> with <span class="green">exercise</span> has an effect on Self Esteem:
+      			</p>
+      			<p class="fragment offWhite" data-fragment-index=2>
+      				We then have to take into account the fact that measurements from a single subject will be <span class="orange">randomly</span> variable. We call it <span class="red">random effects</span>.
+      			</p>
+      			<p class="fragment offWhite" data-fragment-index=3>
+      				These effects are the <span class="em">Sum of squares of the subject's time-averaged variability about the Grand Mean, weighted by the number of time-points</span>.
+      			</p>
+      			<p class="fragment offWhite" data-fragment-index=4>
+      				I.e.
+      				$$SS_{subject} = k_{t}\sum_{i}\left( \hat{y}_{i/t} - \bar{y} \right)^2$$
+      			</p>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin">
+      			<img src = "lib/img/AOV_1wayRM_IPlot.svg" class="plain fragment" data-fragment-index=1>
+      		</div>
+      
+      	</div>
+      
+    		<!-- notes -->
+    		<aside class="notes" data-markdown>
+### Notice the kt is outside of the sum!
+    		</aside>
+      		
+      </section>
+      
+      <!-- 6 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h2>Repeated Measures</h2>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      		
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin">
+      			<img src = "lib/img/AOV_1wayRM_Null.svg" class="plain fragment" data-fragment-index=5><br>
+      			<p class="big fragment orange" data-fragment-index=6>
+      				What would the follow-up be?
+      			</p>
+      			<p class="big fragment mutedBlue" data-fragment-index=7>
+      				We would then test each time point against the other.
+      			</p>
+      		</div>
+      		
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin">
+      			<p>
+      				With repeated measures, the question we are asking is: <span class="mutedBlue">Is there a Time Effect?</span>.
+      			</p>
+      			<p>
+      				So our experimental design is such that we measure multiple subjects over the course of some time.
+      			</p>
+      			<p class="fragment" data-fragment-index=1>
+      				To compute our $\mathcal{F}$-statistic, we need to make a correction to the $SS_{Within}$ term and convert it into the $SS_{Error}$ term.
+      			</p>
+      			<p class="fragment offWhite" data-fragment-index=2>
+      				We can do this by rearranging the following equation:
+      				$$SS_{within} = SS_{error} + SS_{subject}$$
+      			</p>
+      			<p class="fragment offWhite" data-fragment-index=3>
+      				Then our new statistics is:
+      				$$\mathcal{F} = \frac{SS_{between}}{SS_{error}} = \frac{SS_{between}}{SS_{within}-SS_{subject}}$$
+      			</p>
+      			<p class="fragment offWhite" data-fragment-index=4>
+      				Then we can bootstrap and find out how unlikely our observed F-statistic is if the Null hypothesis were true:
+      			</p>
+      		</div>
+      
+    		</div>
+      
+    		<!-- notes -->
+    		<aside class="notes" data-markdown>
+### Notice the kt is outside of the sum!
+    		</aside>
+      		
+      </section>
+      
+      <!-- 7 -->
+      <section class="title-slide">
+				<div class="row">
+  				<div class="col-50">
+  					<svg class="drop-20 pull-10" width="100%" viewBox="0 0 340 288" style="margin-top: 0;">
+              <use xlink:href="lib/img/total-variability-ex.svg#axes_1"></use>
+              <use xlink:href="lib/img/total-variability-ex.svg#axes_5"></use>
+              <use xlink:href="lib/img/total-variability-ex.svg#axes_3"></use>
+            </svg>
+  				</div>
+  				
+  				<div class="col-50" style="z-index:1; position: relative; margin-left: -5%;">
+  					<h1>Some Examples</h1>
+	        	<h2>Let's look at two examples of one way ANOVA</h2>
+  				</div>
+  			</div>
+        <aside class="notes" data-markdown>
+
+        </aside>
+      </section>	
+      
+      
+      <!-- 8 -->
+      <section data-transition="slide-in fade-out">
+        <h3>Recall the UCLA Salaries Dataset</h3>
+        <div class="row">
+          <div class="col-100 no-margin">
+            <svg version="1.1" viewBox="0 0 874 334" width="1400pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+              <use xlink:href="lib/img/AOV_UCLA_overview.svg#axes_1"></use>
+              <use class="fragment" xlink:href="lib/img/AOV_UCLA_overview.svg#axes_2"></use>
+            </svg>
+          </div>
+        </div>
+        <p class="fragment bigger mutedBlue">
+          Now, you and 2 friends pulled up the trusty UCLA directory and you each called 15 employees.
+        </p>
+        <p class="fragment bigger orange l-sided">
+          The question is: <span class="mutedBlue">Did your samples all come from the same underlying distribution?</span> How would we test this?
+        </p>
+      </section>
+      
+      <!-- 9 -->
+      <section data-transition="slide-in fade-out">
+        <h3>Recall the UCLA Salaries Dataset</h3>
+        <div class="row">
+          <div class="col-100 no-margin">
+            <svg version="1.1" viewBox="0 0 658 442" width="900pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+              <use xlink:href="lib/img/AOV_UCLA_box.svg#axes_1"></use>
+              <use class="fragment current-visible" data-fragment-index=0 xlink:href="lib/img/AOV_UCLA_box.svg#axes_2"></use>
+              <use class="fragment" xlink:href="lib/img/AOV_UCLA_box.svg#axes_3"></use>
+              <use class="fragment" xlink:href="lib/img/AOV_UCLA_box.svg#axes_4"></use>
+              <use class="fragment" data-fragment-index=0 xlink:href="lib/img/AOV_UCLA_box.svg#axes_5"></use>
+              <use class="fragment" xlink:href="lib/img/AOV_UCLA_box.svg#axes_6"></use>
+            </svg>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 10 -->
+      <section data-transition="slide-in fade-out">
+        <h3>Recall the UCLA Salaries Dataset</h3>
+        <div class="row">
+          <div class="col-100 no-margin">
+            <svg version="1.1" viewBox="0 0 658 298" width="1400pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+              <use xlink:href="lib/img/AOV_ucla_null.svg#axes_1"></use>
+              <use class="fragment" xlink:href="lib/img/AOV_ucla_null.svg#axes_2"></use>
+              <use class="fragment" xlink:href="lib/img/AOV_ucla_null.svg#axes_3"></use>
+            </svg>
+          </div>
+        </div>
+        <p class="fragment bigger mutedBlue">
+          We conclude that our samples are likely from the same population, though variation is  a bit muddy.
+        </p>
+      </section>
+      
+      <!-- 11 -->
+      <section data-transition="slide-in fade-out">
+        <h3>Fertilizer Selection</h3>
+        <div class="row">
+          <div class="col-100 no-margin">
+            <svg height="432pt" version="1.1" viewBox="0 0 658 442" width="648pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<defs>
+										<style type="text/css">
+											*{stroke-linecap:butt;stroke-linejoin:round;}
+										</style>
+									</defs>
+									<use xlink:href="lib/img/AOV_plant_boxplot.svg#axes_1"></use>
+									<use xlink:href="lib/img/AOV_plant_boxplot.svg#axes_2"></use>
+								</svg>
+          </div>
+        </div>
+        <div class="row">
+        		<div class="col-100 no-margin framed border-mutedBlue">
+        				<p class="big">We measured the weight of plants after a fixed amount of growth-time in normal soil (<span class="yellow">control</span>), or with 2 fertilizer treatments (<span class="mutedBlue">1</span> & <span class="purple">2</span>).</p>
+        		</div>
+        </div>
+      </section>
+      
+      <!-- 12 -->
+      <section data-transition="slide-in fade-out">
+        <h3>Fertilizer Selection</h3>
+        <div class="row">
+          <div class="col-100 no-margin">
+            <svg version="1.1" viewBox="0 0 658 298" width="1400pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+              <use xlink:href="lib/img/AOV_plant_null.svg#axes_1"></use>
+            </svg>
+          </div>
+        </div>
+        <p class="fragment bigger mutedBlue">
+          We conclude that our samples are <span class="red big">not likely</span> from the same population. Time for <span class="orange em">Post-hoc</span> analysis.
+        </p>
+      </section>
+      
+      <!--  -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>Fertilizer Selection</h3>
+      		<h4>Compare each pairwise group by 2 group bootstrap.</h4>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-30 no-top-margin">
+      			<svg height="468pt" version="1.1" viewBox="100 0 548 468" width="380pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+							<style type="text/css">
+							*{stroke-linecap:butt;stroke-linejoin:round;}
+							</style>
+							</defs>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 1.svg#axes_1"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 1.svg#axes_2"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 1.svg#axes_3"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 1.svg#axes_4"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 1.svg#axes_5"></use>
+						</svg>
+      		</div>
+      
+      		<!-- middle -->
+      		<div class="col-5">
+      				
+      		</div>
+      		<div class="col-30 no-top-margin">
+      			<svg height="468pt" version="1.1" viewBox="100 0 548 468" width="380pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+							<style type="text/css">
+							*{stroke-linecap:butt;stroke-linejoin:round;}
+							</style>
+							</defs>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 2.svg#axes_1"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 2.svg#axes_2"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 2.svg#axes_3"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 2.svg#axes_4"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 2.svg#axes_5"></use>
+						</svg>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-5">
+      				
+      		</div>
+      		<div class="col-30 no-top-margin">
+      			<svg height="468pt" version="1.1" viewBox="100 0 548 468" width="380pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+							<style type="text/css">
+							*{stroke-linecap:butt;stroke-linejoin:round;}
+							</style>
+							</defs>
+							<use xlink:href="lib/img/CI_Plants_Treatment 1_vs_Treatment 2.svg#axes_1"></use>
+							<use xlink:href="lib/img/CI_Plants_Treatment 1_vs_Treatment 2.svg#axes_2"></use>
+							<use xlink:href="lib/img/CI_Plants_Treatment 1_vs_Treatment 2.svg#axes_3"></use>
+							<use xlink:href="lib/img/CI_Plants_Treatment 1_vs_Treatment 2.svg#axes_4"></use>
+							<use xlink:href="lib/img/CI_Plants_Treatment 1_vs_Treatment 2.svg#axes_5"></use>
+						</svg>
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+      			
+      		</aside>
+      
+      </section>
+      
+      
+      
+      
+      <!--  -->
+      <section>
+      	<div class="row">
+      		<h3>Fertilizer Selection</h3>
+      	</div>
+      	<div class="row">
+      			<div class="col-100">
+      					<svg height="432pt" version="1.1" viewBox="0 0 658 442" width="648pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<defs>
+										<style type="text/css">
+											*{stroke-linecap:butt;stroke-linejoin:round;}
+										</style>
+									</defs>
+									<use xlink:href="lib/img/AOV_plant_boxplot.svg#axes_1"></use>
+									<use xlink:href="lib/img/AOV_plant_boxplot.svg#axes_2"></use>
+									<use class="fragment" data-fragment-index=0 xlink:href="lib/img/AOV_plant_boxplot.svg#axes_3"></use>
+									<use class="fragment" data-fragment-index=2 xlink:href="lib/img/AOV_plant_boxplot.svg#axes_4"></use>
+									<use class="fragment" data-fragment-index=4 xlink:href="lib/img/AOV_plant_boxplot.svg#axes_5"></use>
+								</svg>
+      			</div>
+      	</div>
+      	<div class="row">
+    			<div class="col-100">
+    				<style  type="text/css" >    
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 table {
+      					overflow: hidden;
+      				}
+      				
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 thead tr, 
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 thead th {
+      					position: relative;
+      					text-align: center;
+      				}
+      				
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 tbody tr:hover {
+      					background-color: #626262;
+      				}
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 tbody td, 
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 tbody th {
+      					position: relative;
+      					text-align: center;
+      				}
+      				
+      			</style>
+      			<table id="T_68e61862_1ea1_11e8_9669_54271ef3ead4" class="small" > 
+							<thead class="green-fill offWhite">
+								<tr> 
+								  <th class="index_name level0" >Comparison</th>
+									<th class="col_heading level0 col0" >Effect Size</th> 
+									<th class="col_heading level0 col1" >Confidence Interval</th> 
+									<th class="col_heading level0 col2" >P-value</th> 
+									<th class="col_heading level0 col3 fragment fade-in" data-fragment-index=7>P-adjusted (BH)</th> 
+									<th class="col_heading level0 col4 fragment fade-in" data-fragment-index=9>$H_0$ Rejected</th>
+								</tr>    
+							</thead> 
+							<tbody>    
+								<tr class="fragment fade-in" data-fragment-index=0> 
+								  <th id="T_68e61862_1ea1_11e8_9669_54271ef3ead4level0_row0" class="row_heading level0 row0" >Control vs Treatment 1</th> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col0" class="data row0 col0" >0.371</td> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col1" class="data row0 col1" >[-0.205,  0.94 ]</td> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col2" class="data row0 col2 fragment fade-in" data-fragment-index=1 ><span class="fragment highlight-red" data-fragment-index=6>0.2272</span></td> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col3" class="data row0 col3 fragment fade-in" data-fragment-index=7 ><span class="fragment highlight-red" data-fragment-index=8>0.2272</span></td> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col4" class="data row0 col4 fragment fade-in" data-fragment-index=10 ><span class="fragment highlight-red" data-fragment-index=11>False</span></td> 
+								</tr>
+								<tr class="fragment fade-in" data-fragment-index=2> 
+								  <th id="T_68e61862_1ea1_11e8_9669_54271ef3ead4level0_row1" class="row_heading level0 row1" >Control vs Treatment 2</th> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col0" class="data row1 col0" >-0.494</td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col1" class="data row1 col1" >[-0.92,  -0.066]</td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col2" class="data row1 col2 fragment fade-in" data-fragment-index=3 ><span class="fragment highlight-green" data-fragment-index=6>0.0461</span></td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col3" class="data row1 col3 fragment fade-in" data-fragment-index=7 ><span class="fragment highlight-orange" data-fragment-index=8>0.06915</span></td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col4" class="data row1 col4 fragment fade-in" data-fragment-index=10 ><span class="fragment highlight-red" data-fragment-index=11>False</span></td> 
+								</tr>    
+								<tr class="fragment fade-in" data-fragment-index=4>  
+								  <th id="T_68e61862_1ea1_11e8_9669_54271ef3ead4level0_row2" class="row_heading level0 row2" >Treatment 1 vs Treatment 2</th> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col0" class="data row2 col0" >-0.865</td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col1" class="data row2 col1" >[-1.388, -0.327]</td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col2" class="data row2 col2 fragment fade-in" data-fragment-index=5 ><span class="fragment highlight-green" data-fragment-index=6>0.0076</span></td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col3" class="data row2 col3 fragment fade-in" data-fragment-index=7 ><span class="fragment highlight-green" data-fragment-index=8>0.0228</span></td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col4" class="data row2 col4 fragment fade-in" data-fragment-index=10 ><span class="fragment highlight-green" data-fragment-index=11>True</span></td> 
+								</tr>
+							</tbody> 
+						</table>
+  				</div>	
+      	</div>
+      	<aside class="notes" data-markdown>
+      		
+      	</aside>
+      </section>
+      	
+
+      <!-- #########################     CONTENT END     #########################-->
+    </div>
+    
+  </div>
+  
+  <!-- REVEAL JS -->
+  <script src="lib/js/reveal.js/lib/js/head.min.js"></script>
+  <script src="lib/js/reveal.js/js/reveal.js"></script>
+  <script src="lib/js/initReveal.js"></script>
+</body>
+</html>

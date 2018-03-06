@@ -191,6 +191,10 @@ body {
 .reveal table tbody tr:last-child td {
   border-bottom: none; }
 
+.reveal table tbody tr:hover {
+  background-color: #323232;
+}
+
 .reveal sup {
   vertical-align: super; }
 
