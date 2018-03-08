@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Lecture 17: ANOVA III</title>
+  <meta name="author" content="Khris Griffis" />
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, minimal-ui">
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="lib/img/fic/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="lib/img/fic/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="lib/img/fic/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="lib/img/fic/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="lib/img/fic/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="lib/img/fic/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="lib/img/fic/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="lib/img/fic/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="lib/img/fic/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="lib/img/fic/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="lib/img/fic/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="lib/img/fic/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="lib/img/fic/favicon-16x16.png">
+  <link rel="manifest" href="lib/img/fic/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="lib/img/fic/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="lib/js/reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="lib/css/flatlandDk2.css" id="theme">
+  <link rel="stylesheet" href="lib/css/jsStyle.css">
+  
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/js/reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'lib/js/reveal.js/css/print/pdf.css' : 'lib/js/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!-- END PRINT EXPORT -->
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+  <link href="https://use.fontawesome.com/releases/v5.0.3/css/all.css" rel="stylesheet">
+  
+</head>
+<body>
+  
+  <div class="reveal">
+
+    <div class="slides">
+      <!-- #########################    CONTENT START    #########################-->
+      
+      <!-- 0 -->
+      <section class="title-slide">
+				<div class="row">
+  				<div class="col-50">
+  					<img src="lib/img/AOV_Fstat.svg" class="plain drop-20 pull-10" style="width:1100px;">
+  				</div>
+  				
+  				<div class="col-50" style="z-index:1; position: relative; margin-left: -5%;">
+  					<h1>Life Sciences 40</h1>
+	        	<h2>Lecture 17:</h2>
+	          <h4>Analysis of Variance Part III</h4>
+	          <h5>Khris Griffis</h5>
+  				</div>
+  			</div>
+        <aside class="notes" data-markdown>
+## ANNOUNCE
+
+1. For those who are concerned about your midterm grade, final grade can take the place of the midterm grade.
+2. This is a surprise for Sarah and Jane as well. There will be a homework assigned and due finals week. It will be short and about power analysis and you'll learn about it in lab. The homework will be extra credit worth the amount of 1 homework assignment. 
+
+Since the assignment is so short, we will release it early next week and it will be due at the start of the final exam.
+
+We will release the homework this week tonight, due next Friday (week 10) at midnight.
+
+
+## Lecture comment:
+notice that as dfs get big, the pdf of the F-distribution centers at 1? Anyone know why?
+        </aside>
+      </section>	
+      
+      <!-- 1 -->
+      <section>
+        <h3>Analysis of Variance</h3>
+        <div class="row">
+          <div class="col-25" style="height:114px;">
+            <p class="big framed border-red" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;min-height:104px;">
+              $$\mathcal{F}$$
+            </p>
+          </div>
+          <div class="col-7" style="margin-top: 1.2em;min-height:104px;">
+              $$=$$
+          </div>
+          <div class="col-30" style="height:114px;">
+            <p class="big framed border-orange" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+              Variability <br> <span class="smaller">groups about the grand mean</span>
+            </p>
+          </div>
+          <div class="col-7" style="margin-top: 1.2em;min-height:104px;">
+              $/$
+          </div>
+          <div class="col-30" style="height:114px;">
+            <p class="big framed border-mutedBlue" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+              Variability <br> <span class="smaller">within each group (minus random effects)</span>
+            </p>
+          </div>
+        </div>
+        <div class="row drop-5">
+        	<h4>In Mathematical Terms</h4>
+          <div class="col-25" style="height:114px;">
+            <p class="big framed border-red" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;min-height:104px;">
+              $$\mathcal{F}$$
+            </p>
+          </div>
+          <div class="col-6" style="margin-top: 1.2em;min-height:114px;">
+              $=$
+          </div>
+          <div class="col-32" style="height:114px;">
+            <p class="big framed border-orange" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;min-height:104px;">
+              $$\sum_{g=1}^{k}n_{g}(\hat{y}_{g}-\bar{y})^2$$
+            </p>
+          </div>
+          <div class="col-6" style="margin-top: 1.2em;min-height:114px;">
+              $/$
+          </div>
+          <div class="col-30" style="height:114px;">
+            <p class="big framed border-mutedBlue" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+              $$\sum_{g=1}^{k}\sum_{i=1}^{n_g}(y_{gi} - \hat{y}_{g})^2$$
+            </p>
+          </div>
+        </div>
+        <div class="row">
+      		<div class="col-40 smaller drop-10">
+      				<ul class="icon">
+      					<li class="caret-right mutedblue">[$\hat{y}_i$] This denotes the mean (central tendency) of the ith group.</li>
+								<li class="caret-right mutedblue">[$\bar{y}$] This denotes the Grand Mu, i.e. the $\mu$ of all values.</li>
+								<li class="caret-right mutedblue">[$k$] This is the number of groups, levels, etc. in a factor.</li>
+								<li class="caret-right mutedblue">[$n_i$] This denotes the sample size of the ith group.</li>
+								<li class="caret-right mutedblue">[$n$] This is the total number of n in the study, i.e. $\sum_{i=1}^{k}n_i$</li>
+								<li class="caret-right mutedblue">[$y_{ij}$] This is an individual value, the jth value of the ith group.</li>
+      				</ul>
+      		</div>
+      		<div class="col-60">
+      				
+      		</div>
+        </div>
+        <aside class="notes" data-markdown>
+### What happens when the ANOVA is significant?
+
+        </aside>
+      </section>
+      
+      <!-- 2 -->
+      <section>
+      	<div class="row">
+      		<h3>Fertilizer Selection</h3>
+      	</div>
+      	<div class="row">
+      			<div class="col-100">
+      					<svg height="432pt" version="1.1" viewBox="0 0 658 442" width="648pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<defs>
+										<style type="text/css">
+											*{stroke-linecap:butt;stroke-linejoin:round;}
+										</style>
+									</defs>
+									<use xlink:href="lib/img/AOV_plant_boxplot.svg#axes_1"></use>
+									<use xlink:href="lib/img/AOV_plant_boxplot.svg#axes_2"></use>
+									<use class="fragment" data-fragment-index=0 xlink:href="lib/img/AOV_plant_boxplot.svg#axes_3"></use>
+									<use class="fragment" data-fragment-index=2 xlink:href="lib/img/AOV_plant_boxplot.svg#axes_4"></use>
+									<use class="fragment" data-fragment-index=4 xlink:href="lib/img/AOV_plant_boxplot.svg#axes_5"></use>
+								</svg>
+      			</div>
+      	</div>
+      	<div class="row">
+    			<div class="col-100">
+    				<style  type="text/css" >    
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 table {
+      					overflow: hidden;
+      				}
+      				
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 thead tr, 
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 thead th {
+      					position: relative;
+      					text-align: center;
+      				}
+      				
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 tbody tr:hover {
+      					background-color: #626262;
+      				}
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 tbody td, 
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 tbody th {
+      					position: relative;
+      					text-align: center;
+      				}
+      				
+      			</style>
+      			<table id="T_68e61862_1ea1_11e8_9669_54271ef3ead4" class="small" > 
+							<thead class="green-fill offWhite">
+								<tr> 
+								  <th class="index_name level0" >Comparison</th>
+									<th class="col_heading level0 col0" >Effect Size</th> 
+									<th class="col_heading level0 col1" >Confidence Interval</th> 
+									<th class="col_heading level0 col2" >P-value</th> 
+									<th class="col_heading level0 col3 fragment fade-in" data-fragment-index=7>P-adjusted (BH)</th> 
+									<th class="col_heading level0 col4 fragment fade-in" data-fragment-index=9>$H_0$ Rejected</th>
+								</tr>    
+							</thead> 
+							<tbody>    
+								<tr class="fragment fade-in" data-fragment-index=0> 
+								  <th id="T_68e61862_1ea1_11e8_9669_54271ef3ead4level0_row0" class="row_heading level0 row0" >Control vs Treatment 1</th> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col0" class="data row0 col0" >0.371</td> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col1" class="data row0 col1" >[-0.205,  0.94 ]</td> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col2" class="data row0 col2 fragment fade-in" data-fragment-index=1 ><span class="fragment highlight-red" data-fragment-index=6>0.2272</span></td> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col3" class="data row0 col3 fragment fade-in" data-fragment-index=7 ><span class="fragment highlight-red" data-fragment-index=8>0.2272</span></td> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col4" class="data row0 col4 fragment fade-in" data-fragment-index=10 ><span class="fragment highlight-red" data-fragment-index=11>False</span></td> 
+								</tr>
+								<tr class="fragment fade-in" data-fragment-index=2> 
+								  <th id="T_68e61862_1ea1_11e8_9669_54271ef3ead4level0_row1" class="row_heading level0 row1" >Control vs Treatment 2</th> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col0" class="data row1 col0" >-0.494</td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col1" class="data row1 col1" >[-0.92,  -0.066]</td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col2" class="data row1 col2 fragment fade-in" data-fragment-index=3 ><span class="fragment highlight-green" data-fragment-index=6>0.0461</span></td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col3" class="data row1 col3 fragment fade-in" data-fragment-index=7 ><span class="fragment highlight-orange" data-fragment-index=8>0.06915</span></td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col4" class="data row1 col4 fragment fade-in" data-fragment-index=10 ><span class="fragment highlight-red" data-fragment-index=11>False</span></td> 
+								</tr>    
+								<tr class="fragment fade-in" data-fragment-index=4>  
+								  <th id="T_68e61862_1ea1_11e8_9669_54271ef3ead4level0_row2" class="row_heading level0 row2" >Treatment 1 vs Treatment 2</th> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col0" class="data row2 col0" >-0.865</td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col1" class="data row2 col1" >[-1.388, -0.327]</td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col2" class="data row2 col2 fragment fade-in" data-fragment-index=5 ><span class="fragment highlight-green" data-fragment-index=6>0.0076</span></td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col3" class="data row2 col3 fragment fade-in" data-fragment-index=7 ><span class="fragment highlight-green" data-fragment-index=8>0.0228</span></td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col4" class="data row2 col4 fragment fade-in" data-fragment-index=10 ><span class="fragment highlight-green" data-fragment-index=11>True</span></td> 
+								</tr>
+							</tbody> 
+						</table>
+  				</div>	
+      	</div>
+      	<div class="row">
+    			<div class="col-100 framed border-orange fragment">
+  					<p class="center">What does <span class="red">this</span> mean for our scientific results? What is our interpretation based on the ANOVA results and these?</p>
+    			</div>
+      	</div>
+      	<aside class="notes" data-markdown>
+We will discuss the p-value correction at the end of class today.
+      	</aside>
+      </section>
+      
+      
+      <!-- 3 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>Analysis of Variance</h3>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin framed border-mutedBlue">
+      			<h4>Structure for One-Way ANOVA</h4>
+      			<p>Long form data works best for ANOVA in the real world because we often do not have the convenience of having equal $n$ in each group.</p>
+      			<p class="fragment" data-fragment-index=0>For one-way ANOVA, we have a single <span class="green">factor-grouping</span> which contains information about the different groups at this factor-level.</p>
+      			<p class="fragment big" data-fragment-index=1>Each <span class="green">factor-level</span> is a vector (or column in a data frame) that has a <span class="mutedBlue">group name</span> for each measurement.</p>
+      			<p class="fragment big" data-fragment-index=2>Long form data will have $N$ rows each <span class="green">group</span> will occupy <span class="mutedBlue">$n_i$ rows</span> for <span class="purple">each</span> <span class="orange">group</span>.</p>
+      			<p class="fragment big">Here our <span class="green">Group</span> factor contains one level of categorization for our Weight measurements. The categories at this level are <span class="mutedBlue">Control</span>, <span class="purple">Treatment 1</span>, and <span class="orange">Treatment 2</span>.</p>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin framed border-green">
+      			<style scoped="">
+					    .dataframe tbody tr th:only-of-type {
+					        vertical-align: middle;
+					    }
+
+					    .dataframe tbody tr th {
+					        vertical-align: top;
+					    }
+
+					    .dataframe table {
+    						overflow: hidden;
+      				}
+      				
+      				.dataframe thead tr, 
+      				.dataframe thead th {
+      					position: relative;
+      					text-align: center;
+      				}
+      				
+      				.dataframe tbody tr:hover {
+      					background-color: #626262;
+      				}
+      				.dataframe tbody td, 
+      				.dataframe tbody th {
+      					position: relative;
+      					text-align: center;
+      				}
+						</style>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr>
+						      <th>ID</th>
+						      <th>Weight</th>
+						      <th class="fragment highlight-current-bg-green" data-fragment-index=0>Group</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>1</th>
+						      <td>4.17</td>
+						      <td class="fragment highlight-bg-mutedBlue" data-fragment-index=1>ctrl</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>5.58</td>
+						      <td class="fragment highlight-bg-mutedBlue" data-fragment-index=1>ctrl</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>5.18</td>
+						      <td class="fragment highlight-bg-mutedBlue" data-fragment-index=1>ctrl</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>6.11</td>
+						      <td class="fragment highlight-bg-mutedBlue" data-fragment-index=1>ctrl</td>
+						    </tr>
+						    <tr>
+						      <th>5</th>
+						      <td>4.50</td>
+						      <td class="fragment highlight-bg-mutedBlue" data-fragment-index=1>ctrl</td>
+						    </tr>
+						    <tr>
+						      <th>$\vdots$</th>
+						      <td>$\vdots$</td>
+						      <td class="fragment highlight-bg-purple" data-fragment-index=2>$\vdots$</td>
+						    </tr>
+						    <tr>
+						      <th>26</th>
+						      <td>5.29</td>
+						      <td class="fragment highlight-bg-orange" data-fragment-index=2>trt2</td>
+						    </tr>
+						    <tr>
+						      <th>27</th>
+						      <td>4.92</td>
+						      <td class="fragment highlight-bg-orange" data-fragment-index=2>trt2</td>
+						    </tr>
+						    <tr>
+						      <th>28</th>
+						      <td>6.15</td>
+						      <td class="fragment highlight-bg-orange" data-fragment-index=2>trt2</td>
+						    </tr>
+						    <tr>
+						      <th>29</th>
+						      <td>5.80</td>
+						      <td class="fragment highlight-bg-orange" data-fragment-index=2>trt2</td>
+						    </tr>
+						    <tr>
+						      <th>30</th>
+						      <td>5.26</td>
+						      <td class="fragment highlight-bg-orange" data-fragment-index=2>trt2</td>
+						    </tr>
+						  </tbody>
+						</table>
+      		</div>
+      
+      	</div>
+      
+    		<!-- notes -->
+    		<aside class="notes" data-markdown>
+    			
+    		</aside>
+      		
+      </section>
+      
+      <!-- 4 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>Analysis of Variance</h3>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin framed border-mutedBlue">
+      			<h4>Structure for Two-Way ANOVA</h4>
+      			<p>Long form data still has the best advantage for the same reasons.</p>
+      			<p class="fragment" data-fragment-index=0>For two-way ANOVA, we have two factor levels, each containing information about the <span class="green">group</span> and <span class="blue">sub-group</span> for each measurement.</p>
+      			<p class="fragment" data-fragment-index=1>Again, Each factor-level is a vector (or column in a data frame) that has a grouping label for each measurement.</p>
+      			<p class="fragment" data-fragment-index=1>Long form data will have $N$ rows, each group will occupy $n_i$ rows for each group.</p>
+      			<p class="fragment" data-fragment-index=1>Here our <span class="green">Plant Type</span> factor contains one level of categorization and our <span class="blue">Treatment</span> factor contains another for $CO_2$ Uptake.</p>
+      			<p class="fragment" data-fragment-index=1>
+      				The <span class="orange">true</span> groupings are actually the combined category of both factors. Here, that is 4 groups:<br>
+      				<span class="fragment orange" data-fragment-index=2>Quebec$*$Non</span><br>
+      				<span class="fragment yellow" data-fragment-index=3>Quebec$*$Chilled</span><br>
+      				<span class="fragment red" data-fragment-index=4>Miss.$*$Non</span><br>
+      				<span class="fragment purple" data-fragment-index=5>Miss.$*$Chilled</span>
+      			</p>
+      			<p class="fragment border-green framed big">
+      				Two-way ANOVA analyzes the effects of each factor level and then the interaction, i.e. <span class="orange">true</span> grouping, effect on the response variable (Uptake column).
+      			</p>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin framed border-green">
+      			<style scoped="">
+					    .dataframe tbody tr th:only-of-type {
+					        vertical-align: middle;
+					    }
+
+					    .dataframe tbody tr th {
+					        vertical-align: top;
+					    }
+
+					    .dataframe table {
+    						overflow: hidden;
+      				}
+      				
+      				.dataframe thead tr, 
+      				.dataframe thead th {
+      					position: relative;
+      					text-align: center;
+      				}
+      				
+      				.dataframe tbody tr:hover {
+      					background-color: #626262;
+      				}
+      				.dataframe tbody td, 
+      				.dataframe tbody th {
+      					position: relative;
+      					text-align: center;
+      				}
+						</style>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>Plant</th>
+						      <th class="fragment highlight-current-bg-green" data-fragment-index=0>Type</th>
+						      <th class="fragment highlight-current-bg-blue" data-fragment-index=0>Treatment</th>
+						      <th>uptake</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>Qn1</td>
+						      <td class="fragment highlight-bg-green" data-fragment-index=1><span class="fragment highlight-orange" data-fragment-index=2>Quebec</span></td>
+						      <td class="fragment highlight-bg-blue" data-fragment-index=1><span class="fragment highlight-orange" data-fragment-index=2>nonchilled</span></td>
+						      <td>16.0</td>
+						    </tr>
+						    <tr>
+						      <th>1</th>
+						      <td>Qn1</td>
+						      <td class="fragment highlight-bg-green" data-fragment-index=1><span class="fragment highlight-orange" data-fragment-index=2>Quebec</span></td>
+						      <td class="fragment highlight-bg-blue" data-fragment-index=1><span class="fragment highlight-orange" data-fragment-index=2>nonchilled</span></td>
+						      <td>30.4</td>
+						    </tr>
+						    <tr>
+						      <th>$\vdots$</th>
+						      <td>$\vdots$</td>
+						      <td>$\vdots$</td>
+						      <td>$\vdots$</td>
+						      <td>$\vdots$</td>
+						    </tr>
+						    <tr>
+						      <th>21</th>
+						      <td>Qc1</td>
+						      <td class="fragment highlight-bg-green" data-fragment-index=1><span class="fragment highlight-yellow" data-fragment-index=3>Quebec</span></td>
+						      <td class="fragment highlight-bg-mutedBlue" data-fragment-index=1><span class="fragment highlight-yellow" data-fragment-index=3>chilled</span></td>
+						      <td>14.2</td>
+						    </tr>
+						    <tr>
+						      <th>22</th>
+						      <td>Qc1</td>
+						      <td class="fragment highlight-bg-green" data-fragment-index=1><span class="fragment highlight-yellow" data-fragment-index=3>Quebec</span></td>
+						      <td class="fragment highlight-bg-mutedBlue" data-fragment-index=1><span class="fragment highlight-yellow" data-fragment-index=3>chilled</span></td>
+						      <td>24.1</td>
+						    </tr>
+						    <tr>
+						      <th>$\vdots$</th>
+						      <td>$\vdots$</td>
+						      <td>$\vdots$</td>
+						      <td>$\vdots$</td>
+						      <td>$\vdots$</td>
+						    </tr>
+						    <tr>
+						      <th>60</th>
+						      <td>Mn3</td>
+						      <td class="fragment highlight-bg-offWhite" data-fragment-index=1><span class="fragment highlight-red" data-fragment-index=4>Mississippi</span></td>
+						      <td class="fragment highlight-bg-blue" data-fragment-index=1><span class="fragment highlight-red" data-fragment-index=4>nonchilled</span></td>
+						      <td>28.5</td>
+						    </tr>
+						    <tr>
+						      <th>61</th>
+						      <td>Mn3</td>
+						      <td class="fragment highlight-bg-offWhite" data-fragment-index=1><span class="fragment highlight-red" data-fragment-index=4>Mississippi</span></td>
+						      <td class="fragment highlight-bg-blue" data-fragment-index=1><span class="fragment highlight-red" data-fragment-index=4>nonchilled</span></td>
+						      <td>28.1</td>
+						    </tr>
+						    <tr>
+						      <th>$\vdots$</th>
+						      <td>$\vdots$</td>
+						      <td>$\vdots$</td>
+						      <td>$\vdots$</td>
+						      <td>$\vdots$</td>
+						    </tr>
+						    <tr>
+						      <th>82</th>
+						      <td>Mc3</td>
+						      <td class="fragment highlight-bg-offWhite" data-fragment-index=1><span class="fragment highlight-purple" data-fragment-index=5>Mississippi</span></td>
+						      <td class="fragment highlight-bg-mutedBlue" data-fragment-index=1><span class="fragment highlight-purple" data-fragment-index=5>chilled</span></td>
+						      <td>18.9</td>
+						    </tr>
+						    <tr>
+						      <th>83</th>
+						      <td>Mc3</td>
+						      <td class="fragment highlight-bg-offWhite" data-fragment-index=1><span class="fragment highlight-purple" data-fragment-index=5>Mississippi</span></td>
+						      <td class="fragment highlight-bg-mutedBlue" data-fragment-index=1><span class="fragment highlight-purple" data-fragment-index=5>chilled</span></td>
+						      <td>19.9</td>
+						    </tr>
+						  </tbody>
+						</table>
+      		</div>
+      
+      	</div>
+      
+    		<!-- notes -->
+    		<aside class="notes" data-markdown>
+
+    		</aside>
+      		
+      </section>
+      
+      
+      <!-- 5 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h2>Two-Way ANOVA</h2>
+      		<h3>The easy terms</h3>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin">
+    				<p class="fragment l-sided big" data-fragment-index=0>We can think of Two-Way ANOVA as a nesting of One-Way ANOVAs. That is, we end up with, essentially, three One-Way ANOVAs: one for each factor-level and one for the combined factor levels.</p>
+    				<p class="fragment l-sided border-green big center" data-fragment-index=1>Variability<br>Between A-Level factor</p>
+    				<p class="fragment l-sided border-blue big center" data-fragment-index=2>Variability<br>Between B-Level factors</p>
+    				<p class="fragment l-sided border-offWhite big center" data-fragment-index=3>Variability<br>Within each <span class="orange">true</span> grouping</p>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin">
+      			<p class="fragment r-sided left" data-fragment-index=0>
+      				For factor-levels $A$ and $B$:
+      				\begin{equation}
+	      				\begin{split}
+		      				\left\{ \mathcal{F}_A = \frac{\color{lightgreen}{SS_{A}}}{SS_{within}}, \\
+		      				\mathcal{F}_B = \frac{\color{lightblue}{SS_{B}}}{SS_{within}}, \\
+		      				\mathcal{F}_{A*B} = \frac{SS_{\color{lightgreen}{A}*\color{lightblue}{B}}}{SS_{within}}\quad \right\}
+	      				\end{split}
+      				\end{equation}
+      			</p>
+      			<p class="fragment l-sided border-green" data-fragment-index=1>
+      				\begin{equation}
+      					SS_A = \sum_{i = 1}^{k_A} n_{A_i}\left( \hat{y}_{A_i} - \bar{y}\right)^2,\quad {\scriptstyle \mathrm{dof}=k_A - 1}
+      				\end{equation}
+      			</p>
+      			<p class="fragment l-sided border-blue" data-fragment-index=2>
+      				\begin{equation}
+      					SS_B = \sum_{i = 1}^{k_B} n_{B_i}\left( \hat{y}_{B_i} - \bar{y}\right)^2,\quad {\scriptstyle \mathrm{dof}=k_B - 1}
+      				\end{equation}
+      			</p>
+      			<p class="fragment l-sided border-offWhite" data-fragment-index=3>
+      				\begin{equation}
+      					SS_{within} = \sum_{i=1}^{k_{AB}}\sum_{j=1}^{n_i}(y_{ij} - \hat{y}_{i})^2,\quad {\scriptstyle \mathrm{dof}=N-k_A\times k_B}
+      				\end{equation}
+      			</p>
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+      			
+      		</aside>
+      		
+      </section>
+      
+      <!-- 6 -->
+      <section>
+      	<!-- heading -->
+      	<div class="row">
+      		<h2>Two-Way ANOVA</h2>
+      		<h3>The complicated term</h3>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      		<div class="col-60 l-sided border-mutedBlue">
+      			<p class="offWhite">The interaction term, $SS_{A*B}$, takes into account the fact that a measurement belongs to both $A$ and $B$ factors, which have some <span class="mutedBlue">effect</span>, $\epsilon$, that needs to be accounted for.</p>
+      			<p class="center fragment" data-fragment-index=1>$\epsilon$ is the sum of each factor-level effects.</p>
+      			<p class="center fragment" data-fragment-index=2>Factor-level effects are actually the residuals of the between groups variances.</p>
+      			<p class="center fragment" data-fragment-index=3>Like other $SS$ terms, $SS_{A\cdot B}$ is the residual of the <span class="orange">true grouping</span> minus the sum of the <span class="mutedBlue">factor-level effects</span>.</p>
+      		</div>
+      		<div class="col-40">
+      			<p class="center fragment" data-fragment-index=1>
+      				\begin{equation}
+      					\epsilon = \epsilon_A + \epsilon_B,
+      				\end{equation}
+      			</p>
+      			<p class="center fragment" data-fragment-index=2>
+      				\begin{equation}
+	      					\epsilon_i = (\hat{y}_i - \bar{y}) \\
+      				\end{equation}
+      				$$\therefore \epsilon_{A_i} = (\hat{y}_{\{A\, \mid\, i\, \in A \}} - \bar{y})$$
+      			</p>
+      			<p class="center fragment" data-fragment-index=3>
+      				\begin{equation}
+      					SS_{A\cdot B} = \sum_{i=1}^{k_{A\cdot B}}\color{orange}{n_{A\cdot B\: _i}} \left( \color{orange}{(\hat{y}_{A\cdot B\: _i} - \bar{y})} - (\color{lightblue}{\epsilon_{A_i} + \epsilon_{B_i}}) \right)^2
+      				\end{equation}
+      			</p>
+      		</div>
+      	</div>
+      	<div class="row">
+      			<div class="col-100">
+      				<p class="center fragment" data-fragment-index=4>With substitution, our interaction term becomes:</p>
+      				<p class="center fragment" data-fragment-index=4>$$SS_{A\cdot B} = \sum_{i=1}^{k_{A\cdot B}}n_{A\cdot B\: _i} \left( (\hat{y}_{A\cdot B\: _i} - \bar{y}) - ((\hat{y}_{\{A\, \mid\, i\, \in A \}} - \bar{y}) + (\hat{y}_{\{B\, \mid\, i\, \in B \}} - \bar{y})) \right)^2$$</p>
+      				<p class="center fragment" data-fragment-index=5>Which simplifies:</p>
+      				<p class="center fragment" data-fragment-index=5>$$SS_{A\cdot B} = \sum_{i=1}^{k_{A\cdot B}}n_{A\cdot B\: _i} \left( \hat{y}_{A\cdot B\: _i} - \hat{y}_{\{A\, \mid\, i\, \in A \}} - \hat{y}_{\{B\, \mid\, i\, \in B \}} + \bar{y}) \right)^2$$</p>
+      				<p class="center fragment" data-fragment-index=6>Though, to keep it in the same form, we write:</p>
+      				<p class="center fragment" data-fragment-index=6>$$SS_{A\cdot B} = \sum_{i=1}^{k_{A\cdot B}}n_{A\cdot B\: _i} \left( \hat{y}_{A\cdot B\: _i} - (\hat{y}_{A_i} + \hat{y}_{B_i} - \bar{y}) \right)^2$$</p>
+      			</div>
+      	</div>
+      	<aside class="notes" data-markdown>
+You can imagine that having more than a two-way ANOVA, this term could grow by a lot. Look at epsilon
+      	</aside>
+      </section>
+      
+      
+      <!-- 7 -->
+      <section>
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>Viewing the Interaction Term</h3>
+      		<h5>When there is <span class="red">no</span> interaction...</h5>
+      	</div>
+      	<!-- main -->
+      	<div class="row">
+      		<div class="col-100 no-margin">
+      			<img src="lib/img/anoav2way5.png" class="plain" style="max-height:900px;">
+      		</div>
+      	</div>
+      	
+    	</section>	
+    	
+    	<!-- 8 -->
+      <section>
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>Viewing the Interaction Term</h3>
+      		<h5>When there <span class="mutedBlue">is</span> an interaction...</h5>
+      	</div>
+      	<!-- main -->
+      	<div class="row">
+      		<div class="col-100 no-margin">
+      			<img src="lib/img/anoav2way6.png" class="plain" style="max-height:900px;">
+      		</div>
+      	</div>
+      	
+    	</section>	
+    	
+    	
+    	<!-- 9 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h2>Plant $CO_2$ Uptake: revisited</h2>
+    		</div>
+    	
+    		<!-- main -->
+  			<div class="row">
+  		
+  				<!-- left column -->
+  				<div class="col-40 no-top-margin l-sided border-mutedBlue">
+    				<p>Let's walk through an example using some real data:</p>
+    				<p class="fragment" data-fragment-index=1>The $CO_2$ uptake was measured in the grass species <em>Echinochloa crus-galli</em>.</p>
+    				<p class="fragment" data-fragment-index=2>Now, we have an added <span class="mutedBlue">factor</span> level to help us analyze the data. That is, we collected the grass from both <span class="yellow">Quebec</span> and <span class="green">Mississippi</span> this time.</p>
+    				<p class="fragment" data-fragment-index=3>We also are keeping track of our treatments.</p>
+    				<p class="fragment" data-fragment-index=4>What is the <span class="red">null</span> hypothesis?</p>
+    				<p class="fragment orange" data-fragment-index=5>That <span class="red">all</span> the measured plants came from the same underlying population.</p>
+    				<p class="fragment" data-fragment-index=5>What is the <span class="mutedBlue">Alternative</span> hypothesis?</p>
+    				<p class="fragment" data-fragment-index=6>At least 1 of the treatments has an effect in 1 location.</p>
+  				</div>
+  		
+  				<!-- right column -->
+  				<div class="col-60 no-top-margin">
+  					<svg version="1.1" viewBox="0 0 658 442" width="848pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+	  					<use class="fragment" data-fragment-index=1 xlink:href="lib/img/AOV2_Plants.svg#axes_1"></use>
+	  					<use class="fragment" data-fragment-index=4 xlink:href="lib/img/AOV2_Plants.svg#axes_2"></use>
+	  				</svg>
+	    		</div>
+				</div>
+  		
+  			
+  		
+  				<!-- notes -->
+  				<aside class="notes" data-markdown>
+# Pooling!
+
+Talk about how the effects groups are pooled and how to interpret the interaction
+
+  				</aside>
+  				
+  		</section>
+    	
+    	<!-- 10 -->
+    	<section data-transition="slide-in fade-out">
+        <h3>What is the interaction</h3>
+        <div class="row">
+          <div class="col-100 no-margin">
+            <svg height="488pt" version="1.1" viewBox="0 0 658 298" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+              <use class="fragment" data-fragment-index=1 xlink:href="lib/img/AOV2_interaction.svg#axes_1"></use>
+              <use class="fragment" data-fragment-index=3 xlink:href="lib/img/AOV2_interaction.svg#axes_2"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="row">
+        	<div class="col-50">
+        		<p class="fragment mutedBlue big" data-fragment-index=2>
+		          - Chilling seems to reduce (on average) the $CO_2$ uptake.<br>
+		          - Location has an overall effect (on average) of $CO_2$ uptake.
+		        </p>
+        	</div>
+        	<div class="col-50">
+        		<p class="fragment orange big" data-fragment-index=4>
+		          - Location has an (on average) of $CO_2$ uptake.<br>
+		          - Chilling seems to reduce (on average) the $CO_2$ uptake, and it may have more an effect in Mississippi than in Quebec.
+		        </p>
+        	</div>
+        </div>
+      </section>
+    	
+    	<!-- 11 -->
+    	<section data-transition="slide-in fade-out">
+        <h3>Bootstrap Using the One Box Method</h3>
+        <div class="row">
+          <div class="col-100 no-margin">
+            <svg height="460pt" version="1.1" viewBox="0 0 874 370" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+              <use class="fragment" data-fragment-index=1 xlink:href="lib/img/AOV2_boots.svg#axes_1"></use>
+              <use class="fragment" data-fragment-index=3 xlink:href="lib/img/AOV2_boots.svg#axes_2"></use>
+              <use class="fragment" data-fragment-index=5 xlink:href="lib/img/AOV2_boots.svg#axes_3"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="row">
+        	<div class="col-30">
+        		<p class="fragment mutedBlue" data-fragment-index=2>
+		          Treatment effect is highly significant.
+		        </p>
+        	</div>
+        	<div class="col-5">
+        			
+        	</div>
+        	<div class="col-30">
+        		<p class="fragment green" data-fragment-index=4>
+		          Plant Type effect is highly significant.
+		        </p>
+        	</div>
+        	<div class="col-5">
+        			
+        	</div>
+        	<div class="col-30">
+        		<p class="fragment orange" data-fragment-index=6>
+        			Interaction is not as significant.
+        		</p>
+        	</div>
+        </div>
+      </section>
+    	
+    	<!-- 12 -->
+    	<section>
+    		
+    		<div class="row">
+    			<h1>Two-way ANOVA Interpretation</h1>
+    			<div class="col-100 framed border-orange">
+    				<p>Inference for the Two-way ANOVA table involves first checking the interaction p-value to see if we can reject the null hypothesis that the additive model is sufficient. If that p-value is smaller than $\alpha$, then the adequacy of the additive model can be rejected and <span class="mutedBlue">you should conclude that both factors affect the outcome</span>, and the the effect <span class="red">changes</span> in one factor <span class="mutedBlue">depend</span> on the level of the other factor, i.e. there is an interaction between the explanatory variables.</p>
+    				<p><span class="red big">When the interaction term is significant, the usual advice is that you should <em>not</em> test the effects of the individual groups as this is misleading</span>.</p>
+    				<p class="green big">The typical approach is to then break apart the factors and compute One-Way ANOVA on each factor term separately.</p>
+    				<p class="fragment">
+    					$$y_{ijkr} = \bar{y} + var_{A_i} + var_{B_j} + var_{C_k} + var_{AB_{ij}} + var_{AC_{ik}} + var_{BC_{jk}} + var_{ABC_{ijk}} + \epsilon_{ijkr}$$
+    				</p>
+    			</div>
+    		</div>
+    		
+    		<aside class="notes" data-markdown>
+    			
+    		</aside>
+    	</section>
+    		
+    	
+    	<!-- 13 -->
+    	<section data-transition="slide-in fade-out">
+        <h3><em>Post-hoc</em> Testing Problem</h3>
+        <div class="row">
+          <div class="col-100 no-margin">
+            <svg height="460pt" version="1.1" viewBox="0 0 658 442" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+              <use class="fragment" data-fragment-index=1 xlink:href="lib/img/ALPHA_coins.svg#axes_1"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="row">
+        	<div class="col-100">
+        		<p class="fragment mutedBlue" data-fragment-index=2>
+		          In a test at $\alpha = 0.05$, there is a 5% chance of getting a false positive if the null hypothesis is true. In 100 tests, each at $\alpha = 0.05$, we "expect 5 false positives" if all 100 null hypotehses are true, but really, the probability of getting $k$ false-positives is determinable through the binomial distribution, $p(k\, |\, \alpha)$.<br><br>
+		          We can also determine the probability of getting k false positives by bootstrap. Create a deck with 100 cards, 5 of which are red, then resample with replacement and count the red cards.
+		        </p>
+        	</div>
+        </div>
+      </section>
+      
+      <!-- 14 -->
+    	<section data-transition="slide-in fade-out">
+        <h3><em>Post-hoc</em> Testing Problem</h3>
+        <div class="row">
+          <div class="col-100 no-margin">
+            <svg height="660pt" version="1.1"  viewBox="0 0 730 442" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+              <use class="fragment" data-fragment-index=1 xlink:href="lib/img/ALPHA_runningProb.svg#axes_1"></use>
+              <use class="fragment" data-fragment-index=2 xlink:href="lib/img/ALPHA_runningProb.svg#axes_2"></use>
+              <use class="fragment" data-fragment-index=3 xlink:href="lib/img/ALPHA_runningProb.svg#axes_3"></use>
+              <use class="fragment" data-fragment-index=4 xlink:href="lib/img/ALPHA_runningProb.svg#axes_4"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="row">
+        	<div class="col-100">
+        		<p class="fragment red big center" data-fragment-index=5>
+		          So you have to be super careful when making multiple P-value generating tests!
+		        </p>
+        	</div>
+        </div>
+      </section>
+    	
+    	
+    	
+    	
+      <!-- #########################     CONTENT END     #########################-->
+    </div>
+    
+  </div>
+  
+  <!-- REVEAL JS -->
+  <script src="lib/js/reveal.js/lib/js/head.min.js"></script>
+  <script src="lib/js/reveal.js/js/reveal.js"></script>
+  <script src="lib/js/initReveal.js"></script>
+</body>
+</html>
