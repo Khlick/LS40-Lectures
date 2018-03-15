@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Lecture 20: A quarter in review</title>
+  <meta name="author" content="Khris Griffis" />
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, minimal-ui">
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="lib/img/fic/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="lib/img/fic/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="lib/img/fic/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="lib/img/fic/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="lib/img/fic/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="lib/img/fic/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="lib/img/fic/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="lib/img/fic/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="lib/img/fic/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="lib/img/fic/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="lib/img/fic/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="lib/img/fic/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="lib/img/fic/favicon-16x16.png">
+  <link rel="manifest" href="lib/img/fic/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="lib/img/fic/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="lib/js/reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="lib/css/flatlandDk2.css" id="theme">
+  <link rel="stylesheet" href="lib/css/jsStyle.css">
+  
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/js/reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'lib/js/reveal.js/css/print/pdf.css' : 'lib/js/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!-- END PRINT EXPORT -->
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+  <link href="https://use.fontawesome.com/releases/v5.0.3/css/all.css" rel="stylesheet">
+  
+</head>
+<body>
+  
+  <div class="reveal">
+
+    <div class="slides">
+      <!-- #########################    CONTENT START    #########################-->
+      
+      <!-- 0 -->
+      <section class="title-slide" data-background-image="lib/img/Khlick_ValleyView.jpg" data-background-color="#fff">
+				<div class="row">
+  				<div class="col-25">
+  				</div>
+  				<div class="col-50" style="z-index:1; position: relative; margin-left: -5%;">
+  					<h1>Life Sciences 40</h1>
+	        	<h2>Lecture 20:</h2>
+	          <h4>A Quarter In Review</h4>
+	          <h5>Khris Griffis</h5>
+  				</div>
+  			</div>
+        <aside class="notes" data-markdown>
+        </aside>
+      </section>	
+      
+      <!-- 1 -->
+      <section data-transition="slide-in">
+        <h2>Power Recap:</h2>
+        <h3>Types of Errors</h3>
+        <p class="u em" style="margin-top: 0; margin-bottom: 0;">
+          Errors can happen!
+        </p>
+        <ul class="push-left">
+          <li>A <span class="red">Type I error</span> is rejecting a <span class="mutedBlue">TRUE</span> null (false positive) occurring at rate <span class="red">$\alpha$</span></li>
+          <li>A <span class="purple">Type II error</span> is accepting a <span class="mutedBlue">FALSE</span> null (false negative) occurring at rate <span class="purple">$\beta$</span></li>
+        </ul>
+        <table style="font-size: 1.5em; margin-top: 2em;" class="fragment">
+          <tbody>
+            <tr>
+              <td style="border-bottom: none;"></td>
+              <td style="border-bottom: none;"></td>
+              <td colspan=2><span class="orange">Decision</span></td>
+            </tr>
+            <tr>
+              <td style="border-bottom: none;"></td>
+              <td style="border-right: solid 1px;"></td>
+              <td style="border-right: solid 1px;" class="orange-fill">Reject H$_0$</td>
+              <td style="border-right: solid 1px;" class="orange-fill">Do not reject H$_0$</td>
+            </tr>
+            <tr>
+              <td rowspan=2 style="border-right: solid 1px; border-bottom: none; vertical-align: middle;">
+                <span class="mutedBlue">Truth</span></td>
+              <td style="border-right: solid 1px; vertical-align: middle;" class="mutedBlue-fill">H$_0$ true</td>
+              <td style="border-right: solid 1px; vertical-align: middle;"><span class="red">$\alpha$ Type I</span> error</td>
+              <td style="border-right: solid 1px;" class="center green"><i class="fas fa-smile fa-2x"></i>$(1-\alpha)$<span class="smaller">specificity-like</span></td>
+            </tr>
+            <tr>
+              <td style="border-right: solid 1px; border-bottom: solid 1px; vertical-align: middle;" class="mutedBlue-fill">H$_0$ false</td>
+              <td style="border-right: solid 1px; border-bottom: solid 1px;" class="center green"><i class="fas fa-smile fa-2x"></i>$(1-\beta)$ power</td>
+              <td style="border-right: solid 1px; border-bottom: solid 1px; vertical-align: middle;"><span class="purple">$\beta$ Type II</span> error</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- notes -->
+    		<aside class="notes" data-markdown>
+## Power has to do with error rates
+
+There are 3-ish things to take away from Alan's lecture.
+
+1. Errors happen. These kinds and at these rates.
+2. We can minimize the errors by choosing/fixing different error rates, or by better study design
+3. How to compute power for your study
+    		</aside> 
+      </section>
+      
+      <!-- 2 -->
+      <section data-transition="slide-out">
+        <h2>Power Recap:</h2>
+        <h3>Types of Errors</h3>
+        <p class="u em" style="margin-top: 0; margin-bottom: 0;">
+          Errors can happen!
+        </p>
+        <ul class="push-left">
+          <li>A Type I error is rejecting a <span class="mutedBlue">TRUE</span> null (false positive) occurring at rate <span class="red">$\alpha$</span></li>
+          <li>A Type II error is accepting a <span class="mutedBlue">FALSE</span> null (false negative) occurring at rate <span class="purple">$\beta$</span></li>
+        </ul>
+        <div class="row">
+          <div class="col-100" style="margin-top: 0.5em;">
+            <img src="lib/img/type1-type2-error.svg" class="plain" width=100%>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 3 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h2>Power Recap</h2>
+      	</div>
+      
+      	<div class="row">
+      			<div class="col-100">
+      					<svg class="fragment" data-fragment-index=0 height="432pt" version="1.1" viewBox="0 0 864 288" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<defs>
+										<style type="text/css">
+											*{stroke-linecap:butt;stroke-linejoin:round;}
+										</style>
+									</defs>
+									<use class="fragment fade-out" data-fragment-index=3 xlink:href="lib/img/powerOverview.svg#axes_1"></use>
+									<use class="fragment current-visible" data-fragment-index=1 xlink:href="lib/img/powerOverview.svg#axes_2"></use>
+									<use class="fragment current-visible" data-fragment-index=2 xlink:href="lib/img/powerOverview.svg#axes_3"></use>
+									<use class="fragment" data-fragment-index=3 xlink:href="lib/img/powerOverview.svg#NULLLINE"></use>
+									<use class="fragment" data-fragment-index=3 xlink:href="lib/img/powerOverview.svg#DLINE"></use>
+									<use class="fragment" data-fragment-index=4 xlink:href="lib/img/powerOverview.svg#ALPHALINE"></use>
+									<use class="fragment" data-fragment-index=5 xlink:href="lib/img/powerOverview.svg#ALPHAFILL_fill"></use>
+									<use class="fragment" data-fragment-index=6 xlink:href="lib/img/powerOverview.svg#ALPHAFILL_text"></use>
+									<use class="fragment" data-fragment-index=7 xlink:href="lib/img/powerOverview.svg#TRUEFILL_fill"></use>
+									<use class="fragment" data-fragment-index=8 xlink:href="lib/img/powerOverview.svg#TRUEFILL_text"></use>
+									<use class="fragment" data-fragment-index=9 xlink:href="lib/img/powerOverview.svg#BETAFILL_fill"></use>
+									<use class="fragment" data-fragment-index=10 xlink:href="lib/img/powerOverview.svg#BETAFILL_text"></use>
+									<use class="fragment" data-fragment-index=11 xlink:href="lib/img/powerOverview.svg#POWFILL_fill"></use>
+									<use class="fragment" data-fragment-index=12 xlink:href="lib/img/powerOverview.svg#POWFILL_text"></use>
+								</svg>
+      			</div>
+      	</div>
+      	
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-25 no-top-margin">
+      			<p class="justify">
+      				Steps for calculating the power of a study by simulation:<br>
+      				<span class="mutedBlue fragment" data-fragment-index=0>$H_0$: Null phantom of world</span><br>
+      				<span class="orange fragment" data-fragment-index=1>$H_a$: Simulated TRUE effect size</span><br>
+      			</p>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-75 no-top-margin">
+      			<ul class="icon yellow">
+      				<li> Create a “phantom” world with a given difference</li>
+							<li> Randomly sample from this world exactly as the study would have done</li>
+							<li> Apply the same measures as the actual study. Is the result statistically significant?</li>
+							<li> Repeat 10000 X. How many times was a significant result found? Divide by 10000.</li>
+      			</ul>
+      
+      		</div>
+      
+      	</div>
+      
+    		<!-- notes -->
+    		<aside class="notes" data-markdown>
+# Power
+
+Recall Alan said the steps were:
+Calculating the power of a study by simulation
+1. Create a “phantom” world with a given difference
+2. Randomly sample from this world exactly as the study would have done
+3. Apply the same measures as the actual study. Is the result statistically significant?
+4. Repeat 10000 X. How many times was a significant result found? Divide by 10000.
+
+That is the power of the study.
+
+how to???
+
+*point out that red lines divide the effect size group into those simulated effects that were more extreme than alpha*
+
+You can sum the process by realizing that power is the proportion of effect sizes that excess the H0 critical statistic (alpha)
+
+
+1. Simulate from the phantom world without an effect and you get this resampling distribution of your NULL
+2. You simulate from the phantom world WITH an effect and you get this resampling distribution of your Effect statistic of choice
+3. OR you simulate some different, in this case larger, effect size, delta.
+4. declutter and figure out the power of this simulation.
+5. Let's just remember where the critical level of the null at alpha = 0.05 is
+6. H0 true and reject H0 **alpha**
+7. H0 true and we do not reject H0 **1-alpha**
+8. H0 false and we do not reject **beta**: why is it false, because Ha is TRUE and p larger than alpha
+9. H0 false and we do reject **power (1-beta)**: why? Ha is TRUE and p less than alpha
+
+    		</aside>
+      		
+      </section>
+      
+      
+      	
+      
+      
+      
+      <section>
+        <h2>The Big Picture</h2>
+        <div class="row">
+          <div class="col-40">
+            <p class="no-margin-top">
+              <span class="u em fragment" data-fragment-index=0>It all starts with a question...</span> <br>
+              <i class="fa fa-arrow-circle-right mutedBlue fragment" data-fragment-index=1></i>
+              <span class="fragment" data-fragment-index=1>The answer informs us of the <span class="mutedBlue">population</span>.</span> <br>
+              <i class="fa fa-arrow-circle-right mutedBlue fragment" data-fragment-index=2></i>
+              <span class="fragment" data-fragment-index=2>A <span class="mutedBlue">population</span> that is described by some parameters.</span>
+            </p>
+            <p class="no-margin-top small fragment" data-fragment-index=3>
+              <span class="u em">Data is then collected</span> <br>
+              <i class="fa fa-arrow-circle-right red fragment" data-fragment-index=4></i>
+              <span class="fragment" data-fragment-index=4>Because you don't always access the full population data, you rely on <span class="fragment highlight-red" data-fragment-index=5>sample</span> data.</span> <br>
+              <i class="fa fa-arrow-circle-right red fragment" data-fragment-index=6></i>
+              <span class="fragment" data-fragment-index=6>The <span class="red">sample</span> is described by some <span class="red">statistic</span>.</span> <br>
+              <i class="fa fa-arrow-circle-right red fragment" data-fragment-index=7></i>
+              <span class="fragment" data-fragment-index=7>The <span class="red">statistics</span> are our <span class="mutedBlue">best guesses</span> at the <span class="mutedBlue">population</span> parameters.</span>
+            </p>
+          </div>
+          <div class="col-60">
+            <svg width="100%" viewBox="0 0 518.4 288" style="margin-top: 0;">
+              <use class="fragment" data-fragment-index=1 xlink:href="lib/img/distribution-sample-inference.svg#Population"></use>
+              <use class="fragment" data-fragment-index=2 xlink:href="lib/img/distribution-sample-inference.svg#poplabs"></use>
+              <use class="fragment" data-fragment-index=5 xlink:href="lib/img/distribution-sample-inference.svg#Sample"></use>
+              <use class="fragment" data-fragment-index=3 xlink:href="lib/img/distribution-sample-inference.svg#toparrow"></use>
+              <use class="fragment" data-fragment-index=8 xlink:href="lib/img/distribution-sample-inference.svg#bottomarrow"></use>
+              <use class="fragment" data-fragment-index=6 xlink:href="lib/img/distribution-sample-inference.svg#samplabs"></use>
+            </svg>
+          </div>
+        </div>
+        <p class="no-margin-top fragment" data-fragment-index=8>
+          <span class="u em">Then we determine if there's an answer</span> <br>
+          <i class="fa fa-arrow-circle-right orange"></i>
+          Using the knowledge gained from analyzing the sample, you can make conclusions (or not) about the <span class="mutedBlue">population</span>.
+        </p>
+        <p class="no-margin-top fragment framed center border-mutedBlue big" data-fragment-index=9>
+        	This is the process of making <span class="orange">inference</span>.
+        </p>
+      </section>
+
+      <section>
+        <h3>The statistical analysis process</h3>
+        <p>
+          <i class="fa fa-arrow-circle-right"></i>
+          Collect data / Design experiment
+        </p>
+        <p>
+          <i class="fa fa-arrow-circle-right"></i>
+          Visualize data (important!). Distribution? Skewness? outliers?
+        </p>
+        <p>
+          <i class="fa fa-arrow-circle-right"></i>
+          Choose a statistic to describe the sample (will depend on skewness, etc ...)
+        </p>
+        <p>
+          <i class="fa fa-arrow-circle-right"></i>
+          Formulate hypotheses
+        </p>
+        <p>
+          <i class="fa fa-arrow-circle-right"></i>
+          Analysis
+        </p>
+      </section>
+
+      <section>
+        <h3>Data collection</h3>
+        <div class="row">
+          <div class="col-40">
+            <p class="no-margin-top small">
+              We obtain information about (observational) <span class="orange">units</span>.
+            </p>
+            <p class="no-margin-top small fragment" data-fragment-index=1>
+              A <span class="mutedBlue">variable</span> is any characteristic that is recorded on each unit. 
+              <span class="fragment" data-fragment-index=2>It can be <span class="mutedBlue">categorical</span> or <span class="mutedBlue">quantitative</span>.</span>
+            </p>
+            <p class="no-margin-top small fragment" data-fragment-index=3>
+              When selecting data, the goal is to select a <span class="green">sample</span> that is similar (<span class="green">representative</span>) to the population, only smaller.
+            </p>
+          </div>
+          <div class="col-60">
+            <svg width="80%" viewBox="120 0 261 244.75" style="margin-top: 0; margin-bottom: 0;">
+              <use xlink:href="lib/img/summary-lec1.svg#population"></use>
+              <use class="fragment" data-fragment-index=3 xlink:href="lib/img/summary-lec1.svg#datasample"></use>
+              <use class="fragment" data-fragment-index=1 xlink:href="lib/img/summary-lec1.svg#variables"></use>
+              <use class="fragment" data-fragment-index=2 xlink:href="lib/img/summary-lec1.svg#type1"></use>
+            </svg>
+          </div>
+        </div>
+        <p class="no-margin-top small fragment" data-fragment-index=4>
+          <i class="fa fa-arrow-circle-right red"></i>
+          <span class="red">Sampling bias</span> occurs when the method of selecting a sample causes the <span class="red">sample to differ from the population</span> in some relevant way.
+        </p>
+      </section>
+
+      <section>
+        <h3>Sampling</h3>
+        <div class="row">
+          <div class="col-50">
+            <p class="no-margin-top small">
+              <span class="u em orange">Sampling bias:</span>
+              when a sampling method systematically yields results that are either too high or too low. <br>
+              <i class="fa fa-arrow-circle-right orange"></i>
+              can be avoided by using good sampling technique (<span class="orange">random</span>).
+            </p>
+            <p class="no-margin-top small">
+              <span class="u em mutedBlue">Sampling variation:</span>
+              natural variation in results from one random sample to next. <br>
+              <i class="fa fa-arrow-circle-right mutedBlue"></i>
+              can be reduced by using a <span class="mutedBlue">larger sample</span>.
+            </p>
+          </div>
+          <div class="col-50">
+            <img src="lib/img/ml-bullseye.svg" class="plain" width=100%>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Experimental design</h3>
+        <div class="row">
+          <div class="col-40">
+            <p class="no-margin-top small">
+              If we want to show <span class="mutedBlue">relationships (association)</span> between several variables, we are analyzing the effects of an <span class="mutedBlue">explanatory</span> variable on a <span class="mutedBlue">response</span> variable.
+            </p>
+            <p class="no-margin-top small fragment">
+              <i class="fa fa-arrow-circle-right orange"></i>
+              A third variable that is associated with both the explanatory variable and the response variable is called a <span class="orange">confounding variable</span>.
+            </p>
+          </div>
+          <div class="col-60">
+            <svg width="80%" viewBox="120 0 261 244.75" style="margin-top: 0; margin-bottom: 0;">
+              <use xlink:href="lib/img/summary-lec1.svg#population"></use>
+              <use xlink:href="lib/img/summary-lec1.svg#datasample"></use>
+              <use xlink:href="lib/img/summary-lec1.svg#variables"></use>
+              <use xlink:href="lib/img/summary-lec1.svg#type1"></use>
+              <use xlink:href="lib/img/summary-lec1.svg#type2"></use>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Experimental design</h3>
+        <div class="row">
+          <table>
+            <col width=50%>
+            <col width=50%>
+            <tbody>
+              <tr>
+                <td class="mutedBlue-fill">Observational study</td>
+                <td class="red-fill">Randomized experiment</td>
+              </tr>
+              <tr class="fragment">
+                <td>
+                  The independent (explanatory) variable is <span class="mutedBlue">not under the control of the researcher</span> because of ethical concerns or logistical constraints.
+                </td>
+                <td>
+                  The explanatory variable for each unit is <span class="red">determined randomly, before</span> the response variable is measured.
+                </td>
+              </tr>
+              <tr class="fragment no-bottom">
+                <td colspan="2">
+                  <span class="orange">Confounding variables</span> can be present both in observational studies or randomized experiments, but ...
+                </td>
+              </tr>
+              <tr class="fragment">
+                <td>
+                  <i class="fa fa-arrow-circle-right mutedBlue"></i>
+                  Because the response variable assignment is not randomized,
+                  the effects of <span class="mutedBlue">confounding variables</span> are almost always present in observational studies.
+                </td>
+                <td>
+                  <i class="fa fa-arrow-circle-right red"></i>
+                  Because the explanatory variable is <span class="red">randomly assigned</span>, it is not associated with any other variables. The effect of confounding variables are most likely eliminated!!!
+                </td>
+              </tr>
+              <tr class="fragment">
+                <td>
+                  Observational studies can almost never be used to establish causation.
+                </td>
+                <td>
+                  Randomized experiments make it possible to infer causation!
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h3>Randomized experiment</h3>
+        <div class="row">
+          <img src="lib/img/randomized-experiment.svg" class="plain" width=75%>
+        </div>
+      </section>
+
+      <section>
+        <h3>Data collection / Study design</h3>
+        <div class="row">
+          <img src="lib/img/randomization.svg" class="plain" width=100%>
+        </div>
+      </section>
+
+      <section>
+        <h3>Descriptive statistics</h3>
+        <p class="bigger">
+          In order to make sense of data, we need ways to <span class="orange">summarize</span> and <span class="orange">visualize</span> it.
+        </p>
+        <p class="bigger">
+          <i class="fa fa-arrow-circle-right orange"></i>
+          Summarizing and visualizing variables and relationships between two variables is often known as descriptive statistics (also known as <span class="orange">exploratory data analysis</span>)
+        </p>
+        <p class="framed border-red bigger">
+          Type of summary statistics and visualization methods depend on the type of variable(s) being analyzed (categorical or quantitative).
+        </p>
+      </section>
+
+      <section>
+        <h3>Exploratory data analysis</h3>
+        <div class="row">
+          <table>
+            <col width=25%>
+            <col width=35%>
+            <col width=40%>
+            <tbody>
+              <tr>
+                <td class="red-fill">Variable(s)</td>
+                <td class="mutedBlue-fill">Visualisation</td>
+                <td class="orange-fill">Summary statistic</td>
+              </tr>
+              <tr>
+                <td>
+                  Categorical
+                </td>
+                <td>
+                  <span class="fragment">
+                  Bar chart, pie chart
+                  </span>
+                </td>
+                <td>
+                  <span class="fragment">
+                  (relative) Frequency table, proportion
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Quantitative
+                </td>
+                <td>
+                  <span class="fragment">
+                  Dotplot, histogram, boxplot
+                  </span>
+                </td>
+                <td>
+                  <span class="fragment">
+                  Mean, median, max, min, standard deviation, range, IQR, five number summary
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Categorical vs categorical
+                </td>
+                <td>
+                  <span class="fragment">
+                  Side-by-side bar chart, segmented bar chart
+                  </span>
+                </td>
+                <td>
+                  <span class="fragment">
+                  Two-way table, difference in proportions, ratio of the proportion (relative risk)
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Quantitative vs categorical
+                </td>
+                <td>
+                  <span class="fragment">
+                  Side-by-side boxplots, side-by-side dotplots
+                  </span>
+                </td>
+                <td>
+                  <span class="fragment">
+                  Statistics for each group, difference in means/median, ratio of the means/medians
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Quantitative vs quantitative
+                </td>
+                <td>
+                  <span class="fragment">
+                  Scatterplot
+                  </span>
+                </td>
+                <td>
+                  <span class="fragment">
+                  Correlation, regression line
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h3>Sampling distribution</h3>
+        <p class="no-margin-top no-margin-bottom big">
+          A sampling distribution is the <span class="orange">distribution of statistics computed for different samples of the same size</span> taken from the same population.
+        </p>
+        <div class="row">
+          <div class="col-100">
+            <img class="no-margin-top no-margin-bottom plain" src="lib/img/sampling-distribution.svg" width=100%>
+          </div>
+        </div>
+        <p class="no-margin-top smaller no-margin-bottom big">
+          <i class="fa fa-arrow-circle-right orange"></i>
+          The spread of the sampling distribution helps us to assess the <span class="orange">uncertainty</span> in the sample statistic. (<span class="u em">Note:</span> the standard deviation of the sampling distribution is the standard error of the parameter).
+        </p>
+        <p class="no-margin-top big">
+          <i class="fa fa-arrow-circle-right orange"></i>
+          We rarely get to see the sampling distribution, we usually only have one sample.
+        </p>
+      </section>
+
+      <section>
+        <h3>Bootstrap</h3>
+        <p class="no-margin-top big">
+          A <span class="orange">bootstrap sample</span> is a random sample taken with replacement from the original sample, of the same size as the original sample.
+        </p>
+        <div class="row">
+          <div class="col-32">
+            <p class="no-margin-top big">
+              A <span class="mutedBlue">bootstrap statistic</span> is the statistic computed on the bootstrap sample.
+            </p>
+            <p class="no-margin-top no-margin-bottom big">
+              A <span class="mutedBlue">bootstrap distribution</span> is the distribution of many bootstrap statistics.
+            </p>
+          </div>
+          <div class="col-68">
+            <svg width="100%" viewBox="0 0 433 204" style="margin-top: 0; margin-bottom: 0;">
+              <use xlink:href="lib/img/bootstrap-distribution-generation-process.svg#bootstrap"></use>
+            </svg>
+          </div>
+        </div>
+        <p class="no-margin-top big">
+          <i class="fa fa-arrow-circle-right mutedBlue"></i>
+          The bootstrap distribution will be centered at the statistic of the original sample the bootstrap samples have been drawn from.
+        </p>
+      </section>
+
+      <section>
+        <h3>Confidence intervals</h3>
+        <div class="row">
+          <div class="col-60">
+            <p class="framed border-orange no-margin-top big">
+              A <span class="orange">confidence interval</span> for a <span class="orange">parameter</span> is an interval computed from sample data by a method that will capture the parameter for a specified proportion of all samples.
+            </p>
+            <p class="no-margin-top small">
+              <i class="fa fa-arrow-circle-right orange"></i>
+              The parameter is fixed (from <span class="orange">population</span>) <br>
+              <i class="fa fa-arrow-circle-right mutedBlue"></i>
+              The statistic is random (depends on the <span class="mutedBlue">sample</span>) <br>
+              <i class="fa fa-arrow-circle-right"></i>
+              The interval is random (depends on the statistic) <br>
+              <i class="fa fa-arrow-circle-right"></i>
+              A 95% confidence interval will contain the true parameter for 95% of all samples
+            </p>
+            <p class="no-margin-top small">
+              <i class="fa fa-arrow-circle-right red"></i>
+              Drawing bootstrap samples from a sample is one of the method to compute the confidence intervals.
+            </p>
+          </div>
+          <div class="col-40">
+            <img class="no-margin-top plain" src="lib/img/sampling-confidence-intervals.svg" width=100%>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Statistical analysis</h3>
+        <p class="big no-margin-top">
+          All the statistical problems we have seen could be solved using two main types of approaches:
+        </p>
+        <div class="row">
+          <div class="col-50">
+            <p class="big framed border-mutedBlue">
+              Null Hypothesis Testing
+            </p>
+            <p class="big">
+              <i class="fa fa-arrow-circle-right mutedBlue"></i>
+              <span class="mutedBlue">How unusual</span> would it be to get <span class="mutedBlue">results as extreme (or more extreme)</span> than those observed, if the null hypothesis is true?
+            </p>
+          </div>
+          <div class="col-50">
+            <p class="big framed border-orange">
+              95% confidence intervals
+            </p>
+            <p class="big">
+              <i class="fas fa-arrow-circle-right orange"></i>
+              What is an <span class="orange">estimate</span> of the range of <span class="orange">possible values of the true parameter</span>? Is the null hypothesis parameter contained in this interval?
+            </p>
+          </div>
+        </div>
+        <p>
+          <span class="u em big">Question:</span> In what ways do each of these infer/test statistical significance?
+        </p>
+      </section>
+
+      <section>
+        <h3>Randomization distribution & p-value</h3>
+        <p class="big no-margin-top framed border-orange">
+          A <span class="orange">randomization distribution</span> is the distribution of sample statistics we would observe, just by <span class="orange">random chance</span>, if the null hypothesis were true.
+        </p>
+        <p class="big no-margin-top framed border-mutedBlue">
+          The p-value is the <span class="mutedBlue">probability of getting a statistic as extreme (or more extreme) as that observed</span>, just by random chance, if the null hypothesis is true.
+        </p>
+        <p class="big">
+          <i class="fa fa-arrow-circle-right mutedBlue"></i>
+          The p-value measures <span class="u-mutedBlue">evidence against the null hypothesis</span>
+        </p>
+        <p class="big">
+          <i class="fa fa-arrow-circle-right mutedBlue"></i>
+          The p-value is calculated by finding the proportion of statistics in the <span class="orange">randomization distribution</span> that fall beyond (one or both direction) the observed statistic
+        </p>
+      </section>
+
+      <section>
+        <h3>p-value common thresholds</h3>
+        <p style="margin-top: 0; margin-bottom: 0;" class="big">
+          A <span class="u em">small</span> p-value casts doubt on the null hypothesis/model
+          used to perform the calculation.
+        </p>
+        <div class="row" style="margin-top: 1em;">
+          <div class="col-15" style="margin-top: 4%;">
+            <p  class="big" style="text-align: right; font-size: 0.65em;">A p-value</p>
+          </div>
+          <div class="col-15" style="margin-top: 0;">
+            <p style="margin-top: 0;"  class="big">
+              <span class="green" style="margin-left: 0.2em;">$\leq{0.10}$</span> <br>
+              <span class="mutedBlue" style="margin-left: 0.2em;">$\leq{0.05}$</span> <br>
+              <span class="orange" style="margin-left: 0.2em;">$\leq{0.01}$</span> <br>
+              <span class="red" style="margin-left: 0.2em;">$\leq{0.001}$</span>
+            </p>
+          </div>
+          <div class="col-20" style="margin-left:0;">
+            <p class="big">is generally considered <br>to be</p>
+          </div>
+          <div class="col-30" style="margin-top: 0;">
+            <p class="big" style="margin-top: 0;">
+              <span class="green" style="margin-left: 0.2em;">some</span> <br>
+              <span class="mutedBlue" style="margin-left: 0.2em;">fairly strong</span> <br>
+              <span class="orange" style="margin-left: 0.2em;">very strong</span> <br>
+              <span class="red" style="margin-left: 0.2em;">extremely strong</span>
+            </p>
+          </div>
+          <div class="col-20">
+            <p class="big">
+              <span class="u">evidence</span> against the null
+            </p>
+          </div>
+        </div>
+        <p class="big">
+          <span class="u em">Formal decisions:</span> <br>
+          p-value $<\alpha$ <i class="fa fa-arrow-right"></i> Reject $H_0$ <br>
+          p-value $\geq\alpha$ <i class="fa fa-arrow-right"></i> Do not reject $H_0$
+        </p>
+      </section>
+
+      <section>
+        <h3>Statistics of interest & Null</h3>
+        <div class="row">
+          <table style="font-size: 0.9em">
+            <col width=30%>
+            <col width=50%>
+            <col width=20%>
+            <tbody>
+              <tr>
+                <td class="red-fill">Situation</td>
+                <td class="mutedBlue-fill">Statistic of interest</td>
+                <td class="orange-fill">Null</td>
+              </tr>
+              <tr>
+                <td>
+                  One categorical variable
+                </td>
+                <td>
+                  <span class="fragment">
+                  Proportion ($\overset{\hat{}}{p}$) 
+                  </span>
+                </td>
+                <td>
+                  <span class="fragment">
+                  $\pi_0=x$ 
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  One quantitative variable
+                </td>
+                <td>
+                  <span class="fragment">
+                  Mean ($\bar{x}$), Median ($m$), Min, Max, etc ...
+                  </span>
+                </td>
+                <td>
+                  <span class="fragment">
+                  $\mu_0=x$ 
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Comparing two categorical variables
+                </td>
+                <td>
+                  <span class="fragment">
+                  Difference in proportions ($\overset{\hat{}}{p}_1-\overset{\hat{}}{p}_2$), ratio of the proportions (relative risk), $\chi^2$
+                  </span>
+                </td>
+                <td>
+                  <span class="fragment">
+                  $\pi_1-\pi_2=0$ <br>
+                  ($rr=1$)
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Comparing two quantitative variables
+                </td>
+                <td>
+                  <span class="fragment">
+                  Difference in means ($\bar{x}_1-\bar{x}_2$), difference in medians, ratio of the means, ratio of the medians, etc ...
+                  </span>
+                </td>
+                <td>
+                  <span class="fragment">
+                  $\mu_1-\mu_2=0$ <br>
+                  ($rr=1$)
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Comparing more than 2 categorical variables
+                </td>
+                <td>
+                  <span class="fragment">
+                  $\chi^2$, MAD (of proportions)
+                  </span>
+                </td>
+                <td>
+                  <span class="fragment">
+                  $MAD=0$, $\chi^2=\chi^2_{df}$
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Comparing more than 2 quantitative variables
+                </td>
+                <td>
+                  <span class="fragment">
+                  MAD (of the means, of the medians), $F$-statistic
+                  </span>
+                </td>
+                <td>
+                  <span class="fragment">
+                  $MAD=0$, $F=1=\mathcal{F}_{df1,\,df2}$
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Association of 2 quantitative variables
+                </td>
+                <td>
+                  <span class="fragment">
+                  Correlation coefficient ($r$), <br> regression slope ($m$)
+                  </span>
+                </td>
+                <td>
+                  <span class="fragment">
+                  $\rho=0$, <br> $\beta_1=0$
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section data-transition="slide-in fade-out">
+        <h3>Hypothesis testing</h3>
+        <p class="small">
+          1. State hypotheses ($H_0$, $H_a$)
+        </p>
+        <p class="small">
+          2. Calculate the <span class="mutedBlue">statistic of interest</span> from your sample(s) data
+        </p>
+        <p class="small">
+          3. Construct the <span class="orange">randomization distribution</span> of the statistic of interest <br>
+          <span style="margin-left: 2em;"> <span class="em">- One variable (categorical):</span> simulation of random samples ($\pi_0=x$)</span>
+          <br>
+          <span style="margin-left: 2em;"> <span class="em">- $\geq$2 variables:</span> pool samples together ($H_0$: no difference), shuffle and split into random groups (same size than original samples), and calculate new statistic of interest from this randomization</span> <br>
+          <i class="fa fa-arrow-circle-right orange"></i> distribution of statistic of interest if the null hypothesis were true
+        </p>
+        <p class="small">
+          4. Measure how extreme your test statistic from (2) is, as compared to the distribution generated in (3) <br>
+          <i class="fa fa-arrow-circle-right red"></i> p-value
+        </p>
+      </section>
+
+      <section data-transition="fade">
+        <h3>Hypothesis testing</h3>
+        <p class=" u em no-margin-top small">
+          Comparing proportions:
+        </p>
+        <div class="row">
+          <img src="lib/img/two-groups-simulation-proportion.svg" class="plain" width=95%>
+        </div>
+      </section>
+
+      <section data-transition="fade-in slide-out">
+        <h3>Hypothesis testing</h3>
+        <p class=" u em no-margin-top small">
+          Comparing means (medians, etc ...):
+        </p>
+        <div class="row">
+          <img src="lib/img/two-groups-simulation-mean.svg" class="plain" width=95%>
+        </div>
+      </section>
+
+      <section data-transition="slide-in fade-out">
+        <h3>95% confidence intervals</h3>
+        <p class="small">
+          1. State hypotheses ($H_0$, $H_a$)
+        </p>
+        <p class="small">
+          2. Calculate the <span class="mutedBlue">statistic of interest</span> from your sample(s) data
+        </p>
+        <p class="small">
+          3. Construct the <span class="orange">bootstrap distribution</span> of the statistic of interest <br>
+          <span style="margin-left: 2em;"> <span class="em">- One variable:</span> bootstrap samples from original sample (same size)</span>
+          <br>
+          <span style="margin-left: 2em;"> <span class="em">- $\geq$2 variables:</span> Independant bootstrap samples (same size than original samples), and calculate new statistic of interest from these bootstrap samples</span> <br>
+          <i class="fa fa-arrow-circle-right orange"></i> distribution of statistic of interest if more samples were acquired
+        </p>
+        <p class="small">
+          4. Taking the middle 95% of the bootstrap distribution. <br>
+          <i class="fa fa-arrow-circle-right red"></i> is the null hypothesis parameter in this interval?
+        </p>
+      </section>
+
+      <section data-transition="fade">
+        <h3>95% confidence intervals</h3>
+        <p class=" u em no-margin-top small">
+          Comparing proportions:
+        </p>
+        <div class="row">
+          <img src="lib/img/two-groups-bootstrap-ci-proportion.svg" class="plain" width=90%>
+        </div>
+      </section>
+
+      <section data-transition="fade-in slide-out">
+        <h3>95% confidence intervals</h3>
+        <p class=" u em no-margin-top small">
+          Comparing means:
+        </p>
+        <div class="row">
+          <img src="lib/img/two-groups-bootstrap-ci-mean.svg" class="plain" width=90%>
+        </div>
+      </section>
+      
+      
+      <!-- 0 -->
+      <section class="title-slide">
+				<div class="row">
+  				<div class="col-50">
+  					<img src="lib/img/handinhand.png" class="plain drop-20 fragment" data-fragment-index=1> 
+  				</div>
+  				
+  				<div class="col-50" style="z-index:1; position: relative; margin-left: -5%;">
+  					<h1>Life Sciences 40</h1>
+	        	<h2>Lecture 10:</h2>
+	          <h4 class="fragment" data-fragment-index=1>Relationships in Data</h4>
+	          <h5 class="fragment" data-fragment-index=1>Khris Griffis</h3>
+  				</div>
+  			</div>
+        <aside class="notes" data-markdown>
+
+        </aside>
+      </section>
+      
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h2>Relationships or Independence?</h2>
+      		<p class="framed border-yellow center">
+    				What kinds of relationships are there between two variables?<br>
+    				<span class="fragment orange">To answer this, we have to consider how an experiment was conducted.</span>
+      		</p>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin fragment">
+      			<h4>Univariate data had these properties:</h4>
+      			<ul class="icon mutedBlue">
+      				<li class="fragment thumbs-up">A single variable, consisting of an independent sample, was considered in isolation.</li>
+      				<li class="fragment thumbs-up">Single measurements were collected from each observational unit.</li>
+      				<li class="fragment thumbs-up">The sample was collected such that each value was independent of the others.</li>
+      				<li class="fragment thumbs-up">The sample represented a single "snapshot" in time for the variable of interest.</li>
+      			</ul>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin fragment">
+      			<h4>Multivariate (2 or more variables) have these properties:</h4>
+      			<ul class="icon green">
+      				<li class="thumbs-up">Each variable represents a different measurement made for an observational unit.</li>
+      				<li class="fragment thumbs-up">Variables may or may not be independent from each other.</li>
+      				<li class="fragment thumbs-up">Individual variables have the same properties as Univariate variables.</li>
+      				<li class="fragment thumbs-up">The sample is a collection of variables, each variable can represent "snapshots" in time.</li>
+      			</ul>
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+      			
+      		</aside>
+      		
+      </section>
+      
+      <section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h4>Recall Pearson's Product-Moment Correlation</h4>
+    			<p class="l-sided border-mutedBlue">
+  					For the population: $\rho_{X,Y}=\frac{cov(X,Y)}{\sigma_X \sigma_Y}$ and the sample: $r=r_{xy}={\frac {1}{n-1}}\sum _{i=1}^{n}\left({\frac {x_{i}-{\bar {x}}}{s_{x}}}\right)\left({\frac {y_{i}-{\bar {y}}}{s_{y}}}\right)$.
+    			</p>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-55 no-top-margin framed fragment border-red" data-fragment-index=1>
+    				<ul class="icon">
+    					<li class="circle offWhite fragment" data-fragment-index=1>$\rho,\, r$ are unitless on the range [-1,1].</li>
+    					<li class="circle offWhite fragment" data-fragment-index=2>Correlation coefficient gives the <span class="mutedBlue">direction</span> and <span class="orange">strength</span> of the relationship between X and Y.</li>
+    					<li class="circle offWhite fragment" data-fragment-index=3>If $r$ is high, positive or negative, the points lie closer to an imaginary line drawn through the data $\rightarrow$ <span class="mutedBlue">linearly dependent</span>.</li>
+    					<li class="circle offWhite fragment" data-fragment-index=4>If we <span class="mutedBlue">rescaled</span> the data so that each axis was on the same scale, say [-1,1], then $r$ would be the slope of that imaginary line.</li>
+    					<li class="circle offWhite fragment" data-fragment-index=5>When $r\sim 0$, we say X and Y are <span class="orange">independent</span>.</li>
+    					<li class="circle offWhite fragment" data-fragment-index=6>X and Y must each be approximately <span class="red b">normally distributed</span>.</li>
+    					<li class="circle offWhite fragment" data-fragment-index=7>X and Y must each be <span class="red b">homoscedastic</span>, i.e. equal variance across their scale.</li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-45 no-top-margin">
+    				<div class="fig-container" data-file="lib/interactive/UnderstandingCor/index.html"  style="background:transparent;max-height:800px;height:800px;"></div>
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+
+    			</aside>
+    			
+    	</section>
+      
+      <section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h3>When Data Are Not Normal?</h3>
+    			<p class="l-sided border-mutedBlue">
+    				We can use <span class="green">ranks</span> to <span class="mutedBlue">transform</span> the data into an appropriate-looking space and <span class="orange">then use Pearson's correlation</span> $\rightarrow$ <span class="green">Spearman's Correlation</span>.
+    			</p>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-45 no-top-margin">
+    				<img src="lib/img/gdplin.png" class="plain" style="width:900px;">
+    			</div>
+    			<div class="col-10 no-top-margin">
+    				<p class="big center mutedBlue">Rank<br>$\rightarrow$</p>
+    			</div>
+    			<!-- right column -->
+    			<div class="col-45 no-top-margin">
+    				<img src="lib/img/GDP ranked.png" class="plain" style="width:900px;">
+    			</div>
+    	
+    		</div>
+    		<div class="row fragment">
+    				<h5>What happened to the distributions in X and Y?</h5>
+    				<p class="center framed fragment border-red">The distributions became <span class="mutedBlue">uniform</span>.</p>
+    		</div>
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+## Distributions became uniform, what does central limit theory tell us about uniform distributions?
+If we sample from them an infinite number of times, we would get a normal distribution.
+
+### homoscedasticity
+
+What do you notice about these (left) shapes? What about if QQ-plot?
+The uniform X, and Y, also became fairly homoscedsastic.
+    			</aside>
+    			
+    	</section>
+    	
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h3>Homoscedasticity</h3>
+    			<p class="centered l-sided border-mutedBlue big">
+    				A dataset is homoscedastic if the variance at <span class="orange">any given portion</span> is the same as all others, i.e. constant.
+    			</p>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-40 no-top-margin framed border-mutedBlue big">
+    				<ul class="icon">
+    					<li class="caret-right green">X is roughly uniform, or potentially Normal-ish.</li>
+    					<li class="caret-right green">Y is roughly uniform, or potentially Normal-ish.</li>
+    					<li class="caret-right green">A distribution can be made of any nearby subset of points and the variability stays the same no matter where in the data you draw the points.</li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-60 no-top-margin">
+    				<img src="lib/img/homoscedastic.png" class="plain">
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+    				
+    			</aside>
+    			
+    	</section>
+    	
+    	<section>
+			  <h3>The Regression Line</h3>
+			  <p class="no-margin-top no-margin-bottom smaller">
+			    Usually, rather than estimating predictions using a graph, we
+			    directly use the <span class="info">equation of the regression line</span>.
+			  </p>
+			  <div class="row">
+			    <div class="col-45">
+			      <svg width="100%" viewBox="0 0 360 360" style="margin-top: 0;">
+			        <use xlink:href="lib/img/regline.svg#axes_1"></use>
+			        <use class="fragment" data-fragment-index=1 xlink:href="lib/img/regline.svg#axes_2"></use>
+			        <use class="fragment" data-fragment-index=2 xlink:href="lib/img/regline.svg#axes_3"></use>
+			      </svg>
+			    </div>
+			    <div class="col-55">
+			      <p class="no-margin-top no-margin-bottom">
+			        <span class="u em">Equation for a line:</span> <br>
+			        $\hat{y}= \beta_0 + \beta_1x$ <span class="fragment" data-fragment-index=1>   Remind you of: <span class="mutedBlue">$y = mx +b$</span>?</span>
+			      </p>
+			      <ul class="pull-10 normal" style="list-style:none; padding-left:0;">
+			        <li class="fragment" data-fragment-index=1>
+			          <span class="orange">$\beta_0$</span>: y-intercept at <span class="orange">$x=0$</span>
+			        </li>
+			        <li class="fragment" data-fragment-index=2>
+			          <span class="green">$\beta_1$</span>: slope of the line (often called <span class="green">$m$</span>)
+			        </li>
+			      </ul>
+			      <div class="row">
+			        <p class="big fragment">
+			          <i class="fa fa-arrow-circle-right red"></i>
+			          Predicting the response variable from the explanatory
+			          variable: <br>
+			          <span class="framed border-danger">$\mathrm{Response}= \beta_0 + \beta_1 \times \mathrm{Explanatory}$</span>
+			        </p>
+			      </div>
+			    </div>
+			  </div>
+			</section>
+			
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h3>Why do we want the regression line?</h3>
+    			<h4>What can we do with it?</h4>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-50 no-top-margin l-sided border-mutedBlue">
+    				<ul class="icon offWhite">
+    					<li class="star fragment">Prediction (by <span class="mutedBlue">interpolation</span>).</li>
+    					<li class="star fragment">Physical interpretation of <span class="mutedBlue">$\beta_0$</span> and <span class="mutedBlue">$\beta_1$</span>.</li>
+    					<li class="star fragment">Model selection (think about changes in either $\beta_0$ or $\beta_1$)</li>
+    					<li class="star fragment">"Explain Variance" (We will discuss this during ANOVA)</li>
+    					<li class="star fragment">How does Regression work?</li>
+	    				<li class="star fragment orange">Find the best fit line!</li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-45 no-top-margin fragment">
+    				<div class="fig-container"data-file="lib/interactive/regression/index.html"  style="background:transparent;max-height:800px;height:800px;"></div>
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+    				
+    			</aside>
+    			
+    	</section>
+      
+      <section data-transition="fade-in slide-out">
+        <h3>How does linear regression work?</h3>
+        <div class="row">
+          <div class="col-50">
+            <svg width="100%" viewBox="0 0 360 360" style="margin-top: 0;">
+              <use xlink:href="lib/img/lsquare-main.svg#axes_1"></use>
+              <use xlink:href="lib/img/lsquare-main.svg#axes_3"></use>
+              <use class="fragment" data-fragment-index=1 xlink:href="lib/img/lsquare-main.svg#axes_2"></use>
+            </svg>
+          </div>
+          <div class="col-50">
+            <svg width="100%" viewBox="0 0 432 180" style="margin-top: 0;">
+              <use xlink:href="lib/img/lsquare-resid.svg#axes_1"></use>
+            </svg>
+            <p class="no-margin-top">
+              The line that fits the data best is the one where the residuals are close to zero.
+            </p>
+            <p class="no-margin-top fragment" data-fragment-index=1>
+              <i class="fa fa-arrow-circle-right orange"></i>
+              Instead of working directly with the residuals, we usually try to <span class="orange">minimize the sum of the square of the residuals</span>:
+              <br>
+              $SS_{residuals}=\sum_{i=1}^{n}(y_i-\overset{\hat{}}{y_i})^2$
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      
+      <section>
+        <h3>The use of linear regression analysis</h3>
+        <p class="no-margin-top em smaller">
+          There are 3 major uses for regression analysis:
+        </p>
+        <p class="small framed border-orange">
+          <span class="orange em u">Causal analysis</span>: it might be used to identify the <span class="orange">strength of the effect</span> that the independent variable(s) have on a dependent variable. Typical questions are what is the strength of relationship between dose and effect, sales and marketing spend, age and income, etc...
+        </p>
+        <p class="small framed border-mutedBlue">
+          <span class="mutedBlue em u">Forecasting</span>: it can be used to forecast <span class="mutedBlue">effects or impacts of changes</span>. That is regression analysis helps us to understand how much will the dependent variable change, when we change one or more independent variables. Typical questions are how much additional $Y$ would I get for one additional unit $X$.
+        </p>
+        <p class="small framed border-red">
+          <span class="red em u">Prediction</span>: it can be used to predict <span class="red">trends and future values</span>. The regression analysis can be used to get point estimates. Typical questions are what will the price for gold be in 6 month from now? What is the total effort for a task X?
+        </p>
+      </section>
+      
+      
+      
+      <section class="title-section">
+      	<h1>Paired Data</h1>
+      	<h3>What if our variables ARE related and we can't use correlation to infer anything about the population?</h3>
+      	<h4>This is an experimental design method called a dependent model.</h4>
+      	<aside class="notes" data-markdown>
+      		
+      	</aside>
+      </section>
+      
+      
+      <section>
+			  <h3>Resampling for paired data NHST</h3>
+			  <div class="row">
+			    <div class="col-35">
+			      <p class="no-margin-top no-margin-bottom smaller">
+			        To obtain the sampling distribution of the paired differences (or ratio):
+			      </p>
+			      <ol class="smallest" style="margin-top: 0;">
+			      <li>Calculate the effect size (difference or ratio) of the explanatory variable on each pair</li>
+			      <li>Randomly assign the sign (or ratio order [1, r$^{-1}$]) for the effect sizes</li>
+			       <li>Calculate the mean (or median) with that new arrangement of signs (or ratio order)</li>
+			    </ol>
+			    </div>
+			    <div class="col-65">
+			      <img src="lib/img/two-groups-paired-resampling.svg"
+			       width=100% class="unbordered flat">
+			    </div>
+			  </div>
+			  <ol class="smallest" style="margin-top: 0;" start=4>
+			    <li>Repeat steps #2-3 10000 times (we obtain 10000 effect sizes that we could have observed if the explanatory variable didn't have any effect)</li>
+			  </ol>
+			</section>
+			
+			<section>
+			  <h3>95% Confidence intervals</h3>
+			  <p class="no-margin-top small">
+			    The differences (or ratios) are a <span class="mutedBlue">one quantitative sample</span>. We can
+			    extract the 95% CI by drawing bootstrap samples, as previously seen.
+			  </p>
+			  <div class="row">
+			    <div class="col-50 fragment">
+			      <img src="lib/img/bootstrap-one-quantitative-variable.svg" class="unbordered flat" width=100%>
+			    </div>
+			    <div class="col-50">
+			      <img src="lib/img/wetsuit-resampling-paired-ci95.svg"
+			       class="fragment unbordered flat" width=100%>
+			    </div>
+			    <p class="small fragment no-margin-top">
+			      <i class="fa fa-arrow-circle-right mutedBlue"></i>
+			      We are 95% confident that for competitive swimmers and triathletes, wetsuits increase maximum swimming velocity by an average of between 0.066 and 0.089 meters per second.
+			    </p>
+			  </div>
+			</section>
+      
+      
+      <section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h2><span style="font-size:1.5em;">$\chi^2$</span> Tests</h2>
+    			<h4>We can use $\chi^2$ in multiple ways</h4>
+    			
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-50 no-top-margin">
+    				<h4 class="u fragment" data-fragment-index=0>Think about correlation</h4>
+    				<p class="orange fragment" data-fragment-index=0>For bivariate, quantitative data, we test the <span class="mutedBlue">independence</span> by asking if $r=0$</p>
+    				<svg height="432pt" version="1.1" viewBox="0 0 442 442" width="432pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+							<use class="fragment" data-fragment-index=1 xlink:href="lib/img/vitAvsBMI-cor-simple.svg#axes_1"></use>
+							<use class="fragment" data-fragment-index=1 xlink:href="lib/img/vitAvsBMI-cor-simple.svg#axes_2"></use>
+							<use class="fragment" data-fragment-index=1 xlink:href="lib/img/vitAvsBMI-cor-simple.svg#axes_3"></use>
+						</svg>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-50 no-top-margin">
+    				<h4 class="u fragment" data-fragment-index=2>What if the data are categorical?</h4>
+    				<div class="fragment no-margin" data-fragment-index=2>
+							<style scoped="">
+							    .dataframe tbody tr th:only-of-type {
+							        vertical-align: middle !important;
+							    }
+
+							    .dataframe tbody tr th {
+							        vertical-align: top !important;
+							    }
+
+							    .dataframe thead th {
+							        text-align: right !important;
+							    }
+							</style>
+							<table border="1" class="dataframe small">
+							  <thead class="mutedBlue-fill">
+							    <tr style="text-align: right;" class="smallest center">
+							      <th></th>
+							      <th class="fragment highlight-current-bg-blue" data-fragment-index=3>Cedars Sinai</th>
+							      <th class="fragment highlight-current-orange-fill" data-fragment-index=3>UCLA Harbor</th>
+							      <th class="fragment highlight-current-bg-green" data-fragment-index=3>UCLA Olive View</th>
+							      <th class="fragment highlight-current-red-fill" data-fragment-index=3>UCLA Ronald Reagan</th>
+							      <th class="fragment highlight-current-bg-purple" data-fragment-index=3>UCLA Santa Monical</th>
+							      <th class="fragment highlight-current-bg-grey" data-fragment-index=3>Kaiser LA</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr>
+							      <th class="orange-fill">Alive</th>
+							      <td>20193</td>
+							      <td>743</td>
+							      <td>419</td>
+							      <td>4752</td>
+							      <td>5284</td>
+							      <td>1280</td>
+							    </tr>
+							    <tr>
+							      <th class="orange-fill">Dead</th>
+							      <td>4458</td>
+							      <td>207</td>
+							      <td>84</td>
+							      <td>1065</td>
+							      <td>1135</td>
+							      <td>38</td>
+							    </tr>
+							  </tbody>
+							</table>
+						</div>
+						<svg height="432pt" version="1.1" viewBox="0 0 586 442" width="576pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+							<use class="fragment" data-fragment-index=3 xlink:href="lib/img/hospitals.svg#axes_1"></use>
+						</svg>
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+## If the data are categorical:
+
+1. how do we visualize this?
+2. How do we find the relationship between survival and where you go?
+
+The first thing you should notice is that this table indicates something.
+
+The survival is contingent upon when hospital you go to.
+btw:
+This is the one case bar graphs are OK.
+    			</aside>
+    			
+    	</section>
+    	
+    	<section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>ANOVA Does Even More</h3>
+      	</div>
+      
+      	<!-- top -->
+      	<div class="row">
+      
+      		<!-- top left column -->
+      		<div class="col-50 no-top-margin fragment framed border-mutedBlue" style="height:330px;">
+      			<h4>One-Way ANOVA</h4>
+      			<p>
+      				One-Way ANOVA considers multiple groups belonging to a single categorical family called a <span class="mutedBlue">factor level</span>, i.e. sandwiches, treatment types, etc.
+      			</p>
+      			<p class="smaller">$$\mathcal{F}=\frac{\color{orange}{SS_{between}}}{\color{lightblue}{SS_{Within}}}$$</p>
+      		</div>
+      
+      		<!-- top right column -->
+      		<div class="col-50 no-top-margin fragment framed border-orange" style="height:330px;">
+      			<h4>One-Way Repeated Measures ANOVA</h4>
+      			<p>
+      				Just as we discussed with <span class="orange">before $\sim$ after</span> in two-group NHST, ANOVA has special methods for dealing with repeatedly measuring from a single subject. It takes the form of:
+      			</p>
+      			<p class="smaller">
+      				$$\mathcal{F}=\frac{\color{orange}{SS_{between}}}{\color{lightblue}{(SS_{Within}-SS_{random})}}=\frac{SS_{between.timepoints}}{SS_{fixed}}$$
+      			</p>
+      		</div>
+      
+      	</div>
+      
+      	<!-- bottom -->
+      	<div class="row">
+      
+      		<!-- bottom left column -->
+      		<div class="col-50 no-top-margin fragment framed border-blue" style="height:330px;">
+      			<h4>N-Way ANOVA</h4>
+      			<p>We aren't limited to one level (plus time) and can model multiple factors, though it starts getting complicated because we have new <span class="mutedBlue">kinds</span> of terms to discuss call <span class="orange">interactions</span>. Note that each new factor level will get its own $\mathcal{F}$-statistic.</p>
+      			<p class="smaller">$$\mathcal{F}=\frac{\{ SS_{b.group1},\, SS_{b.group2},\, \ldots ,\, SS_{b.groupN},\, \{ SS_{\color{orange}{interactions}}\} \} }{SS_{Within}}$$</p>
+      		</div>
+      
+      		<!-- bottom right column -->
+      		<div class="col-50 no-top-margin fragment framed border-yellow" style="height:330px;">
+      			<h4>N-Way Repeated Measures ANOVA</h4>
+      			<p>Just like in the One-Way approach, we now have to consider the effects of time and remove the <span class="mutedBlue">random</span> effects, i.e. the <span class="mutedBlue">within subject</span> variation.</p>
+      			<p class="smaller">$$\mathcal{F}=\frac{\{ SS_{b.time},\, SS_{b.group2},\, \ldots ,\, SS_{b.groupN},\, \{ SS_{\color{orange}{interactions}}\} \} }{SS_{Within}-SS_{random}}$$</p>
+      		</div>
+      
+      	</div>
+      	
+      	<div class="row">
+      			<div class="col-100 center fragment">
+      					<p class="bigger offWhite">As we add more and more <span class="mutedBlue">factors</span>, we call this <span class="orange">factor analysis</span> and it starts to take on a new shape. We will not be discussing it to that depth.</p>
+      			</div>
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+Note that we call the SS-within - SS-random the fixed effects and we can use a little graphic to help understand this.
+      		</aside>
+      
+      </section>
+      
+      <!-- 3 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>Understanding the $SS_{terms}$</h3>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin">
+      			<div class="row framed border-mutedBlue">
+      					<p class="offWhite smaller">
+      						Statistic:
+									$$\mathcal{F}=\frac{\color{orange}{SS_{between}}}{\color{lightblue}{SS_{Within}}}=\frac{\color{orange}{\partial^2(fit,null)}}{\color{lightblue}{\partial^2(fit,data)}}$$
+									Effect Size:
+									$$R^2=\frac{\color{orange}{\partial^2(fit,null)}}{\color{seagreen}{\partial^2(data,null)}}$$
+      					</p>
+      			</div>
+      			<div class="row">
+      				<div class="col-100 no-margin">
+      					<svg version="1.1" viewBox="100 10 486 486" width="700pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<defs>
+										<style type="text/css">
+											*{stroke-linecap:butt;stroke-linejoin:round;}
+										</style>
+									</defs>
+									<use xlink:href="lib/img/AOV_SS.svg#axes_1"></use>
+								</svg>	
+      				</div>
+      					
+      			</div>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin">
+      			<div class="row framed border-mutedBlue">
+      					<p class="offWhite smaller">
+      						RM Statistic:
+									$$\mathcal{F}=\frac{\color{orange}{\partial^2(fit,null)}}{\color{lightblue}{\partial^2(fit,\color{yellow}{reduced})}}$$
+									RM Effect Size:
+									$$\eta^2_{p}=\frac{\color{orange}{\partial^2(fit,null)}}{\color{purple}{\partial^2(reduced,null)}}=\frac{SS_{Between}}{SS_{Total}}$$
+      					</p>
+      			</div>
+      			<div class="row">
+      				<div class="col-100 no-margin">
+      					<svg version="1.1" viewBox="100 10 486 486" width="700pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<defs>
+										<style type="text/css">
+											*{stroke-linecap:butt;stroke-linejoin:round;}
+										</style>
+									</defs>
+									<use xlink:href="lib/img/AOV_SSRM.svg#axes_1"></use>
+								</svg>	
+      				</div>
+      					
+      			</div>
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+# Geometric interpretation
+
+F = SSB/SSW.
+
+So then, when F is large, then $\partial^2(fit,null) > \partial^2(fit,data)$ and when F is small (less than 1) then $\partial^2(fit,null) < \partial^2(fit,data)$.
+
+And the same case can be said about the reduced, we are just correcting the _data_ term for "mixed" effects.
+      		</aside>
+      		
+      </section>
+    	
+    	<section data-transition="slide-in fade-out">
+        <h3>Fertilizer Selection</h3>
+        <div class="row">
+          <div class="col-100 no-margin">
+            <svg height="432pt" version="1.1" viewBox="0 0 658 442" width="648pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<defs>
+										<style type="text/css">
+											*{stroke-linecap:butt;stroke-linejoin:round;}
+										</style>
+									</defs>
+									<use xlink:href="lib/img/AOV_plant_boxplot.svg#axes_1"></use>
+									<use xlink:href="lib/img/AOV_plant_boxplot.svg#axes_2"></use>
+								</svg>
+          </div>
+        </div>
+        <div class="row">
+        		<div class="col-100 no-margin framed border-mutedBlue">
+        				<p class="big">We measured the weight of plants after a fixed amount of growth-time in normal soil (<span class="yellow">control</span>), or with 2 fertilizer treatments (<span class="mutedBlue">1</span> & <span class="purple">2</span>).</p>
+        		</div>
+        </div>
+      </section>
+      
+      <!-- 12 -->
+      <section data-transition="slide-in fade-out">
+        <h3>Fertilizer Selection</h3>
+        <div class="row">
+          <div class="col-100 no-margin">
+            <svg version="1.1" viewBox="0 0 658 298" width="1400pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+              <use xlink:href="lib/img/AOV_plant_null.svg#axes_1"></use>
+            </svg>
+          </div>
+        </div>
+        <p class="fragment bigger mutedBlue">
+          We conclude that our samples are <span class="red big">not likely</span> from the same population. Time for <span class="orange em">Post-hoc</span> analysis.
+        </p>
+      </section>
+      
+      <!--  -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>Fertilizer Selection</h3>
+      		<h4>Compare each pairwise group by 2 group bootstrap.</h4>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-30 no-top-margin">
+      			<svg height="468pt" version="1.1" viewBox="100 0 548 468" width="380pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+							<style type="text/css">
+							*{stroke-linecap:butt;stroke-linejoin:round;}
+							</style>
+							</defs>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 1.svg#axes_1"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 1.svg#axes_2"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 1.svg#axes_3"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 1.svg#axes_4"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 1.svg#axes_5"></use>
+						</svg>
+      		</div>
+      
+      		<!-- middle -->
+      		<div class="col-5">
+      				
+      		</div>
+      		<div class="col-30 no-top-margin">
+      			<svg height="468pt" version="1.1" viewBox="100 0 548 468" width="380pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+							<style type="text/css">
+							*{stroke-linecap:butt;stroke-linejoin:round;}
+							</style>
+							</defs>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 2.svg#axes_1"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 2.svg#axes_2"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 2.svg#axes_3"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 2.svg#axes_4"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 2.svg#axes_5"></use>
+						</svg>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-5">
+      				
+      		</div>
+      		<div class="col-30 no-top-margin">
+      			<svg height="468pt" version="1.1" viewBox="100 0 548 468" width="380pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+							<style type="text/css">
+							*{stroke-linecap:butt;stroke-linejoin:round;}
+							</style>
+							</defs>
+							<use xlink:href="lib/img/CI_Plants_Treatment 1_vs_Treatment 2.svg#axes_1"></use>
+							<use xlink:href="lib/img/CI_Plants_Treatment 1_vs_Treatment 2.svg#axes_2"></use>
+							<use xlink:href="lib/img/CI_Plants_Treatment 1_vs_Treatment 2.svg#axes_3"></use>
+							<use xlink:href="lib/img/CI_Plants_Treatment 1_vs_Treatment 2.svg#axes_4"></use>
+							<use xlink:href="lib/img/CI_Plants_Treatment 1_vs_Treatment 2.svg#axes_5"></use>
+						</svg>
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+      			
+      		</aside>
+      
+      </section>
+      
+      
+      
+      
+      <!--  -->
+      <section>
+      	<div class="row">
+      		<h3>Fertilizer Selection</h3>
+      	</div>
+      	<div class="row">
+      			<div class="col-100">
+      					<svg height="432pt" version="1.1" viewBox="0 0 658 442" width="648pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<defs>
+										<style type="text/css">
+											*{stroke-linecap:butt;stroke-linejoin:round;}
+										</style>
+									</defs>
+									<use xlink:href="lib/img/AOV_plant_boxplot.svg#axes_1"></use>
+									<use xlink:href="lib/img/AOV_plant_boxplot.svg#axes_2"></use>
+									<use class="fragment" data-fragment-index=0 xlink:href="lib/img/AOV_plant_boxplot.svg#axes_3"></use>
+									<use class="fragment" data-fragment-index=2 xlink:href="lib/img/AOV_plant_boxplot.svg#axes_4"></use>
+									<use class="fragment" data-fragment-index=4 xlink:href="lib/img/AOV_plant_boxplot.svg#axes_5"></use>
+								</svg>
+      			</div>
+      	</div>
+      	<div class="row">
+    			<div class="col-100">
+    				<style  type="text/css" >    
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 table {
+      					overflow: hidden;
+      				}
+      				
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 thead tr, 
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 thead th {
+      					position: relative;
+      					text-align: center;
+      				}
+      				
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 tbody tr:hover {
+      					background-color: #626262;
+      				}
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 tbody td, 
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 tbody th {
+      					position: relative;
+      					text-align: center;
+      				}
+      				
+      			</style>
+      			<table id="T_68e61862_1ea1_11e8_9669_54271ef3ead4" class="small" > 
+							<thead class="green-fill offWhite">
+								<tr> 
+								  <th class="index_name level0" >Comparison</th>
+									<th class="col_heading level0 col0" >Effect Size</th> 
+									<th class="col_heading level0 col1" >Confidence Interval</th> 
+									<th class="col_heading level0 col2" >P-value</th> 
+									<th class="col_heading level0 col3 fragment fade-in" data-fragment-index=7>P-adjusted (BH)</th> 
+									<th class="col_heading level0 col4 fragment fade-in" data-fragment-index=9>$H_0$ Rejected</th>
+								</tr>    
+							</thead> 
+							<tbody>    
+								<tr class="fragment fade-in" data-fragment-index=0> 
+								  <th id="T_68e61862_1ea1_11e8_9669_54271ef3ead4level0_row0" class="row_heading level0 row0" >Control vs Treatment 1</th> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col0" class="data row0 col0" >0.371</td> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col1" class="data row0 col1" >[-0.205,  0.94 ]</td> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col2" class="data row0 col2 fragment fade-in" data-fragment-index=1 ><span class="fragment highlight-red" data-fragment-index=6>0.2272</span></td> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col3" class="data row0 col3 fragment fade-in" data-fragment-index=7 ><span class="fragment highlight-red" data-fragment-index=8>0.2272</span></td> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col4" class="data row0 col4 fragment fade-in" data-fragment-index=10 ><span class="fragment highlight-red" data-fragment-index=11>False</span></td> 
+								</tr>
+								<tr class="fragment fade-in" data-fragment-index=2> 
+								  <th id="T_68e61862_1ea1_11e8_9669_54271ef3ead4level0_row1" class="row_heading level0 row1" >Control vs Treatment 2</th> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col0" class="data row1 col0" >-0.494</td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col1" class="data row1 col1" >[-0.92,  -0.066]</td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col2" class="data row1 col2 fragment fade-in" data-fragment-index=3 ><span class="fragment highlight-green" data-fragment-index=6>0.0461</span></td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col3" class="data row1 col3 fragment fade-in" data-fragment-index=7 ><span class="fragment highlight-orange" data-fragment-index=8>0.06915</span></td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col4" class="data row1 col4 fragment fade-in" data-fragment-index=10 ><span class="fragment highlight-red" data-fragment-index=11>False</span></td> 
+								</tr>    
+								<tr class="fragment fade-in" data-fragment-index=4>  
+								  <th id="T_68e61862_1ea1_11e8_9669_54271ef3ead4level0_row2" class="row_heading level0 row2" >Treatment 1 vs Treatment 2</th> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col0" class="data row2 col0" >-0.865</td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col1" class="data row2 col1" >[-1.388, -0.327]</td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col2" class="data row2 col2 fragment fade-in" data-fragment-index=5 ><span class="fragment highlight-green" data-fragment-index=6>0.0076</span></td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col3" class="data row2 col3 fragment fade-in" data-fragment-index=7 ><span class="fragment highlight-green" data-fragment-index=8>0.0228</span></td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col4" class="data row2 col4 fragment fade-in" data-fragment-index=10 ><span class="fragment highlight-green" data-fragment-index=11>True</span></td> 
+								</tr>
+							</tbody> 
+						</table>
+  				</div>	
+      	</div>
+      	<aside class="notes" data-markdown>
+      		
+      	</aside>
+      </section>
+      
+      <!-- #########################     CONTENT END     #########################-->
+    </div>
+    
+  </div>
+  
+  <!-- REVEAL JS -->
+  <script src="lib/js/reveal.js/lib/js/head.min.js"></script>
+  <script src="lib/js/reveal.js/js/reveal.js"></script>
+  <script src="lib/js/initReveal.js"></script>
+</body>
+</html>
