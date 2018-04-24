@@ -1,0 +1,3069 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Neuro 210C</title>
+  <meta name="author" content="Khris Griffis" />
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, minimal-ui">
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="lib/img/fic/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="lib/img/fic/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="lib/img/fic/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="lib/img/fic/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="lib/img/fic/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="lib/img/fic/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="lib/img/fic/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="lib/img/fic/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="lib/img/fic/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="lib/img/fic/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="lib/img/fic/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="lib/img/fic/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="lib/img/fic/favicon-16x16.png">
+  <link rel="manifest" href="lib/img/fic/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="lib/img/fic/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="lib/js/reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="lib/css/flatlandDk2.css" id="theme">
+  <link rel="stylesheet" href="lib/css/jsStyle.css">
+  
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/js/reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'lib/js/reveal.js/css/print/pdf.css' : 'lib/js/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!-- END PRINT EXPORT -->
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+  <link href="https://use.fontawesome.com/releases/v5.0.3/css/all.css" rel="stylesheet">
+  
+</head>
+<body>
+  
+  <div class="reveal">
+
+    <div class="slides">
+      <!-- #########################    CONTENT START    #########################-->
+      
+      <!-- 0 -->
+      <section data-background=url("lib/img/persi_conference.jpg") data-state="alpha-04" data-background-color="#FFF">
+    			<div class="row">
+    				<div class="col-50 no-margin"></div>
+    				<div class="col-50 no-margin">
+    					<h1>Making ‘Heads or Tails’ of Data</h1>
+		        	<h3>Understanding statistics:</h3>
+		          <h5>the art of revealing your data</h5>
+		          <h3 class="fragment">Khris Griffis</h3>
+    				</div>
+    			</div>
+          <aside class="notes">
+            
+          </aside>
+      </section>
+      
+      <!-- 2 -->
+      <section id="a-brief-outline" class="slide level2">
+	    <div class="row">
+	    		<h2>A Brief Outline</h2>
+	    </div>
+	    <div class="row">
+		    <ul class="icon mutedBlue biggest">
+			    <li class="fragment paperclip"><span class="offWhite">Re-introduce the dreaded S-word…</span></li>
+			    <li class="fragment paperclip"><span class="offWhite">Visualization of data: do and don’t</span></li>
+			    <li class="fragment paperclip"><span class="offWhite">Cook with a <span class="green">“NEW”</span> statistical recipe</span></li>
+			    <li class="fragment paperclip"><span class="offWhite">Let’s talk about the value of <span class="math inline red"><em>p</em></span></span></li>
+		    </ul>
+	    </div>
+	    </section>
+	    
+	    
+	    <!-- 3 -->
+	    <section>
+        
+        <h3>Understanding $\neq$ Knowing</h3>
+        <div class="row" style="height: 20px">
+        
+        </div>
+        <div class="row">
+          <div class="col-50">
+            <div class="row" style="height: 20%">
+            Getting an answer is very different from knowing <span class="orange">WHY</span> we get that answer.
+            </div>
+            <div class="row" style="height: 20%">
+            Understanding statistics is understanding of the <span class="orange">underlying process</span> of that answer.
+            </div>
+            <div class="row drop-10">
+              <img src="lib/img/push-button.svg" class= "plain fragment no-margin" width= "65%" style= "margin-top:0;" />
+            </div>
+          </div>
+          <div class="col-50">
+          <img src="lib/img/answer.png" width= "70%" class= "plain" />
+          </div>
+        </div>
+        <aside class="notes">
+        <p>This lecture is a bit different =&gt; RESAMPLING &amp; SIMULATIONS.</p>
+        <p>We believe understanding how things work is far more interesting and useful, because it can be applied and tweaked to very specific situations.</p>
+        <p>Douglas Adams, the answer is 42.. how did you get there? addition? subtraction? multiplication? a mixture of the lot?</p>
+        <p>You might ask, “Formulas have been developed for that”, and youre right, some dead white guys needed to “prove” their equations did something if you have a very specific type of data.</p>
+        <p>The problem is that we are living in a rapidly evolving world, with new kind of data being generated every day. We need to be able to analyze this new kind of data. Formula applies to a very narrow range of data. We are not living in a fantasy world.</p>
+        <p>I am not here to train you to be a bunch of robots who know how to apply some recipe by heart and just press a button and just read the results.</p>
+        I am here is to train the next generation of scientists, the next generation of entrepreneurs, the next generation of leader, who will be able to understand to analyze any kind of new data they encounter.
+        </aside>
+      </section>
+      
+      <!-- 4 -->
+      <section>
+        
+        <div class="row">
+          <h1>Statistics Is <i class="fas fa-question-circle fa-spin mutedBlue"></i></h1>
+        </div>
+        <div class="row">
+          <div class="col-50">
+            <span class="left fragment">The science of (the methods of)</span><br>
+            <span class="bigger fragment mutedBlue">Collecting</span><br>
+            <span class="bigger fragment mutedBlue">Organizing</span><br>
+            <span class="bigger fragment mutedBlue">Summarizing</span><br>
+            <span class="bigger fragment mutedBlue">Communicating</span><br>
+            <span class="bigger fragment mutedBlue">Dealing with Uncertainty</span><br>
+          </div>      
+          <div class="col-50">
+            <div class="row", style="height:20px;">
+                
+            </div>
+            <h2 class="fragment">OF DATA</h2>
+            <p class="fragment orange bigger r-l-sided border-mutedBlue">So that we can make better, more mutedBluermed and critical decisions about the world around us.<br>
+            <span class="fragment red">Probably.</span></p>
+          </div>
+        </div>
+        
+        <aside class="notes">
+          <p>Pause to ask the group, let a few answers.</p>
+          <p>Stats are: Hard, about knowing all the formulas… Boring, has too many squares, somebody elses problem.</p>
+          <p>ADVANCE. science of data. But its more than that. ADVANCE. All of these things lead us to make more mutedBluermed, more effective decisions.</p>
+          <p>Really though, It is the dealing with uncertainty that we will focus on. </p>
+        </aside>
+      
+      </section>
+      
+      <!-- 5 -->
+      <section>
+			  <h3>Goal of statistics</h3>
+			  <p class="no-top-margin mutedBlue big">
+			    <i class="fa fa-arrow-circle-right"></i> To answer a question about a population (of data).
+			  </p>
+			  <p>
+			    <span class="fragment highlight-green">In a perfect world</span>, we would have access to the full 
+			    <span class="fragment highlight-mutedBlue">population</span>
+			    so we would be able to answer the question based on data collected on 
+			    all the <span class="fragment highlight-orange">observational units</span> of 
+			    the population. We would know
+			    the value of the <span class="fragment highlight-orange">true statistic</span>, i.e. the <span class="fragment highlight-mutedBlue">parameter</span>, that we are interested in.
+			  </p>
+			  <p class="fragment">
+			    <i class="fa fa-exclamation-circle fa-spin red"></i> But we typically have just one or a few samples.
+			  </p>
+			  <p class="l-l-sided border-yellow fragment">
+			  	If we had $\infty$ number of friends, and they were all awesome, we could have them each conduct our same experiment in order to get an idea about the <span class="mutedBlue">parameter</span> of interest. <br>
+			  	<span class="purple fragment">This approach is the concept of Frequentism.</span>
+			  </p>			  
+			  <p class="fragment yellow big">
+			    Statistics is about using that single sample to make
+			    <span class="mutedBlue">inferences</span> about the population <span class="mutedBlue">parameter</span>.
+			  </p>
+			</section>
+			<!-- 6 -->
+      <section>
+			  <h3>Population data</h3>
+			  <p class="framed border-mutedBlue small" style="margin-top: 0;">
+			    Imagine a population of 500 students (all the possible observational units) and you're interested in selling them on the idea healthy food through advertisements.
+			  </p>
+			  <p class="l-l-sided border-orange small">
+			    Your first idea is to use television.<br>
+			    You need to know if this is viable, so you measure average time students spend watching TV.<br>
+			    <span class="orange">This is an exploratory study and doesn't have a real hypothesis.</span>
+			  </p>
+			  <p class="small red">
+			    If we could collect data on all the students, then the data 
+			    would look like this:
+			  </p>
+			  <div class="row">
+			    <div class="col-100">
+			      <svg width="100%" viewBox="0 0 1008 288" style="margin-top: 0;">
+			        <use xlink:href="lib/img/recap-population-visualization.svg#axes_1"></use>
+			        <use xlink:href="lib/img/recap-population-visualization.svg#axes_2"></use>
+			        <use xlink:href="lib/img/recap-population-visualization.svg#axes_3"></use>
+			      </svg>
+			    </div>
+			  </div>
+			  <!-- notes -->
+    		<aside class="notes" data-markdown>
+Observational unit is the simplest form of raw data one can collect. A die roll, or the vector of a dice roll..
+
+Average time does not always mean the arithmetic mean of a sample. It can, like the red line, mean the median and we'll discuss this later.
+
+### What kinds of plots are these?
+What is the purpose of displaying the data this way? We will explore more once we move past the introductory stuff.    			
+    		</aside>
+			</section>
+      <!-- 7 -->
+      <section>
+			  <h3>Sampling distribution</h3>
+			  <p class="no-margin-top small">
+			    The reality is that many factors influence our ability to collect data. For example, we must provide incentive for students to let us monitor how much TV they actually watch. <span class="orange">What if we can only afford to include 6 students?</span>
+			  </p>
+			  <p class="no-margin-top smaller fragment" data-fragment-index=1>
+			    <i class="fa fa-arrow-circle-right"></i> We would <span class="orange">randomly select</span> 6 students, which would give us a <span class="orange">representative sample</span> to work with. <br>
+			    From this sample (n=6) we calculate the average time each student spends watching TV.<br>
+			    Our hypothesis / assumption we want to test is: <span class="orange">$\bar{x}\approx\mu$</span>.
+			  </p>
+			  <div class="row">
+			    <div class="col-45">
+			      <p class="no-margin-top smaller fragment" 
+			        data-fragment-index=2>
+			        You can imagine that if we had randomly selected another sample, the value of that $\bar{x}$ would have been a bit different (but still $\bar{x}\approx\mu$).
+			      </p>
+			      <p class="no-margin-top smaller fragment" 
+			        data-fragment-index=3>
+			        Frequentism says that if we randomly selected samples $\infty$ times, we would have a <span class="orange">distribution of $\bar{x}$'s</span> where each $\bar{x}\approx\mu$.
+			        <br>
+			        <i class="fa fa-arrow-circle-right red"></i> All of these possible statistics of interest define the 
+			        <span class="red">sampling distribution</span> of the statistic.
+			      </p>
+			      <p class="no-margin-top smaller fragment" data-fragment-index=4>
+			        If we had more money, we would collect a larger sample size and our estimate of the <span class="red">sampling distribution</span> would have less <span class="green">uncertainty.</span>
+			      </p>
+			      <p class="no-margin-top smallest fragment" data-fragment-index=6>
+			        For parametric statistics, like mean and standard deviation, the formulas approximate the sampling distribution, though only if Normal assumptions are satisfied.
+			      </p>
+			      <p class="no-margin-top smaller fragment" data-fragment-index=7>
+			        Because we are always skeptical that our data are not normally distributed, we use <span class="blue">robust statistics</span>, like the median, to estimate our average, i.e. <span class="green">central tendency</span>.
+			      </p>
+			    </div>
+			    <div class="col-55">
+			      <svg width="100%" viewBox="10 0 415 288" style="margin-top: 0;">
+			        <use xlink:href="lib/img/recap-population-statistic-sampling-distribution.svg#axes_1"></use>
+			        <use xlink:href="lib/img/recap-population-statistic-sampling-distribution.svg#axes_2"></use>
+			        <use class="fragment current-visible" data-fragment-index=1
+			         xlink:href="lib/img/recap-population-statistic-sampling-distribution.svg#axes_7"></use>
+			        <use class="fragment current-visible" data-fragment-index=2   xlink:href="lib/img/recap-population-statistic-sampling-distribution.svg#axes_8"></use>
+			        <use class="fragment" data-fragment-index=3 xlink:href="lib/img/recap-population-statistic-sampling-distribution.svg#axes_3"></use>
+			        <use class="fragment" data-fragment-index=4 xlink:href="lib/img/recap-population-statistic-sampling-distribution.svg#axes_4"></use>
+			        <use class="fragment" data-fragment-index=5 xlink:href="lib/img/recap-population-statistic-sampling-distribution.svg#axes_5"></use>
+			        <use class="fragment" data-fragment-index=7 xlink:href="lib/img/recap-population-statistic-sampling-distribution.svg#axes_6"></use>
+			        <use class="fragment" data-fragment-index=6 xlink:href="lib/img/recap-population-statistic-sampling-distribution.svg#axes_9"></use>
+			      </svg>
+			    </div>
+			  </div>
+			</section>
+      <!-- 8 -->
+      <section>
+        
+        <div class="row">
+          <h1>Uncertainty</h1>
+        </div>
+        <div class="row">
+          <div class="col-30">
+            <h3>What the heck is uncertainty?</h3>
+            <ul class="icon">
+              <li class="question-circle fragment red">Fear and trepidation</li>
+              <li class="question-circle fragment red">Confusion</li>
+              <li class="question-circle fragment red">Error</li>
+              <li class="question-circle fragment orange">A single value</li>
+              <li class="question-circle fragment orange">A measurable value</li>
+              <li class="question-circle fragment orange">A range of values</li>
+              <li class="question-circle fragment green">A range of <span class="mutedBlue bigger">Possible</span> outcomes.</li>
+            </ul>
+          </div>      
+          <div class="col-70">
+            <img src="lib/img/uncertainty.jpg" width= "70%" class= "plain" />
+          </div>
+        </div>
+        
+        <aside class="notes">
+          What is Uncertainty?<br>
+          LET CLASS GUESS.<br>
+          Uncertainty is the cousin to probability, so we can begin to explain it using coin flips.
+        </aside>
+      
+      </section>
+      
+      <!-- 9 -->
+      <section data-background-color="#FFF">
+        
+        <div class="row">
+          <h1>Simulating Coin Flips</h1>
+        </div>
+        <div class="row">
+          <div class="col-30">
+            <h3>Is my coin fair?</h3>
+            <ul class="icon">
+              <li class="gear fragment">Flip the coin</li>
+              <li class="gear fragment">Count if we see Heads</li>
+              <li class="gear fragment">Repeat<span class="fragment orange"> and repeat..</span></li>
+            </ul>
+          </div>      
+          <div class="col-70">
+            <div class="fig-container" data-file="lib/interactive/dots/dots.html"></div>
+            
+          </div>
+        </div>
+        
+        <aside class="notes">
+          Simulate uncertainty and explain proportion.<br>
+          If we keep track of the probabilities after each coin flip we would get a distribution of heads proportions.<br>
+          We can take this a step further and ask about the uncertainty of the model. Let's say we breed mice and we are only interested in the females for our study.
+
+        </aside>
+      
+      </section>
+      <!-- 10 -->
+      <section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h2>Proportions of Proportions</h2>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-30 no-top-margin">
+    				<ul class="icon framed border-mutedBlue smaller fragment" data-fragment-index=1>
+    					<li class="arrow-circle fragment" data-fragment-index=1>A chance model is used to test if an observation can be predicted to have happened by <span class="mutedBlue">random chance</span>.</li>
+    					<li class="arrow-circle fragment" data-fragment-index=2>Computer simulation allows us to rapidly build a chance model of an <span class="mutedBlue">expected proportion</span>.</li>
+    					<li class="arrow-circle fragment" data-fragment-index=3>We can then take the proportion of our chance model that is <span class="red">as extreme and more extreme</span> that our observed proportion.</li>
+    					<li class="arrow-circle fragment" data-fragment-index=4>The chance model histogram is our <span class="orange">Null Distribution</span> and represents the expected proportion if all possible outcomes are equally probable.</li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-70 no-top-margin fragment" data-fragment-index=5>
+    				<div class="fragment fig-container framed border-offWhite" data-fragment-index=5 data-file="lib/interactive/mice/mice.html" style="background:#fff;max-height:500px;"></div>
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+- Before we begin, let's talk a little about what I'm doing here. As I said, "keep track of proportions"...
+- Random chance is really the underlying mechanism of statistical uncertainty. That is, probability of happening unexpectedly.
+- Without randomness, you would never have things like, biological variation.
+- The key here is that instead of just accumulating thousands of coin flips, we want to know what proportion of the time an event occurs in N observations.
+- What we are simulating is if female and male pups are equally likely, Null, how often does my observed proportion happen by random chance?
+
+### All of this is part of counting categorical data.
+    			</aside>
+    			
+    	</section>
+    	
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h2>Uncertainty</h2>
+    			
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-40 no-top-margin fragment framed border-offWhite" style="max-height:800px;" data-fragment-index=7>
+    				<div class="fragment fig-container" data-fragment-index=7 data-file="lib/interactive/heatSquares/heatsquares.html" style="width:100%;"></div>
+    			</div>
+    			
+    	
+    			<!-- right column -->
+    			<div class="col-60">
+    				<div class="framed border-mutedBlue">
+    					<h5 class="fragment" data-fragment-index=0>Uncertainty of Proportions</h5>
+	    				<ul class="icon smaller fragment" data-fragment-index=1>
+	    					<li class="microchip fragment" data-fragment-index=1>Using a similar simulation as when constructing the Null distribution, we can simulate the <span class="green">uncertainty</span> surrounding our observed statistic.</li>
+	    					<li class="microchip fragment" data-fragment-index=2>We put a <span class="red">confidence level</span> on our range on uncertainty, typically we use 95%.</li>
+	    					<li class="microchip fragment" data-fragment-index=3>We construct this 95% <span class="red">confidence interval</span> using resampling with replacement.</li>
+	    					<li class="microchip fragment" data-fragment-index=4>That is, we throw all our observations in a <span class="mutedBlue">big box</span> and then draw out the same number we threw in, with replacement, then calculate our statistic (proportion) again.</li>
+	    					<li class="microchip fragment" data-fragment-index=5>This process is called <span class="green">Bootstrapping</span> and the underlying principal is that we are adding randomness to our observation in order to assess if randomness can explain our result.</li>
+	    					<li class="microchip fragment" data-fragment-index=6>This method uses <span class="orange">only our actual data</span> to understand the role of random chance given that <span class="green">we only have information on our actual data</span>.</li>
+	    					<li class="microchip fragment mutedBlue" data-fragment-index=8>How does this compare to the Null distribution we constructed on the last slide? What assumptions are made here? What about in the Null?</li>
+	    				</ul>
+	    				<p class="fragment smaller blue" data-fragment-index=9>
+	    					The Null makes an assumption about all possible outcomes, e.g. they're all equally likely.<br>
+	    					The bootstrap makes no assumptions, except that the actual data are real, and requires no assumptions about all the other outcomes.
+	    				</p>
+	    			</div>
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+- Bootstrap is the term we use for resampling with replacement, it is also called randomization.
+- Replacement means, we draw a value and stick it back in the box so that it might be drawn again in the same collection of draws.
+- This assumption game is important!
+    			</aside>
+    			
+    	</section>
+    	
+      <!-- 11 -->
+			<section>
+
+      <h2>Statistical Hypothesis</h2>
+      <div class="row narrower">
+      <div class="row bigger">
+      <p class="quoted fragment">
+      Generally, a <span class="mutedBlue">scientific hypothesis</span> is a specific statement proposed as an <span class="orange">explanation</span> for a phenomenon, regardless of <span class="red">truth</span>.</p>
+      <p class="quoted fragment">
+      A <span class="mutedBlue">statistical hypothesis</span> is a specific statement about a <span class="orange">characteristic or parameter</span> of the data.
+      </p>
+      </div>
+      <div class="row">
+      <div class="col-60 push-5">
+      <ul>
+      <li class="fragment">Does the association exist?<br />
+      </li>
+      <li class="fragment">Could it be by chance?<br />
+      </li>
+      <li class="fragment">Is there bias?</li>
+      </ul>
+      </div>
+      </div>
+      </div>
+
+      <aside class="notes">
+        To illustrate this, I'm going to tell you a quick story. And this is really an example as to WHY statistics.
+      </aside>
+
+      </section>
+      <!-- 12 -->
+      <section>
+	    <h2>Solving World Health Problems</h2>
+	    <h3>Cholera in the early 19th century:</h3>
+	    <img src="lib/img/cholera-disposal-bodies.jpg" width= "60%" class= "plain" />
+	    <aside class="notes">
+	    <p>Cholera has been one of most virulent killers in history.</p>
+	    <p>Millions succumbed to the 7 cholera pandemics since the first in 1817.</p>
+	    <p>It became the first truly global disease and also the most feared.</p>
+	    Symptoms of this disease include nausea, vomiting, abdominal pain and a horribly violent case of diarrhea that can cause one to lose as much as 20 liters of fluid and electrolytes per day, leading to extremely severe dehydration.
+	    <p>The first outbreak began in India early in the 19th century and spread to England in 1831 in the first of four 19th century epidemics occurring in 18311833, 18481850, 18531854, and 1866.</p>
+	    <br>In part as a result of choleras mortality rate of between 20 and 25 percent, the nature of cholerawas it air or waterborneand the means of its diffusion were subjects of intense professional debate.
+	    </aside>
+	    </section>
+      <!-- 13 -->
+      <section>
+      <h2>Cholera Pandemic: It’s In The Air?</h2>
+      <div class="row">
+      <img src="lib/img/cholera-miasma.png" height= "411px" />
+      </div>
+      <div class="row">
+      <h3>Miasma</h3>
+      <ul>
+      <li>The prevailing dogma of the 19<sup>th</sup> century was that all disease and epidemics stemmed from “Bad Air”.</li>
+      <li>“Bad Air”, called miasmata, is a poisonous vapor with suspended particles of decaying matter and a foul smell.</li>
+      <li>Likely the cause of Cholera as poor, filthy and foul-smelling areas had miasmata AND they had Cholera.
+      <p class="fragment">
+      It’s as simple as that…
+      </p></li>
+      </ul>
+      </div>
+      <aside class="notes">
+      <p>Miasma theory</p>
+      <p>The theory of indirect and <em>airborne</em> transmission, which stated, cholera was caused by the smell of the bad air (miasmata), a poisonous vapor with suspended particles of decaying matter and a foul smell… i.e. caused by pollution!</p>
+      This was the prevailing dogma of the 19th century and was reasoned as most disease and epidemics centered on poor, filthy and foul-smelling city neighborhoods.
+      </aside>
+      </section> 
+      <!-- 14 -->
+      <section>
+	    <h2>John Snow</h2>
+	    <div class="row narrow">
+	    <span class='col-60 bigger'>
+	    <p>
+	    A British physician, considered one of the fathers of modern epidemiology.
+	    </p>
+	    <p>
+	    He was <span class="orange">skeptical</span> of the Miasma theory and proposed a different hypothesis: <span class="mutedBlue fragment">that cholera was attributable to a self-replicating agent, probably ingested through contaminated <span class="orange">water</span>.</span>
+	    </p>
+	    </span> <span class='col-5'>
+	    <p>
+	    </p>
+	    </span><span class="col-30"><img src="lib/img/john-snow.jpg" style= "margin-bottom: 0;" /><br><span style="font-size: 0.4em;">(15 March 1813 - 16 June 1858)</span></span>
+	    </div>
+	    <aside class="notes">
+	    <p>Being skeptic, curious, not taking anything for granted is a good quality to have.</p>
+	    <p>The first cases of cholera in England were reported in 1831, about the time Dr. Snow as finishing up his medical studies at the age of eighteen. Between 1831 and 1854, tens of thousands of people in England died of cholera. Although Dr. Snow was deeply involved in experiments using a new technique, known as anesthesia, to deliver babies, he was also fascinated with researching his theory on how cholera spread.</p>
+	    <p>In the middle 1800s, people didnt have running water or modern toilets in their homes. They used town wells and communal pumps to get the water they used for drinking, cooking and washing. Septic systems were primitive and most homes and businesses dumped untreated sewage and animal waste directly into the Thames River or into open pits called “cesspools”. Water companies often bottled water from the Thames and delivered it to pubs, breweries and other businesses.</p>
+	    <p>Dr. Snow believed sewage dumped into the river or into cesspools near town wells could contaminate the water supply, leading to a rapid spread of disease.</p>
+	    In August of 1854 Soho, a suburb of London, was hit hard by a terrible outbreak of cholera. Dr. Snows himself lived near Soho, and immediately went to work to prove his theory that contaminated water was the cause of the outbreak.
+	    </aside>
+	    </section>
+      <!-- 15 -->
+      <section>
+	    <h2>The River Thames</h2>
+	    <div class="row drop-10" style="display: block !important; position: relative !important;  margin: 5% auto !important;">
+	    <span class="col-100"><img src="lib/img/london.jpg" class= "unbordered" /></span>
+	    </div>
+	    <div class="row narrower" style="margin: 2% auto !important;">
+	    <p>
+	    A source of <span class="strike red" data-fragment-index="1">fresh</span> water, a means of free enterprise and a severely lacking government overreach.
+	    </p>
+	    </div>
+	    <aside class="notes">
+	    <p>Thames was very polluted</p>
+	    <p>By the arrival of the 19th century, the River Thames had become the most contaminated river in the world.</p>
+	    <p>Toilets were widely introduced in London between 1830 and 1850: main sewers were introduced in the 1840s.</p>
+	    <p>The sewers, elongated cesspools with overflows at the end emptied into the River Thames, which was also a dumping ground for animal and industrial wastes.</p>
+	    When ships were coming to harbor, crew started to develop cholera symptom only when they were going in contact with people of the city.
+	    </aside>
+	    </section>
+      <!-- 16 -->
+      <section>
+	    <h2>Soho and Snows’s Statistics</h2>
+	    <p>Snow tracked the numbers of cholera fatalities in his neighborhood of Soho.</p>
+	    <div class = 'row'>
+	    <!-- main -->
+	    <div class="col-35">
+	    <!-- left -->
+	    <div class="row">
+	    <img src="lib/img/Court_for_king_Cholera.jpg" class= "unbordered" />
+	    </div>
+	    <br /> <span class='big' style="margin: 0.75% auto !important;">
+	    <p class="quoted">
+	    The most terrible outbreak of cholera which ever occurred in this kingdom.
+	    </p>
+	    <p class="small push-right">
+	    -John Snow
+	    </p>
+	    </span>
+	    </div>
+	    <div class="col-60 push-5">
+	    <!-- table main -->
+	    <div class="col-30">
+	    <p>
+	    </p>
+	    </div>
+	    <!-- spacer -->
+	    <div class="col-65">
+	    <!-- data column -->
+	    <div class="em orange fragment" style="padding-bottom: 0px !important;" data-fragment-index="1">
+	    Variables
+	    </div>
+	    <hr align="left" width=97% color="#f0ad4e" size=3px class="fragment" data-fragment-index=1>
+	    </div>
+	    <div class="row">
+	    <div class="col-10">
+
+	    </div>
+	    <div class="col-10" style="position: relative; margin-top: 20% !important;">
+	    <div class="em orange fragment rotation-270" data-fragment-index="1">
+	    Observations
+	    </div>
+	    </div>
+	    <div class="col-80">
+	    <table class="small">
+	    <thead>
+	    <tr style="background: #636c72;">
+	    <th>
+	    House
+	    </th>
+	    <th>
+	    Address
+	    </th>
+	    <th>
+	    Population
+	    </th>
+	    <th>
+	    Fatalities
+	    </th>
+	    </tr>
+	    </thead>
+	    <tbody>
+	    <tr>
+	    <td>
+	    House #1
+	    </td>
+	    <td>
+	    45 Lexington St
+	    </td>
+	    <td>
+	    8
+	    </td>
+	    <td>
+	    5
+	    </td>
+	    </tr>
+	    <tr>
+	    <td>
+	    House #2
+	    </td>
+	    <td>
+	    15 Broadwick St
+	    </td>
+	    <td>
+	    21
+	    </td>
+	    <td>
+	    7
+	    </td>
+	    </tr>
+	    <tr>
+	    <td>
+	    House #3
+	    </td>
+	    <td>
+	    61 Poland St
+	    </td>
+	    <td>
+	    4
+	    </td>
+	    <td>
+	    1
+	    </td>
+	    </tr>
+	    <tr>
+	    <td>
+	    House #4
+	    </td>
+	    <td>
+	    37 Broad St
+	    </td>
+	    <td>
+	    27
+	    </td>
+	    <td>
+	    16
+	    </td>
+	    </tr>
+	    <tr>
+	    <td>
+	    House #5
+	    </td>
+	    <td>
+	    48 Carnaby St
+	    </td>
+	    <td>
+	    11
+	    </td>
+	    <td>
+	    3
+	    </td>
+	    </tr>
+	    <tr>
+	    <td>
+	    House #6
+	    </td>
+	    <td>
+	    46 Beak St
+	    </td>
+	    <td>
+	    8
+	    </td>
+	    <td>
+	    0
+	    </td>
+	    </tr>
+	    <tr>
+	    <td>
+	    House #7
+	    </td>
+	    <td>
+	    43 Broad St
+	    </td>
+	    <td>
+	    44
+	    </td>
+	    <td>
+	    9
+	    </td>
+	    </tr>
+	    </tbody>
+	    </table>
+	    </div>
+	    </div>
+	    </div>
+	    </div>
+	    <aside class="notes">
+	    <p>By the middle of the 19th century, Soho had become an insanitary place of cow-sheds, animal droppings, slaughterhouses, grease-boiling dens and primitive, decaying sewers. And underneath the floorboards of the overcrowded cellars lurked something even worse – a fetid sea of cesspits as old as the houses, and many of which had never been drained. It was only a matter of time before this hidden festering time-bomb exploded.</p>
+	    <p>Soho was the neighborhood of John Snow.</p>
+	    <p>First hand case study for him.</p>
+	    <p>In Snows days, the science of public health and statistics, epidemiology, was not established.</p>
+	    <p>He collected epidemiological evidence in a bid to convince other practitioners of his theory of cholera.</p>
+	    <p>When you want to study something, you need data.</p>
+	    <p>Kind of data Snow was collecting going door to door.</p>
+	    <p>Usually data is stored and presented in a dataset, comprised of variables measured on observational units (or cases).</p>
+	    <p>In any dataset, it is important to understand exactly what each variable is measuring and how the values are coded. First column is usually used to provide an identifier for each of the individuals in the study (House number).</p>
+	    We see that there are different types of variables. Categories and numbers.
+	    </aside>
+	    </section>
+      
+      <!-- 16 -->
+      
+      <section>
+	    <h2>Outliers in Soho</h2>
+	    The mutedBluermation given by the outliers was important: it helped Snow rule out other possible sources of the epidemic besides pump water.
+	    <div class="row narrower">
+	    <p class="fragment sided border-orange">
+	    A workhouse had 535 inmates but almost no cases of cholera.<br> <span class="math inline">→</span> Snow discovered the workhouse had its own well
+	    </p>
+	    <p class="fragment sided border-orange">
+	    The 70 workers of the brewery on Broad Street also escaped cholera.<br> <span class="math inline">→</span> Mr. Huggins (owner) told Snow that the men drank the liquor they made or water from the brewery’s own well.
+	    </p>
+	    <p class="fragment sided border-mutedBlue">
+	    An elderly widow in West Hampstead (an area some distance away, which was free of cholera) and her niece died from cholera. <br> <span class="math inline">→</span> She liked the taste of Broad Street water, and she had a bottle brought to them every day from the pump
+	    </p>
+	    </div>
+	    </section>
+	    
+      <!-- 17 -->
+      <section>
+	    <h2>The Broad Street pump area</h2>
+	    <div class="row narrow">
+	    <div class="col-20">
+	    <p class="fragment green" data-fragment-index="1" style="font-size: 0.6em;">
+	    Area for which the Broad Street pump is the fastest trip to water <br>(on foot).
+	    </p>
+	    </div>
+	    <div class="col-10">
+
+	    </div>
+	    <div class="col-70">
+	    <svg width=100% viewbox="550 300 1500 1100" style="background:none !important;"> <use xlink:href="lib/img/london_soho-slide.svg#Layer1"></use> <use class="fragment plain" style="background: none !important;" data-fragment-index=1 xlink:href="lib/img/london_soho-slide.svg#nearest"></use> </svg>
+	    </div>
+	    </div>
+	    <aside class="notes">
+	    <p>Snow employed network analysis to calculate which water pump was closest to each house.</p>
+	    <p>The stroke of genius: he based it on walking distance, not as-the-crow-flies distance.</p>
+	    <p>He then used polygons to demarcate areas based on those findings. Because he added foot traffic to the equation, the output yielded a shape that clearly illustrated the relationship between human movement and disease.</p>
+	    It was impossible to deny the high concentration of fatalities in the population that was drinking Broad Street water. This map helped convince the local authorities that cholera was waterborne.
+	    </aside>
+	    </section>
+      <!-- 18 -->
+      <section>
+	    <h2>From Data to Administrative Action</h2>
+	    <p class="l-sided border-orange" style="margin-bottom: 0.8em !important;">
+	    On Sep 7, 1854, Snow took his research to the town officials and convinced them to take the handle off the pump.
+	    </p>
+	    <div class="row narrow">
+	    <div class="col-70">
+	    <p><img class="plain" width=100% src="lib/img/cholera-deathdays.svg"></p>
+	    </div>
+	    <div class="col-20 bigger" style="position: relative; margin-top: 3% !important;">
+	    <p class="framed border-red fragment" data-fragment-index="1">
+	    Still, the scientific community was reluctant to believe his theory
+	    </p>
+	    <p class="fragment mutedBlue" data-fragment-index="1" style="font-size: 0.6em;">
+	    What would be alternative explanations for the decrease in cholera fatal attacks?
+	    </p>
+	    </div>
+	    </div>
+	    <aside class="notes">
+	    <p>Despite the green of Snows theory in stemming the cholera epidemic in Soho, public officials still thought his hypothesis was nonsense.</p>
+	    <p>They refused todo anything to clean up the cesspools and sewers.</p>
+	    The Board of Health issued a report that said, “we see no reason to adopt this belief” and shrugged off Snows evidence as mere “suggestions.”
+	    </aside>
+	    </section>
+      
+      <!-- 19 -->
+      <section>
+	    <h2>Snow’s “Grand Experiment”</h2>
+	    <div class='row narrow'>
+	    <div class="left muted" style="font-size: 0.65em;">
+	    Despite the green of Snow’s theory in stemming the cholera epidemic in Soho, public officials still thought his hypothesis was nonsense. <br> <span style="margin-left: 2em;"><span class="math inline">→</span> He needed <span class="orange">stronger</span> evidence.</span>
+	    </div>
+	    <p class="l-sided border-mutedBlue">
+	    <span class="u">Research question:</span><br> Is there a causal relationship between water supply and cholera?
+	    </p>
+	    <div>
+	    <hr>
+	    <p>
+	    What should Snow do to get “stronger” evidence?
+	    </p>
+	    <ul>
+	    <li class="fragment">Bigger scale study? (generalization)</li>
+	    <li class="fragment">More systematic comparison? (“Control” population)</li>
+	    </ul>
+	    </div>
+	    </div>
+	    <aside class="notes">
+	    <p>Snow was still eager to prove his theory. What would the study need to be more convincing?</p>
+	    <p>Real “control” population. (even if this is shortest path on foot, we cannot be 100% certain that people actually went to Broad Street pump.)</p>
+	    Sample size is important because a larger sample of the true population the better representative of the population your sample is.
+	    </aside>
+	    </section>
+      
+      <!-- 20 -->
+      <section>
+	    <h3>Collecting a dataset</h3>
+	    <p class="quoted" style="font-size: 0.7em; margin-top: 0;">
+	    The <span class="mutedBlue">population</span> is the <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">entire collection</span> of observational units we are interested in.
+	    A <span class="orange">sample</span> is a <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">subset of the population</span> on which we record data.</p>
+	    <p class="quoted" style="font-size: 0.7em; margin-top: 0; margin-bottom: 0;">Numerical summaries about a population are called <span class="mutedBlue">parameters</span>, and numerical summaries calculated from a sample are called <span class="orange">statistics</span>.</p>
+	    <img class="plain" width="73%" src="lib/img/distribution-sample.svg">
+	    <aside class="notes">
+	    The size of the sample is important. <br>
+	    The bigger the sample size, the more likely the data we collect can be generalized to
+	    the full population.
+	    </aside>
+	    </section>
+	    
+      <!-- 21 -->
+      <section>
+	    <h3>Experiment & Observational study</h3>
+	    <p class="quoted">
+	    An
+	    <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;"> experiment</span> is a study in which the researcher <span class="orange">actively controls one or more of the explanatory variables</span>. <br><br>
+	    An <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">observational study</span> is a study in which the researcher does not actively control the value of any variable but simply <span class="mutedBlue">observes and record the values as they naturally exist</span>.
+	    </p>
+
+	    <p class="fragment">
+	    <span class="em">Snow compared different exposure groups, but did not assign the exposure (contaminated water or not).</span>
+	    <br>
+	    <span class="u">What kind of study is it?</span>
+	    </p>
+
+	    <aside class="notes">
+	    <p>
+	    This was not a true experiment since Snow did not randomly allocated people into two groups, one exposed to contaminated water and the other not.
+	    <br>
+	    Clearly, this would have been unethical and certainly illegal. He did, however, recognize that allocation and near-randomization had taken place in a natural setting, and had taken advantage of this historical occurrence to test his hypothesis.
+	    </p>
+	    </aside>
+	    </section>
+      
+      <!-- 22 -->
+      <section>
+	    <h3>Snow's "Grand Experiment"</h3>
+	    <div class="left muted" style="font-size: 0.65em;">Despite the green of Snow’s theory in stemming the cholera epidemic in Soho, public officials still thought his hypothesis was nonsense. <br>
+	    <span style="margin-left: 2em;">=> He needed stronger evidence.</span></div>
+	    <p class="l-sided"><span class="u">Research question:</span><br>
+	    Is there a causal relationship between water supply and cholera?</p>
+	    <p class="l-sided border-orange fragment"><span class="u">Observational units:</span><br>
+	    "Groups" of people</p>
+
+	    <p class="l-sided border-mutedBlue fragment"><span class="u">Variables:</span><br>
+	    - Occurence of cholera fatal attacks <span class="fragment highlight-current-bg-red">(outcome)</span><br>
+	    - Type of water supply <span class="fragment highlight-bg-red">(explains difference in outcome)</span></p>
+	    <aside class="notes">
+	    Snow was still eager to prove his theory.
+	    <br>
+	    Went back to work at a bigger scale.
+	    </aside>
+	    </section>
+      
+      <!-- 23 -->
+      <section>
+	    <h3>Explanatory & Response variables</h3>
+	    <p class="quoted">
+	    A
+	    <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;"> response variable</span> is the variable <span class="orange">about which questions are asked</span>, it measures the outcome of the study.</p>
+	    <p class="quoted">
+	    An <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">explanatory variable</span> is any factor that can <span class="mutedBlue">influence, explain or predict</span> the response variable.</p>
+	    <p class="quoted">
+	    The response variable is usually called <span class="orange">dependent</span>, while the explanatory variable is sometimes called <span class="mutedBlue">independent</span>.
+	    </p>
+	    <hr class="fragment" data-fragment-index=1>
+	    <p class="fragment" data-fragment-index=1>Does <span class="fragment highlight-bg-mutedBlue" data-fragment-index=2>meditation</span> help reduce <span class="fragment highlight-bg-warn" data-fragment-index=2>stress</span>?</p>
+	    <p class="fragment" data-fragment-index=3>Does <span class="fragment highlight-bg-mutedBlue" data-fragment-index=4>sugar consumption</span> increase <span class="fragment highlight-bg-warn" data-fragment-index=4>hyperactivity</span>?</p>
+	    <aside class="notes">
+	    <p>
+	    If we are using one variable to help us understand or predict values
+	    of another variable, we call the former the explanatory variable and the latter the response variable.
+	    <br>
+	    Examples.
+	    </p>
+	    </aside>
+	    </section>
+      
+      <!-- 24 -->
+      <section>
+	    <h3>Snow's analysis of deaths data</h3>
+	    <div class="row" style="margin-top: 0;">
+	    <div class="col-8" style="z-index: 99;">
+	    <div class="orange u rotation-315" style="margin-left: 50%; margin-top: 50%; text-align: center; font-size: 0.6em;">Data</div>
+	    </div>
+	    <div class="col-40">
+	    <img class="unbordered" src="lib/img/cholera-deaths-newspaper.jpg" height="590" width=auto>
+	    </div>
+	    <div class="col-10" style="z-index: 100;">
+	    <div class="mutedBlue u rotation-315" style="margin-left: 25%; margin-top: 50%; text-align: center; font-size: 0.6em;">Analysis</div>
+	    </div>
+	    <div class="col-40">
+	    <img class="unbordered" src="lib/img/cholera-deaths-analysis-snow.jpg" height="590" width=auto  >
+	    </div>
+	    </div>
+	    <aside class="notes">
+	    Data from London Registrar office.
+	    <br>
+	    Gathered all the weekly deaths data by district.
+	    </aside>
+	    </section>
+      
+      <!-- 25 -->
+      <section>
+	    <h2>New Prevention Measures Enforced</h2>
+	    <div class="row narrower">
+	    <div class="col-60">
+	    <p class="l-sided">
+	    Less people started to question the relevance of the germ theory to cholera.
+	    </p>
+	    <p class="l-sided">
+	    New prevention and control measures developed to prevent cholera outbreaks (boiling water)
+	    </p>
+	    </div>
+	    <div class="col-40">
+	    <img src="lib/img/cholera-public-notice.jpg" class= "unbordered" />
+	    </div>
+	    </div>
+	    </section>
+      
+      <!-- 26 -->
+      <section>
+	    <h2>6 Steps Of A Statistical Investigation</h2>
+	    <div class="row narrower">
+	    <svg width="80%" viewBox="0 0 381.6 244.75" style="margin-top: 0; margin-bottom: 0;">
+	    <use xlink:href="lib/img/summary-lec1.svg#investigation"></use> <use class="fragment" xlink:href="lib/img/summary-lec1.svg#population"></use> <use class="fragment" xlink:href="lib/img/summary-lec1.svg#datasample"></use> <use class="fragment" xlink:href="lib/img/summary-lec1.svg#variables"></use> <use class="fragment" xlink:href="lib/img/summary-lec1.svg#type1"></use> <use class="fragment" xlink:href="lib/img/summary-lec1.svg#type2"></use>
+	    </svg>
+	    <p class="l-sided fragment border-orange" style="font-size: 0.6em; margin-top: 0;">
+	    Importance of visualization to better understand data<br> <span style="margin-left: 1em"><span class="math inline">→</span> e.g. Soho epidemics map</span>
+	    </p>
+	    </p>
+	    </div>
+	    <aside class="notes">
+	    <p>If we summaraize this in another way we can pull elements from the story as lessons in basic usage of statistics. We really see that looking, “seeing” your data is crucial to understanding what is really going on, i.e. the mechanism.</p>
+	    Snow essentially took his data and plotted it on a raster, that is his plot became a map (despite the fact that it was indeed an actual map) and the data were marking all the X’s for him.
+	    </aside>
+	    </section>
+      
+      <!-- 27 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h1>Recap...</h1>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-30 no-top-margin l-sided border-mutedBlue">
+      			<ul class="icon">
+              <li class="check-circle fragment green" data-fragment-index="0">Uncertainty</li>
+              <li class="check-circle fragment green" data-fragment-index="2">Hypothesis</li>
+              <li class="check-circle fragment green" data-fragment-index="4">Data</li>
+              <li class="check-circle fragment green" data-fragment-index="6">Observational Unit</li>
+              <li class="check-circle fragment green" data-fragment-index="8">Variable</li>
+              <li class="check-circle fragment green" data-fragment-index="10">Outlier</li>
+              <li class="check-circle fragment green" data-fragment-index="12">Population</li>
+              <li class="check-circle fragment green" data-fragment-index="14">Sample</li>
+              <li class="check-circle fragment green" data-fragment-index="16">Variable <span class="mutedBlue">Relationship</span></li>
+            </ul>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-70 no-top-margin">
+      			<ul class="icon">
+              <li class="caret-right fragment green" data-fragment-index="1">A range of <span class="orange">possible</span> outcomes... but we don't know exactly.</li>
+              <li class="caret-right fragment green" data-fragment-index="3">Statement about a <span class="orange">parameter</span> of data.</li>
+              <li class="caret-right fragment green" data-fragment-index="5">Collection of measurements.</li>
+              <li class="caret-right fragment green" data-fragment-index="7">Subject from which data was collected.</li>
+              <li class="caret-right fragment green" data-fragment-index="9">Come in types <span class="mutedBlue">Categorical</span> & <span class="mutedBlue">Quantitative</span>.</li>
+              <li class="caret-right fragment green" data-fragment-index="11"><span class="halt">Markedly</span> different from the rest.</li>
+              <li class="caret-right fragment green" data-fragment-index="13"><span class="mutedBlue">EVERYBODY!</span></li>
+              <li class="caret-right fragment green" data-fragment-index="15">A <span class="mutedBlue">subset</span> of a population.</li>
+              <li class="caret-right fragment green" data-fragment-index="17"><span class="orange">Response</span> variables depend on <span class="mutedBlue">Explanatory variables.</span></li>
+            </ul>
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes">
+      			These were the terms we just covered. Now, lets talk a little about describing data.
+      		</aside>
+      		
+      </section>
+      <!-- 28 -->
+      <section class="title-slide fullwidth">
+        <h1 class="center"><br>Central tendency</h1>
+        <div>
+          <svg width="70%" viewBox="0 42 576 216" style="margin-top: 5%;">
+            <use xlink:href="lib/img/dotplot-distribution.svg#axes_1"></use>
+            <use xlink:href="lib/img/dotplot-distribution.svg#axes_2"></use>
+            <use class="fragment" xlink:href="lib/img/dotplot-distribution.svg#axes_3"></use>
+          </svg>
+        </div>
+      </section>
+            
+      <!-- 29 -->
+      <section>
+        <h3>The mean</h3>
+        <p class="quoted">A common measure of central location is the (arithmetic) <span class="orange">mean</span>.
+        It is sometimes called the <span class="u">average</span>.</p>
+        <div class="row">
+          <p class="orange col-50" style="font-size: 1.5em; text-align: center; margin-bottom: 0.5em; margin-top: 0.5em;">$\bar{x}=\sum x_{i}$</p>
+          <p class="col-50" style="font-size: 0.8em; text-align: left; margin-bottom: 0.5em; margin-top: 0.5em;">
+            <span class="mutedBlue">$\bar{x}$</span> for a sample (read "x-bar")<br>
+            <span class="mutedBlue">$\mu$</span> for a population</p>
+        </div>
+        <p>Which corresponds to:</p>
+        <p style="margin-left: 0.8em; font-size: 1em;">$\bar{x}=(x_{1}+x_{2}+...+x_{n})/n$</p>
+        <p style="margin-left: 0.8em; font-size: 1em;">$\bar{x}=(\textrm{sum of all the observations})/(\textrm{number of observations})$</p>
+      </section>
+      
+      <!-- 30 -->
+	    <section>
+        <h3>The trimmed mean</h3>
+        <p class="quoted">A <span class="orange">trimmed mean</span> refers to the calculation of the mean after discarding given parts of a sample (or distribution) at the high and low end (typically discarding an equal amount of both).
+        </p>
+        <p>Some people consider that the use of a trimmed mean "helps" eliminate the influence of data points on the tails that may affect the traditional mean.</p>
+
+        <table style="font-size: 1.5em;">
+          <tr>
+            <td class="fragment highlight-bg-yellow" data-fragment-index=2>1</td>
+            <td>23</td>
+            <td>19</td>
+            <td>24</td>
+            <td>17</td>
+            <td>26</td>
+            <td>20</td>
+            <td>23</td>
+            <td class="fragment highlight-bg-yellow" data-fragment-index=2>89</td>
+            <td class="fragment highlight-bg-yellow" data-fragment-index=2>82</td>
+          </tr>
+        </table>
+        <div class="row">
+          <div class="col-66">
+            <p class="fragment" data-fragment-index=1>
+              $\bar{x}=(1+23+19+24+17+26+20+23+89+82)/10=32.4$
+            </p>
+             <p class="fragment" data-fragment-index=3>
+              $\bar{x}_{trimmed}=(23+19+24+17+26+20+23)/7=21.7$
+            </p>
+          </div>
+          <div class="col-33">
+            <p class="fragment red" data-fragment-index=4 style="font-size: 1.2em">Be Careful!</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          We'll talk about that later.
+          <br>
+          The median can be regarded as a fully truncated mean and is most robust. As with other trimmed estimators, the main advantage of the trimmed mean is robustness and higher efficiency for mixed distributions and heavy-tailed distribution (like the Cauchy distribution), at the cost of lower efficiency for some other less heavily-tailed distributions (such as the normal distribution). For intermediate distributions the differences between the efficiency of the mean and the median are not very big, e.g. for the student-t distribution with 2 degrees of freedom the variances for mean and median are nearly equal.
+        </aside>
+      </section>
+	    
+	    
+	    <!-- 31 -->
+	    <section>
+        <h3>The median</h3>
+        <p class="quoted">
+          The <span class="orange">median</span> of a set of <span class="orange">ordered data values</span> is: <br>
+          <span style="margin-left: 1.5em;">- the middle entry (for an odd number of entries)</span><br>
+          <span style="margin-left: 1.5em;">- the average of the middle 2 values (for an even number</span> <br>
+            <span style="margin-left: 1.5em;">of entries)</span>
+        </p>
+        <div class="row">
+          <div class="col-60">
+            <svg width="100%" viewBox="0 0 239.5 109.5" style="margin-top: 1%;">
+              <use class="fragment" data-fragment-index=2 xlink:href="lib/img/median.svg#median1"></use>
+              <use class="fragment" data-fragment-index=1 xlink:href="lib/img/median.svg#median2"></use>
+            </svg>
+          </div>
+          <div class="col-40">
+            <p class="fragment orange" data-fragment-index=2> 
+              mean of $(\frac{n}{2})^{th}$ and $(\frac{n}{2}+1)^{th}$ observations</p>
+            <br>
+            <p class="fragment orange" data-fragment-index=1> $(\frac{n+1}{2})^{th}$ observation</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Sometimes referred to as a measure of location as it tells us where the data are.
+          <br>
+          Median is the value which occupies the middle position when all the observations are arranged in an ascending/descending order. It divides the frequency distribution exactly into two halves. Fifty percent of observations in a distribution have scores at or below the median. Hence median is the 50th percentile.[2] Median is also known as ‘positional average’
+          <br>
+          To find the median, your numbers have to be listed in numerical order from smallest to largest, so you may have to rewrite your list before you can find the median.
+        </aside>
+      </section>
+      
+	    <!-- 32 -->
+	    <section>
+        <h3>The mode</h3>
+        <p class="quoted">
+          The <span class="orange">mode</span> is the value that occurs most often in the dataset. If no value in the dataset is repeated, then there is no mode this particular dataset.
+        </p>
+        <p style="margin-top: 1.5em;">What is the mode in the dataset below?</p>
+        <table style="font-size: 1.5em;">
+          <tr>
+            <td>4</td>
+            <td class="fragment highlight-bg-yellow" data-fragment-index=1>5</td>
+            <td>9</td>
+            <td class="fragment highlight-bg-yellow" data-fragment-index=1>5</td>
+            <td>11</td>
+            <td>7</td>
+            <td class="fragment highlight-bg-yellow" data-fragment-index=1>5</td>
+            <td>3</td>
+            <td>7</td>
+            <td>8</td>
+            <td>6</td>
+            <td class="fragment highlight-bg-yellow" data-fragment-index=1>5</td>
+            <td>12</td>
+          </tr>
+        </table>
+      </section>
+	    
+	    <!-- 33 -->
+	    <section>
+        <h3>Averages can be misleading</h3>
+        <svg width="60%" viewBox="0 0 432 432" style="margin-top: 1%;">
+            <use xlink:href="lib/img/map-usa-ship.svg#map"></use>
+            <use class="fragment" data-fragment-index=1 xlink:href="lib/img/map-usa-ship.svg#panama"></use>
+            <use class="fragment" data-fragment-index=2 xlink:href="lib/img/map-usa-ship.svg#caphorn"></use>
+            <use class="fragment" data-fragment-index=3 xlink:href="lib/img/map-usa-ship.svg#average"></use>
+          </svg>
+          <aside class="notes">
+            Not only mean is not resistant, but also it doesn't represent well the data.
+          </aside>
+      </section>
+      
+	    <!-- 34 -->
+	    <section>
+        <h3>Pick your central descriptor wisely</h3>
+        <div class="row">
+          <div class="col-50">
+            <p>Number of children per household in China (2012)</p>
+            <p><span class="fragment" data-fragment-index=1 style="margin-left: 0.7em; font-size: 1.6em;">Mean: <span class="orange">1.55</span></span><br>
+            <span class="fragment" data-fragment-index=2 style="margin-left: 0.7em; font-size: 1.6em;">Median: <span class="mutedBlue">1</span></span></p>
+            <p class="fragment" data-fragment-index=3>More representative of the "typical" 2012 family <br>
+            (<span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">One Child Policy</span>)</p>
+          </div>
+          <div class="col-50">
+            <svg width="100%" viewBox="0 0 300 225" style="margin-top: 1%;">
+              <use xlink:href="lib/img/family.svg#family"></use>
+              <use class="fragment current-visible" data-fragment-index=1 xlink:href="lib/img/family.svg#childrenhalf"></use>
+              <use class="fragment" data-fragment-index=2 xlink:href="lib/img/family.svg#childrenfull"></use>
+            </svg>
+          </div>
+        </div>
+      </section>
+      
+	    <!-- 35 -->
+	    <section>
+        <h3>Other locations</h3>
+        <p class="quoted">The <span class="orange">minimum</span> is the <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">smallest number</span> in the (sorted) dataset.
+        <br> <br>
+        The <span class="mutedBlue">maximum</span> is the <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">largest number</span> in the (sorted) dataset</p>
+        <svg width="75%" viewBox="0 0 239.5 60.5" style="margin-top: 1%;">
+          <use xlink:href="lib/img/min-max.svg#minmax"></use>
+        </svg>
+      </section>
+      
+	    <!-- 36 -->
+	    <section>
+				<div class="row">
+  				<div class="col-70 no-margin pull-5" style="z-index: 2; position: relative;"><div class="title-slide fig-container" data-file="lib/interactive/hbund/hbund.html"></div></div>
+  				<div class="col-50" style="z-index:1; position: relative; margin-left: -20%;">
+  					<h2>The Importance of Visualizing Data</h2>
+  				</div>
+  			</div>
+        <aside class="notes">
+        	There are 2 parts to this really. There is the first part, which is HOW to present and explain your data. The second, is making effective graphics to have the data tell the story.
+        </aside>
+      </section>
+	    
+	    
+	    <!-- 37 -->
+	    <section class="title-section">
+      	<h1>Descriptive Statistics</h1>
+      	<p class="quoted">
+    			Statistics allow us to reduce our data to fewer numbers, often a single value, in order to make <span class="green-fill">describing</span> our observations simpler.</p>
+    			<span class="fragment mutedBlue" data-fragment-index=0>But at what cost?</span>
+    		<p class="l-sided border-blue fragment" data-fragment-index=1>
+						Some common <span class="orange">descriptors</span> we use to describe data are:
+				</p>
+    		<div class="row fragment" data-fragment-index=1>
+    				<div class="col-50">
+    						<div class="col-30">Central tendency:</div>
+    						<div class="col-70">
+    						<ul class="icon">
+    							<li class="play fragment" data-fragment-index=2>Mean and variants</li>
+    							<li class="play fragment" data-fragment-index=3>Median</li>
+    							<li class="play fragment" data-fragment-index=4>Mode</li>
+    							<li class="play fragment" data-fragment-index=5><span class="green-underline">Range</span></li>
+
+    						</ul>
+    					</div>
+    				</div>
+    				<div class="col-50">
+    						<p class="r-sided border-mutedBlue fragment" data-fragment-index=2>
+    								<span class="fragment" style="line-height: 2em !important;" data-fragment-index=2>$\mu \text{ or }\bar{x}=\frac{1}{N}\sum_{i=1}^{N} x_i$.</span><br>
+    								<span class="fragment" style="line-height: 2em !important;" data-fragment-index=3>$M\text{ or }\tilde{x}=\text{ The middle element of the sorted array.}$</span><br>
+    								<span class="fragment" style="line-height: 2em !important;" data-fragment-index=4>Most frequent value in the data, can occur $\geq 0$ times.</span><br>
+    								<span class="fragment" style="line-height: 2em !important;" data-fragment-index=5>$min(x),\text{ or }max(x)$</span>
+    						</p>
+    				</div>
+    		</div>
+
+      	<aside class="notes" data-markdown>
+### Statistics allow us to summarize data numerically
+
+- We will eventually make a distinction between descriptive statistics and inferential statistics
+  - But in the end, ALLL statistics, population or sample, are descriptive in "nature"
+- What do we mean by all these? The best way is to look at the histogram
+      	</aside>
+      </section>
+      
+	    <!-- 38 -->
+	    <section>
+    		<h3>Statistics can be <span class="mutedBlue">Robust</span></h3>
+			  <p class="quoted" style="margin-top:0;">A robust estimator is resistant to <span class="orange">biases</span> caused by outliers present in the data.</p>
+			  <p style="margin-top:0;">The mean is a symmetric, non-robust descriptor while the median is a robust descriptor.</p>
+			  <div class="row">
+			    <div class="col-40">
+			      <table class="fragment" data-fragment-index=0 style="font-size: 0.8em; border-top: solid 1px #d2d2d2; border-bottom: solid 1px #d2d2d2;">
+			        <tr class="with-top">
+			          <td>2.5</td>
+			          <td>3.2</td>
+			          <td>3.5</td>
+			          <td>3.9</td>
+			          <td>4.0</td>
+			          <td>4.4</td>
+			          <td>5.3</td>
+			          <td>5.9</td>
+			          <td>6.1</td>
+			          <td>6.4</td>
+			          <td class="fragment highlight-bg-orange" data-fragment-index=2><span class="fragment" data-fragment-index=2>30</span></td>
+			        </tr>
+			      </table>
+			    </div>
+			    <div class="col-20"></div>
+			    <div class="col-15 lift-5">
+			      <p class="fragment" data-fragment-index=1 style="font-size: 0.6em; margin-top: 0;">
+			        <span class="em u">Mean:</span> 4.52 <br>
+			        <span class="em u">Median:</span> 4.2
+			      </p>
+			    </div>
+			    <div class="col-15">
+			      <p class="fragment" data-fragment-index=3 style="font-size: 0.6em; margin-top: 0;">
+			        <span class="em u">Mean:</span> <span class="fragment highlight-bg-orange" data-fragment-index=3>6.84</span> <br>
+			        <span class="em u">Median:</span> <span class="fragment highlight-bg-orange" data-fragment-index=3>4.4</span>
+			      </p>
+			    </div>
+			  </div>
+			  <div class="row">  
+				  <svg width="75%" viewBox="0 0 846 318">
+			      <use class="fragment" data-fragment-index=4 xlink:href="lib/img/outlierKG.svg#axes_1"></use>
+			      <use class="fragment" data-fragment-index=5 xlink:href="lib/img/outlierKG.svg#axes_2"></use>
+			      <use class="fragment" data-fragment-index=7 xlink:href="lib/img/outlierKG.svg#axes_3"></use>
+			      <use class="fragment" data-fragment-index=6 xlink:href="lib/img/outlierKG.svg#axes_4"></use>
+			      <use class="fragment" data-fragment-index=7 xlink:href="lib/img/outlierKG.svg#axes_5"></use>
+			    </svg>
+			  </div>
+			  <aside class="notes" data-markdown>
+In positively skewed distributions, the mean is greater than the median
+
+In negatively skewed distributions, the mean is smaller than the median
+
+What about the minimum and maximum?
+				</aside>
+    	</section>
+    	
+	    <!-- 39 -->
+	    <section class="title-section">
+    		<h1 class="center fragment fade-in" data-fragment-index=1>Describing the Shape</h1>
+			  <div class="drop-10">
+			    <svg width="75%" viewBox="0 42 576 216"">
+			      <use xlink:href="lib/img/dotplot-distribution.svg#axes_1"></use>
+			      <use xlink:href="lib/img/dotplot-distribution.svg#axes_3"></use>
+			      <use  class="fragment" data-fragment-index=1 xlink:href="lib/img/dotplot-distribution.svg#axes_2"></use>
+			    </svg>
+			  </div>
+			  <h1 class="center fragment fade-out" data-fragment-index=1><span class="red">Central Tendency</span></h1>
+    		<aside class="notes" data-markdown>
+## Central tendency
+
+- We have talked, briefly about the central tendency, where most of the values fall.
+- Now let's talk about the overall shape.
+    		</aside>
+    	</section>
+    	
+	    <!-- 40 -->
+	    <section>
+      	<h1>Population vs. Sample: The Shape</h1>
+      	<div class="row">
+      		<div class="col-40">
+      			<p class="l-sided border-red fragment" data-fragment-index=1>
+							You can imagine drawing a <span class="red">random sample</span> from some population.
+  					</p>
+  					<p class="l-sided border-orange fragment" data-fragment-index=2>
+							If the population is very large (or unknown) and our sample relatively small, <span class="fragment highlight-bg-mutedBlue" data-fragment-index=3>how likely is our sample to <span class="orange">look</span> like the population?</span>
+  					</p>
+  					<p class="l-sided border-mutedBlue fragment" data-fragment-index=4>
+							How do we describe the shape of our sample?
+  					</p>
+  					<p class="l-sided border-green fragment" data-fragment-index=5>
+  							First we need to come up with a way to view the values so that a shape can be determined.
+  					</p>
+    			</div>	
+      		
+	      	<div style="height: 600px; width: 800px;" class="no-margin col-20 center">
+	      		<svg version="1.1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 904 450" style="enable-background:new 0 0 904 450;" xml:space="preserve">
+		      		<use class="fragment" data-fragment-index=1 href="lib/img/PopSamp.svg#AXIS3"></use>
+		      		<use href="lib/img/PopSamp.svg#AXIS1"></use>
+		      		<use class="fragment" data-fragment-index=1 href="lib/img/PopSamp.svg#AXIS2"></use>
+		      		<use class="fragment" data-fragment-index=2 href="lib/img/PopSamp.svg#AXIS4"></use>
+	      		</svg>
+	      	</div>
+      	</div>
+      	<aside class="notes" data-markdown>
+## Sample shape $\neq$ Population shape
+
+If we knew the population, we can make statements about that shape... tails, clumped around x, uni-modal...
+
+Once we have the sample, we can determine its shape easily by drawing a histogram...
+      	</aside>
+      </section>
+      
+	    <!-- 41 -->
+	    <section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h2>Skewness</h2>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    		<p class="quoted">
+    				Skewness refers to shape of the distribution with regard to the tails.
+    		</p>
+    			<!-- left column -->
+    		<div style="width: 100%;" class="no-margin center">
+      		<svg x="0px" y="0px" viewBox="0 0 900 270"xml:space="preserve">
+	      		<use class="fragment" data-fragment-index=1 href="lib/img/skewness2.svg#ax2"></use>
+	      		<use href="lib/img/skewness2.svg#ax1"></use>
+	      		<use class="fragment" data-fragment-index=2 href="lib/img/skewness2.svg#ax3"></use>
+      		</svg>
+      	</div>	
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+    				
+    			</aside>
+    			
+    	</section>
+    	
+	    <!-- 42 -->
+	    <section>
+    		<h2>Building a Histogram</h2>
+    		<p class="l-sided border-mutedBlue">
+    				Start with a dot-plot
+    		</p>
+    		<div style="width: 100%;" class="no-margin center">
+      		<img class="plain" src="lib/img/beeswarm@3x.png">
+      	</div>
+    		<aside class="notes" data-markdown>
+    			
+    		</aside>
+    	</section>
+    	
+	    <!-- 43 -->
+	    <section>
+    		<h2>Building a Histogram</h2>
+    		<p class="l-sided border-mutedBlue">
+    				The Choose a binning.. 
+    		</p>
+    		<div style="width: 100%;" class="no-margin center">
+      		<img class="plain" src="lib/img/beeswarmbinningBig@3x.png">
+      	</div>
+    		<aside class="notes" data-markdown>
+    			
+    		</aside>
+    	</section>
+    	
+	    <!-- 44 -->
+	    <section>
+    		<h3>Interactively determining your bins is best!</h3>
+    		<p>*Use the dropdown menu to change the distribution type and think about which statistic would be best to use.</p>
+    		<div class="fig-container no-margin" data-file="lib/interactive/dotbin/dotbin.html"></div>
+    		<aside class="notes" data-markdown>
+## How to make a histogram
+
+Histograms are super cool because you have all sorts of options to let you explore the distribution.
+But we these shapes have terms associated with them
+    		</aside>
+    	</section>
+    	
+    	
+	    <!-- 45 -->
+	    <section class="title-slide fullwidth">
+			  <h1 class="center">Variation: the spread</h1>
+			  <div>
+			    <svg width="70%" viewBox="0 42 576 216" style="margin-top: 5%;">
+			      <use xlink:href="lib/img/dotplot-distribution.svg#axes_1"></use>
+			      <use xlink:href="lib/img/dotplot-distribution.svg#axes_2"></use>
+			      <use xlink:href="lib/img/dotplot-distribution.svg#axes_3"></use>
+			      <use class="fragment" xlink:href="lib/img/dotplot-distribution.svg#axes_4"></use>
+			    </svg>
+			  </div>
+			</section>
+			
+			
+	    <!-- 46 -->
+	    <section data-transition="slide-in">
+			  <h3>The standard deviation</h3>
+			  <p class="quoted" style="margin-bottom: 0;">A common measure of data variability is <br>the <span class="orange">standard deviation</span> (SD). It measures the spread of the data in a sample</p>
+			  <div class="row">
+			    <p class="orange col-60" style="font-size: 1.2em; text-align: right; margin-bottom: 0.5em; margin-top: 0.5em;">
+			      $$s=\sqrt{\frac{1}{N-1}\sum_{i=1}^{N}\left( x_i - \bar{x}\right) ^2}$$
+			    </p>
+			    <div class="col-35">
+			    <p class="fragment red" data-fragment-index=1 style="font-size: 1.2em; text-align:center;">Variance</p>
+			    <p><span class="mutedBlue">$s$</span> for a sample <br>
+			      <span class="mutedBlue">$\sigma$</span> for a population</p>
+			    </div>
+			  </div>
+			    <p style="margin-left: 1em; font-size: 0.8em;">$s=\sqrt{\frac{(x_{1}-\bar{x})^2+(x_{2}-\bar{x})^2+...+(x_{n}-\bar{x})^2}{n-1}}$</p>
+			    <p style="margin-left: 1em; font-size: 0.8em;">$s=\sqrt{\frac{\textrm{sum of observed squared difference from sample mean}}{\textrm{number of observations - 1}}}$</p>
+			  <aside class="notes">
+			    <p>The SD can be loosely interpreted as the typical distance (in absolute value) between the data values and the mean of the distribution.</p>
+			    <p>The larger the standard deviation, the more variability there is in the data and the more spread out the data are.</p>
+			    <p>In practice, we generally compute the standard deviation using a calculator or computer software. The units for the standard deviation are the same as the units for the original data.</p>
+			    <p>
+			      We would want the average of the sample variances for all possible samples
+			      to equal the population variance.
+			      It seems like a logical property and a reasonable thing to happen. This is called “unbiased”
+			      When we divide by (n −1) when calculating the sample variance, then it turns out that
+			      the average of the sample variances for all possible samples is equal the population variance.
+			      So the sample variance is what we call an unbiased estimate of the population variance.
+			      If instead we were to divide by n (rather than n −1) when calculating the sample variance, then
+			      the average for all possible samples would NOT equal the population variance. Dividing by n 
+			      does not give an “unbiased” estimate of the population standard deviation.
+			      Dividing by n−1 satisfies this property of being “unbiased”, but dividing by n does not.
+			      Therefore we prefer to divide by n-1 when calculating the sample variance.
+			    </p>
+			  </aside>
+			</section>
+	    
+	    <!-- 47 -->
+	    <section data-transition="slide-out">
+			  <h3>The standard deviation</h3>
+			  <div class="row">
+			    <div class="col-50">
+			      <p class="sided">Let's consider 2 sets of data, both have a mean of 100</p>
+			    </div>
+			    <div class="col-50">
+			      <table>
+			        <thead>
+			          <th style="background: #636c72;">Numbers</th>
+			          <th style="background: #636c72;">Mean</th>
+			          <th style="background: #636c72;">SD</th>
+			        </thead>
+			        <tbody>
+			          <tr>
+			            <td>100, 100, 100, 100, 100</td>
+			            <td>100</td>
+			            <td>0</td>
+			          </tr>
+			          <tr>
+			            <td>90, 90, 100, 110, 110</td>
+			            <td>100</td>
+			            <td>10</td>
+			          </tr>
+			        </tbody>
+			      </table>
+			    </div>
+			  </div>
+			  <div class="row">
+			    <div class="col-35">
+			      <p style="font-size: 0.6em;"><span class="em u">Set 1:</span> all values are equal to the mean, so there is no variablility at all</p>
+			    </div>
+			    <div class="col-2">
+			      <p></p>
+			    </div>
+			    <div class="col-63">
+			      <p style="font-size: 0.6em;"><span class="em u">Set 2:</span> one value equals the mean and
+			       other four values are 10 points away from the mean. So the 
+			       <span class="orange">average distance away from the
+			      mean</span> is about 10</p>
+			    </div>
+			  </div>
+			  <p class="u em fragment" data-fragment-index=1 style="font-size: 0.5em; margin-bottom: 0;">Example for Set 2:</p>
+			  <ol class="push-left fragment" data-fragment-index=1 style="font-size: 0.5em;">
+			    <li>Calculate the sample mean: $\bar{x}=100$</li>
+			    <li>For each observation, calculate the difference between the data value <br> and the mean:
+			      [-10, -10, 0, 10, 10]</li>
+			    <li>Square each difference in step 2: [100, 100, 0, 100, 100]</li>
+			    <li>Sum the squared differences in step 3, and then divide this sum by $(n-1)$: <br>
+			      variance $s^2=\frac{400}{5-1}=\frac{400}{4}=100$</li>
+			    <li>Take the square root of the value in step 4: $s=\sqrt{100}=10$</li>
+			  </ol>
+			</section>
+	    
+	    <!-- 48 -->
+	    <section>
+			  <h3>Beware of the standard deviation</h3>
+			  <p class="sided">
+			    Like the mean, the standard deviation does not cope well with skewed distributions.
+			  </p>
+			  <div class="row">
+			    <div class="col-45">
+			      <img src="lib/img/sd-bad-use-cell-paper-title.png" width="100%" class="unbordered">
+			    </div>
+			    <div class="col-55">
+			      <svg width="100%" viewBox="0 0 199.92 129.601" style="margin-top: 0;">
+			        <use xlink:href="lib/img/sd-bad-use-cell-paper-fig.svg#figure"></use>
+			        <use class="fragment" xlink:href="lib/img/sd-bad-use-cell-paper-fig.svg#circle"></use>
+			      </svg>
+			      <!-- <img src="lib/img/sd-bad-use-cell-paper-fig.png" width="100%" class="unbordered"> -->
+			    </div>
+			  </div>
+			</section>
+	    
+	    <!-- 49 -->
+	    <section>
+			  <h3>The SD is only useful in the context of the normal distribution</h3>
+			  <div class="row">
+			    <div class="col-60">
+			      <img src="lib/img/sd-normal.svg" class="unbordered" width=100%>
+			    </div>
+			    <div class="col-40">
+			      <p style="font-size: 0.5em;">
+			        <span class="u em">The Empirical Rule:</span>
+			        For any bell-shaped curve, approximately <br>
+			        <span style="margin-left:0.9em;">- 68% of the values fall within 1 SD of 
+			          the mean in either direction</span> <br>
+			        <span style="margin-left:0.9em;">- 95% of the values fall within 2 SD of 
+			          the mean in either direction</span> <br>
+			        <span style="margin-left:0.9em;">- 99.7% of the values fall within 3 SD of 
+			          the mean in either direction</span>
+			      </p>
+			      
+			    </div>
+			  </div>
+			</section>
+	    
+	    <!-- 50 -->
+	    <section>
+			  <h3>Misuse of SD is everywhere</h3>
+			  <svg width="90%" viewBox="0 0 813.114 458.502" style="margin-top: 1%;">
+			    <use xlink:href="lib/img/barplot-sd.svg#fig"></use>
+			    <use class="fragment" xlink:href="lib/img/barplot-sd.svg#inset"></use>
+			    <use class="fragment" xlink:href="lib/img/barplot-sd.svg#range"></use>
+			  </svg>
+			</section>
+
+			<section>
+			  <h3>The range</h3>
+			  <p class="quoted">The <span class="orange">range</span> gives you the most basic mutedBluermation about the spread of a dataset. It is calculated by the (arithmetic) <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">difference between the lowest and highest data value</span>.</p>
+			  <svg width="75%" viewBox="0 0 239.5 81" style="margin-top: 1%;">
+			    <use xlink:href="lib/img/min-max.svg#minmax"></use>
+			    <use class="fragment" xlink:href="lib/img/min-max.svg#range"></use>
+			  </svg>
+			</section>
+
+			<section>
+			  <h3>Interquantile range</h3>
+			  <p class="quoted" style="font-size: 0.7em;">The median divides the data into two equal halves (it is the $50^{th}$ percentile). If we divide each of those halves again, we obtain two additional statistics known as the <span class="orange">first (Q1) and third (Q3) quartiles</span>, which are the $25^{th}$ and $75^{th}$ percentiles.</p>
+			  <p><span class="u">Interquartile range:</span> <span class="orange" style="margin-left: 0.5em;">$\textrm{IQR} = Q3 − Q1$</span></p>
+			  <div class="row">
+			    <div class="col-55">
+			      <img class="unbordered" src="lib/img/quartiles.svg" width=100%>
+			    </div>
+			    <div class="col-45 fragment">
+			      <p style="font-size: 0.5em; margin-bottom: 0;">A value is considered an <span class="mutedBlue">outlier</span> if it is:</p>
+			      <div class="row framed border-mutedBlue">
+			        <div class="col-10">
+			          <p style="font-size:0.5em; margin-top: 0.55em;">or</p>
+			        </div>
+			        <div class="col-90 left" style="font-size: 0.55em;">
+			          smaller than $Q1−1.5\times IQR$<br>
+			          larger than $Q3+1.5\times IQR$
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+			  <aside class="notes">
+			    Consider again the data on mammal longevity in Data 2.2 on page 64. Our intuition suggests that the longevity of 40 years for the elephant is an unusually high value compared to the other lifespans in this sample. How do we determine objec- tively when such a value is an outlier? The criteria should depend on some measure of location for “typical” values and a measure of spread to help us judge when a data point is “far” from those typical cases. One approach, typically used for identifying outliers for boxplots, uses the quartiles and interquartile range. As a rule, most data values will fall within about 1.5(IQR)’s of the quartiles.
+			  </aside>
+			</section>
+
+			<section>
+			  <h3>Percentiles</h3>
+			  <p class="quoted">
+			    The <span class="orange">$k^{th}$ percentile</span> is a value in
+			    the dataset that has $k\%$ of the data values at or below it and $(100 – k)\%$
+			    of the data values at or above it.
+			  </p>
+			  <div class="row">
+			    <div class="col-55">
+			      <svg width="100%" viewBox="0 0 576 252" style="margin-top: 1%;">
+			        <use xlink:href="lib/img/quartiles.svg#axes_1"></use>
+			      </svg>
+			    </div>
+			    <div class="col-45">
+			      <p style="font-size: 0.5em; margin-bottom: 0;">
+			        <span class="u em">Note:</span> <br>
+			        Here our dataset contains 40 data points.
+			        So each data point correspond to $\frac{100}{40}=2.5\%$ of the data.</p>
+			    </div>
+			  </div>
+			</p>
+			</section>
+
+			<section class="title-slide fullwidth">
+			  <h1 class="center">Present your<br> (quantitative) data</h1>
+			  <div>
+			    <img src="lib/img/data-presentation.svg" class="unbordered">
+			  </div>
+			</section>
+
+
+			<section data-transition="slide-in">
+			  <h3>Bar graphs are evil</h3>
+			  <p class="em orange col-80">1) Part of the range covered by the bar might have never been observed in the sample</p>
+			  <svg width="80%" viewBox="0 0 504 288" style="margin-top: 1%;">
+			    <use xlink:href="lib/img/barplot-distributions.svg#axes_1"></use>
+			    <use xlink:href="lib/img/barplot-distributions.svg#axes_2"></use>
+			  </svg>
+			</section>
+	    
+	    <section data-transition="none">
+			  <h3>Bar graphs are evil</h3>
+			  <p class="em orange col-80">2) They conceal the variance and the underlying distribution of the data</p>
+			  <div class="row">
+			    <div class="col-45 mutedBlue">Look the same?</div>
+			    <div class="col-50 red fragment" data-fragment-index=1>It's not!</div>
+			  </div>
+			  <div class="col-90">
+			    <svg width="100%" viewBox="0 0 576 252" style="margin-top: 1%;">
+			      <use xlink:href="lib/img/barplot-same-side.svg#axes_1"></use>
+			      <use class="fragment" data-fragment-index=1 xlink:href="lib/img/barplot-same-side.svg#axes_2"></use>
+			    </svg>
+			  </div>
+			</section>
+
+			<section data-transition="slide-out" data-state="showFooterRight" 
+			  data-footer="Source - Cumming, G. et al. (2007). 'Error bars in experimental biology'. J Cell Biol 177 (1): 7–11">
+			  <h3>Bar graphs are evil</h3>
+			  <p class="em orange col-100" style="margin-bottom: 0;">
+			    3) They are associated with (usually not defined) error bars</p>
+			  <div class="row">
+			    <div class="col-50">
+			      <p style="font-size: 0.5em;">Different types, different meanings: <br>
+			      <span style="margin-left:0.8em;">
+			        - <span class="mutedBlue">Descriptive</span> statistics (SD, range)</span> <br>
+			      <span style="margin-left:0.8em;">
+			        - <span class="mutedBlue">Inferential</span> statistics (SEM, CI)</span>
+			      </p>
+			      <img src="lib/img/barplot-cartoon.svg" class="unbordered" width=100%>
+			    </div>
+			    <div class="col-50">
+			      <img src="lib/img/error-bars.png" class="unbordered" width=80%>
+			    </div>
+			  </div>
+			</section>
+
+			<section data-state="showFooterRight" data-footer="Source - <a href='http://onlinelibrary.wiley.com/doi/10.1113/jphysiol.2011.205062/full' target='_blank'>G. Drummond - 'Show the data, don't conceal them', J Physiol. (2011) Apr 15;589(Pt 8):1861-3</a>">
+			  <h3>Avoid making bar graphs</h3>
+			  <div class="row">
+			    <div class="col-60">
+			      <p style="font-size: 0.6em; margin-top:0; margin-bottom:0;">
+			        <span class="u">To reveal the distribution of the data:</span>
+			        <ul style="font-size: 0.55em; margin-top:0;"">
+			          <li>Display data in their raw form</li>
+			          <li>A dot plot is a good start</li>
+			          <li>Dynamite plunger plots conceal data</li>
+			          <li>Check the pattern of distribution of the values</li>
+			        </ul>
+			      </p>
+			      <p class="fragment" data-fragment-index=1 style="font-size: 0.6em; margin-top:0; margin-bottom:0;">
+			      <span class="u">About Figure 1:</span>
+			      <ul class="fragment" data-fragment-index=1 style="font-size: 0.55em;">
+			        <li> <span class="mutedBlue">First set:</span> Gaussian (or normal) distribution (symmetrically distributed)</li>
+			        <li> <span class="mutedBlue">Second set:</span> right skewed, lognormal (few large values). <span class="orange">This type of distribution of values is quite common in biology</span> (ex: plasma concentrations of immune or inflammatory mediators)”</li>
+			      </ul>
+			      </p>
+			      <p class="quoted fragment" data-fragment-index=1 style="font-size: 0.6em; margin-top:0;">
+			        Plunger plots only: who would know that the values were skewed [...]
+			        and that <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">the common statistical tests would be inappropriate?</span>”
+			      </p>
+			    </div>
+			    <div class="col-35">
+			      <img src="lib/img/j-physiol-drummond-title.png" class="unbordered" width="100%" style="margin-top: 0; margin-bottom: 0;">
+			      <img src="lib/img/j-physiol-drummond-bargraph.png" class="unbordered fragment" data-fragment-index=1 width="100%" style="margin-top: 0; margin-bottom: 0;">
+			    </div>
+			    
+			  </div>
+			  <p class="sided" style="font-size: 0.65em;">
+			    <span class="orange">"For better characterization of a sample, we prefer dots plots, or box plots</span> for their ability to display a minimum of five measures of the underlying data."
+			  </p>
+			</section>
+
+
+			<section data-state="showFooterRight" data-footer="Source - <a href='https://www.jci.org/articles/view/63462' target='_blank'>Rockman H.A. (2012). 'Great expectations'. J Clin Invest 122 (4): 1133</a>">
+			  <h3>Avoid making bar graphs</h3>
+			  <div class="row">
+			    <div class="col-55">
+			      <img src="lib/img/jci-spelled-out-white-on-transparent.png" class="border-muted" width="100%" style="margin-bottom: 0 !important; margin-top: 0;">
+			      <p>
+			        <ul style="font-size: 0.5em;">
+			          <li>Impact Factor: 12.575 (2015). <br>The JCI is one of the top journals in the “Medicine, Research & Experimental” category.</li>
+			        </ul>
+			      </p>
+			      <p class="quoted" style="font-size: 0.55em;">
+			        To maintain the <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">highest level of trustworthiness of data</span>, <span class="orange">we are encouraging authors to display data in their raw form</span> and not in a fashion that conceals their variance.
+			      </p>
+			      <p class="quoted" style="font-size: 0.55em;">
+			        <span class="mutedBlue">Presenting data as columns with error bars (dynamite plunger plots) conceals data</span>. We recommend that <span class="orange">individual data be presented</span> as dot plots shown next to the average for the group with appropriate error bars (Figure 1).
+			      </p>
+			    </div>
+			    <div class="col-45">
+			      <img class="unbordered" src="lib/img/jci-editorial-fig1.png" width="100%">
+			    </div>
+			  </div>  
+			</section>
+
+
+			<section data-state="showFooterRight" data-footer="Source - <a href='http://www.nature.com/nmeth/journal/v11/n2/full/nmeth.2837.html' target='_blank'>Editorial of Nature Methods 11, 113 (2013)</a>">
+			  <h3>Avoid making bar graphs</h3>
+			  <div class="row">
+			    <div class="col-60">
+			      <img src="lib/img/nature-methods-editorial.png" class="unbordered" width="100%">
+			    </div>
+			    <div class="col-40">
+			      <p class="quoted" style="font-size: 0.7em; margin-top:0;">
+			        [...] the <span class="mutedBlue">amount of mutedBluermation</span> they provide is still <span class="mutedBlue">limited to two values</span>, the mean and the spread.
+			      </p>
+			    </div>
+			  </div>
+			  <p class="sided" style="font-size: 0.65em;">
+			    <span class="orange">"For better characterization of a sample, we prefer dots plots, or box plots</span> for their ability to display a minimum of five measures of the underlying data."
+			  </p>
+			</section>
+
+			<section>
+			  <h3>You've been warned before!</h3>
+			  <div class="row">
+			    <div class="col-5">
+			      <p></p>
+			    </div>
+			    <div class="col-90">
+			      <svg width="100%" viewBox="0 0 924 351" style="margin-top: 5%;">
+			        <use xlink:href="lib/img/wiley-coyote-plunger.svg#coyote"></use>
+			        <use class="fragment" xlink:href="lib/img/wiley-coyote-plunger.svg#arrow"></use>
+			      </svg>
+			    </div>
+			  </div>
+			  <aside class="notes">
+			    Use bar graphs at your own risk
+			    <br>
+			    Bar grahs are redous material
+			  </aside>
+			</section>
+
+			<section>
+			  <h3>Dotplot</h3>
+			  <p>
+			    If the number of data is relatively small, showing directly the raw data and accompanying mean/median is best.
+			  </p>
+			  <img src="lib/img/dotplot-data.svg" class="unbordered">
+			  
+			  <aside class="notes">
+			    <p>
+			      Average temperature on April 14th for the 21 years ending in 2015 is given in Table 2.20 for Des Moines, Iowa, and San Francisco, California.
+			    </p>
+			  </aside>
+			</section>
+
+			<section data-transition="slide-in">
+			  <h3>Boxplot</h3>
+			  <p class="sided" style="margin-top:0; font-size: 0.7em;">
+			    A boxplot is a graphical display of the <span class="orange">five number summary</span> for a quantitative variable. It shows the general shape of the distribution, identifies the middle 50% of the data, and highlights any outliers.
+			  </p>
+			  <div class="row">
+			    <div class="col-55">
+			      <img class="unbordered" src="lib/img/boxplot-general.svg" width=100%></img>
+			    </div>
+			    <div class="col-45">
+			      <p style="margin-bottom: 0.3;" class="u em">A boxplot includes:
+			      <ul style="font-size: 0.6em; margin-top: 0;">
+			        <li>A box stretching from <span class="orange">Q1</span> to <span class="orange">Q3</span></li>
+			        <li>A line that divides the box drawn at the <span class="orange">median</span></li>
+			        <li>A line from each quartile to the <span class="orange">most extreme data value</span> <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">that is not an outlier</span>. (if no outliers minimum and maxixum)</li>
+			        <li>Each <span class="orange">outlier</span> plotted individually</li>
+			      </ul>
+			      </p>
+			    </div>
+			  </div>
+			</section>
+
+			<section data-transition="slide-out">
+			  <h3>Boxplot (example)</h3>
+			  <p class="sided" style="margin-top:0; font-size: 0.7em;">
+			    A boxplot is a graphical display of the <span class="orange">five number summary</span> for a quantitative variable. It shows the general shape of the distribution, identifies the middle 50% of the data, and highlights any outliers.
+			  </p>
+			  <div class="row">
+			    <div class="col-55">
+			      <img class="unbordered" src="lib/img/boxplot-ex.svg" width=100%></img>
+			    </div>
+			    <div class="col-45">
+			      <img class="unbordered fragment" src="lib/img/boxplot-ex-distributions.svg" width=100%></img>
+			    </div>
+			  </div>
+			</section>
+	    
+	    
+	    <section>
+      	<div class="row">
+      			<h2>Importance of data visualization</h2>
+      	</div>
+      	<div class="row">
+      			<div class="col-40 fig-container" data-file="lib/interactive/sameData/index.html"  style="background:transparent;max-height:800px;height:800px;"></div>
+      			<div class="col-60 fragment">
+      					<p class="center">All of these data have:</p>
+      					<img src="/lib/img/DinoSequentialSmaller.gif" class="plain" />
+      			</div>
+      	</div>
+      </section>
+      
+      <section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h2>Brief Review</h2>
+    			<h5 class="fragment" data-fragment-index=0>Quantitative Analysis</h5>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-50 no-top-margin">
+    				<h4 class="fragment" data-fragment-index=0>Statistic</h4>
+    				<ul class="icon big">
+    					<li class="arrow-circle green fragment" data-fragment-index=0>Population mean: $\mu$</li>
+    					<li class="arrow-circle mutedBlue fragment" data-fragment-index=2>Sample mean: $\bar{x}$</li>
+    					<li class="arrow-circle green fragment" data-fragment-index=4>Population variance: $\sigma^2$</li>
+    					<li class="arrow-circle mutedBlue fragment" data-fragment-index=6>Sample variance: $s^2$</li>
+    					<li class="arrow-circle green fragment" data-fragment-index=8>Pop. standard deviation: $\sigma$</li>
+    					<li class="arrow-circle mutedBlue fragment" data-fragment-index=10>Sample standard deviation: $s$</li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-50 no-top-margin">
+    				<h4 class="fragment" data-fragment-index=1>Calculation</h4>
+    				<ul class="icon">
+    					<li class="arrow-circle green fragment" data-fragment-index=1>$\mu = \frac{1}{N}\sum_{i=1}^{N}x_{i}$</li>
+    					<li class="arrow-circle mutedBlue fragment" data-fragment-index=3>$\bar{x}=\frac{1}{N}\sum_{i=1}^{N}x_{i}$</li>
+    					<li class="arrow-circle green fragment" data-fragment-index=5>$\sigma^2=\frac{1}{N}\sum_{i=1}^{N}(x_i-\mu)^2$</li>
+    					<li class="arrow-circle mutedBlue fragment" data-fragment-index=7>$s^2=\frac{1}{N-1}\sum_{i=1}^{N}(x_i-\bar{x})^2$</li>
+    					<li class="arrow-circle green fragment" data-fragment-index=9>$\sigma=\sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i-\mu)^2}$</li>
+    					<li class="arrow-circle mutedBlue fragment" data-fragment-index=11>$s=\sqrt{\frac{1}{N-1}\sum_{i=1}^{N}(x_i-\bar{x})^2}$</li>
+    				</ul>
+    			</div>
+    	
+    		</div>
+    		<div class="row">
+  				<p class="framed border-orange fragment" data-fragment-index=12>
+  						These statistics are known as <span class="red">parametric</span> <span class="mutedBlue">estimators</span> because their entire purpose is to measure (metric: measure) the <span class="green">parameter</span> (para: originating from) of the underlying distribution. <span class="fragment red" data-fragment-index=13>To use them we need to satisfy some <em>ASSUMPTIONS</em>.</span>
+  				</p>
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+- The main thing here is figuring out what the heck mu and sigma are.
+- Yes, they are parameters of the population: but what does that mean? <- trigger orange box here
+- It means that they are the properties of population that we are trying to guess at, estimate, with our sample.
+- But these parameters are unique only to Gaussian Distributions: i.e. the normal functions.
+
+    			</aside>
+    			
+    	</section>
+    	
+    	
+    	<!-- 21 -->
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h2>Gaussian Assumptions</h2>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-50 no-top-margin framed border-offWhite bigger">
+    				<ul class="icon">
+    					<li class="bullhorn red fragment">The underlying population is normally distributed.</li>
+    					<li class="bullhorn red fragment">The sample distribution of the mean is normally distributed.</li>
+    					<li class="bullhorn red fragment">The sample distributions themselves are normally distributed.</li>
+    					<li class="bullhorn red fragment">Each observation is independent of all others.</li>
+    					<li class="bullhorn orange fragment">The underlying population has infinite members.</li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-50 no-top-margin">
+    				<img src="lib/img/Gauss.png" class="plain">
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+## Important to know these assumptions!  
+
+In order to do something as magical as provide a specific probability for observing a particular mean or a particular difference between two means, our statistical procedures must make some assumptions.
+
+Sample distribution of mean: You took a sample, calculated its mean and wrote it down; then took another (independent) sample (from the same population) and got its mean and wrote it down; and did this an infinite number of times; then the distribution of the values that you wrote down would always be a perfect bell curve. As described by that e to -mu/sigma squared equation.
+
+In technical terms, the Assumption of Normality claims that the sampling distribution of the mean is normal or that the distribution of means across samples is normal.
+
+Example: Imagine (again) that you are interested in the average level of anxiety suffered by graduate students. Therefore, you take a group of grads (i.e., a random sample) and measure their levels of anxiety. Then you calculate the mean level of anxiety across all of the subjects. This final value is the sample mean. The Assumption of Normality says that if you repeat the above sequence many many many times and plot the sample means, the distribution would be normal. 
+
+Note that I never said anything about the distribution of anxiety levels within given samples, nor did I say anything about the distribution of anxiety levels in the population that was sampled. I only said that the distribution of sample means would be normal. And again, there are two ways to express this: “the distribution of sample means is normal” and/or “the sampling distribution of the mean is normal.” Both are correct as they imply the same thing.
+    			</aside>
+    			
+    	</section>
+    	
+    	<!-- 22 -->
+    	<section>
+    		
+    		<h3>Gaussian Assumptions</h3>
+    		
+    		<div class="row">
+    			<div class="col-60 no-margin centered">
+    				<div class="fig-container" data-file="lib/interactive/gausProb/index.html" style="background:#fff;max-height:500px;max-width:1000px;"></div>
+    			</div>
+    			<div class="col-40 framed border-mutedBlue">
+  					<p class="quoted big">
+  						The Assumption of Normality claims that the sampling distribution of the mean is normal or that the distribution of means across samples is normal. 
+  					</p>
+    			</div>
+    				
+    		</div>
+    		
+    		<aside class="notes" data-markdown>
+## What gaussian assumptions look like
+If the above assumptions are true, then we can always estimate the probability 'density' of our data and how the statistic models the parameter.
+    		</aside>
+    	</section>
+			
+			<!-- 24 -->
+			<section>
+			  <h3>So what's the big deal with Confidence intervals?</h3>
+			  <p class="no-margin-top">
+			    NHST is all nice and sweet, but in the end, we spend time 
+			    answering a question coming from the 
+			    <span class="em">"wrong angle"</span>: 
+			    instead on focusing on <span class="orange">what 
+			    our data are</span>, we focus on <span class="u">where our data would stand if 
+			    the null hypothesis was true</span>.
+			  </p>
+			  <p class="no-margin-top small framed border-mutedBlue fragment">
+			    Determining <span class="mutedBlue">confidence intervals</span> is a way at looking at the same thing than NHST,
+			    but <span class="u-mutedBlue">using what we know</span> (observed statistic), not an hypothesized situation (<span class="em">"what would [something] be if [something]"</span>).
+			  </p>
+			  <p class="no-margin-top fragment">
+			    <i class="fa fa-arrow-circle-right mutedBlue"></i>
+			    But again, this involves looking directly at the 
+			    <span class="orange">sampling 
+			    distribution</span> of your statistic of interest! 
+			    (obtained directly from the population of your data,
+			    not an hypothesized null distribution)
+			  </p>
+			</section>
+			<!-- 25 -->
+			<section data-transition="slide-in">
+			  <h3>Confidence intervals</h3>
+			  <div class="row">
+			    <div class="col-45">
+			      <p class="no-margin-top small">
+			        We want to determine the <span class="orange">sampling distribution of 
+			        our statistic of interest</span>, to know how variable 
+			        it is and get an <span class="u-orange">estimate of the 
+			        true value of 
+			        the parameter</span>.
+			      </p>
+			      <svg class="fragment" data-fragment-index=1 width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+			        <use xlink:href="lib/img/recap-ci-sampling-distribution-one-sample.svg#axes_1"></use>
+			        <use class="fragment" xlink:href="lib/img/recap-ci-sampling-distribution-one-sample.svg#axes_2"></use>
+			      </svg>
+			    </div>
+			    <div class="col-55">
+			      <svg width="100%" viewBox="10 0 415 288" style="margin-top: 0;">
+			        <use xlink:href="lib/img/recap-population-statistic-sampling-distribution.svg#axes_1"></use>
+			        <use xlink:href="lib/img/recap-population-statistic-sampling-distribution.svg#axes_2"></use>
+			        <use data-fragment-index=3 xlink:href="lib/img/recap-population-statistic-sampling-distribution.svg#axes_3"></use>
+			        <use data-fragment-index=3 xlink:href="lib/img/recap-population-statistic-sampling-distribution.svg#axes_4"></use>
+			        <use data-fragment-index=3 xlink:href="lib/img/recap-population-statistic-sampling-distribution.svg#axes_5"></use>
+			      </svg>
+			    </div>
+			    <p class="fragment smaller" data-fragment-index=1>
+			      We do not have the full population, so we are using 
+			      the sample as a surrogate for the population 
+			      (bootstrap resampling, with replacement).
+			    </p>
+			  </div>
+			</section>
+			<!-- 26 -->
+			<section data-transition="slide-out">
+			  <h3>Confidence intervals</h3>
+			  <div class="row">
+			    <div class="col-45">
+			      <p class="no-margin-top small">
+			        The sampling distribution obtained will be 
+			        centered at the statistic of interest calculated 
+			        from the original sample(s).
+			      </p>
+			      <p class="no-margin-top small">
+			        The $\alpha$ level chosen will determine which 
+			        interval to consider.
+			      </p>
+			    </div>
+			    <div class="col-55">
+			      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+			        <use xlink:href="lib/img/recap-ci-sampling-distribution-general.svg#axes_1"></use>
+			      </svg>
+			    </div>
+			  </div>
+			  <p class="small">
+			    <i class="fa fa-arrow-circle-right red"></i>
+			    Estimate of the true value of the parameter
+			  </p>
+			  <p class="small">
+			    <i class="fa fa-arrow-circle-right red"></i>
+			    Can be used for hypothesis testing <br>
+			    <span class="em">Is the parameter of the 
+			    null distribution inside the confidence interval?</span>
+			  </p>
+			</section>
+			
+			<section>
+        <h3>Confidence intervals</h3>
+        <div class="row">
+          <div class="col-60">
+            <p class="framed border-orange no-margin-top big">
+              A <span class="orange">confidence interval</span> for a <span class="orange">parameter</span> is an interval computed from sample data by a method that will capture the parameter for a specified proportion of all samples.
+            </p>
+            <p class="no-margin-top small">
+              <i class="fa fa-arrow-circle-right orange"></i>
+              The parameter is fixed (from <span class="orange">population</span>) <br>
+              <i class="fa fa-arrow-circle-right mutedBlue"></i>
+              The statistic is random (depends on the <span class="mutedBlue">sample</span>) <br>
+              <i class="fa fa-arrow-circle-right"></i>
+              The interval is random (depends on the statistic) <br>
+              <i class="fa fa-arrow-circle-right"></i>
+              A 95% confidence interval will contain the true parameter for 95% of all samples
+            </p>
+            <p class="no-margin-top small">
+              <i class="fa fa-arrow-circle-right red"></i>
+              Drawing bootstrap samples from a sample is one of the method to compute the confidence intervals.
+            </p>
+          </div>
+          <div class="col-40">
+            <img class="no-margin-top plain" src="lib/img/sampling-confidence-intervals.svg" width=100%>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Statistical analysis</h3>
+        <p class="big no-margin-top">
+          All the statistical problems we have seen could be solved using two main types of approaches:
+        </p>
+        <div class="row">
+          <div class="col-50">
+            <p class="big framed border-mutedBlue">
+              Null Hypothesis Testing
+            </p>
+            <p class="big">
+              <i class="fa fa-arrow-circle-right mutedBlue"></i>
+              <span class="mutedBlue">How unusual</span> would it be to get <span class="mutedBlue">results as extreme (or more extreme)</span> than those observed, if the null hypothesis is true?
+            </p>
+          </div>
+          <div class="col-50">
+            <p class="big framed border-orange">
+              95% confidence intervals
+            </p>
+            <p class="big">
+              <i class="fas fa-arrow-circle-right orange"></i>
+              What is an <span class="orange">estimate</span> of the range of <span class="orange">possible values of the true parameter</span>? Is the null hypothesis parameter contained in this interval?
+            </p>
+          </div>
+        </div>
+        <p>
+          <span class="u em big">Question:</span> In what ways do each of these infer/test statistical significance?
+        </p>
+      </section>
+
+      <section>
+        <h3>Randomization distribution & p-value</h3>
+        <p class="big no-margin-top framed border-orange">
+          A <span class="orange">randomization distribution</span> is the distribution of sample statistics we would observe, just by <span class="orange">random chance</span>, if the null hypothesis were true.
+        </p>
+        <p class="big no-margin-top framed border-mutedBlue">
+          The p-value is the <span class="mutedBlue">probability of getting a statistic as extreme (or more extreme) as that observed</span>, just by random chance, if the null hypothesis is true.
+        </p>
+        <p class="big">
+          <i class="fa fa-arrow-circle-right mutedBlue"></i>
+          The p-value measures <span class="u-mutedBlue">evidence against the null hypothesis</span>
+        </p>
+        <p class="big">
+          <i class="fa fa-arrow-circle-right mutedBlue"></i>
+          The p-value is calculated by finding the proportion of statistics in the <span class="orange">randomization distribution</span> that fall beyond (one or both direction) the observed statistic
+        </p>
+      </section>
+
+      <section>
+        <h3>p-value common thresholds</h3>
+        <p style="margin-top: 0; margin-bottom: 0;" class="big">
+          A <span class="u em">small</span> p-value casts doubt on the null hypothesis/model
+          used to perform the calculation.
+        </p>
+        <div class="row" style="margin-top: 1em;">
+          <div class="col-15" style="margin-top: 4%;">
+            <p  class="big" style="text-align: right; font-size: 0.65em;">A p-value</p>
+          </div>
+          <div class="col-15" style="margin-top: 0;">
+            <p style="margin-top: 0;"  class="big">
+              <span class="green" style="margin-left: 0.2em;">$\leq{0.10}$</span> <br>
+              <span class="mutedBlue" style="margin-left: 0.2em;">$\leq{0.05}$</span> <br>
+              <span class="orange" style="margin-left: 0.2em;">$\leq{0.01}$</span> <br>
+              <span class="red" style="margin-left: 0.2em;">$\leq{0.001}$</span>
+            </p>
+          </div>
+          <div class="col-20" style="margin-left:0;">
+            <p class="big">is generally considered <br>to be</p>
+          </div>
+          <div class="col-30" style="margin-top: 0;">
+            <p class="big" style="margin-top: 0;">
+              <span class="green" style="margin-left: 0.2em;">some</span> <br>
+              <span class="mutedBlue" style="margin-left: 0.2em;">fairly strong</span> <br>
+              <span class="orange" style="margin-left: 0.2em;">very strong</span> <br>
+              <span class="red" style="margin-left: 0.2em;">extremely strong</span>
+            </p>
+          </div>
+          <div class="col-20">
+            <p class="big">
+              <span class="u">evidence</span> against the null
+            </p>
+          </div>
+        </div>
+        <p class="big">
+          <span class="u em">Formal decisions:</span> <br>
+          p-value $<\alpha$ <i class="fa fa-arrow-right"></i> Reject $H_0$ <br>
+          p-value $\geq\alpha$ <i class="fa fa-arrow-right"></i> Do not reject $H_0$
+        </p>
+      </section>
+			<!-- 27 -->
+			<section>
+			  <h3>Random sampling is king in StatisticsLand</h3>
+			  <p class="em u no-margin-top">The different possible study designs</p>
+			  <div class="row">
+			    <div class="col-100">
+			      <svg width="100%" viewBox="0 0 553.2 250.166" style="margin-top: 0;">
+			        <use xlink:href="lib/img/study-design-factors.svg#layer1"></use>
+			      </svg>
+			    </div>
+			  </div>
+			</section>
+	    
+	    <section class="title-slide">
+				<div class="row">
+  				<div class="col-50">
+  					<img src="lib/img/handinhand.png" class="plain drop-20 fragment" data-fragment-index=1> 
+  				</div>
+  				
+  				<div class="col-50" style="z-index:1; position: relative; margin-left: -5%;">
+  					<h1>Relationships in Data</h1>	          
+  				</div>
+  			</div>
+        <aside class="notes" data-markdown>
+
+        </aside>
+      </section>
+      
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h2>Relationships or Independence?</h2>
+      		<p class="framed border-yellow center">
+    				What kinds of relationships are there between two variables?<br>
+    				<span class="fragment orange">To answer this, we have to consider how an experiment was conducted.</span>
+      		</p>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin fragment">
+      			<h4>Univariate data had these properties:</h4>
+      			<ul class="icon mutedBlue">
+      				<li class="fragment thumbs-up">A single variable, consisting of an independent sample, was considered in isolation.</li>
+      				<li class="fragment thumbs-up">Single measurements were collected from each observational unit.</li>
+      				<li class="fragment thumbs-up">The sample was collected such that each value was independent of the others.</li>
+      				<li class="fragment thumbs-up">The sample represented a single "snapshot" in time for the variable of interest.</li>
+      			</ul>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin fragment">
+      			<h4>Multivariate (2 or more variables) have these properties:</h4>
+      			<ul class="icon green">
+      				<li class="thumbs-up">Each variable represents a different measurement made for an observational unit.</li>
+      				<li class="fragment thumbs-up">Variables may or may not be independent from each other.</li>
+      				<li class="fragment thumbs-up">Individual variables have the same properties as Univariate variables.</li>
+      				<li class="fragment thumbs-up">The sample is a collection of variables, each variable can represent "snapshots" in time.</li>
+      			</ul>
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+      			
+      		</aside>
+      		
+      </section>
+      
+      <section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h4>Recall Pearson's Product-Moment Correlation</h4>
+    			<p class="l-sided border-mutedBlue">
+  					For the population: $\rho_{X,Y}=\frac{cov(X,Y)}{\sigma_X \sigma_Y}$ and the sample: $r=r_{xy}={\frac {1}{n-1}}\sum _{i=1}^{n}\left({\frac {x_{i}-{\bar {x}}}{s_{x}}}\right)\left({\frac {y_{i}-{\bar {y}}}{s_{y}}}\right)$.
+    			</p>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-55 no-top-margin framed fragment border-red" data-fragment-index=1>
+    				<ul class="icon">
+    					<li class="circle offWhite fragment" data-fragment-index=1>$\rho,\, r$ are unitless on the range [-1,1].</li>
+    					<li class="circle offWhite fragment" data-fragment-index=2>Correlation coefficient gives the <span class="mutedBlue">direction</span> and <span class="orange">strength</span> of the relationship between X and Y.</li>
+    					<li class="circle offWhite fragment" data-fragment-index=3>If $r$ is high, positive or negative, the points lie closer to an imaginary line drawn through the data $\rightarrow$ <span class="mutedBlue">linearly dependent</span>.</li>
+    					<li class="circle offWhite fragment" data-fragment-index=4>If we <span class="mutedBlue">rescaled</span> the data so that each axis was on the same scale, say [-1,1], then $r$ would be the slope of that imaginary line.</li>
+    					<li class="circle offWhite fragment" data-fragment-index=5>When $r\sim 0$, we say X and Y are <span class="orange">independent</span>.</li>
+    					<li class="circle offWhite fragment" data-fragment-index=6>X and Y must each be approximately <span class="red b">normally distributed</span>.</li>
+    					<li class="circle offWhite fragment" data-fragment-index=7>X and Y must each be <span class="red b">homoscedastic</span>, i.e. equal variance across their scale.</li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-45 no-top-margin">
+    				<div class="fig-container" data-file="lib/interactive/UnderstandingCor/index.html"  style="background:transparent;max-height:800px;height:800px;"></div>
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+
+    			</aside>
+    			
+    	</section>
+      
+      <section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h3>When Data Are Not Normal?</h3>
+    			<p class="l-sided border-mutedBlue">
+    				We can use <span class="green">ranks</span> to <span class="mutedBlue">transform</span> the data into an appropriate-looking space and <span class="orange">then use Pearson's correlation</span> $\rightarrow$ <span class="green">Spearman's Correlation</span>.
+    			</p>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-45 no-top-margin">
+    				<img src="lib/img/gdplin.png" class="plain" style="width:900px;">
+    			</div>
+    			<div class="col-10 no-top-margin">
+    				<p class="big center mutedBlue">Rank<br>$\rightarrow$</p>
+    			</div>
+    			<!-- right column -->
+    			<div class="col-45 no-top-margin">
+    				<img src="lib/img/GDP ranked.png" class="plain" style="width:900px;">
+    			</div>
+    	
+    		</div>
+    		<div class="row fragment">
+    				<h5>What happened to the distributions in X and Y?</h5>
+    				<p class="center framed fragment border-red">The distributions became <span class="mutedBlue">uniform</span>.</p>
+    		</div>
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+## Distributions became uniform, what does central limit theory tell us about uniform distributions?
+If we sample from them an infinite number of times, we would get a normal distribution.
+
+### homoscedasticity
+
+What do you notice about these (left) shapes? What about if QQ-plot?
+The uniform X, and Y, also became fairly homoscedsastic.
+    			</aside>
+    			
+    	</section>
+    	
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h3>Homoscedasticity</h3>
+    			<p class="centered l-sided border-mutedBlue big">
+    				A dataset is homoscedastic if the variance at <span class="orange">any given portion</span> is the same as all others, i.e. constant.
+    			</p>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-40 no-top-margin framed border-mutedBlue big">
+    				<ul class="icon">
+    					<li class="caret-right green">X is roughly uniform, or potentially Normal-ish.</li>
+    					<li class="caret-right green">Y is roughly uniform, or potentially Normal-ish.</li>
+    					<li class="caret-right green">A distribution can be made of any nearby subset of points and the variability stays the same no matter where in the data you draw the points.</li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-60 no-top-margin">
+    				<img src="lib/img/homoscedastic.png" class="plain">
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+    				
+    			</aside>
+    			
+    	</section>
+    	
+    	<section>
+			  <h3>The Regression Line</h3>
+			  <p class="no-margin-top no-margin-bottom smaller">
+			    Usually, rather than estimating predictions using a graph, we
+			    directly use the <span class="info">equation of the regression line</span>.
+			  </p>
+			  <div class="row">
+			    <div class="col-45">
+			      <svg width="100%" viewBox="0 0 360 360" style="margin-top: 0;">
+			        <use xlink:href="lib/img/regline.svg#axes_1"></use>
+			        <use class="fragment" data-fragment-index=1 xlink:href="lib/img/regline.svg#axes_2"></use>
+			        <use class="fragment" data-fragment-index=2 xlink:href="lib/img/regline.svg#axes_3"></use>
+			      </svg>
+			    </div>
+			    <div class="col-55">
+			      <p class="no-margin-top no-margin-bottom">
+			        <span class="u em">Equation for a line:</span> <br>
+			        $\hat{y}= \beta_0 + \beta_1x$ <span class="fragment" data-fragment-index=1>   Remind you of: <span class="mutedBlue">$y = mx +b$</span>?</span>
+			      </p>
+			      <ul class="pull-10 normal" style="list-style:none; padding-left:0;">
+			        <li class="fragment" data-fragment-index=1>
+			          <span class="orange">$\beta_0$</span>: y-intercept at <span class="orange">$x=0$</span>
+			        </li>
+			        <li class="fragment" data-fragment-index=2>
+			          <span class="green">$\beta_1$</span>: slope of the line (often called <span class="green">$m$</span>)
+			        </li>
+			      </ul>
+			      <div class="row">
+			        <p class="big fragment">
+			          <i class="fa fa-arrow-circle-right red"></i>
+			          Predicting the response variable from the explanatory
+			          variable: <br>
+			          <span class="framed border-danger">$\mathrm{Response}= \beta_0 + \beta_1 \times \mathrm{Explanatory}$</span>
+			        </p>
+			      </div>
+			    </div>
+			  </div>
+			</section>
+			
+    	<section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h3>Why do we want the regression line?</h3>
+    			<h4>What can we do with it?</h4>
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-50 no-top-margin l-sided border-mutedBlue">
+    				<ul class="icon offWhite">
+    					<li class="star fragment">Prediction (by <span class="mutedBlue">interpolation</span>).</li>
+    					<li class="star fragment">Physical interpretation of <span class="mutedBlue">$\beta_0$</span> and <span class="mutedBlue">$\beta_1$</span>.</li>
+    					<li class="star fragment">Model selection (think about changes in either $\beta_0$ or $\beta_1$)</li>
+    					<li class="star fragment">"Explain Variance" (ANOVA)</li>
+    					<li class="star fragment">How does Regression work?</li>
+	    				<li class="star fragment orange">Find the best fit line!</li>
+    				</ul>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-45 no-top-margin fragment">
+    				<div class="fig-container"data-file="lib/interactive/regression/index.html"  style="background:transparent;max-height:800px;height:800px;"></div>
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+    				
+    			</aside>
+    			
+    	</section>
+      
+      <section data-transition="fade-in slide-out">
+        <h3>How does linear regression work?</h3>
+        <div class="row">
+          <div class="col-50">
+            <svg width="100%" viewBox="0 0 360 360" style="margin-top: 0;">
+              <use xlink:href="lib/img/lsquare-main.svg#axes_1"></use>
+              <use xlink:href="lib/img/lsquare-main.svg#axes_3"></use>
+              <use class="fragment" data-fragment-index=1 xlink:href="lib/img/lsquare-main.svg#axes_2"></use>
+            </svg>
+          </div>
+          <div class="col-50">
+            <svg width="100%" viewBox="0 0 432 180" style="margin-top: 0;">
+              <use xlink:href="lib/img/lsquare-resid.svg#axes_1"></use>
+            </svg>
+            <p class="no-margin-top">
+              The line that fits the data best is the one where the residuals are close to zero.
+            </p>
+            <p class="no-margin-top fragment" data-fragment-index=1>
+              <i class="fa fa-arrow-circle-right orange"></i>
+              Instead of working directly with the residuals, we usually try to <span class="orange">minimize the sum of the square of the residuals</span>:
+              <br>
+              $SS_{residuals}=\sum_{i=1}^{n}(y_i-\overset{\hat{}}{y_i})^2$
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      
+      <section>
+        <h3>The use of linear regression analysis</h3>
+        <p class="no-margin-top em smaller">
+          There are 3 major uses for regression analysis:
+        </p>
+        <p class="small framed border-orange">
+          <span class="orange em u">Causal analysis</span>: it might be used to identify the <span class="orange">strength of the effect</span> that the independent variable(s) have on a dependent variable. Typical questions are what is the strength of relationship between dose and effect, sales and marketing spend, age and income, etc...
+        </p>
+        <p class="small framed border-mutedBlue">
+          <span class="mutedBlue em u">Forecasting</span>: it can be used to forecast <span class="mutedBlue">effects or impacts of changes</span>. That is regression analysis helps us to understand how much will the dependent variable change, when we change one or more independent variables. Typical questions are how much additional $Y$ would I get for one additional unit $X$.
+        </p>
+        <p class="small framed border-red">
+          <span class="red em u">Prediction</span>: it can be used to predict <span class="red">trends and future values</span>. The regression analysis can be used to get point estimates. Typical questions are what will the price for gold be in 6 month from now? What is the total effort for a task X?
+        </p>
+      </section>
+      
+      
+      
+      <section class="title-section">
+      	<h1>Paired Data</h1>
+      	<h3>What if our variables ARE related and we can't use correlation to infer anything about the population?</h3>
+      	<h4>This is an experimental design method called a dependent model.</h4>
+      	<aside class="notes" data-markdown>
+      		
+      	</aside>
+      </section>
+      
+      
+      <section>
+			  <h3>Resampling for paired data NHST</h3>
+			  <div class="row">
+			    <div class="col-35">
+			      <p class="no-margin-top no-margin-bottom smaller">
+			        To obtain the sampling distribution of the paired differences (or ratio):
+			      </p>
+			      <ol class="smallest" style="margin-top: 0;">
+			      <li>Calculate the effect size (difference or ratio) of the explanatory variable on each pair</li>
+			      <li>Randomly assign the sign (or ratio order [1, r$^{-1}$]) for the effect sizes</li>
+			       <li>Calculate the mean (or median) with that new arrangement of signs (or ratio order)</li>
+			    </ol>
+			    </div>
+			    <div class="col-65">
+			      <img src="lib/img/two-groups-paired-resampling.svg"
+			       width=100% class="unbordered flat">
+			    </div>
+			  </div>
+			  <ol class="smallest" style="margin-top: 0;" start=4>
+			    <li>Repeat steps #2-3 10000 times (we obtain 10000 effect sizes that we could have observed if the explanatory variable didn't have any effect)</li>
+			  </ol>
+			</section>
+			
+			<section>
+			  <h3>95% Confidence intervals</h3>
+			  <p class="no-margin-top small">
+			    The differences (or ratios) are a <span class="mutedBlue">one quantitative sample</span>. We can
+			    extract the 95% CI by drawing bootstrap samples, as previously seen.
+			  </p>
+			  <div class="row">
+			    <div class="col-50 fragment">
+			      <img src="lib/img/bootstrap-one-quantitative-variable.svg" class="unbordered flat" width=100%>
+			    </div>
+			    <div class="col-50">
+			      <img src="lib/img/wetsuit-resampling-paired-ci95.svg"
+			       class="fragment unbordered flat" width=100%>
+			    </div>
+			    <p class="small fragment no-margin-top">
+			      <i class="fa fa-arrow-circle-right mutedBlue"></i>
+			      We are 95% confident that for competitive swimmers and triathletes, wetsuits increase maximum swimming velocity by an average of between 0.066 and 0.089 meters per second.
+			    </p>
+			  </div>
+			</section>
+      
+      
+      <section>
+    	
+    		<!-- heading -->
+    		<div class="row">
+    			<h2><span style="font-size:1.5em;">$\chi^2$</span> Tests</h2>
+    			<h4>We can use $\chi^2$ in multiple ways</h4>
+    			
+    		</div>
+    	
+    		<!-- main -->
+    		<div class="row">
+    	
+    			<!-- left column -->
+    			<div class="col-50 no-top-margin">
+    				<h4 class="u fragment" data-fragment-index=0>Think about correlation</h4>
+    				<p class="orange fragment" data-fragment-index=0>For bivariate, quantitative data, we test the <span class="mutedBlue">independence</span> by asking if $r=0$</p>
+    				<svg height="432pt" version="1.1" viewBox="0 0 442 442" width="432pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+							<use class="fragment" data-fragment-index=1 xlink:href="lib/img/vitAvsBMI-cor-simple.svg#axes_1"></use>
+							<use class="fragment" data-fragment-index=1 xlink:href="lib/img/vitAvsBMI-cor-simple.svg#axes_2"></use>
+							<use class="fragment" data-fragment-index=1 xlink:href="lib/img/vitAvsBMI-cor-simple.svg#axes_3"></use>
+						</svg>
+    			</div>
+    	
+    			<!-- right column -->
+    			<div class="col-50 no-top-margin">
+    				<h4 class="u fragment" data-fragment-index=2>What if the data are categorical?</h4>
+    				<div class="fragment no-margin" data-fragment-index=2>
+							<style scoped="">
+							    .dataframe tbody tr th:only-of-type {
+							        vertical-align: middle !important;
+							    }
+
+							    .dataframe tbody tr th {
+							        vertical-align: top !important;
+							    }
+
+							    .dataframe thead th {
+							        text-align: right !important;
+							    }
+							</style>
+							<table border="1" class="dataframe small">
+							  <thead class="mutedBlue-fill">
+							    <tr style="text-align: right;" class="smallest center">
+							      <th></th>
+							      <th class="fragment highlight-current-bg-blue" data-fragment-index=3>Cedars Sinai</th>
+							      <th class="fragment highlight-current-orange-fill" data-fragment-index=3>UCLA Harbor</th>
+							      <th class="fragment highlight-current-bg-green" data-fragment-index=3>UCLA Olive View</th>
+							      <th class="fragment highlight-current-red-fill" data-fragment-index=3>UCLA Ronald Reagan</th>
+							      <th class="fragment highlight-current-bg-purple" data-fragment-index=3>UCLA Santa Monical</th>
+							      <th class="fragment highlight-current-bg-grey" data-fragment-index=3>Kaiser LA</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr>
+							      <th class="orange-fill">Alive</th>
+							      <td>20193</td>
+							      <td>743</td>
+							      <td>419</td>
+							      <td>4752</td>
+							      <td>5284</td>
+							      <td>1280</td>
+							    </tr>
+							    <tr>
+							      <th class="orange-fill">Dead</th>
+							      <td>4458</td>
+							      <td>207</td>
+							      <td>84</td>
+							      <td>1065</td>
+							      <td>1135</td>
+							      <td>38</td>
+							    </tr>
+							  </tbody>
+							</table>
+						</div>
+						<svg height="432pt" version="1.1" viewBox="0 0 586 442" width="576pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+							<use class="fragment" data-fragment-index=3 xlink:href="lib/img/hospitals.svg#axes_1"></use>
+						</svg>
+    			</div>
+    	
+    		</div>
+    	
+    			<!-- notes -->
+    			<aside class="notes" data-markdown>
+## If the data are categorical:
+
+1. how do we visualize this?
+2. How do we find the relationship between survival and where you go?
+
+The first thing you should notice is that this table indicates something.
+
+The survival is contingent upon when hospital you go to.
+btw:
+This is the one case bar graphs are OK.
+    			</aside>
+    			
+    	</section>
+    	
+    	<section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>ANOVA Does Even More</h3>
+      	</div>
+      
+      	<!-- top -->
+      	<div class="row">
+      
+      		<!-- top left column -->
+      		<div class="col-50 no-top-margin fragment framed border-mutedBlue" style="height:330px;">
+      			<h4>One-Way ANOVA</h4>
+      			<p>
+      				One-Way ANOVA considers multiple groups belonging to a single categorical family called a <span class="mutedBlue">factor level</span>, i.e. sandwiches, treatment types, etc.
+      			</p>
+      			<p class="smaller">$$\mathcal{F}=\frac{\color{orange}{SS_{between}}}{\color{lightblue}{SS_{Within}}}$$</p>
+      		</div>
+      
+      		<!-- top right column -->
+      		<div class="col-50 no-top-margin fragment framed border-orange" style="height:330px;">
+      			<h4>One-Way Repeated Measures ANOVA</h4>
+      			<p>
+      				Just as we discussed with <span class="orange">before $\sim$ after</span> in two-group NHST, ANOVA has special methods for dealing with repeatedly measuring from a single subject. It takes the form of:
+      			</p>
+      			<p class="smaller">
+      				$$\mathcal{F}=\frac{\color{orange}{SS_{between}}}{\color{lightblue}{(SS_{Within}-SS_{random})}}=\frac{SS_{between.timepoints}}{SS_{fixed}}$$
+      			</p>
+      		</div>
+      
+      	</div>
+      
+      	<!-- bottom -->
+      	<div class="row">
+      
+      		<!-- bottom left column -->
+      		<div class="col-50 no-top-margin fragment framed border-blue" style="height:330px;">
+      			<h4>N-Way ANOVA</h4>
+      			<p>We aren't limited to one level (plus time) and can model multiple factors, though it starts getting complicated because we have new <span class="mutedBlue">kinds</span> of terms to discuss call <span class="orange">interactions</span>. Note that each new factor level will get its own $\mathcal{F}$-statistic.</p>
+      			<p class="smaller">$$\mathcal{F}=\frac{\{ SS_{b.group1},\, SS_{b.group2},\, \ldots ,\, SS_{b.groupN},\, \{ SS_{\color{orange}{interactions}}\} \} }{SS_{Within}}$$</p>
+      		</div>
+      
+      		<!-- bottom right column -->
+      		<div class="col-50 no-top-margin fragment framed border-yellow" style="height:330px;">
+      			<h4>N-Way Repeated Measures ANOVA</h4>
+      			<p>Just like in the One-Way approach, we now have to consider the effects of time and remove the <span class="mutedBlue">random</span> effects, i.e. the <span class="mutedBlue">within subject</span> variation.</p>
+      			<p class="smaller">$$\mathcal{F}=\frac{\{ SS_{b.time},\, SS_{b.group2},\, \ldots ,\, SS_{b.groupN},\, \{ SS_{\color{orange}{interactions}}\} \} }{SS_{Within}-SS_{random}}$$</p>
+      		</div>
+      
+      	</div>
+      	
+      	<div class="row">
+      			<div class="col-100 center fragment">
+      					<p class="bigger offWhite">As we add more and more <span class="mutedBlue">factors</span>, we call this <span class="orange">factor analysis</span> and it starts to take on a new shape. We will not be discussing it to that depth.</p>
+      			</div>
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+Note that we call the SS-within - SS-random the fixed effects and we can use a little graphic to help understand this.
+      		</aside>
+      
+      </section>
+      
+      <!-- 3 -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>Understanding the $SS_{terms}$</h3>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-50 no-top-margin">
+      			<div class="row framed border-mutedBlue">
+      					<p class="offWhite smaller">
+      						Statistic:
+									$$\mathcal{F}=\frac{\color{orange}{SS_{between}}}{\color{lightblue}{SS_{Within}}}=\frac{\color{orange}{\partial^2(fit,null)}}{\color{lightblue}{\partial^2(fit,data)}}$$
+									Effect Size:
+									$$R^2=\frac{\color{orange}{\partial^2(fit,null)}}{\color{seagreen}{\partial^2(data,null)}}$$
+      					</p>
+      			</div>
+      			<div class="row">
+      				<div class="col-100 no-margin">
+      					<svg version="1.1" viewBox="100 10 486 486" width="700pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<defs>
+										<style type="text/css">
+											*{stroke-linecap:butt;stroke-linejoin:round;}
+										</style>
+									</defs>
+									<use xlink:href="lib/img/AOV_SS.svg#axes_1"></use>
+								</svg>	
+      				</div>
+      					
+      			</div>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-50 no-top-margin">
+      			<div class="row framed border-mutedBlue">
+      					<p class="offWhite smaller">
+      						RM Statistic:
+									$$\mathcal{F}=\frac{\color{orange}{\partial^2(fit,null)}}{\color{lightblue}{\partial^2(fit,\color{yellow}{reduced})}}$$
+									RM Effect Size:
+									$$\eta^2_{p}=\frac{\color{orange}{\partial^2(fit,null)}}{\color{purple}{\partial^2(reduced,null)}}=\frac{SS_{Between}}{SS_{Total}}$$
+      					</p>
+      			</div>
+      			<div class="row">
+      				<div class="col-100 no-margin">
+      					<svg version="1.1" viewBox="100 10 486 486" width="700pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<defs>
+										<style type="text/css">
+											*{stroke-linecap:butt;stroke-linejoin:round;}
+										</style>
+									</defs>
+									<use xlink:href="lib/img/AOV_SSRM.svg#axes_1"></use>
+								</svg>	
+      				</div>
+      					
+      			</div>
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+# Geometric interpretation
+
+F = SSB/SSW.
+
+So then, when F is large, then $\partial^2(fit,null) > \partial^2(fit,data)$ and when F is small (less than 1) then $\partial^2(fit,null) < \partial^2(fit,data)$.
+
+And the same case can be said about the reduced, we are just correcting the _data_ term for "mixed" effects.
+      		</aside>
+      		
+      </section>
+    	
+    	<section data-transition="slide-in fade-out">
+        <h3>Fertilizer Selection</h3>
+        <div class="row">
+          <div class="col-100 no-margin">
+            <svg height="432pt" version="1.1" viewBox="0 0 658 442" width="648pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<defs>
+										<style type="text/css">
+											*{stroke-linecap:butt;stroke-linejoin:round;}
+										</style>
+									</defs>
+									<use xlink:href="lib/img/AOV_plant_boxplot.svg#axes_1"></use>
+									<use xlink:href="lib/img/AOV_plant_boxplot.svg#axes_2"></use>
+								</svg>
+          </div>
+        </div>
+        <div class="row">
+        		<div class="col-100 no-margin framed border-mutedBlue">
+        				<p class="big">We measured the weight of plants after a fixed amount of growth-time in normal soil (<span class="yellow">control</span>), or with 2 fertilizer treatments (<span class="mutedBlue">1</span> & <span class="purple">2</span>).</p>
+        		</div>
+        </div>
+      </section>
+      
+      <!-- 12 -->
+      <section data-transition="slide-in fade-out">
+        <h3>Fertilizer Selection</h3>
+        <div class="row">
+          <div class="col-100 no-margin">
+            <svg version="1.1" viewBox="0 0 658 298" width="1400pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+              <use xlink:href="lib/img/AOV_plant_null.svg#axes_1"></use>
+            </svg>
+          </div>
+        </div>
+        <p class="fragment bigger mutedBlue">
+          We conclude that our samples are <span class="red big">not likely</span> from the same population. Time for <span class="orange em">Post-hoc</span> analysis.
+        </p>
+      </section>
+      
+      <!--  -->
+      <section>
+      
+      	<!-- heading -->
+      	<div class="row">
+      		<h3>Fertilizer Selection</h3>
+      		<h4>Compare each pairwise group by 2 group bootstrap.</h4>
+      	</div>
+      
+      	<!-- main -->
+      	<div class="row">
+      
+      		<!-- left column -->
+      		<div class="col-30 no-top-margin">
+      			<svg height="468pt" version="1.1" viewBox="100 0 548 468" width="380pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+							<style type="text/css">
+							*{stroke-linecap:butt;stroke-linejoin:round;}
+							</style>
+							</defs>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 1.svg#axes_1"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 1.svg#axes_2"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 1.svg#axes_3"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 1.svg#axes_4"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 1.svg#axes_5"></use>
+						</svg>
+      		</div>
+      
+      		<!-- middle -->
+      		<div class="col-5">
+      				
+      		</div>
+      		<div class="col-30 no-top-margin">
+      			<svg height="468pt" version="1.1" viewBox="100 0 548 468" width="380pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+							<style type="text/css">
+							*{stroke-linecap:butt;stroke-linejoin:round;}
+							</style>
+							</defs>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 2.svg#axes_1"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 2.svg#axes_2"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 2.svg#axes_3"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 2.svg#axes_4"></use>
+							<use xlink:href="lib/img/CI_Plants_Control_vs_Treatment 2.svg#axes_5"></use>
+						</svg>
+      		</div>
+      
+      		<!-- right column -->
+      		<div class="col-5">
+      				
+      		</div>
+      		<div class="col-30 no-top-margin">
+      			<svg height="468pt" version="1.1" viewBox="100 0 548 468" width="380pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+							<style type="text/css">
+							*{stroke-linecap:butt;stroke-linejoin:round;}
+							</style>
+							</defs>
+							<use xlink:href="lib/img/CI_Plants_Treatment 1_vs_Treatment 2.svg#axes_1"></use>
+							<use xlink:href="lib/img/CI_Plants_Treatment 1_vs_Treatment 2.svg#axes_2"></use>
+							<use xlink:href="lib/img/CI_Plants_Treatment 1_vs_Treatment 2.svg#axes_3"></use>
+							<use xlink:href="lib/img/CI_Plants_Treatment 1_vs_Treatment 2.svg#axes_4"></use>
+							<use xlink:href="lib/img/CI_Plants_Treatment 1_vs_Treatment 2.svg#axes_5"></use>
+						</svg>
+      		</div>
+      
+      	</div>
+      
+      		<!-- notes -->
+      		<aside class="notes" data-markdown>
+      			
+      		</aside>
+      
+      </section>
+      
+      
+      
+      
+      <!--  -->
+      <section>
+      	<div class="row">
+      		<h3>Fertilizer Selection</h3>
+      	</div>
+      	<div class="row">
+      			<div class="col-100">
+      					<svg height="432pt" version="1.1" viewBox="0 0 658 442" width="648pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<defs>
+										<style type="text/css">
+											*{stroke-linecap:butt;stroke-linejoin:round;}
+										</style>
+									</defs>
+									<use xlink:href="lib/img/AOV_plant_boxplot.svg#axes_1"></use>
+									<use xlink:href="lib/img/AOV_plant_boxplot.svg#axes_2"></use>
+									<use class="fragment" data-fragment-index=0 xlink:href="lib/img/AOV_plant_boxplot.svg#axes_3"></use>
+									<use class="fragment" data-fragment-index=2 xlink:href="lib/img/AOV_plant_boxplot.svg#axes_4"></use>
+									<use class="fragment" data-fragment-index=4 xlink:href="lib/img/AOV_plant_boxplot.svg#axes_5"></use>
+								</svg>
+      			</div>
+      	</div>
+      	<div class="row">
+    			<div class="col-100">
+    				<style  type="text/css" >    
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 table {
+      					overflow: hidden;
+      				}
+      				
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 thead tr, 
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 thead th {
+      					position: relative;
+      					text-align: center;
+      				}
+      				
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 tbody tr:hover {
+      					background-color: #626262;
+      				}
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 tbody td, 
+      				#T_68e61862_1ea1_11e8_9669_54271ef3ead4 tbody th {
+      					position: relative;
+      					text-align: center;
+      				}
+      				
+      			</style>
+      			<table id="T_68e61862_1ea1_11e8_9669_54271ef3ead4" class="small" > 
+							<thead class="green-fill offWhite">
+								<tr> 
+								  <th class="index_name level0" >Comparison</th>
+									<th class="col_heading level0 col0" >Effect Size</th> 
+									<th class="col_heading level0 col1" >Confidence Interval</th> 
+									<th class="col_heading level0 col2" >P-value</th> 
+									<th class="col_heading level0 col3 fragment fade-in" data-fragment-index=7>P-adjusted (BH)</th> 
+									<th class="col_heading level0 col4 fragment fade-in" data-fragment-index=9>$H_0$ Rejected</th>
+								</tr>    
+							</thead> 
+							<tbody>    
+								<tr class="fragment fade-in" data-fragment-index=0> 
+								  <th id="T_68e61862_1ea1_11e8_9669_54271ef3ead4level0_row0" class="row_heading level0 row0" >Control vs Treatment 1</th> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col0" class="data row0 col0" >0.371</td> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col1" class="data row0 col1" >[-0.205,  0.94 ]</td> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col2" class="data row0 col2 fragment fade-in" data-fragment-index=1 ><span class="fragment highlight-red" data-fragment-index=6>0.2272</span></td> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col3" class="data row0 col3 fragment fade-in" data-fragment-index=7 ><span class="fragment highlight-red" data-fragment-index=8>0.2272</span></td> 
+									<td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row0_col4" class="data row0 col4 fragment fade-in" data-fragment-index=10 ><span class="fragment highlight-red" data-fragment-index=11>False</span></td> 
+								</tr>
+								<tr class="fragment fade-in" data-fragment-index=2> 
+								  <th id="T_68e61862_1ea1_11e8_9669_54271ef3ead4level0_row1" class="row_heading level0 row1" >Control vs Treatment 2</th> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col0" class="data row1 col0" >-0.494</td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col1" class="data row1 col1" >[-0.92,  -0.066]</td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col2" class="data row1 col2 fragment fade-in" data-fragment-index=3 ><span class="fragment highlight-green" data-fragment-index=6>0.0461</span></td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col3" class="data row1 col3 fragment fade-in" data-fragment-index=7 ><span class="fragment highlight-orange" data-fragment-index=8>0.06915</span></td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row1_col4" class="data row1 col4 fragment fade-in" data-fragment-index=10 ><span class="fragment highlight-red" data-fragment-index=11>False</span></td> 
+								</tr>    
+								<tr class="fragment fade-in" data-fragment-index=4>  
+								  <th id="T_68e61862_1ea1_11e8_9669_54271ef3ead4level0_row2" class="row_heading level0 row2" >Treatment 1 vs Treatment 2</th> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col0" class="data row2 col0" >-0.865</td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col1" class="data row2 col1" >[-1.388, -0.327]</td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col2" class="data row2 col2 fragment fade-in" data-fragment-index=5 ><span class="fragment highlight-green" data-fragment-index=6>0.0076</span></td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col3" class="data row2 col3 fragment fade-in" data-fragment-index=7 ><span class="fragment highlight-green" data-fragment-index=8>0.0228</span></td> 
+					        <td id="T_68e61862_1ea1_11e8_9669_54271ef3ead4row2_col4" class="data row2 col4 fragment fade-in" data-fragment-index=10 ><span class="fragment highlight-green" data-fragment-index=11>True</span></td> 
+								</tr>
+							</tbody> 
+						</table>
+  				</div>	
+      	</div>
+      	<aside class="notes" data-markdown>
+      		
+      	</aside>
+      </section>
+	    
+	    
+	    <section data-transition="slide-in fade-out">
+        <h3><em>Post-hoc</em> Testing Problem</h3>
+        <div class="row">
+          <div class="col-100 no-margin">
+            <svg height="460pt" version="1.1" viewBox="0 0 658 442" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+              <use class="fragment" data-fragment-index=1 xlink:href="lib/img/ALPHA_coins.svg#axes_1"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="row">
+        	<div class="col-100">
+        		<p class="fragment mutedBlue" data-fragment-index=2>
+		          In a test at $\alpha = 0.05$, there is a 5% chance of getting a false positive if the null hypothesis is true. In 100 tests, each at $\alpha = 0.05$, we "expect 5 false positives" if all 100 null hypotehses are true, but really, the probability of getting $k$ false-positives is determinable through the binomial distribution, $p(k\, |\, \alpha)$.<br><br>
+		          We can also determine the probability of getting k false positives by bootstrap. Create a deck with 100 cards, 5 of which are red, then resample with replacement and count the red cards.
+		        </p>
+        	</div>
+        </div>
+      </section>
+      
+      <!-- 14 -->
+    	<section data-transition="slide-in fade-out">
+        <h3><em>Post-hoc</em> Testing Problem</h3>
+        <div class="row">
+          <div class="col-100 no-margin">
+            <svg height="660pt" version="1.1"  viewBox="0 0 730 442" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<style type="text/css">
+									*{stroke-linecap:butt;stroke-linejoin:round;}
+								</style>
+							</defs>
+              <use class="fragment" data-fragment-index=1 xlink:href="lib/img/ALPHA_runningProb.svg#axes_1"></use>
+              <use class="fragment" data-fragment-index=2 xlink:href="lib/img/ALPHA_runningProb.svg#axes_2"></use>
+              <use class="fragment" data-fragment-index=3 xlink:href="lib/img/ALPHA_runningProb.svg#axes_3"></use>
+              <use class="fragment" data-fragment-index=4 xlink:href="lib/img/ALPHA_runningProb.svg#axes_4"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="row">
+        	<div class="col-100">
+        		<p class="fragment red big center" data-fragment-index=5>
+		          So you have to be super careful when making multiple P-value generating tests!
+		        </p>
+        	</div>
+        </div>
+      </section>
+	    
+      <!-- #########################     CONTENT END     #########################-->
+    </div>
+    
+  </div>
+  
+  <!-- REVEAL JS -->
+  <script src="lib/js/reveal.js/lib/js/head.min.js"></script>
+  <script src="lib/js/reveal.js/js/reveal.js"></script>
+  <script src="lib/js/initReveal.js"></script>
+</body>
+</html>

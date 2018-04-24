@@ -1,0 +1,294 @@
+<html>
+<head><meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700">
+  <link rel="stylesheet" type="text/css" href="https://static.observableusercontent.com/worker/worker.cb8dcbae30df754f3a217f7206ff35fbdf4f731f3ea96c20886f9e3f557bde7c.css">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  
+</head>
+<body style="background:#eee;">
+  
+  <div>
+    <p><strong>Same Stats, Different Graphs: Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing</strong> located at <a href="https://www.autodeskresearch.com/publications/samestats">https://www.autodeskresearch.com/publications/samestats</a></p>
+  </div>
+  <div id="r80" dir="auto" class="O">
+    <form>
+      <div style="font: 700 0.9rem sans-serif;">Data sets</div>
+      <div>
+              
+        <label style="display: inline-block; margin: 5px 10px 3px 0; font-size: 0.85em;">
+         <input type="radio" name="dataName" value="dino" checked="" style="vertical-align: baseline;"onclick="rChange(this);">
+         dino
+        </label>
+
+        <label style="display: inline-block; margin: 5px 10px 3px 0; font-size: 0.85em;">
+         <input type="radio" name="dataName" value="away" style="vertical-align: baseline;" onclick="rChange(this);">
+         away
+        </label>
+
+        <label style="display: inline-block; margin: 5px 10px 3px 0; font-size: 0.85em;">
+         <input type="radio" name="dataName" value="h_lines" style="vertical-align: baseline;"onclick="rChange(this);">
+         h_lines
+        </label>
+
+        <label style="display: inline-block; margin: 5px 10px 3px 0; font-size: 0.85em;">
+         <input type="radio" name="dataName" value="v_lines" style="vertical-align: baseline;"onclick="rChange(this);">
+         v_lines
+        </label>
+
+        <label style="display: inline-block; margin: 5px 10px 3px 0; font-size: 0.85em;">
+         <input type="radio" name="dataName" value="x_shape" style="vertical-align: baseline;"onclick="rChange(this);">
+         x_shape
+        </label>
+
+        <label style="display: inline-block; margin: 5px 10px 3px 0; font-size: 0.85em;">
+         <input type="radio" name="dataName" value="star" style="vertical-align: baseline;"onclick="rChange(this);">
+         star
+        </label>
+
+        <label style="display: inline-block; margin: 5px 10px 3px 0; font-size: 0.85em;">
+         <input type="radio" name="dataName" value="high_lines" style="vertical-align: baseline;"onclick="rChange(this);">
+         high_lines
+        </label>
+
+        <label style="display: inline-block; margin: 5px 10px 3px 0; font-size: 0.85em;">
+         <input type="radio" name="dataName" value="dots" style="vertical-align: baseline;"onclick="rChange(this);">
+         dots
+        </label><br>
+
+        <label style="display: inline-block; margin: 5px 10px 3px 0; font-size: 0.85em;">
+         <input type="radio" name="dataName" value="circle" style="vertical-align: baseline;"onclick="rChange(this);">
+         circle
+        </label>
+
+        <label style="display: inline-block; margin: 5px 10px 3px 0; font-size: 0.85em;">
+         <input type="radio" name="dataName" value="bullseye" style="vertical-align: baseline;"onclick="rChange(this);">
+         bullseye
+        </label>
+
+        <label style="display: inline-block; margin: 5px 10px 3px 0; font-size: 0.85em;">
+         <input type="radio" name="dataName" value="slant_up" style="vertical-align: baseline;"onclick="rChange(this);">
+         slant_up
+        </label>
+
+        <label style="display: inline-block; margin: 5px 10px 3px 0; font-size: 0.85em;">
+         <input type="radio" name="dataName" value="slant_down" style="vertical-align: baseline;"onclick="rChange(this);">
+         slant_down
+        </label>
+
+        <label style="display: inline-block; margin: 5px 10px 3px 0; font-size: 0.85em;">
+         <input type="radio" name="dataName" value="wide_lines" style="vertical-align: baseline;"onclick="rChange(this);">
+         wide_lines
+        </label>
+      </div>
+      <div id="cont"></div>
+      
+    </form>
+  </div>
+  
+  <script type="text/javascript">
+    var width = 630,
+        height = 620,
+        r = d3.select('input[name="dataName"]:checked').property("value");
+    var margin = {top:10, right:12, bottom: 20, left: 12};
+    
+    const data=[];
+    
+    async function loadData() {
+      let datat = [];
+      //DatasaurusDozen.tsv
+      var dd = await d3.tsv("https://gist.githubusercontent.com"
+                   + "/Khlick/a6b95da78bdd02ac79bd791ca6b0616a/raw"
+                   + "/39cf7f6f6bb7a0352dddacfd43318468ca871b6a"
+                   + "/DatasaurusDozen.tsv", (dat, i , cl) => {
+        datat.push({name: dat.dataset, x: +dat.x, y: +dat.y});
+      });
+      let ids = Array.from(new Set(datat.map(x=> x.name)));
+      console.log('ids',ids)
+      
+      ids.forEach(c => {
+        data.push({
+          name: c,
+          data: datat.filter(v => v.name === c).map(v => {return {x: v.x, y: v.y}}) 
+        });
+      });
+      
+      return data;
+    }
+    
+    var container, svg, xAx, yAx, xScale, yScale, dataSets, xg, yg, col;
+    
+    
+    loadData().then(()=>{
+      dataSets = Array.from(new Set(data.map(x=> x.name)));
+      var maxC = d3.max(data.filter(a => a.name === r)[0].data, d => Math.abs(d.y));
+      
+      col = d3.scaleSequential(d3.interpolateViridis).domain([maxC, -maxC]);
+      
+      xg = d3.extent(data.filter(a => a.name === r)[0].data, d => d.x).reduce((a,b) => b-a)*0.1
+      xScale = d3.scaleLinear()
+        .domain(
+         [
+          0,
+          110
+          ]     
+        ).nice()
+      xScale.range([margin.left, width - margin.right]);
+      
+      yg = d3.extent(data.filter(a => a.name === r)[0].data, d => d.y).reduce((a,b) => b-a)*0.1
+      yScale = d3.scaleLinear()
+        .domain(
+         [
+          0,
+          110
+          ]     
+        ).nice()
+      yScale.range([height - margin.bottom, margin.top]);
+      
+      container = d3.select('#cont').append('svg')
+          .attr('width',width+margin.left+margin.right)
+          .attr('height', height+margin.top+margin.bottom);
+    
+      svg = container.append('g')
+            .attr('width', width)
+            .attr('height', height)
+            .attr('transform', 'translate(' + margin.left + '.' + margin.top + ')');
+      
+      xAx = svg.append("g")
+        .attr('class', 'x-axis')
+        .attr("transform", `translate(0,${height - margin.bottom})`)
+        .call(d3.axisBottom(xScale).ticks(width / 80));
+          
+      
+      yAx = svg.append("g")
+        .attr('class', 'y-axis')
+        .attr("transform", `translate(${margin.left},0)`)
+        .call(d3.axisLeft(yScale).ticks(6))
+        .call(g => g.append("text")
+            .attr("fill", "#000")
+            .attr("x", 5)
+            .attr("y", margin.top)
+            .attr("dy", "0.32em")
+            .attr("text-anchor", "start")
+            .attr("font-weight", "bold")
+            .text(`${r} Data`));
+      
+      svg.append("g")
+          .attr('class', 'points')
+          .attr("stroke", "#000")
+          .attr("stroke-opacity", 0.2)
+        .selectAll("circle")
+        .data(data.filter(a => a.name === r)[0].data)
+        .enter().append("circle")
+          .attr("cx", (d,i) => xScale(d.x))
+          .attr("cy", (d,i) => yScale(d.y))
+          .attr("fill", (d,i) => col(d.y))
+          .attr("r", 3.5);
+    });
+    
+    
+    function rChange(event) {
+      r = event.value;
+      console.log('r',r)
+      update();
+    }
+    
+    
+    
+    /*
+    function xScale(val) {
+      const scl = d3.scaleLinear()
+      let rg = d3.extent(data.filter(a => a.name === r)[0].data, d => d.x).reduce((a,b) => b-a)*0.1
+      scl.domain(
+        [
+          d3.min(data.filter(a => a.name === r)[0].data, d => d.x)-rg,
+          d3.max(data.filter(a => a.name === r)[0].data, d => d.x)+rg
+        ]
+      ).nice();  
+      scl.range([margin.left, width - margin.right]);
+      return scl(val);
+    }
+    
+    function yScale(val) {
+      const scl = d3.scaleLinear()
+      let yg = d3.extent(data.filter(a => a.name === r)[0].data, d => d.y).reduce((a,b) => b-a)*0.1
+      scl.domain(
+        [
+          d3.min(data.filter(a => a.name === r)[0].data, d => d.y)-rg,
+          d3.max(data.filter(a => a.name === r)[0].data, d => d.y)+rg
+        ]
+      ).nice()
+         
+      scl.range([height - margin.bottom, margin.top]);
+      return scl(val);
+    }
+    */
+    
+    
+    /*
+    function xAx(g){
+      g
+        .attr("transform", `translate(0,${height - margin.bottom})`)
+        .call(d3.axisBottom(xScale).ticks(width / 80));
+    }
+    
+    function yAx(g){
+      g
+        .attr("transform", `translate(${margin.left},0)`)
+        .call(d3.axisLeft(yScale).ticks(6))
+        .call(g => g.append("text")
+            .attr("fill", "#000")
+            .attr("x", 5)
+            .attr("y", margin.top)
+            .attr("dy", "0.32em")
+            .attr("text-anchor", "start")
+            .attr("font-weight", "bold")
+            .text(`${r} Data`));
+      }
+    
+    */
+    
+    function update() {
+      svg.selectAll('.points').remove();
+      
+      xAx.remove();
+      yAx.remove();
+      
+      var maxC = d3.max(data.filter(a => a.name === r)[0].data, d => Math.abs(d.y));
+      
+      col = d3.scaleSequential(d3.interpolateViridis).domain([maxC, -maxC]);
+      
+      xAx = svg.append("g")
+        .attr('class', 'x-axis')
+        .attr("transform", `translate(0,${height - margin.bottom})`)
+        .call(d3.axisBottom(xScale).ticks(width / 80));
+          
+      
+      yAx = svg.append("g")
+        .attr('class', 'y-axis')
+        .attr("transform", `translate(${margin.left},0)`)
+        .call(d3.axisLeft(yScale).ticks(6))
+        .call(g => g.append("text")
+            .attr("fill", "#000")
+            .attr("x", 5)
+            .attr("y", margin.top)
+            .attr("dy", "0.32em")
+            .attr("text-anchor", "start")
+            .attr("font-weight", "bold")
+            .text(`${r} Data`));
+          
+      svg.append("g")
+          .attr('class', 'points')
+          .attr("stroke", "#000")
+          .attr("stroke-opacity", 0.2)
+        .selectAll('circle')
+        .data(data.filter(a => a.name === r)[0].data)
+        .enter().append("circle")
+          .attr("cx", (d,i) => xScale(d.x))
+          .attr("cy", (d,i) => yScale(d.y))
+          .attr("fill", (d,i) => col(d.y))
+          .attr("r", 3.5);
+    }
+    
+  </script>
+</body>
+</html>

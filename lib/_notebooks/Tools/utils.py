@@ -65,7 +65,7 @@ def colorize(name='', opacity=float(1), brightness=float(1), *colVals):
     rgb *= 1/256
     rgb.append(opacity)
     return tuple(rgb)
-            
+
 # Data reshaper with overlap allowed
 
 def datshaper(dat, windowLength, overlap=None, padWith=0):
@@ -81,16 +81,16 @@ def datshaper(dat, windowLength, overlap=None, padWith=0):
     '''
     # depends
     import numpy as np
-    
+
     ## Handle Inputs
-    
+
     # Make sure we have a numpy array
     if type(dat) is not np.ndarray:
         dat = np.array(dat)
     # Make sure we have integers
     windowLength = int(windowLength)
     # Fix overlap then set as int
-    if overlap is None: 
+    if overlap is None:
         overlap = 0
     elif (overlap is not None) & windowLength != 2:
         overlap = overlap
@@ -149,10 +149,10 @@ def datshaper(dat, windowLength, overlap=None, padWith=0):
     ).transpose().reshape((Kl*windowLength,-1))
     return(
         dat[coli+rowi].reshape((Kl,windowLength)).transpose()
-    )    
+    )
 
 
-# convert strings to multi-factor or vectors to 
+# convert strings to multi-factor or vectors to
 def expandGrid(*vals, doPaste = True, sep = ' ', expansion=None, doSort=False):
     '''
     Takes unnamed inputs and creates a matrix of all possible combinations. Rows of the
@@ -170,7 +170,7 @@ def expandGrid(*vals, doPaste = True, sep = ' ', expansion=None, doSort=False):
         for row in range(output.shape[0]):
             stringOut.append(sep.join(output[row,:]))
         output = np.array(stringOut)
-    
+
     if expansion is not None:
         if (len(expansion) != output.shape[0]):
             import warnings
@@ -188,7 +188,7 @@ takes an input string and outputs the matching string from an string list.
 def validateString(inputString, argList, method=None):
   if method is not None:
     method = validateString(method, ['exact', 'approx'],method= None)
-  
+
   if method == 'exact':
     ind = [a for a,s in enumerate(argList) if inputString.lower() == s.lower()]
   elif method == 'approx':
@@ -221,10 +221,116 @@ def wordCalc(name):
     return {"breakdown": breakdown + f" = {total}", "Number": total}
 
 
+'''
+sigSplit
 
+Split a timeseries vector by butter filter low and high at a split freq (freqSplit)
+The signal is first demeaned then filtered then re-meaned.
 
+'''
 
+# Split a datavector into low and high pass signals
+def sigSplit(
+    sig,
+    Fs,
+    freqSplit,
+    Ts=None,
+    highCut = None,
+    ceil = 300, #Hz
+    doPlot = False
+):
+    import scipy.signal as sn
+    import numpy as np
 
+    if highCut is None:
+        highCut = freqSplit
+    splitNorm = freqSplit/(Fs/2)
+    ceilNorm = ceil/(Fs/2)
+    highNorm = highCut/(Fs/2)
+    B_ceil, A_ceil = sn.butter(
+        N = 7,
+        Wn = ceilNorm,
+        btype = 'lowpass',
+        analog = False,
+        output = 'ba'
+    )
+    B_split, A_split = sn.butter(
+        N = 7,
+        Wn = splitNorm,
+        btype = 'lowpass',
+        analog = False,
+        output = 'ba'
+    )
+    B_high, A_high = sn.butter(
+        N = 7,
+        Wn = highNorm,
+        btype = 'highpass',
+        analog = False,
+        output = 'ba'
+    )
+    ## Filter
+    dataMean = np.mean(sig)
+    sigCeil = [v-dataMean for v in sig]
+    sigCeil = sn.filtfilt(
+        B_ceil, A_ceil,
+        sigCeil,
+        padtype = 'odd',
+        padlen = 2**10,
+        method = 'pad'
+    )
+    high = sn.filtfilt(
+        B_high, A_high,
+        sigCeil,
+        padtype = 'odd',
+        padlen = 2**10,
+        method = 'pad'
+    )
+    low = sn.filtfilt(
+        B_split, A_split,
+        sigCeil,
+        padtype = 'odd',
+        padlen = 2**10,
+        method = 'pad'
+    )
+    # Re-mean
+    high = np.array([v+dataMean for v in high]);
+    low = np.array([v+dataMean for v in low]);
+    if doPlot:
+        from matplotlib import pyplot as pyp
 
+        if Ts is None:
+            Ts = np.linspace(0,len(sig)-1,len(sig))/Fs
 
+        fig = pyp.figure(dpi=600,figsize=(12,8));
 
+        pyp.subplot(3,1,1)
+        pyp.plot(Ts,sig);
+        pyp.title('Original Signal');
+        pyp.xlabel('Ts');
+        pyp.ylabel('Signal');
+
+        pyp.subplot(3,1,2)
+        pyp.plot(Ts,low)
+        pyp.title('Low pass filtered signal');
+        pyp.xlabel('Ts');
+        pyp.ylabel('Signal');
+
+        pyp.subplot(3,1,3)
+        pyp.plot(Ts,high)
+        pyp.title('High pass filtered signal');
+        pyp.xlabel('Ts');
+        pyp.ylabel('Signal');
+
+        pyp.tight_layout()
+        pyp.show()
+    else:
+        fig = [];
+    # output
+    return(
+        {
+            'High': high,
+            'Low': low,
+            'Figure': fig
+        }
+    )
+###

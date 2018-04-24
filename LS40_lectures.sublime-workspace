@@ -8,15 +8,6 @@
 	"buffers":
 	[
 		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 9029,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "lib/css/flatlandDk2.css",
 			"settings":
 			{
@@ -26,55 +17,37 @@
 			}
 		},
 		{
-			"file": "Lecture10.html",
+			"file": "Lecture3.html",
 			"settings":
 			{
-				"buffer_size": 50405,
+				"buffer_size": 48891,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Lecture11.html",
+			"file": "Lecture1.html",
 			"settings":
 			{
-				"buffer_size": 36913,
+				"buffer_size": 40711,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Lecture14.html",
+			"file": "/F/OneDrive/UCLA/_Lectures/Neuro210C/STATS_lecture_2017_-_Griffis.html",
 			"settings":
 			{
-				"buffer_size": 81602,
+				"buffer_size": 136067,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Lecture15.html",
+			"file": "Lecture9.html",
 			"settings":
 			{
-				"buffer_size": 62859,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Lecture16.html",
-			"settings":
-			{
-				"buffer_size": 35790,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Lecture17.html",
-			"settings":
-			{
-				"buffer_size": 41771,
+				"buffer_size": 51796,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -89,10 +62,27 @@
 			}
 		},
 		{
-			"contents": "      <section>\n        <h3>The big picture</h3>\n        <div class=\"row\">\n          <div class=\"col-40\">\n            <p class=\"no-margin-top small\">\n              <span class=\"u em\">1) You have a question</span> <br>\n              <i class=\"fa fa-arrow-circle-right mutedBlue\"></i>\n              Questions are always about <span class=\"mutedBlue\">population</span> data.\n            </p>\n            <p class=\"no-margin-top small fragment\" data-fragment-index=1>\n              <span class=\"u em\">2) Data analysis</span> <br>\n              <i class=\"fa fa-arrow-circle-right red\"></i>\n              You cannot always access the full population data and\n              have to rely on a small part of it, the <span class=\"red\">sample</span> data, that you will analyze.\n            </p>\n          </div>\n          <div class=\"col-60\">\n            <svg width=\"100%\" viewBox=\"0 0 518.4 288\" style=\"margin-top: 0;\">\n              <use xlink:href=\"lib/img/distribution-sample-inference.svg#population\"></use>\n              <use class=\"fragment\" data-fragment-index=1 xlink:href=\"lib/img/distribution-sample-inference.svg#sampling\"></use>\n              <use class=\"fragment\" data-fragment-index=2 xlink:href=\"lib/img/distribution-sample-inference.svg#inference\"></use>\n            </svg>\n          </div>\n        </div>\n        <p class=\"no-margin-top small fragment\" data-fragment-index=2>\n          <span class=\"u em\">3) Answer the question</span> <br>\n          <i class=\"fa fa-arrow-circle-right orange\"></i>\n          Using the new knowledge you gained from the sample analysis, you can make conclusions (under some conditions) about the population data. This is the process of making <span class=\"orange\">inference</span>.\n        </p>\n      </section>\n\n      <section>\n        <h3>The statistical analysis process</h3>\n        <p>\n          <i class=\"fa fa-arrow-circle-right\"></i>\n          Collect data / Design experiment\n        </p>\n        <p>\n          <i class=\"fa fa-arrow-circle-right\"></i>\n          Visualize data (important!). Distribution? Skewness? outliers?\n        </p>\n        <p>\n          <i class=\"fa fa-arrow-circle-right\"></i>\n          Choose a statistic to describe the sample (will depend on skewness, etc ...)\n        </p>\n        <p>\n          <i class=\"fa fa-arrow-circle-right\"></i>\n          Formulate hypotheses\n        </p>\n        <p>\n          <i class=\"fa fa-arrow-circle-right\"></i>\n          Analysis\n        </p>\n      </section>\n\n      <section>\n        <h3>Data collection</h3>\n        <div class=\"row\">\n          <div class=\"col-40\">\n            <p class=\"no-margin-top small\">\n              We obtain information about (observational) <span class=\"orange\">units</span>.\n            </p>\n            <p class=\"no-margin-top small fragment\" data-fragment-index=1>\n              A <span class=\"mutedBlue\">variable</span> is any characteristic that is recorded on each unit. \n              <span class=\"fragment\" data-fragment-index=2>It can be <span class=\"mutedBlue\">categorical</span> or <span class=\"mutedBlue\">quantitative</span>.</span>\n            </p>\n            <p class=\"no-margin-top small fragment\" data-fragment-index=3>\n              When selecting data, the goal is to select a <span class=\"green\">sample</span> that is similar (<span class=\"green\">representative</span>) to the population, only smaller.\n            </p>\n          </div>\n          <div class=\"col-60\">\n            <svg width=\"80%\" viewBox=\"120 0 261 244.75\" style=\"margin-top: 0; margin-bottom: 0;\">\n              <use xlink:href=\"lib/img/summary-lec1.svg#population\"></use>\n              <use class=\"fragment\" data-fragment-index=3 xlink:href=\"lib/img/summary-lec1.svg#datasample\"></use>\n              <use class=\"fragment\" data-fragment-index=1 xlink:href=\"lib/img/summary-lec1.svg#variables\"></use>\n              <use class=\"fragment\" data-fragment-index=2 xlink:href=\"lib/img/summary-lec1.svg#type1\"></use>\n            </svg>\n          </div>\n        </div>\n        <p class=\"no-margin-top small fragment\" data-fragment-index=4>\n          <i class=\"fa fa-arrow-circle-right red\"></i>\n          <span class=\"red\">Sampling bias</span> occurs when the method of selecting a sample causes the <span class=\"red\">sample to differ from the population</span> in some relevant way.\n        </p>\n      </section>\n\n      <section>\n        <h3>Sampling</h3>\n        <div class=\"row\">\n          <div class=\"col-50\">\n            <p class=\"no-margin-top small\">\n              <span class=\"u em orange\">Sampling bias:</span>\n              when a sampling method systematically yields results that are either too high or too low. <br>\n              <i class=\"fa fa-arrow-circle-right orange\"></i>\n              can be avoided by using good sampling technique (<span class=\"orange\">random</span>).\n            </p>\n            <p class=\"no-margin-top small\">\n              <span class=\"u em mutedBlue\">Sampling variation:</span>\n              natural variation in results from one random sample to next. <br>\n              <i class=\"fa fa-arrow-circle-right mutedBlue\"></i>\n              can be reduced by using a <span class=\"mutedBlue\">larger sample</span>.\n            </p>\n          </div>\n          <div class=\"col-50\">\n            <img src=\"lib/img/ml-bullseye.svg\" width=100%>\n          </div>\n        </div>\n      </section>\n\n      <section>\n        <h3>Experimental design</h3>\n        <div class=\"row\">\n          <div class=\"col-40\">\n            <p class=\"no-margin-top small\">\n              If we want to show <span class=\"mutedBlue\">relationships (association)</span> between several variables, we are analyzing the effects of an <span class=\"mutedBlue\">explanatory</span> variable on a <span class=\"mutedBlue\">response</span> variable.\n            </p>\n            <p class=\"no-margin-top small fragment\">\n              <i class=\"fa fa-arrow-circle-right orange\"></i>\n              A third variable that is associated with both the explanatory variable and the response variable is called a <span class=\"orange\">confounding variable</span>.\n            </p>\n          </div>\n          <div class=\"col-60\">\n            <svg width=\"80%\" viewBox=\"120 0 261 244.75\" style=\"margin-top: 0; margin-bottom: 0;\">\n              <use xlink:href=\"lib/img/summary-lec1.svg#population\"></use>\n              <use xlink:href=\"lib/img/summary-lec1.svg#datasample\"></use>\n              <use xlink:href=\"lib/img/summary-lec1.svg#variables\"></use>\n              <use xlink:href=\"lib/img/summary-lec1.svg#type1\"></use>\n              <use xlink:href=\"lib/img/summary-lec1.svg#type2\"></use>\n            </svg>\n          </div>\n        </div>\n      </section>\n\n      <section>\n        <h3>Experimental design</h3>\n        <div class=\"row\">\n          <table>\n            <col width=50%>\n            <col width=50%>\n            <tbody>\n              <tr>\n                <td class=\"bg-mutedBlue\">Observational study</td>\n                <td class=\"bg-red\">Randomized experiment</td>\n              </tr>\n              <tr class=\"fragment\">\n                <td>\n                  The independent (explanatory) variable is <span class=\"mutedBlue\">not under the control of the researcher</span> because of ethical concerns or logistical constraints.\n                </td>\n                <td>\n                  The explanatory variable for each unit is <span class=\"red\">determined randomly, before</span> the response variable is measured.\n                </td>\n              </tr>\n              <tr class=\"fragment no-bottom\">\n                <td colspan=\"2\">\n                  <span class=\"orange\">Confounding variables</span> can be present both in observational studies or randomized experiments, but ...\n                </td>\n              </tr>\n              <tr class=\"fragment\">\n                <td>\n                  <i class=\"fa fa-arrow-circle-right mutedBlue\"></i>\n                  Because the response variable assignment is not randomized,\n                  the effects of <span class=\"mutedBlue\">confounding variables</span> are almost always present in observational studies.\n                </td>\n                <td>\n                  <i class=\"fa fa-arrow-circle-right red\"></i>\n                  Because the explanatory variable is <span class=\"red\">randomly assigned</span>, it is not associated with any other variables. The effect of confounding variables are most likely eliminated!!!\n                </td>\n              </tr>\n              <tr class=\"fragment\">\n                <td>\n                  Observational studies can almost never be used to establish causation.\n                </td>\n                <td>\n                  Randomized experiments make it possible to infer causation!\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </section>\n\n      <section>\n        <h3>Randomized experiment</h3>\n        <div class=\"row\">\n          <img src=\"lib/img/randomized-experiment.svg\" width=75%>\n        </div>\n      </section>\n\n      <section>\n        <h3>Data collection / Study design</h3>\n        <div class=\"row\">\n          <img src=\"lib/img/randomization.svg\" width=100%>\n        </div>\n      </section>\n\n      <section>\n        <h3>Descriptive statistics</h3>\n        <p>\n          In order to make sense of data, we need ways to <span class=\"orange\">summarize</span> and <span class=\"orange\">visualize</span> it.\n        </p>\n        <p>\n          <i class=\"fa fa-arrow-circle-right orange\"></i>\n          Summarizing and visualizing variables and relationships between two variables is often known as descriptive statistics (also known as <span class=\"orange\">exploratory data analysis</span>)\n        </p>\n        <p class=\"framed border-red\">\n          Type of summary statistics and visualization methods depend on the type of variable(s) being analyzed (categorical or quantitative).\n        </p>\n      </section>\n\n      <section>\n        <h3>Exploratory data analysis</h3>\n        <div class=\"row\">\n          <table>\n            <col width=25%>\n            <col width=35%>\n            <col width=40%>\n            <tbody>\n              <tr>\n                <td class=\"bg-red\">Variable(s)</td>\n                <td class=\"bg-mutedBlue\">Visualisation</td>\n                <td class=\"bg-orange\">Summary statistic</td>\n              </tr>\n              <tr>\n                <td>\n                  Categorical\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  Bar chart, pie chart\n                  </span>\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  (relative) Frequency table, proportion\n                  </span>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Quantitative\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  Dotplot, histogram, boxplot\n                  </span>\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  Mean, median, max, min, standard deviation, range, IQR, five number summary\n                  </span>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Categorical vs categorical\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  Side-by-side bar chart, segmented bar chart\n                  </span>\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  Two-way table, difference in proportions, ratio of the proportion (relative risk)\n                  </span>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Quantitative vs categorical\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  Side-by-side boxplots, side-by-side dotplots\n                  </span>\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  Statistics for each group, difference in means/median, ratio of the means/medians\n                  </span>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Quantitative vs quantitative\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  Scatterplot\n                  </span>\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  Correlation, regression line\n                  </span>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </section>\n\n      <section>\n        <h3>Sampling distribution</h3>\n        <p class=\"no-margin-top no-margin-bottom small\">\n          A sampling distribution is the <span class=\"orange\">distribution of statistics computed for different samples of the same size</span> taken from the same population.\n        </p>\n        <div class=\"row\">\n          <div class=\"col-100\">\n            <img class=\"no-margin-top no-margin-bottom\" src=\"lib/img/sampling-distribution.svg\" width=100%>\n          </div>\n        </div>\n        <p class=\"no-margin-top smaller no-margin-bottom\">\n          <i class=\"fa fa-arrow-circle-right orange\"></i>\n          The spread of the sampling distribution helps us to assess the <span class=\"orange\">uncertainty</span> in the sample statistic. (<span class=\"u em\">Note:</span> the standard deviation of the sampling distribution is the standard error of the parameter).\n        </p>\n        <p class=\"no-margin-top small\">\n          <i class=\"fa fa-arrow-circle-right orange\"></i>\n          We rarely get to see the sampling distribution, we usually only have one sample.\n        </p>\n      </section>\n\n      <section>\n        <h3>Bootstrap</h3>\n        <p class=\"no-margin-top small\">\n          A <span class=\"orange\">bootstrap sample</span> is a random sample taken with replacement from the original sample, of the same size as the original sample.\n        </p>\n        <div class=\"row\">\n          <div class=\"col-32\">\n            <p class=\"no-margin-top small\">\n              A <span class=\"mutedBlue\">bootstrap statistic</span> is the statistic computed on the bootstrap sample.\n            </p>\n            <p class=\"no-margin-top no-margin-bottom small\">\n              A <span class=\"mutedBlue\">bootstrap distribution</span> is the distribution of many bootstrap statistics.\n            </p>\n          </div>\n          <div class=\"col-68\">\n            <svg width=\"80%\" viewBox=\"0 0 433 204\" style=\"margin-top: 0; margin-bottom: 0;\">\n              <use xlink:href=\"lib/img/bootstrap-distribution-generation-process.svg#bootstrap\"></use>\n            </svg>\n          </div>\n        </div>\n        <p class=\"no-margin-top small\">\n          <i class=\"fa fa-arrow-circle-right mutedBlue\"></i>\n          The bootstrap distribution will be centered at the statistic of the original sample the bootstrap samples have been drawn from.\n        </p>\n      </section>\n\n      <section>\n        <h3>Confidence intervals</h3>\n        <div class=\"row\">\n          <div class=\"col-60\">\n            <p class=\"framed border-orange no-margin-top small\">\n              A <span class=\"orange\">confidence interval</span> for a <span class=\"orange\">parameter</span> is an interval computed from sample data by a method that will capture the parameter for a specified proportion of all samples.\n            </p>\n            <p class=\"no-margin-top small\">\n              <i class=\"fa fa-arrow-circle-right orange\"></i>\n              The parameter is fixed (from <span class=\"orange\">population</span>) <br>\n              <i class=\"fa fa-arrow-circle-right mutedBlue\"></i>\n              The statistic is random (depends on the <span class=\"mutedBlue\">sample</span>) <br>\n              <i class=\"fa fa-arrow-circle-right\"></i>\n              The interval is random (depends on the statistic) <br>\n              <i class=\"fa fa-arrow-circle-right\"></i>\n              A 95% confidence interval will contain the true parameter for 95% of all samples\n            </p>\n            <p class=\"no-margin-top small\">\n              <i class=\"fa fa-arrow-circle-right red\"></i>\n              Drawing bootstrap samples from a sample is one of the method to compute the confidence intervals.\n            </p>\n          </div>\n          <div class=\"col-40\">\n            <img class=\"no-margin-top\" src=\"lib/img/sampling-confidence-intervals.svg\" width=100%>\n          </div>\n        </div>\n      </section>\n\n      <section>\n        <h3>Statistical analysis</h3>\n        <p class=\"small no-margin-top\">\n          All the statistical problems we have seen could be solved using two main types of approaches:\n        </p>\n        <div class=\"row\">\n          <div class=\"col-50\">\n            <p class=\"small framed border-mutedBlue\">\n              Null Hypothesis Testing\n            </p>\n            <p class=\"small\">\n              <i class=\"fa fa-arrow-circle-right mutedBlue\"></i>\n              <span class=\"mutedBlue\">How unusual</span> would it be to get <span class=\"mutedBlue\">results as extreme (or more extreme)</span> than those observed, if the null hypothesis is true?\n            </p>\n          </div>\n          <div class=\"col-50\">\n            <p class=\"small framed border-orange\">\n              95% confidence intervals\n            </p>\n            <p class=\"small\">\n              <i class=\"fas fa-arrow-circle-right orange\"></i>\n              What is an <span class=\"orange\">estimate</span> of the range of <span class=\"orange\">possible values of the true parameter</span>? Is the null hypothesis parameter contained in this interval?\n            </p>\n          </div>\n        </div>\n        <p>\n          <span class=\"u em\">Note:</span> this is looking at the same thing, but with a different angle.\n        </p>\n      </section>\n\n      <section>\n        <h3>Randomization distribution & p-value</h3>\n        <p class=\"small no-margin-top framed border-orange\">\n          A <span class=\"orange\">randomization distribution</span> is the distribution of sample statistics we would observe, just by <span class=\"orange\">random chance</span>, if the null hypothesis were true.\n        </p>\n        <p class=\"small no-margin-top framed border-mutedBlue\">\n          The p-value is the <span class=\"mutedBlue\">probability of getting a statistic as extreme (or more extreme) as that observed</span>, just by random chance, if the null hypothesis is true.\n        </p>\n        <p class=\"small\">\n          <i class=\"fa fa-arrow-circle-right mutedBlue\"></i>\n          The p-value measures <span class=\"u-mutedBlue\">evidence against the null hypothesis</span>\n        </p>\n        <p class=\"small\">\n          <i class=\"fa fa-arrow-circle-right mutedBlue\"></i>\n          The p-value is calculated by finding the proportion of statistics in the <span class=\"orange\">randomization distribution</span> that fall beyond (one or both direction) the observed statistic\n        </p>\n      </section>\n\n      <section>\n        <h3>p-value common thresholds</h3>\n        <p style=\"margin-top: 0; margin-bottom: 0;\">\n          A <span class=\"u em\">small</span> p-value casts doubt on the null hypothesis/model\n          used to perform the calculation.\n        </p>\n        <div class=\"row\" style=\"margin-top: 1em;\">\n          <div class=\"col-15\" style=\"margin-top: 4%;\">\n            <p style=\"text-align: right; font-size: 0.65em;\">A p-value</p>\n          </div>\n          <div class=\"col-15\" style=\"margin-top: 0;\">\n            <p style=\"margin-top: 0;\">\n              <span class=\"green\" style=\"margin-left: 0.2em;\">$\\leq{0.10}$</span> <br>\n              <span class=\"mutedBlue\" style=\"margin-left: 0.2em;\">$\\leq{0.05}$</span> <br>\n              <span class=\"orange\" style=\"margin-left: 0.2em;\">$\\leq{0.01}$</span> <br>\n              <span class=\"red\" style=\"margin-left: 0.2em;\">$\\leq{0.001}$</span>\n            </p>\n          </div>\n          <div class=\"col-20\" style=\"margin-left:0;\">\n            <p>is generally considered <br>to be</p>\n          </div>\n          <div class=\"col-30\" style=\"margin-top: 0;\">\n            <p style=\"margin-top: 0;\">\n              <span class=\"green\" style=\"margin-left: 0.2em;\">some</span> <br>\n              <span class=\"mutedBlue\" style=\"margin-left: 0.2em;\">fairly strong</span> <br>\n              <span class=\"orange\" style=\"margin-left: 0.2em;\">very strong</span> <br>\n              <span class=\"red\" style=\"margin-left: 0.2em;\">extremely strong</span>\n            </p>\n          </div>\n          <div class=\"col-20\">\n            <p>\n              <span class=\"u\">evidence</span> against the null\n            </p>\n          </div>\n        </div>\n        <p>\n          <span class=\"u em\">Formal decisions:</span> <br>\n          p-value $<\\alpha$ <i class=\"fa fa-arrow-right\"></i> Reject $H_0$ <br>\n          p-value $\\geq\\alpha$ <i class=\"fa fa-arrow-right\"></i> Do not reject $H_0$\n        </p>\n      </section>\n\n      <section data-transition=\"slide-in\">\n        <h3>Errors in significance testing</h3>\n        <p class=\"u em\" style=\"margin-top: 0; margin-bottom: 0;\">\n          Errors can happen!\n        </p>\n        <ul style=\"font-size: 0.7em;\" class=\"push-left\">\n          <li>A Type I error is rejecting a true null (false positive)</li>\n          <li>A Type II error is not rejecting a false null (false negative)</li>\n        </ul>\n        <table style=\"font-size: 1.5em; margin-top: 2em;\">\n          <tbody>\n            <tr>\n              <td style=\"border-bottom: none;\"></td>\n              <td style=\"border-bottom: none;\"></td>\n              <td colspan=2><span class=\"red\">Decision</span></td>\n            </tr>\n            <tr>\n              <td style=\"border-bottom: none;\"></td>\n              <td style=\"border-right: solid 1px;\"></td>\n              <td style=\"border-right: solid 1px;\" class=\"highlight-bckg-red\">Reject H$_0$</td>\n              <td style=\"border-right: solid 1px;\" class=\"highlight-bckg-red\">Do not reject H$_0$</td>\n            </tr>\n            <tr>\n              <td rowspan=2 style=\"border-right: solid 1px; border-bottom: none; vertical-align: middle;\">\n                <span class=\"mutedBlue\">Truth</span></td>\n              <td style=\"border-right: solid 1px; vertical-align: middle;\" class=\"highlight-bckg-mutedBlue\">H$_0$ true</td>\n              <td style=\"border-right: solid 1px; vertical-align: middle;\"><span class=\"orange\"><i class=\"fa fa-orange orange\"></i> Type I</span> error</td>\n              <td style=\"border-right: solid 1px;\"><i class=\"fa fa-smile-o fa-2x green\"></i></td>\n            </tr>\n            <tr>\n              <td style=\"border-right: solid 1px; border-bottom: solid 1px; vertical-align: middle;\" class=\"highlight-bckg-mutedBlue\">H$_0$ false</td>\n              <td style=\"border-right: solid 1px; border-bottom: solid 1px;\"><i class=\"fa fa-smile-o fa-2x green\"></i></td>\n              <td style=\"border-right: solid 1px; border-bottom: solid 1px; vertical-align: middle;\"><span class=\"orange\"><i class=\"fa fa-orange orange\"></i> Type II</span> error</td>\n            </tr>\n          </tbody>\n        </table> \n      </section>\n\n      <section data-transition=\"slide-out\">\n        <h3>Errors in significance testing</h3>\n        <p class=\"u em\" style=\"margin-top: 0; margin-bottom: 0;\">\n          Errors can happen!\n        </p>\n        <ul style=\"font-size: 0.7em;\" class=\"push-left\">\n          <li>A Type I error is rejecting a true null (false positive)</li>\n          <li>A Type II error is not rejecting a false null (false negative)</li>\n        </ul>\n        <div class=\"row\">\n          <div class=\"col-100\" style=\"margin-top: 0.5em;\">\n            <img src=\"lib/img/type1-type2-error.svg\" class=\"unbordered flat\" width=100%>\n          </div>\n        </div>\n      </section>\n\n\n      <section>\n        <h3>Statistics of interest & Null</h3>\n        <div class=\"row\">\n          <table style=\"font-size: 0.9em\">\n            <col width=30%>\n            <col width=50%>\n            <col width=20%>\n            <tbody>\n              <tr>\n                <td class=\"bg-red\">Situation</td>\n                <td class=\"bg-mutedBlue\">Statistic of interest</td>\n                <td class=\"bg-orange\">Null</td>\n              </tr>\n              <tr>\n                <td>\n                  One categorical variable\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  Proportion ($\\overset{\\hat{}}{p}$) \n                  </span>\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  $\\pi_0=x$ \n                  </span>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  One quantitative variable\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  Mean ($\\bar{x}$), Median ($m$), Min, Max, etc ...\n                  </span>\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  $\\mu_0=x$ \n                  </span>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Comparing two categorical variables\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  Difference in proportions ($\\overset{\\hat{}}{p}_1-\\overset{\\hat{}}{p}_2$), ratio of the proportions (relative risk), $\\chi^2$\n                  </span>\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  $\\pi_1-\\pi_2=0$ <br>\n                  ($rr=1$)\n                  </span>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Comparing two quantitative variables\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  Difference in means ($\\bar{x}_1-\\bar{x}_2$), difference in medians, ratio of the means, ratio of the medians, etc ...\n                  </span>\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  $\\mu_1-\\mu_2=0$ <br>\n                  ($rr=1$)\n                  </span>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Comparing more than 2 categorical variables\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  $\\chi^2$, MAD (of proportions)\n                  </span>\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  $MAD=0$, $\\chi^2=0$\n                  </span>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Comparing more than 2 quantitative variables\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  MAD (of the means, of the medians), $F$-statistic\n                  </span>\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  $MAD=0$, $F=0$\n                  </span>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Association of 2 quantitative variables\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  Correlation coefficient ($r$), <br> regression slope ($m$)\n                  </span>\n                </td>\n                <td>\n                  <span class=\"fragment\">\n                  $\\rho=0$, <br> $\\beta_1=0$\n                  </span>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </section>\n\n      <section data-transition=\"slide-in fade-out\">\n        <h3>Hypothesis testing</h3>\n        <p class=\"small\">\n          1. State hypotheses ($H_0$, $H_a$)\n        </p>\n        <p class=\"small\">\n          2. Calculate the <span class=\"mutedBlue\">statistic of interest</span> from your sample(s) data\n        </p>\n        <p class=\"small\">\n          3. Construct the <span class=\"orange\">randomization distribution</span> of the statistic of interest <br>\n          <span style=\"margin-left: 2em;\"> <span class=\"em\">- One variable (categorical):</span> simulation of random samples ($\\pi_0=x$)</span>\n          <br>\n          <span style=\"margin-left: 2em;\"> <span class=\"em\">- $\\geq$2 variables:</span> pool samples together ($H_0$: no difference), shuffle and split into random groups (same size than original samples), and calculate new statistic of interest from this randomization</span> <br>\n          <i class=\"fa fa-arrow-circle-right orange\"></i> distribution of statistic of interest if the null hypothesis were true\n        </p>\n        <p class=\"small\">\n          4. Measure how extreme your test statistic from (2) is, as compared to the distribution generated in (3) <br>\n          <i class=\"fa fa-arrow-circle-right red\"></i> p-value\n        </p>\n      </section>\n\n      <section data-transition=\"fade\">\n        <h3>Hypothesis testing</h3>\n        <p class=\" u em no-margin-top small\">\n          Comparing proportions:\n        </p>\n        <div class=\"row\">\n          <img src=\"lib/img/two-groups-simulation-proportion.svg\" width=95%>\n        </div>\n      </section>\n\n      <section data-transition=\"fade-in slide-out\">\n        <h3>Hypothesis testing</h3>\n        <p class=\" u em no-margin-top small\">\n          Comparing means (medians, etc ...):\n        </p>\n        <div class=\"row\">\n          <img src=\"lib/img/two-groups-simulation-mean.svg\" width=95%>\n        </div>\n      </section>\n\n      <section data-transition=\"slide-in fade-out\">\n        <h3>95% confidence intervals</h3>\n        <p class=\"small\">\n          1. State hypotheses ($H_0$, $H_a$)\n        </p>\n        <p class=\"small\">\n          2. Calculate the <span class=\"mutedBlue\">statistic of interest</span> from your sample(s) data\n        </p>\n        <p class=\"small\">\n          3. Construct the <span class=\"orange\">bootstrap distribution</span> of the statistic of interest <br>\n          <span style=\"margin-left: 2em;\"> <span class=\"em\">- One variable:</span> bootstrap samples from original sample (same size)</span>\n          <br>\n          <span style=\"margin-left: 2em;\"> <span class=\"em\">- $\\geq$2 variables:</span> Independant bootstrap samples (same size than original samples), and calculate new statistic of interest from these bootstrap samples</span> <br>\n          <i class=\"fa fa-arrow-circle-right orange\"></i> distribution of statistic of interest if more samples were acquired\n        </p>\n        <p class=\"small\">\n          4. Taking the middle 95% of the bootstrap distribution. <br>\n          <i class=\"fa fa-arrow-circle-right red\"></i> is the null hypothesis parameter in this interval?\n        </p>\n      </section>\n\n      <section data-transition=\"fade\">\n        <h3>95% confidence intervals</h3>\n        <p class=\" u em no-margin-top small\">\n          Comparing proportions:\n        </p>\n        <div class=\"row\">\n          <img src=\"lib/img/two-groups-bootstrap-ci-proportion.svg\" width=90%>\n        </div>\n      </section>\n\n      <section data-transition=\"fade-in slide-out\">\n        <h3>95% confidence intervals</h3>\n        <p class=\" u em no-margin-top small\">\n          Comparing means:\n        </p>\n        <div class=\"row\">\n          <img src=\"lib/img/two-groups-bootstrap-ci-mean.svg\" width=90%>\n        </div>\n      </section>",
+			"file": "Lecture17.html",
 			"settings":
 			{
-				"buffer_size": 31588,
+				"buffer_size": 41771,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Neuro210C.html",
+			"settings":
+			{
+				"buffer_size": 149682,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "<section class=\"title-slide fullwidth\">\n        <h1 class=\"center\"><br>Central tendency</h1>\n        <div>\n          <svg width=\"70%\" viewBox=\"0 42 576 216\" style=\"margin-top: 5%;\">\n            <use xlink:href=\"lib/img/dotplot-distribution.svg#axes_1\"></use>\n            <use xlink:href=\"lib/img/dotplot-distribution.svg#axes_2\"></use>\n            <use class=\"fragment\" xlink:href=\"lib/img/dotplot-distribution.svg#axes_3\"></use>\n          </svg>\n        </div>\n      </section>\n\n      <section>\n        <h3>The mean</h3>\n        <p class=\"quoted\">A common measure of central location is the (arithmetic) <span class=\"orange\">mean</span>.\n        It is sometimes called the <span class=\"u\">average</span>.</p>\n        <div class=\"row\">\n          <p class=\"orange col-50\" style=\"font-size: 1.5em; text-align: center; margin-bottom: 0.5em; margin-top: 0.5em;\">$\\bar{x}=\\sum x_{i}$</p>\n          <p class=\"col-50\" style=\"font-size: 0.8em; text-align: left; margin-bottom: 0.5em; margin-top: 0.5em;\">\n            <span class=\"mutedBlue\">$\\bar{x}$</span> for a sample (read \"x-bar\")<br>\n            <span class=\"mutedBlue\">$\\mu$</span> for a population</p>\n        </div>\n        <p>Which corresponds to:</p>\n        <p style=\"margin-left: 0.8em; font-size: 1em;\">$\\bar{x}=(x_{1}+x_{2}+...+x_{n})/n$</p>\n        <p style=\"margin-left: 0.8em; font-size: 1em;\">$\\bar{x}=(\\textrm{sum of all the observations})/(\\textrm{number of observations})$</p>\n      </section>\n\n      <section>\n        <h3>The trimmed mean</h3>\n        <p class=\"quoted\">A <span class=\"orange\">trimmed mean</span> refers to the calculation of the mean after discarding given parts of a sample (or distribution) at the high and low end (typically discarding an equal amount of both).\n        </p>\n        <p>Some people consider that the use of a trimmed mean \"helps\" eliminate the influence of data points on the tails that may affect the traditional mean.</p>\n\n        <table style=\"font-size: 1.5em;\">\n          <tr>\n            <td class=\"fragment highlight-bckg-yellow\" data-fragment-index=2>1</td>\n            <td>23</td>\n            <td>19</td>\n            <td>24</td>\n            <td>17</td>\n            <td>26</td>\n            <td>20</td>\n            <td>23</td>\n            <td class=\"fragment highlight-bckg-yellow\" data-fragment-index=2>89</td>\n            <td class=\"fragment highlight-bckg-yellow\" data-fragment-index=2>82</td>\n          </tr>\n        </table>\n        <div class=\"row\">\n          <div class=\"col-66\">\n            <p class=\"fragment\" data-fragment-index=1>\n              $\\bar{x}=(1+23+19+24+17+26+20+23+89+82)/10=32.4$\n            </p>\n             <p class=\"fragment\" data-fragment-index=3>\n              $\\bar{x}_{trimmed}=(23+19+24+17+26+20+23)/7=21.7$\n            </p>\n          </div>\n          <div class=\"col-33\">\n            <p class=\"fragment red\" data-fragment-index=4 style=\"font-size: 1.2em\">Be Careful!</p>\n          </div>\n        </div>\n\n        <aside class=\"notes\">\n          We'll talk about that later.\n          <br>\n          The median can be regarded as a fully truncated mean and is most robust. As with other trimmed estimators, the main advantage of the trimmed mean is robustness and higher efficiency for mixed distributions and heavy-tailed distribution (like the Cauchy distribution), at the cost of lower efficiency for some other less heavily-tailed distributions (such as the normal distribution). For intermediate distributions the differences between the efficiency of the mean and the median are not very big, e.g. for the student-t distribution with 2 degrees of freedom the variances for mean and median are nearly equal.\n        </aside>\n      </section>\n\n      <section>\n        <h3>The median</h3>\n        <p class=\"quoted\">\n          The <span class=\"orange\">median</span> of a set of <span class=\"orange\">ordered data values</span> is: <br>\n          <span style=\"margin-left: 1.5em;\">- the middle entry (for an odd number of entries)</span><br>\n          <span style=\"margin-left: 1.5em;\">- the average of the middle 2 values (for an even number</span> <br>\n            <span style=\"margin-left: 1.5em;\">of entries)</span>\n        </p>\n        <div class=\"row\">\n          <div class=\"col-60\">\n            <svg width=\"100%\" viewBox=\"0 0 239.5 109.5\" style=\"margin-top: 1%;\">\n              <use class=\"fragment\" data-fragment-index=2 xlink:href=\"lib/img/median.svg#median1\"></use>\n              <use class=\"fragment\" data-fragment-index=1 xlink:href=\"lib/img/median.svg#median2\"></use>\n            </svg>\n          </div>\n          <div class=\"col-40\">\n            <p class=\"fragment orange\" data-fragment-index=2> \n              mean of $(\\frac{n}{2})^{th}$ and $(\\frac{n}{2}+1)^{th}$ observations</p>\n            <br>\n            <p class=\"fragment orange\" data-fragment-index=1> $(\\frac{n+1}{2})^{th}$ observation</p>\n          </div>\n        </div>\n        <aside class=\"notes\">\n          Sometimes referred to as a measure of location as it tells us where the data are.\n          <br>\n          Median is the value which occupies the middle position when all the observations are arranged in an ascending/descending order. It divides the frequency distribution exactly into two halves. Fifty percent of observations in a distribution have scores at or below the median. Hence median is the 50th percentile.[2] Median is also known as ‘positional average’\n          <br>\n          To find the median, your numbers have to be listed in numerical order from smallest to largest, so you may have to rewrite your list before you can find the median.\n        </aside>\n      </section>\n\n      <section>\n        <h3>The mode</h3>\n        <p class=\"quoted\">\n          The <span class=\"orange\">mode</span> is the value that occurs most often in the dataset. If no value in the dataset is repeated, then there is no mode this particular dataset.\n        </p>\n        <p style=\"margin-top: 1.5em;\">What is the mode in the dataset below?</p>\n        <table style=\"font-size: 1.5em;\">\n          <tr>\n            <td>4</td>\n            <td class=\"fragment highlight-bckg-yellow\" data-fragment-index=1>5</td>\n            <td>9</td>\n            <td class=\"fragment highlight-bckg-yellow\" data-fragment-index=1>5</td>\n            <td>11</td>\n            <td>7</td>\n            <td class=\"fragment highlight-bckg-yellow\" data-fragment-index=1>5</td>\n            <td>3</td>\n            <td>7</td>\n            <td>8</td>\n            <td>6</td>\n            <td class=\"fragment highlight-bckg-yellow\" data-fragment-index=1>5</td>\n            <td>12</td>\n          </tr>\n        </table>\n      </section>\n\n      <section>\n        <h3>Averages can be misleading</h3>\n        <svg width=\"60%\" viewBox=\"0 0 432 432\" style=\"margin-top: 1%;\">\n            <use xlink:href=\"lib/img/map-usa-ship.svg#map\"></use>\n            <use class=\"fragment\" data-fragment-index=1 xlink:href=\"lib/img/map-usa-ship.svg#panama\"></use>\n            <use class=\"fragment\" data-fragment-index=2 xlink:href=\"lib/img/map-usa-ship.svg#caphorn\"></use>\n            <use class=\"fragment\" data-fragment-index=3 xlink:href=\"lib/img/map-usa-ship.svg#average\"></use>\n          </svg>\n          <aside class=\"notes\">\n            Not only mean is not resistant, but also it doesn't represent well the data.\n          </aside>\n      </section>\n\n\n      <section>\n        <h3>Pick your central descriptor wisely</h3>\n        <div class=\"row\">\n          <div class=\"col-50\">\n            <p>Number of children per household in China (2012)</p>\n            <p><span class=\"fragment\" data-fragment-index=1 style=\"margin-left: 0.7em; font-size: 1.6em;\">Mean: <span class=\"orange\">1.55</span></span><br>\n            <span class=\"fragment\" data-fragment-index=2 style=\"margin-left: 0.7em; font-size: 1.6em;\">Median: <span class=\"mutedBlue\">1</span></span></p>\n            <p class=\"fragment\" data-fragment-index=3>More representative of the \"typical\" 2012 family <br>\n            (<span class=\"u\" style=\"text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;\">One Child Policy</span>)</p>\n          </div>\n          <div class=\"col-50\">\n            <svg width=\"100%\" viewBox=\"0 0 300 225\" style=\"margin-top: 1%;\">\n              <use xlink:href=\"lib/img/family.svg#family\"></use>\n              <use class=\"fragment current-visible\" data-fragment-index=1 xlink:href=\"lib/img/family.svg#childrenhalf\"></use>\n              <use class=\"fragment\" data-fragment-index=2 xlink:href=\"lib/img/family.svg#childrenfull\"></use>\n            </svg>\n          </div>\n        </div>\n      </section>\n\n\n\n      <section>\n        <h3>Other locations</h3>\n        <p class=\"quoted\">The <span class=\"orange\">minimum</span> is the <span class=\"u\" style=\"text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;\">smallest number</span> in the (sorted) dataset.\n        <br> <br>\n        The <span class=\"mutedBlue\">maximum</span> is the <span class=\"u\" style=\"text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;\">largest number</span> in the (sorted) dataset</p>\n        <svg width=\"75%\" viewBox=\"0 0 239.5 60.5\" style=\"margin-top: 1%;\">\n          <use xlink:href=\"lib/img/min-max.svg#minmax\"></use>\n        </svg>\n      </section>",
+			"settings":
+			{
+				"buffer_size": 9224,
 				"line_ending": "Windows"
 			}
 		},
@@ -118,11 +108,11 @@
 		"selected_items":
 		[
 			[
-				"h",
+				"html",
 				"Set Syntax: HTML"
 			],
 			[
-				"html",
+				"h",
 				"Set Syntax: HTML"
 			],
 			[
@@ -180,6 +170,15 @@
 	],
 	"file_history":
 	[
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/sameData/index.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/UnderstandingCor/index.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/interactive/heatSquares/heatsquares.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/Lecture17.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/Lecture16.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/Lecture15.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/Lecture14.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/Lecture10.html",
+		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/index.html",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/img/distribution-sample-inference.svg",
 		"/C/Users/khris/Downloads/text3d_demo.py",
 		"/F/googleDrive/_StatsDev/LS40_Development/Lecture Presentations/lib/img/AOV_ucla_null.svg",
@@ -290,6 +289,32 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Confiden",
+			"-bckg-",
+			"warning",
+			"danger",
+			"halt",
+			"success",
+			"info",
+			"calm",
+			"success",
+			"info",
+			"warning",
+			"\"calm\"",
+			"success",
+			"danger",
+			"halt",
+			"warning",
+			"info",
+			".contain",
+			"success\"",
+			"warning\"",
+			"halt",
+			"correlation",
+			"-- 29 --",
+			"name=\"input\"",
+			"icon",
+			"ul",
 			"small",
 			"fa fa-orange",
 			"fa fa-smile-o",
@@ -391,33 +416,7 @@
 			"bg-info",
 			"bg-danger",
 			"texclass",
-			"bg-orange",
-			"bg-info",
-			"bg-red",
-			"success",
-			"warning",
-			"danger",
-			"assets/img/lec",
-			"background",
-			"bck",
-			"bg-",
-			"background",
-			"axes",
-			"icon",
-			"normal",
-			"icon",
-			"\\autoref",
-			"datasetJoined",
-			"descriptor",
-			"## Initialize",
-			"size=",
-			" x=",
-			"(i in  1:B)",
-			"length(",
-			"numeric(",
-			"0.9\\linewidth",
-			" = ",
-			"\\footnotesize"
+			"bg-orange"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -425,6 +424,24 @@
 		"regex": false,
 		"replace_history":
 		[
+			"-bg-",
+			"orange",
+			"red",
+			"green",
+			"mutedBlue",
+			"offWhite",
+			"green",
+			"mutedBlue",
+			"orange",
+			"\"mutedBlue\"",
+			"green",
+			"red",
+			"orange",
+			"mutedBlue",
+			"green\"",
+			"orange\"",
+			"red",
+			"name=\"dataName\"",
 			"big",
 			"fas fa-exclamation-triangle",
 			"fas fa-smile",
@@ -549,36 +566,6 @@
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9029,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7184,
-								7184
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1521043387.89,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3043.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "lib/css/flatlandDk2.css",
 					"semi_transient": false,
 					"settings":
@@ -590,216 +577,148 @@
 						"selection":
 						[
 							[
-								26198,
-								26207
+								29093,
+								29093
 							]
 						],
 						"settings":
 						{
-							"markdonw_live_preview_last_run": 1521043387.92,
+							"markdonw_live_preview_last_run": 1524579401.75,
 							"syntax": "Packages/CSS/CSS.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 25639.0,
+						"translation.y": 27817.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "Lecture10.html",
+					"buffer": 1,
+					"file": "Lecture3.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 50405,
+						"buffer_size": 48891,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								47657,
-								47657
+								33531,
+								43308
 							]
 						],
 						"settings":
 						{
-							"markdonw_live_preview_last_run": 1521043387.92,
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
+							"markdonw_live_preview_last_run": 1524597408.76,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 21013.0,
+						"translation.y": 16200.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "Lecture11.html",
-					"semi_transient": true,
+					"buffer": 2,
+					"file": "Lecture1.html",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 36913,
+						"buffer_size": 40711,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								35182,
-								36584
+								35914,
+								35914
 							]
 						],
 						"settings":
 						{
-							"markdonw_live_preview_last_run": 1521136896.68,
+							"markdonw_live_preview_last_run": 1524579771.68,
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 13554.0,
+						"translation.y": 15228.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/F/OneDrive/UCLA/_Lectures/Neuro210C/STATS_lecture_2017_-_Griffis.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 136067,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15450,
+								15961
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1524579820.52,
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 9126.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Lecture9.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 51796,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								39032,
+								51473
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1524580344.13,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 19285.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "Lecture14.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 81602,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10071,
-								14110
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1521043387.93,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 4710.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
 					"buffer": 5,
-					"file": "Lecture15.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 62859,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								34347,
-								35021
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1521043387.93,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1848.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "Lecture16.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 35790,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								35464,
-								24849
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1521043387.93,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 10950.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "Lecture17.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 41771,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8215,
-								8215
-							]
-						],
-						"settings":
-						{
-							"markdonw_live_preview_last_run": 1521043387.9,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2754.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 8,
 					"file": "Lecture20.html",
 					"semi_transient": false,
 					"settings":
@@ -811,8 +730,76 @@
 						"selection":
 						[
 							[
-								79291,
-								79291
+								42533,
+								79419
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1524579401.75,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 32311.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Lecture17.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 41771,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								41430,
+								38810
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1524599314.32,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 15877.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 7,
+					"file": "Neuro210C.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 149682,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								143568,
+								143568
 							]
 						],
 						"settings":
@@ -820,7 +807,7 @@
 							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 30021.0,
+						"translation.y": 55117.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -829,42 +816,42 @@
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
-					"buffer": 9,
+					"buffer": 8,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 31588,
+						"buffer_size": 9224,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								28040,
-								28040
+								6091,
+								6097
 							]
 						],
 						"settings":
 						{
 							"default_dir": "F:\\googleDrive\\_StatsDev\\LS40_Development\\Lecture Presentations",
-							"markdonw_live_preview_last_run": 1521043387.93,
+							"markdonw_live_preview_last_run": 1524579401.75,
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1145.0,
+						"translation.y": 2373.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 9,
 					"file": "lib/img/powerOverview.svg",
 					"semi_transient": false,
 					"settings":
@@ -882,16 +869,16 @@
 						],
 						"settings":
 						{
-							"markdonw_live_preview_last_run": 1521128561.18,
+							"markdonw_live_preview_last_run": 1524579401.94,
 							"syntax": "Packages/XML/XML.sublime-syntax",
 							"tab_size": 5,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 632254.0,
+						"translation.y": 14530.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 9,
 					"type": "text"
 				}
 			]
@@ -899,7 +886,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 26.0
+		"height": 27.0
 	},
 	"input":
 	{
